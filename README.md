@@ -4,16 +4,16 @@
 An effective marketing website offering easily managed content updates.
 
 ## Start Date
-5.23.16
-
+6.4.16
 
 ## Due Date
-6.3.16
+6.9.16
 
 ## URL 
 http://www.nautilusco.com
 
 ## Testing URL
+http://www.omnautilus.herokuapp.com
 
 ## Site Map
 
