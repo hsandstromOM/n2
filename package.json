@@ -1,0 +1,30 @@
+{
+  "name": "nautilus",
+  "version": "1.0.0",
+  "description": "## Overview An effective marketing website offering easily managed content updates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/serve & ./node_modules/.bin/node-sass ./assets/css/styles.scss ./assets/css/styles.css -w & ./node_modules/.bin/watchify ./app/app.module.js -o bundle.js",
+    "bundle": "./node_modules/.bin/browserify --entry ./app/app.module.js -o bundle.js",
+    "watch": "./node_modules/.bin/watchify --entry ./app/app.module.js -o bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-LAUNCHPEER:mikelaunchpeer/nautilus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-bootstrap": "^0.12.2",
+    "angular-ui-router": "^0.3.1",
+    "bootstrap": "^3.3.6",
+    "browserify": "^13.0.1",
+    "jquery": "^2.2.4",
+    "node-sass": "^3.7.0",
+    "normalize": "^0.3.1",
+    "serve": "^1.4.0",
+    "watchify": "^3.7.0"
+  }
+}
