@@ -29,6 +29,12 @@ https://invis.io/VX7BQRQAK
 
 ## Documentation 
 
+For developers:
+
+Run `npm install` to download all dependencies.
+
+Run `npm start` to run build scripts (serve, node-sass, watchify).
+
 ## Browser Requirements
 
 * Chrome (latest)
