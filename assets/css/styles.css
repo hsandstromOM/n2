@@ -1,2 +1,43 @@
-body {
-  color: blue; }
+.bg-lt-blue {
+  background-color: skyblue; }
+
+.navbar-default .navbar-nav > li > a {
+  color: skyblue;
+  position: relative; }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: navy; }
+
+header {
+  color: navy; }
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: black; }
+
+.vcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+nav.navbar.navbar-default {
+  color: skyblue;
+  background-color: #fff;
+  border: none;
+  text-transform: uppercase; }
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none; }
+
+.navbar .navbar-collapse {
+  text-align: center; }
+
+.sticky-top {
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  right: 6%;
+  background-color: skyblue;
+  border: 2px solid navy;
+  border-top: 0; }

@@ -2,38 +2,80 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nautilus Company | Custom Home Construction</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <body ng-app="nautilusApp">
+      <div class="container-fluid">
+        <!-- HEADER -->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <header class="container-fluid">
+              <div class="row text-center vcenter">
+                <div class="col-md-5">CUSTOM HOME CONSTRUCTION</div>
+                <div class="col-md-2"><div class="square"></div></div>
+                <div class="col-md-5">HOME MANAGEMENT SERVICES</div>
+              </div>
+            </header>
 
-      <!-- NAVIGATION -->
-      <nav class="navbar navbar-inverse" role="navigation">
-        <div class="navbar-header">
-          <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+            <nav class="navbar navbar-default" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavBar">
+                  <ul class="nav navbar-nav">
+                    <li><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="about">About Us</a></li>
+                    <li><a ui-sref="customHomes">Custom Homes</a></li>
+                    <li><a ui-sref="homeMgmt">Home Management</a></li>
+                    <li><a ui-sref="news">News</a></li>
+                    <li><a ui-sref="contact">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+
+          <div class="sticky-top">
+            843.647.6224
+          </div>
         </div>
-        <ul class="nav navbar-nav">
-          <li><a ui-sref="home">Home</a></li>
-          <li><a ui-sref="about">About Us</a></li>
-          <li><a ui-sref="customHomes">Custom Homes</a></li>
-          <li><a ui-sref="homeMgmt">Home Management</a></li>
-          <li><a ui-sref="news">News</a></li>
-          <li><a ui-sref="contact">Contact Us</a></li>
-        </ul>
-      </nav>
+      </div>
 
       <!-- MAIN CONTENT -->
-      <div class="container">
+      <div class="container-fluid">
 
         <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
         <div ui-view></div>
 
       </div>
 
-      <script src="bundle.js" charset="utf-8"></script>
-      <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
-      <script src="node_modules/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+      <!-- FOOTER -->
+      <footer class="container-fluid">
+        <div class="row text-center bg-lt-blue">
+          <div class="col-md-4">SOCIAL MEDIA BUTTONS</div>
+          <div class="col-md-4"><input type="text" name="name" value=""></div>
+          <div class="col-md-4">TESTIMONIALS CAREERS CLIENT LOG-IN</div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <h3>Make your home a better place to live.</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="bundle.js" charset="utf-8"></script>
+    <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
   </body>
 </html>

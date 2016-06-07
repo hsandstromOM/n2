@@ -1,4 +1,70 @@
-// testing
-body {
-  color: blue;
+// VARIABLES (to be determined)
+$dk-blue: navy;
+$lt-blue: skyblue;
+
+.bg-lt-blue {
+  background-color: $lt-blue;
+}
+//
+.navbar-default .navbar-nav > li > a {
+  color: $lt-blue;
+  position: relative;
+  &:hover {
+    color: $dk-blue;
+  }
+  // TRIANGLE TICK FOR ACTIVE LINKS
+  // &:hover:after {
+  //   position: absolute;
+  //   content: '';
+  //   width:0;
+  //   height:0;
+  //   width: 0;
+  //   border-style: solid;
+  //   border-width: 6px 6px 0 6px;
+  //   border-color: $dk-blue transparent transparent transparent;
+  //   bottom: 10px;
+  //   left: 46%;
+  // }
+}
+
+header {
+  color: $dk-blue;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+.vcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.navbar.navbar-default {
+  color: $lt-blue;
+  background-color: #fff;
+  border: none;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.sticky-top {
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  right: 6%;
+  background-color: skyblue;
+  border: 2px solid navy;
+  border-top: 0;
 }
