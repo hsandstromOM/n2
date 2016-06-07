@@ -21,6 +21,10 @@
   .img-container img {
     width: 100%; }
 
+.margin-lg {
+  padding-left: 18px;
+  padding-right: 18px; }
+
 .v-margin-20 {
   margin-top: 20px;
   margin-bottom: 20px; }
@@ -122,10 +126,6 @@ button.navbar-toggle {
   background-position: center;
   color: white; }
 
-.hero-img h2, .main-article, .main-aside {
-  padding-left: 32px;
-  padding-right: 32px; }
-
 .main-article {
   margin-bottom: 30px;
   text-align: justify; }
@@ -139,10 +139,11 @@ button.navbar-toggle {
 @media (min-width: 768px) {
   .footer-mission {
     padding: 0 80px; }
-  .hero-img h2, .main-article, .main-aside {
-    padding-left: 94px;
-    padding-right: 94px; }
+  .margin-lg {
+    padding-left: 72px;
+    padding-right: 72px; }
   .main-article {
+    padding-right: 94px;
     text-align: left; } }
 
 /* Medium devices (desktops, 992px and up) */
@@ -177,6 +178,9 @@ button.navbar-toggle {
 
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
+.custom-home {
+  margin-bottom: 20px; }
+
 .carousel-indicators {
   left: 20%; }
 

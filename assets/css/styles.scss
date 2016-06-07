@@ -37,6 +37,11 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
   }
 }
 
+.margin-lg {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
 .v-margin-20 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -162,19 +167,11 @@ button.navbar-toggle {
   color: white;
 }
 
-.hero-img h2, .main-article, .main-aside {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
 .main-article {
   margin-bottom: 30px;
   text-align: justify;
   h2 {
     margin: 0 0 20px;
-  }
-  p {
-
   }
 }
 
@@ -188,12 +185,18 @@ button.navbar-toggle {
     padding: 0 80px;
   }
 
-  .hero-img h2, .main-article, .main-aside {
-    padding-left: 94px;
-    padding-right: 94px;
+  .margin-lg {
+    padding-left: 72px;
+    padding-right: 72px;
   }
 
+  // .hero-img h2 {
+  //   padding-left: 94px;
+  //   padding-right: 94px;
+  // }
+
   .main-article {
+    padding-right: 94px;
     text-align: left;
   }
 }
@@ -227,7 +230,7 @@ button.navbar-toggle {
 //
 @import 'about';
 // @import 'contact';
-// @import 'customHomes';
+@import 'customHomes';
 // @import 'customHomesDetail';
 @import 'home';
 // @import 'homeMgmt';
