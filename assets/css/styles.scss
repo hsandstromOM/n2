@@ -31,16 +31,22 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 .v-margin-20 {
-  margin: 20px 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .v-margin-30 {
-  margin: 30px 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.h-pad-94 {
+  padding-right: 94px;
+  padding-left: 94px;
 }
 
 .v-center {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -138,32 +144,70 @@ button.navbar-toggle {
   border-top: 0;
 }
 
-.carousel-indicators {
-  left: 20%;
+.footer-mission {
+  padding: 0 16px;
 }
 
-.carousel-caption-box {
-  background-color: rgba(19, 19, 119, .6);
-  position: absolute;
-  height: 400px;
-  right: 66%;
-  left: 6%;
-  top: 195px;
-  z-index: 10;
-  padding: 20px;
-  color: #fff;
-  text-align: center;
+.hero-img {
+  height: 300px;
+  background-image: url('http://fillmurray.com/1400/300');
+  background-position: center;
+  color: white;
+}
+
+.hero-img h2, .main-article, .main-aside {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.main-article {
+  margin-bottom: 30px;
+  text-align: justify;
+  h2 {
+    margin: 0 0 20px;
+  }
+  p {
+
+  }
+}
+
+.main-aside img {
+  width: 100%;
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .footer-mission {
+    padding: 0 80px;
+  }
 
+  .hero-img h2, .main-article, .main-aside {
+    padding-left: 94px;
+    padding-right: 94px;
+  }
+
+  .main-article {
+    text-align: left;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .sticky-top {
     display: block;
+  }
+
+  .footer-mission {
+    padding: 0;
+  }
+
+  .main-aside {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-img {
+    width: 92%;
   }
 }
 
@@ -173,3 +217,11 @@ button.navbar-toggle {
     width: 870px;
   }
 }
+//
+@import 'about';
+// @import 'contact';
+// @import 'customHomes';
+// @import 'customHomesDetail';
+@import 'home';
+// @import 'homeMgmt';
+// @import 'news';
