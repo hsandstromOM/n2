@@ -16,6 +16,11 @@
 .full-width {
   width: 100%; }
 
+.img-container {
+  width: 100%; }
+  .img-container img {
+    width: 100%; }
+
 .v-margin-20 {
   margin-top: 20px;
   margin-bottom: 20px; }
@@ -156,6 +161,9 @@ button.navbar-toggle {
 @media (min-width: 1200px) {
   .container {
     width: 870px; } }
+
+.team-member {
+  margin-bottom: 20px; }
 
 .carousel-indicators {
   left: 20%; }

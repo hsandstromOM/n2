@@ -30,6 +30,13 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
   width: 100%;
 }
 
+.img-container {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
 .v-margin-20 {
   margin-top: 20px;
   margin-bottom: 20px;
