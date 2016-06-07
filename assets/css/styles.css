@@ -1,10 +1,28 @@
 .container-fluid {
   padding: 0; }
 
+.text-primary {
+  color: blue; }
+
+.text-success {
+  color: navy; }
+
+.text-info {
+  color: skyblue; }
+
+.bg-info {
+  background-color: skyblue; }
+
 .full-width {
   width: 100%; }
 
-.vcenter {
+.v-margin-20 {
+  margin: 20px 0; }
+
+.v-margin-30 {
+  margin: 30px 0; }
+
+.v-center {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -19,6 +37,9 @@
 .divide-bar li + li:before {
   content: '| '; }
 
+a {
+  cursor: pointer; }
+
 header {
   margin: 20px 0; }
 
@@ -26,7 +47,7 @@ header {
   margin-bottom: 0; }
 
 .navbar-default .navbar-nav > li > a {
-  color: skyblue;
+  color: blue;
   position: relative; }
   .navbar-default .navbar-nav > li > a:hover {
     color: navy; }

@@ -1,4 +1,5 @@
 // VARIABLES (to be determined)
+$md-blue: blue;
 $dk-blue: navy;
 $lt-blue: skyblue;
 $lt-blue-trans: rgba(48, 139, 183, .6);
@@ -8,9 +9,20 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
   padding: 0;
 }
 
+.text-primary {
+  color: $md-blue;
+}
+
+.text-success {
+  color: $dk-blue;
+}
+
+.text-info {
+  color: $lt-blue;
+}
+
 .bg-info {
-  // overrride with custom color
-  // background-color: $lt-blue;
+  background-color: $lt-blue;
 }
 
 // UTILITY CLASSES
@@ -18,7 +30,15 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
   width: 100%;
 }
 
-.vcenter {
+.v-margin-20 {
+  margin: 20px 0;
+}
+
+.v-margin-30 {
+  margin: 30px 0;
+}
+
+.v-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +59,10 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 // CUSTOM
+a {
+  cursor: pointer;
+}
+
 header {
   margin: 20px 0;
 }
@@ -48,7 +72,7 @@ header {
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: $lt-blue;
+  color: $md-blue;
   position: relative;
   &:hover {
     color: $dk-blue;
@@ -134,7 +158,6 @@ button.navbar-toggle {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
-  //
 }
 
 /* Medium devices (desktops, 992px and up) */
