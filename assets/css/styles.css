@@ -163,8 +163,20 @@ button.navbar-toggle {
     width: 870px; } }
 
 .team-member {
+  padding: 0 32px;
   margin-bottom: 20px; }
 
+.core-values {
+  padding: 0 80px; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .team-member {
+    padding-left: 15px;
+    padding-right: 15px; } }
+
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
 .carousel-indicators {
   left: 20%; }
 
