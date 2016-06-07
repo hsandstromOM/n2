@@ -1,5 +1,13 @@
+.container-fluid {
+  padding: 0; }
+
 .full-width {
   width: 100%; }
+
+.vcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .ul-inline {
   list-style-type: none; }
@@ -10,6 +18,12 @@
 
 .divide-bar li + li:before {
   content: '| '; }
+
+header {
+  margin: 20px 0; }
+
+.navbar {
+  margin-bottom: 0; }
 
 .navbar-default .navbar-nav > li > a {
   color: skyblue;
@@ -41,11 +55,6 @@
   color: navy;
   background: none; }
 
-.vcenter {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
 nav.navbar.navbar-default {
   background-color: #fff;
   border: none; }
@@ -65,11 +74,28 @@ button.navbar-toggle {
 .sticky-top {
   display: none;
   position: fixed;
+  z-index: 1;
   padding: 20px;
   top: 0;
   right: 6%;
+  background-color: rgba(48, 139, 183, 0.6);
   border: 2px solid navy;
   border-top: 0; }
+
+.carousel-indicators {
+  left: 20%; }
+
+.carousel-caption-box {
+  background-color: rgba(19, 19, 119, 0.6);
+  position: absolute;
+  height: 400px;
+  right: 66%;
+  left: 6%;
+  top: 195px;
+  z-index: 10;
+  padding: 20px;
+  color: #fff;
+  text-align: center; }
 
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
