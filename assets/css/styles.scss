@@ -1,8 +1,10 @@
 // VARIABLES (to be determined)
-$md-blue: blue;
-$dk-blue: navy;
+$md-blue: #6082c1;
+$dk-blue: #253d93;
 $lt-blue: skyblue;
 $lt-blue-trans: rgba(48, 139, 183, .6);
+
+// we need to import Museo Sans 300, 500, 700, 900 - TypeKit?
 
 // BOOTSTRAP DEFAULT OVERRIDES
 .container-fluid {
@@ -30,7 +32,11 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
   width: 100%;
 }
 
-.img-container {
+.img-container img {
+  width: 100%;
+}
+
+.img-container-full {
   width: 100%;
   img {
     width: 100%;
@@ -144,16 +150,16 @@ button.navbar-toggle {
   right: 0;
 }
 
-.sticky-top {
-  display: none;
+.header-phone {
   position: fixed;
   z-index: 1;
   padding: 20px;
-  top: 0;
-  right: 6%;
-  background-color: $lt-blue-trans;
-  border: 2px solid navy;
-  border-top: 0;
+  width: 232px;
+  top: -23px;
+  right: 1%;
+  img {
+    width: 100%;
+  }
 }
 
 .footer-mission {
