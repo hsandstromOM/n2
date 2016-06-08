@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img">
-    <h2 class="col-md-6">
+    <h1 class="col-md-6">
       {{ customHomes.selectedHome.name }}
       <br>
       {{ customHomes.selectedHome.subtitle }}
-    </h2>
+    </h1>
   </section>
 
   <!-- MAIN CONTENT -->
@@ -24,15 +24,28 @@
     </aside>
   </section>
 
-  <!-- PORTFOLIO SECTION  -->
+  <!-- PROJECT GALLERY -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="text-uppercase text-success">Project Gallery</h3>
+      <h3 class="header-sm text-success">Project Gallery</h3>
     </header>
     <ul class="col-xs-12 col-sm-10 col-sm-offset-1 pad-0">
       <li class="col-sm-4 img-container" ng-repeat="image in customHomes.selectedHome.gallery track by $index">
         <img ng-src="{{ image }}" alt="" />
       </li>
+    </ul>
+  </section>
+
+  <!-- CUSTOM HOME SERVICES -->
+  <section class="row margin-lg bg-blue">
+    <header class="col-xs-12 text-center">
+      <h3 class="header-sm text-success">Custom Home Services</h3>
+    </header>
+    <ul class="ul-inline h-pad-18 flex-h">
+      <li><h3 class="header-sm">New Home Construction</h3></li>
+      <li><h3 class="header-sm">Renovations + Remodeling</h3></li>
+      <li><h3 class="header-sm">Additions</h3></li>
+      <li><h3 class="header-sm">Customer Support</h3></li>
     </ul>
   </section>
 </div>
