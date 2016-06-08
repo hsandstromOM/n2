@@ -58,6 +58,27 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: './app/components/contact/contactView.html',
           controller: 'ContactController',
           controllerAs: 'contact'
+        })
+
+        .state('testimonials', {
+          url: '/testimonials',
+          templateUrl: './app/components/testimonials/testimonialsView.html',
+          controller: 'TestimonialsController',
+          controllerAs: 'testimonials'
+        })
+
+        .state('careers', {
+          url: '/careers',
+          templateUrl: './app/components/careers/careersView.html',
+          controller: 'CareersController',
+          controllerAs: 'careers'
+        })
+
+        .state('clientLogin', {
+          url: '/clientLogin',
+          templateUrl: './app/components/clientLogin/clientLoginView.html',
+          controller: 'ClientLoginController',
+          controllerAs: 'clientLogin'
         });
 });
 
@@ -68,8 +89,11 @@ require('./components/customHomesDetail/customHomesDetailController');
 require('./components/homeMgmt/homeMgmtController');
 require('./components/news/newsController');
 require('./components/contact/contactController');
+require('./components/testimonials/testimonialsController');
+require('./components/careers/careersController');
+require('./components/clientLogin/clientLoginController');
 
-},{"./components/about/aboutController":2,"./components/contact/contactController":3,"./components/customHomes/customHomesController":4,"./components/customHomesDetail/customHomesDetailController":5,"./components/home/homeController":6,"./components/homeMgmt/homeMgmtController":7,"./components/news/newsController":8,"angular":11,"angular-ui-router":9}],2:[function(require,module,exports){
+},{"./components/about/aboutController":2,"./components/careers/careersController":3,"./components/clientLogin/clientLoginController":4,"./components/contact/contactController":5,"./components/customHomes/customHomesController":6,"./components/customHomesDetail/customHomesDetailController":7,"./components/home/homeController":8,"./components/homeMgmt/homeMgmtController":9,"./components/news/newsController":10,"./components/testimonials/testimonialsController":11,"angular":14,"angular-ui-router":12}],2:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -86,6 +110,32 @@ angular
 },{}],3:[function(require,module,exports){
 angular
   .module('nautilusApp')
+  .controller('CareersController', CareersController);
+
+  function CareersController() {
+    var vm = this;
+
+    console.log('the careers controller, it does nothing');
+
+    this.fromCtrl = 'hello from careers controller';
+  }
+
+},{}],4:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .controller('ClientLoginController', ClientLoginController);
+
+  function ClientLoginController() {
+    var vm = this;
+
+    console.log('the ClientLogin controller, it does nothing');
+
+    this.fromCtrl = 'hello from client login controller';
+  }
+
+},{}],5:[function(require,module,exports){
+angular
+  .module('nautilusApp')
   .controller('ContactController', ContactController);
 
   function ContactController() {
@@ -96,7 +146,7 @@ angular
     this.fromCtrl = 'hello from contact controller';
   }
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
@@ -109,7 +159,7 @@ angular
     this.fromCtrl = 'hello from custom homes controller';
   }
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('CustomHomesDetailController', CustomHomesDetailController);
@@ -122,7 +172,7 @@ angular
     this.fromCtrl = 'hello from customHomesDetail ctrl';
   }
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeController', HomeController);
@@ -136,7 +186,7 @@ angular
     this.fromCtrl = 'hello from home controller';
   }
 
-},{}],7:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
@@ -149,7 +199,7 @@ angular
     this.fromCtrl = 'hello from homemgmt ctrl'
   }
 
-},{}],8:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
@@ -162,7 +212,20 @@ angular
     this.fromCtrl = 'hello from news ctrl';
   }
 
-},{}],9:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .controller('TestimonialsController', TestimonialsController);
+
+  function TestimonialsController() {
+    var vm = this;
+
+    console.log('the Testimonials controller, it does nothing');
+
+    this.fromCtrl = 'hello from Testimonials controller';
+  }
+
+},{}],12:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.3.1
@@ -4739,7 +4802,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],10:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.6
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -35763,8 +35826,8 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],11:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":10}]},{},[1]);
+},{"./angular":13}]},{},[1]);

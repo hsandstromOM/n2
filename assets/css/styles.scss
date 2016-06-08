@@ -1,4 +1,237 @@
-// testing
-body {
-  color: blue;
+// VARIABLES (to be determined)
+$md-blue: blue;
+$dk-blue: navy;
+$lt-blue: skyblue;
+$lt-blue-trans: rgba(48, 139, 183, .6);
+
+// BOOTSTRAP DEFAULT OVERRIDES
+.container-fluid {
+  padding: 0;
 }
+
+.text-primary {
+  color: $md-blue;
+}
+
+.text-success {
+  color: $dk-blue;
+}
+
+.text-info {
+  color: $lt-blue;
+}
+
+.bg-info {
+  background-color: $lt-blue;
+}
+
+// UTILITY CLASSES
+.full-width {
+  width: 100%;
+}
+
+.img-container {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
+.margin-lg {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.v-margin-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.v-margin-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.h-pad-94 {
+  padding-right: 94px;
+  padding-left: 94px;
+}
+
+.v-center {
+  display: flex;
+  align-items: center;
+}
+
+.ul-inline{
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.divide-bar li + li:before{
+  content: '| '
+}
+
+// CUSTOM
+a {
+  cursor: pointer;
+}
+
+header {
+  margin: 20px 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $md-blue;
+  position: relative;
+  &:hover {
+    color: $dk-blue;
+  }
+}
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  color: $dk-blue;
+  background: none;
+}
+
+.navbar .nav > li > a:focus:after,
+.navbar .nav > li > a:hover:after {
+  position: absolute;
+  content: '';
+  width:0;
+  height:0;
+  width: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: $dk-blue transparent transparent transparent;
+  bottom: 10px;
+  left: 46%;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: $dk-blue;
+  background: none;
+}
+
+nav.navbar.navbar-default {
+  background-color: #fff;
+  border: none;
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
+
+button.navbar-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.sticky-top {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 20px;
+  top: 0;
+  right: 6%;
+  background-color: $lt-blue-trans;
+  border: 2px solid navy;
+  border-top: 0;
+}
+
+.footer-mission {
+  padding: 0 16px;
+}
+
+.hero-img {
+  height: 300px;
+  background-image: url('http://fillmurray.com/1400/300');
+  background-position: center;
+  color: white;
+}
+
+.main-article {
+  margin-bottom: 30px;
+  text-align: justify;
+  h2 {
+    margin: 0 0 20px;
+  }
+}
+
+.main-aside img {
+  width: 100%;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .footer-mission {
+    padding: 0 80px;
+  }
+
+  .margin-lg {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  // .hero-img h2 {
+  //   padding-left: 94px;
+  //   padding-right: 94px;
+  // }
+
+  .main-article {
+    padding-right: 94px;
+    text-align: left;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .sticky-top {
+    display: block;
+  }
+
+  .footer-mission {
+    padding: 0;
+  }
+
+  .main-aside {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-img {
+    width: 92%;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 870px;
+  }
+}
+//
+@import 'about';
+// @import 'contact';
+@import 'customHomes';
+// @import 'customHomesDetail';
+@import 'home';
+// @import 'homeMgmt';
+// @import 'news';

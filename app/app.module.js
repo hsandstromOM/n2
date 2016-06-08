@@ -57,6 +57,27 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           templateUrl: './app/components/contact/contactView.html',
           controller: 'ContactController',
           controllerAs: 'contact'
+        })
+
+        .state('testimonials', {
+          url: '/testimonials',
+          templateUrl: './app/components/testimonials/testimonialsView.html',
+          controller: 'TestimonialsController',
+          controllerAs: 'testimonials'
+        })
+
+        .state('careers', {
+          url: '/careers',
+          templateUrl: './app/components/careers/careersView.html',
+          controller: 'CareersController',
+          controllerAs: 'careers'
+        })
+
+        .state('clientLogin', {
+          url: '/clientLogin',
+          templateUrl: './app/components/clientLogin/clientLoginView.html',
+          controller: 'ClientLoginController',
+          controllerAs: 'clientLogin'
         });
 });
 
@@ -67,3 +88,6 @@ require('./components/customHomesDetail/customHomesDetailController');
 require('./components/homeMgmt/homeMgmtController');
 require('./components/news/newsController');
 require('./components/contact/contactController');
+require('./components/testimonials/testimonialsController');
+require('./components/careers/careersController');
+require('./components/clientLogin/clientLoginController');

@@ -1,2 +1,197 @@
-body {
+.container-fluid {
+  padding: 0; }
+
+.text-primary {
   color: blue; }
+
+.text-success {
+  color: navy; }
+
+.text-info {
+  color: skyblue; }
+
+.bg-info {
+  background-color: skyblue; }
+
+.full-width {
+  width: 100%; }
+
+.img-container {
+  width: 100%; }
+  .img-container img {
+    width: 100%; }
+
+.margin-lg {
+  padding-left: 18px;
+  padding-right: 18px; }
+
+.v-margin-20 {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.v-margin-30 {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.h-pad-94 {
+  padding-right: 94px;
+  padding-left: 94px; }
+
+.v-center {
+  display: flex;
+  align-items: center; }
+
+.ul-inline {
+  list-style-type: none; }
+  .ul-inline li {
+    display: inline-block; }
+  .ul-inline a:hover {
+    text-decoration: none; }
+
+.divide-bar li + li:before {
+  content: '| '; }
+
+a {
+  cursor: pointer; }
+
+header {
+  margin: 20px 0; }
+
+.navbar {
+  margin-bottom: 0; }
+
+.navbar-default .navbar-nav > li > a {
+  color: blue;
+  position: relative; }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: navy; }
+
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+  color: navy;
+  background: none; }
+
+.navbar .nav > li > a:focus:after,
+.navbar .nav > li > a:hover:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: navy transparent transparent transparent;
+  bottom: 10px;
+  left: 46%; }
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: navy;
+  background: none; }
+
+nav.navbar.navbar-default {
+  background-color: #fff;
+  border: none; }
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none; }
+
+.navbar .navbar-collapse {
+  text-align: center; }
+
+button.navbar-toggle {
+  position: fixed;
+  top: 0;
+  right: 0; }
+
+.sticky-top {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 20px;
+  top: 0;
+  right: 6%;
+  background-color: rgba(48, 139, 183, 0.6);
+  border: 2px solid navy;
+  border-top: 0; }
+
+.footer-mission {
+  padding: 0 16px; }
+
+.hero-img {
+  height: 300px;
+  background-image: url("http://fillmurray.com/1400/300");
+  background-position: center;
+  color: white; }
+
+.main-article {
+  margin-bottom: 30px;
+  text-align: justify; }
+  .main-article h2 {
+    margin: 0 0 20px; }
+
+.main-aside img {
+  width: 100%; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .footer-mission {
+    padding: 0 80px; }
+  .margin-lg {
+    padding-left: 72px;
+    padding-right: 72px; }
+  .main-article {
+    padding-right: 94px;
+    text-align: left; } }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .sticky-top {
+    display: block; }
+  .footer-mission {
+    padding: 0; }
+  .main-aside {
+    padding-left: 0;
+    padding-right: 0; }
+  .section-img {
+    width: 92%; } }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 870px; } }
+
+.team-member {
+  padding: 0 32px;
+  margin-bottom: 20px; }
+
+.core-values {
+  padding: 0 80px; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .team-member {
+    padding-left: 15px;
+    padding-right: 15px; } }
+
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+.custom-home {
+  margin-bottom: 20px; }
+
+.carousel-indicators {
+  left: 20%; }
+
+.carousel-caption-box {
+  background-color: rgba(19, 19, 119, 0.6);
+  position: absolute;
+  height: 400px;
+  right: 66%;
+  left: 6%;
+  top: 195px;
+  z-index: 10;
+  padding: 20px;
+  color: #fff;
+  text-align: center; }
