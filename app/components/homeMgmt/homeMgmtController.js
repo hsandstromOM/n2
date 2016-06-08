@@ -2,10 +2,10 @@ angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
 
-  function HomeMgmtController() {
+  function HomeMgmtController(HomeMgmtService) {
     var vm = this;
 
-    console.log('the HomeMgmt controller, it does nothing');
+    vm.homeMgmtPortfolio = HomeMgmtService.getHomeMgmtPortfolio();
 
-    this.fromCtrl = 'hello from homemgmt ctrl'
+    console.log('the HomeMgmt controller, it does nothing');
   }

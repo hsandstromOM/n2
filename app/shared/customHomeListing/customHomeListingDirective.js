@@ -25,9 +25,10 @@ angular
     function link(scope, element, attributes, controller) {
       element.on('click', function(event) {
         console.log(scope);
-        console.log(scope.$parent.$parent.customHomes.selectHome);
-        console.log(attributes.number);
-        scope.$parent.$parent.customHomes.selectHome(attributes.number);
+        console.log(scope.$parent.$parent.customHomes.selectedHome);
+        scope.$parent.$parent.customHomes.selectedHome = attributes;
+        console.log(scope.$parent.$parent.customHomes.selectedHome);
+
         scope.$apply();
       });
     }

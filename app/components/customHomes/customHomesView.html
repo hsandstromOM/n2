@@ -22,7 +22,7 @@
     </article>
     <aside class="col-xs-12 col-md-6">
       <div class="img-container">
-        <img src="http://fillmurray.com/600/400" alt="" />
+        <img src="http://placehold.it/600x350" alt="" />
       </div>
       <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci</h3> -->
     </aside>
@@ -33,13 +33,22 @@
     <header class="col-xs-12 text-center">
       <h3 class="text-uppercase text-success">Custom Homes Portfolio</h3>
     </header>
-    <ul class="">
-      <custom-home-listing ng-repeat="customHome in customHomes.customHomes | limitTo:4"
+    <ul class="col-xs-12 pad-0">
+      <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+        <a ui-sref="customHomesDetail">
+          <div class="img-container" >
+            <img ng-src="{{ home.image }}" alt="" />
+          </div>
+          <h4>{{ home.name }}, {{ home.subtitle }}, {{ home.number }}</h4>
+        </a>
+      </div>
+<!-- <custom-home-listing ng-repeat="customHome in customHomes.customHomes | limitTo:4"
         number="{{ customHome.number }}"
         name="{{ customHome.name }}"
         subtitle="{{ customHome.subtitle }}"
-        image="{{ customHome.image }}">
-      </project-listing>
+        image="{{ customHome.image }}"
+        selectHome="{{ customHomes.selectHome }}">
+      </project-listing> -->
     </ul>
   </section>
 </div>

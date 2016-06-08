@@ -88,9 +88,8 @@ require('./components/about/aboutController');
 require('./components/customHomes/customHomesController');
 require('./components/customHomes/customHomesService');
 
-// require('./components/customHomesDetail/customHomesDetailController');
-
 require('./components/homeMgmt/homeMgmtController');
+require('./components/homeMgmt/homeMgmtService');
 
 require('./components/news/newsController');
 
