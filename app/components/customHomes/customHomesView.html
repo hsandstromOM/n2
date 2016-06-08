@@ -22,48 +22,33 @@
     </article>
     <aside class="col-xs-12 col-md-6">
       <div class="img-container">
-        <img src="http://fillmurray.com/600/400" alt="" />
+        <img src="http://placehold.it/600x350" alt="" />
       </div>
       <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci</h3> -->
     </aside>
   </section>
 
   <!-- PORTFOLIO SECTION  -->
-  <section class="row margin-lg bg-info">
+  <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="text-uppercase">Custom Homes Portfolio</h3>
+      <h3 class="text-uppercase text-success">Custom Homes Portfolio</h3>
     </header>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
+    <ul class="col-xs-12 pad-0">
+      <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+        <a ui-sref="customHomesDetail">
+          <div class="img-container" >
+            <img ng-src="{{ home.image }}" alt="" />
+          </div>
+          <h4>{{ home.name }}, {{ home.subtitle }}, {{ home.number }}</h4>
+        </a>
+      </div>
+<!-- <custom-home-listing ng-repeat="customHome in customHomes.customHomes | limitTo:4"
+        number="{{ customHome.number }}"
+        name="{{ customHome.name }}"
+        subtitle="{{ customHome.subtitle }}"
+        image="{{ customHome.image }}"
+        selectHome="{{ customHomes.selectHome }}">
+      </project-listing> -->
+    </ul>
   </section>
 </div>

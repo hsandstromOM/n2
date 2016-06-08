@@ -1,8 +1,10 @@
 // VARIABLES (to be determined)
-$md-blue: blue;
-$dk-blue: navy;
+$md-blue: #6082c1;
+$dk-blue: #253d93;
 $lt-blue: skyblue;
 $lt-blue-trans: rgba(48, 139, 183, .6);
+
+// we need to import Museo Sans 300, 500, 700, 900 - TypeKit?
 
 // BOOTSTRAP DEFAULT OVERRIDES
 .container-fluid {
@@ -26,11 +28,25 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 // UTILITY CLASSES
+.bg-light {
+  background-image: url('../img/bg-pattern-light.jpg');
+  background-repeat: repeat;
+}
+
+.bg-blue {
+  background-image: url('../img/bg-pattern-blue.jpg');
+  background-repeat: repeat;
+}
+
 .full-width {
   width: 100%;
 }
 
-.img-container {
+.img-container img {
+  width: 100%;
+}
+
+.img-container-full {
   width: 100%;
   img {
     width: 100%;
@@ -40,6 +56,10 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 .margin-lg {
   padding-left: 18px;
   padding-right: 18px;
+}
+
+.pad-0 {
+  padding: 0;
 }
 
 .v-margin-20 {
@@ -64,12 +84,14 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 
 .ul-inline{
   list-style-type: none;
+  padding: 0;
   li {
     display: inline-block;
   }
-  a:hover {
-    text-decoration: none;
-  }
+}
+
+.ul-dots {
+  padding-left: 16px;
 }
 
 .divide-bar li + li:before{
@@ -77,8 +99,23 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 // CUSTOM
+body {
+  background-image: url('../img/bg-pattern-light.jpg');
+  background-repeat: repeat;
+}
+
+.gradient {
+  background-image: url('../img/bg-gradient.png');
+  background-size: cover;
+}
+
 a {
   cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 header {
@@ -125,7 +162,7 @@ header {
 }
 
 nav.navbar.navbar-default {
-  background-color: #fff;
+  background-color: transparent;
   border: none;
 }
 
@@ -144,16 +181,15 @@ button.navbar-toggle {
   right: 0;
 }
 
-.sticky-top {
-  display: none;
+.header-phone {
   position: fixed;
+  display: none;
   z-index: 1;
+  opacity: .8;
   padding: 20px;
-  top: 0;
-  right: 6%;
-  background-color: $lt-blue-trans;
-  border: 2px solid navy;
-  border-top: 0;
+  width: 232px;
+  top: -23px;
+  right: 1%;
 }
 
 .footer-mission {
@@ -190,11 +226,6 @@ button.navbar-toggle {
     padding-right: 72px;
   }
 
-  // .hero-img h2 {
-  //   padding-left: 94px;
-  //   padding-right: 94px;
-  // }
-
   .main-article {
     padding-right: 94px;
     text-align: left;
@@ -203,7 +234,7 @@ button.navbar-toggle {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .sticky-top {
+  .header-phone {
     display: block;
   }
 
