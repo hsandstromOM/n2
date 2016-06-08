@@ -82,12 +82,24 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 require('./components/home/homeController');
+
 require('./components/about/aboutController');
+
 require('./components/customHomes/customHomesController');
+require('./components/customHomes/customHomesService');
+
 require('./components/customHomesDetail/customHomesDetailController');
+
 require('./components/homeMgmt/homeMgmtController');
+
 require('./components/news/newsController');
+
 require('./components/contact/contactController');
+
 require('./components/testimonials/testimonialsController');
+
 require('./components/careers/careersController');
+
 require('./components/clientLogin/clientLoginController');
+
+require('./shared/customHomeListing/customHomeListingDirective');

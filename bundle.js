@@ -83,17 +83,29 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 require('./components/home/homeController');
+
 require('./components/about/aboutController');
+
 require('./components/customHomes/customHomesController');
+require('./components/customHomes/customHomesService');
+
 require('./components/customHomesDetail/customHomesDetailController');
+
 require('./components/homeMgmt/homeMgmtController');
+
 require('./components/news/newsController');
+
 require('./components/contact/contactController');
+
 require('./components/testimonials/testimonialsController');
+
 require('./components/careers/careersController');
+
 require('./components/clientLogin/clientLoginController');
 
-},{"./components/about/aboutController":2,"./components/careers/careersController":3,"./components/clientLogin/clientLoginController":4,"./components/contact/contactController":5,"./components/customHomes/customHomesController":6,"./components/customHomesDetail/customHomesDetailController":7,"./components/home/homeController":8,"./components/homeMgmt/homeMgmtController":9,"./components/news/newsController":10,"./components/testimonials/testimonialsController":11,"angular":14,"angular-ui-router":12}],2:[function(require,module,exports){
+require('./shared/customHomeListing/customHomeListingDirective');
+
+},{"./components/about/aboutController":2,"./components/careers/careersController":3,"./components/clientLogin/clientLoginController":4,"./components/contact/contactController":5,"./components/customHomes/customHomesController":6,"./components/customHomes/customHomesService":7,"./components/customHomesDetail/customHomesDetailController":8,"./components/home/homeController":9,"./components/homeMgmt/homeMgmtController":10,"./components/news/newsController":11,"./components/testimonials/testimonialsController":12,"./shared/customHomeListing/customHomeListingDirective":13,"angular":16,"angular-ui-router":14}],2:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -151,15 +163,62 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController() {
+  function CustomHomesController(CustomHomesService) {
     var vm = this;
 
-    console.log('the custom homes controller, it does nothing');
+    console.log('the custom homes controller');
 
-    this.fromCtrl = 'hello from custom homes controller';
+    this.customHomes = CustomHomesService.getCustomHomes();
+    console.log(this.customHomes);
   }
 
 },{}],7:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .service('CustomHomesService', CustomHomesService);
+
+  CustomHomesService.$inject = ['$http', '$q'];
+
+  function CustomHomesService($http, $q) {
+    // INSERT CUSTOM HOMES DATA
+    var customHomes = [
+        {
+          number: 0,
+          name: "Daniel Island Park",
+          subtitle: "Residence - New Construction",
+          image: "http://fillmurray.com/600/350",
+        },
+        {
+          number: 1,
+          name: "Ralston Green",
+          subtitle: "Residence - New Construction",
+          image: "http://placehold.it/600x350",
+        },
+        {
+          number: 2,
+          name: "Ralston Green",
+          subtitle: "Residence - New Construction",
+          image: "http://placehold.it/600x350",
+        },
+        {
+          number: 3,
+          name: "Daniel Island Park",
+          subtitle: "Residence - New Construction",
+          image: "http://fillmurray.com/600/350",
+        },
+    ];
+
+    getCustomHomes = function() {
+      return customHomes;
+    };
+
+    return {
+      getCustomHomes: getCustomHomes,
+      // getProject: getProject
+    };
+  }
+
+},{}],8:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('CustomHomesDetailController', CustomHomesDetailController);
@@ -172,7 +231,7 @@ angular
     this.fromCtrl = 'hello from customHomesDetail ctrl';
   }
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeController', HomeController);
@@ -186,7 +245,7 @@ angular
     this.fromCtrl = 'hello from home controller';
   }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
@@ -199,7 +258,7 @@ angular
     this.fromCtrl = 'hello from homemgmt ctrl'
   }
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
@@ -212,7 +271,7 @@ angular
     this.fromCtrl = 'hello from news ctrl';
   }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('TestimonialsController', TestimonialsController);
@@ -225,7 +284,35 @@ angular
     this.fromCtrl = 'hello from Testimonials controller';
   }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .directive('customHomeListing', CustomHomeListing);
+
+  function CustomHomeListing() {
+    return {
+      templateUrl: 'app/shared/customHomeListing/customHomeListingView.html',
+      restrict: 'E',
+      replace: true,
+      scope: {
+        number: '@',
+        name: '@',
+        subtitle: '@',
+        image: '@',
+      },
+      link: function(scope, element, attributes) {
+        element.on('click', function(event) {
+          scope.$parent.$parent.submitted = true;
+          scope.$parent.$parent.current = attributes;
+          scope.$apply();
+          element.children().html('');
+        });
+
+      }
+    };
+  }
+
+},{}],14:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.3.1
@@ -4802,7 +4889,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.6
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -35826,8 +35913,8 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":13}]},{},[1]);
+},{"./angular":15}]},{},[1]);

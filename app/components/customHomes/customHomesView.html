@@ -33,37 +33,13 @@
     <header class="col-xs-12 text-center">
       <h3 class="text-uppercase">Custom Homes Portfolio</h3>
     </header>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
-    <div class="custom-home col-sm-6">
-      <a ui-sref="customHomesDetail">
-        <div class="img-container">
-          <img src="http://fillmurray.com/600/350" alt="" />
-        </div>
-        <h4>Daniel Island Park, Residence - New Construction</h4>
-      </a>
-    </div>
+    <ul class="">
+      <custom-home-listing ng-repeat="customHome in customHomes.customHomes | limitTo:4"
+        number="{{ customHome.number }}"
+        name="{{ customHome.name }}"
+        subtitle="{{ customHome.subtitle }}"
+        image="{{ customHome.image }}">
+      </project-listing>
+    </ul>
   </section>
 </div>

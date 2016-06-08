@@ -153,13 +153,11 @@ button.navbar-toggle {
 .header-phone {
   position: fixed;
   z-index: 1;
+  opacity: .8;
   padding: 20px;
   width: 232px;
   top: -23px;
   right: 1%;
-  img {
-    width: 100%;
-  }
 }
 
 .footer-mission {
