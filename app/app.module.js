@@ -34,8 +34,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
         .state('customHomesDetail', {
           url: '/customHomesDetail',
           templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
-          controller: 'CustomHomesDetailController',
-          controllerAs: 'customHomesDetail'
+          controller: 'CustomHomesController',
+          controllerAs: 'customHomes'
         })
 
         .state('homeMgmt', {
@@ -88,7 +88,7 @@ require('./components/about/aboutController');
 require('./components/customHomes/customHomesController');
 require('./components/customHomes/customHomesService');
 
-require('./components/customHomesDetail/customHomesDetailController');
+// require('./components/customHomesDetail/customHomesDetailController');
 
 require('./components/homeMgmt/homeMgmtController');
 

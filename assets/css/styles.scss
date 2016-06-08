@@ -28,6 +28,16 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 // UTILITY CLASSES
+.bg-light {
+  background-image: url('../img/bg-pattern-light.jpg');
+  background-repeat: repeat;
+}
+
+.bg-blue {
+  background-image: url('../img/bg-pattern-blue.jpg');
+  background-repeat: repeat;
+}
+
 .full-width {
   width: 100%;
 }
@@ -83,6 +93,16 @@ $lt-blue-trans: rgba(48, 139, 183, .6);
 }
 
 // CUSTOM
+body {
+  background-image: url('../img/bg-pattern-light.jpg');
+  background-repeat: repeat;
+}
+
+.gradient {
+  background-image: url('../img/bg-gradient.png');
+  background-size: cover;
+}
+
 a {
   cursor: pointer;
 }
@@ -131,7 +151,7 @@ header {
 }
 
 nav.navbar.navbar-default {
-  background-color: #fff;
+  background-color: transparent;
   border: none;
 }
 

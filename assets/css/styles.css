@@ -13,6 +13,14 @@
 .bg-info {
   background-color: skyblue; }
 
+.bg-light {
+  background-image: url("../img/bg-pattern-light.jpg");
+  background-repeat: repeat; }
+
+.bg-blue {
+  background-image: url("../img/bg-pattern-blue.jpg");
+  background-repeat: repeat; }
+
 .full-width {
   width: 100%; }
 
@@ -54,6 +62,14 @@
 .divide-bar li + li:before {
   content: '| '; }
 
+body {
+  background-image: url("../img/bg-pattern-light.jpg");
+  background-repeat: repeat; }
+
+.gradient {
+  background-image: url("../img/bg-gradient.png");
+  background-size: cover; }
+
 a {
   cursor: pointer; }
 
@@ -94,7 +110,7 @@ header {
   background: none; }
 
 nav.navbar.navbar-default {
-  background-color: #fff;
+  background-color: transparent;
   border: none; }
 
 .navbar .navbar-nav {

@@ -5,8 +5,15 @@ angular
   function CustomHomesController(CustomHomesService) {
     var vm = this;
 
+    vm.customHomes = CustomHomesService.getCustomHomes();
+    vm.selectedHome = 0;
+
+    vm.selectHome = selectHome;
+
     console.log('the custom homes controller');
 
-    this.customHomes = CustomHomesService.getCustomHomes();
-    console.log(this.customHomes);
+    function selectHome(listingId) {
+       vm.selectedHome = listingId;
+       window.glob = vm.selectedHome;
+    }
   }
