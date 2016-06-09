@@ -123,6 +123,11 @@ h6 {
   display: flex;
   justify-content: center; }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
 .divide-bar li + li h6 {
   margin-left: 6px; }
 
@@ -288,16 +293,31 @@ header .logo {
   margin-bottom: 20px; }
 
 .carousel-indicators {
-  left: 20%; }
+  left: 50%; }
 
 .carousel-caption-box {
   background-color: rgba(19, 19, 119, 0.6);
   position: absolute;
-  height: 400px;
-  right: 66%;
-  left: 6%;
-  top: 195px;
-  z-index: 10;
-  padding: 20px;
+  width: 30%;
+  left: 8%;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 36px;
   color: #fff;
-  text-align: center; }
+  font-family: "museo-slab", Times, serif;
+  line-height: 42px; }
+
+.carousel-caption-box h1 {
+  font-size: 24px;
+  font-weight: 300; }
+
+.carousel-caption-box p {
+  font-size: 18px;
+  font-weight: 300; }
+
+/* Small devices (tablets, 768px and up) */
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .carousel-indicators {
+    left: 23%; } }

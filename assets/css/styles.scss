@@ -168,6 +168,12 @@ h6 {
   justify-content: center;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .divide-bar li + li h6 {
   margin-left: 6px;
 }
