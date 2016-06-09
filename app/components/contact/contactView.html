@@ -1,4 +1,96 @@
-<div class="" ng-controller="ContactController as contact">
-  <h1>CONTACT US</h1>
-  {{contact.fromCtrl}}
+<div class="container-fluid">
+  <!-- HERO IMAGE -->
+  <section class="row margin-lg v-center hero-img">
+    <h1 class="col-md-6">
+      Let's get started:<br>
+      Contact us today.
+    </h1>
+  </section>
+  <!-- MAIN CONTENT -->
+  <section class="row margin-lg v-margin-30">
+    <article class="main-article col-md-6">
+      <h2 class="text-uppercase">
+        Contact
+      </h2>
+      <form class="" action="index.html" method="post">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Name*" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email*" class="form-control">
+        </div>
+        <div class="form-group input-group">
+          <input type="text" name="subject" placeholder="Subject:" class="form-control">
+          <!-- /btn-group -->
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Subject</a></li>
+              <li><a href="#">Another subject</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Other</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="comments" rows="7" placeholder="Comments..." class="form-control"></textarea>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
+        </div>
+      </form>
+    </article>
+    <aside class="col-xs-12 col-md-6">
+      <img class="full-width" src="http://placehold.it/600x310" alt="" />
+      <div class="map-caption">
+        <h3 class="text-success">Nautilus Company</h3>
+        <p>
+          514 Mill St. Suite<br>
+          Mount Pleasant, South Carolina 29464<br>
+          United States
+        </p>
+        <p class="text-primary">
+          # 843.647.6224
+        </p>
+      </div>
+      <ul class="ul-inline">
+        <li>Connect with us:</li>
+        <li><a href="http://facebook.com/NautilusCompany" target="_blank">f</a></li>
+        <li><a href="http://twitter.com/@NautilusCompany"target="_blank">t</a></li>
+        <li><a href="http://linkedin.com/company/nautilus-company" target="_blank">in</a></li>
+        <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank">#</a></li>
+      </ul>
+    </aside>
+  </section>
+  <!-- TEAM SECTION -->
+  <section class="row bg-blue">
+    <div class="col-xs-12">
+      <header class="row">
+        <div class="col-xs-12 text-center">
+          <h3 class="header-sm text-success">Careers</h3>
+        </div>
+      </header>
+      <div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3 text-justify">
+          <p >
+            Lorem ipsum dolor sit amet,is nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nlaborum.
+          </p>
+          <p class="inline">
+            Lorem ipsum dolor sit amet,is nostrud exercitation ullamco laboris nisi ut  ea commodo consequat. Duis a:
+          </p>
+          <a ui-sref="careers">
+            <h3 class="text-success arrow-right">
+              Nautilus Careers
+            </h3>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-FOOTER BUFFER -->
+  <section class="buffer"></section>
 </div>

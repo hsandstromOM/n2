@@ -28,6 +28,26 @@ $serif: "museo-slab", Times, serif;
   background-color: $lt-blue-trans;
 }
 
+.form-control {
+  color: #000;
+  font-size: 12px;
+  background-color: transparent;
+  border-color: #E0E0E0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 20px 14px 16px;
+}
+
+.btn {
+  padding: 8px 12px;
+}
+
+.btn-default {
+  color: #C7C7C7;
+  background-color: transparent;
+  border-color: #E0E0E0;
+  border-radius: 0;
+}
 
 // PRIMARY STYLES
 body {
@@ -42,25 +62,40 @@ body {
 }
 
 a {
-  cursor: pointer;
   text-decoration: none;
 }
 
 a:hover {
+  cursor: pointer;
   text-decoration: none;
+}
+
+.arrow-right {
+  position: relative;
+  display: inline;
+}
+
+.arrow-right:after {
+  position: absolute;
+  content: '';
+  width:0;
+  height:0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #253d93;
+  bottom: 2px;
+  right: -10px;
+}
+
+section {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 ul {
   padding: 0;
   margin: 0;
-}
-
-input {
-  text-align: center;
-  background-image: url('../img/bg-pattern-light.jpg');
-  background-repeat: repeat;
-  border: none;
-  padding: 10px;
 }
 
 header {
@@ -116,6 +151,10 @@ h6 {
   padding-right: 18px;
 }
 
+.buffer {
+  height: 60px;
+}
+
 .pad-0 {
   padding: 0;
 }
@@ -145,6 +184,10 @@ h6 {
   align-items: center;
 }
 
+.inline {
+  display: inline;
+}
+
 .ul-inline {
   list-style-type: none;
   li {
@@ -153,7 +196,15 @@ h6 {
 }
 
 .ul-dots {
-  padding-left: 16px;
+  padding-left: 22px;
+  list-style: circle;
+  color: $dk-blue;
+  font-size: 24px;
+}
+
+.ul-dots p {
+  color: #000;
+  font-size: 14px;
 }
 
 .flex-h {
@@ -177,7 +228,7 @@ h6 {
 // // HEADER
 
 header .logo {
-  width: 14%;
+  width: 120px;
   margin: 0px 28px;
 }
 
@@ -247,8 +298,9 @@ nav.navbar.navbar-default {
 
 button.navbar-toggle {
   position: absolute;
-  top: -128px;
-  right: -6px;
+  top: -64px;
+  right: 24px;
+  margin: 0;
 }
 
 // // FOOTER
@@ -259,6 +311,15 @@ button.navbar-toggle {
   text-align: center;
   text-transform: uppercase;
   border: 2px solid $dk-blue;
+}
+
+footer input {
+  text-align: center;
+  background-image:
+    url('../img/bg-gradient.png'),
+    url('../img/bg-pattern-light.jpg');
+  border: none;
+  padding: 10px;
 }
 
 footer nav {
