@@ -27,6 +27,37 @@
   font-weight: 300;
 }
 
+.hover {
+  display: none;
+}
+
+.pre-footer:hover {
+  .main {
+    display: none;
+  }
+  .hover {
+    display: block;
+  }
+}
+
+.pre-footer h1 {
+  font-size: 24px;
+  font-family: museo-slab;
+  font-weight: 300;
+  color: white;
+  position: absolute;
+  width: 56%;
+  top: 2%;
+}
+
+#pre-footer-left h1 {
+  right: 8%;
+}
+
+#pre-footer-right h1 {
+  left: 8%;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
