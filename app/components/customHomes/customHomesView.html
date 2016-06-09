@@ -21,8 +21,8 @@
       </p>
     </article>
     <aside class="col-xs-12 col-md-6">
-      <div class="img-container">
-        <img src="http://placehold.it/600x350" alt="" />
+      <div>
+        <img class="full-width" src="http://placehold.it/600x350" alt="" />
       </div>
       <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci</h3> -->
     </aside>
@@ -36,11 +36,11 @@
     <ul class="col-xs-12 pad-0">
       <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
         <a ui-sref="customHomesDetail">
-          <div class="img-container" >
-            <img ng-src="{{ home.image }}" alt="" />
+          <div>
+            <img class="full-width" ng-src="{{ home.image }}" alt="" />
           </div>
           <div class="caption">
-            <h4>{{ home.name }}, <span>{{ home.subtitle }}</span></h4>  
+            <h4>{{ home.name }}, <span>{{ home.subtitle }}</span></h4>
           </div>
         </a>
       </div>
@@ -53,4 +53,7 @@
       </project-listing> -->
     </ul>
   </section>
+  
+  <!-- PRE-FOOTER BUFFER -->
+  <section class="buffer"></section>
 </div>
