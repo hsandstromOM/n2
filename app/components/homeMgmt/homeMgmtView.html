@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img">
-    <h2 class="col-md-6">
+    <h1 class="col-md-6 tk-museo-slab">
       Providing piece of mind that your home is in good hands.
-    </h2>
+    </h1>
   </section>
 
   <!-- MAIN CONTENT -->
@@ -30,23 +30,25 @@
   <!-- PORTFOLIO SECTION  -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="text-uppercase text-success">Home Management Portfolio</h3>
+      <h3 class="header-sm text-success">Home Management Portfolio</h3>
     </header>
     <div class="col-sm-6" ng-repeat="home in homeMgmt.homeMgmtPortfolio | limitTo:2">
       <div class="img-container">
         <img ng-src="{{home.image}}" alt="" />
       </div>
-      <h4>{{home.name}}, {{home.subtitle}}</h4>
+      <div class="caption">
+        <h4>{{home.name}}, <span>{{home.subtitle}}</span></h4>
+      </div>
     </div>
   </section>
   <!-- SERVICES LIST -->
   <section class="row margin-lg">
     <header class="col-xs-12 text-center">
-      <h3 class="text-uppercase text-success">Home Management Services</h3>
+      <h3 class="header-sm text-success">Home Management Services</h3>
     </header>
     <article class="col-sm-4">
       <header>
-        <h3 class="text-uppercase">Preventative Maintenance</h3>
+        <h3 class="header-sm">Preventative Maintenance</h3>
       </header>
       <ul class="ul-dots">
         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
@@ -57,7 +59,7 @@
     </article>
     <article class="col-sm-4">
       <header>
-        <h3 class="text-uppercase">Home Watch</h3>
+        <h3 class="header-sm">Home Watch</h3>
       </header>
       <ul class="ul-dots">
         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
@@ -68,7 +70,7 @@
     </article>
     <article class="col-sm-4">
       <header>
-        <h3 class="text-uppercase">Arrival / Departure + Concierge</h3>
+        <h3 class="header-sm">Arrival / Departure + Concierge</h3>
       </header>
       <ul class="ul-dots">
         <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</li>
