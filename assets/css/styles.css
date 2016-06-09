@@ -31,6 +31,27 @@
   border-color: #E0E0E0;
   border-radius: 0; }
 
+.modal-backdrop {
+  background-image: url("../img/bg-pattern-light.jpg");
+  background-repeat: repeat; }
+
+.modal-dialog {
+  width: 62%; }
+
+.modal-content {
+  border-radius: 0; }
+
+.modal-header {
+  height: 400px;
+  background-image: url("http://fillmurray.com/600/400");
+  position: relative; }
+
+.close {
+  color: #fff;
+  opacity: 1;
+  font-size: 28px;
+  text-shadow: none; }
+
 body {
   background-image: url("../img/bg-pattern-light.jpg");
   background-repeat: repeat;
@@ -93,6 +114,10 @@ h6 {
   text-transform: uppercase;
   display: inline-block; }
 
+.bg-lt {
+  background-image: url("../img/bg-pattern-light.jpg");
+  background-repeat: repeat; }
+
 .bg-blue {
   background-image: url("../img/bg-pattern-blue.jpg");
   background-repeat: repeat; }
@@ -129,6 +154,9 @@ h6 {
   margin-top: 30px;
   margin-bottom: 30px; }
 
+.margin-b-30 {
+  margin-bottom: 30px; }
+
 .h-pad-18 {
   padding-right: 18px;
   padding-left: 18px; }
@@ -149,13 +177,13 @@ h6 {
   .ul-inline li {
     display: inline-block; }
 
-.ul-dots {
+.ul-circles {
   padding-left: 22px;
   list-style: circle;
   color: #253d93;
   font-size: 24px; }
 
-.ul-dots p {
+.ul-circles p {
   color: #000;
   font-size: 14px; }
 
@@ -297,6 +325,24 @@ footer nav li + li:before {
 
 .caption h5:first-child {
   margin-top: 0; }
+
+.modal-banner {
+  background-color: rgba(37, 61, 147, 0.7);
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 10px 34px;
+  bottom: 4%; }
+
+.modal-banner h4 {
+  color: #fff;
+  font-size: 30px; }
+
+.modal-banner h4 span {
+  font-size: 14px; }
+
+.modal-body h2 {
+  margin-top: 10px; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
