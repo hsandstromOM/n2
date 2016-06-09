@@ -119,6 +119,10 @@ h6 {
   display: flex;
   justify-content: space-between; }
 
+.flex-center {
+  display: flex;
+  justify-content: center; }
+
 .divide-bar li + li h6 {
   margin-left: 6px; }
 
@@ -130,7 +134,8 @@ h6 {
   margin-bottom: 0; }
 
 .navbar-default .navbar-nav > li > a {
-  color: #6082c1; }
+  color: #6082c1;
+  position: relative; }
   .navbar-default .navbar-nav > li > a:hover {
     color: #253d93; }
 
@@ -150,7 +155,7 @@ h6 {
   border-width: 6px 6px 0 6px;
   border-color: #253d93 transparent transparent transparent;
   bottom: 10px;
-  left: 46%; }
+  left: 42%; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -173,6 +178,10 @@ button.navbar-toggle {
   position: absolute;
   top: -128px;
   right: -6px; }
+
+header .logo {
+  width: 14%;
+  margin: 0px 28px; }
 
 .header-phone {
   position: fixed;
