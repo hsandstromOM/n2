@@ -85,15 +85,19 @@ a:hover {
   right: -10px; }
 
 section {
-  padding-top: 20px;
   padding-bottom: 20px; }
 
 ul {
   padding: 0;
   margin: 0; }
 
-header {
-  margin: 10px 0; }
+section header {
+  margin-bottom: 20px;
+  margin-top: 6px; }
+
+section header {
+  margin-bottom: 20px;
+  margin-top: 6px; }
 
 h2 {
   text-transform: uppercase;
@@ -113,6 +117,10 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
   display: inline-block; }
+
+p {
+  font-size: 16px;
+  font-weight: 300; }
 
 .bg-lt {
   background-image: url("../img/bg-pattern-light.jpg");
@@ -290,8 +298,9 @@ footer nav li + li:before {
   font-size: 10px;
   margin: 0px 4px; }
 
-.footer-mission {
-  padding: 0 16px; }
+footer p {
+  font-size: 13px;
+  font-weight: 500; }
 
 footer .row:last-child h6 {
   letter-spacing: 1px; }
@@ -407,7 +416,7 @@ footer .row:last-child h6 {
   background-color: rgba(19, 19, 119, 0.6);
   position: absolute;
   width: 30%;
-  left: 8%;
+  left: 87px;
   top: 0;
   bottom: 0;
   z-index: 1;
@@ -423,6 +432,14 @@ footer .row:last-child h6 {
 .carousel-caption-box p {
   font-size: 18px;
   font-weight: 300; }
+
+#slider-cap {
+  background-color: rbga(0, 0, 255, 0.22);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
 
 .hover {
   display: none; }

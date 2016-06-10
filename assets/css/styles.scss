@@ -116,8 +116,11 @@ a:hover {
 }
 
 section {
-  padding-top: 20px;
   padding-bottom: 20px;
+}
+
+section header {
+
 }
 
 ul {
@@ -125,8 +128,14 @@ ul {
   margin: 0;
 }
 
-header {
-  margin: 10px 0;
+section header {
+  margin-bottom: 20px;
+  margin-top: 6px;
+}
+
+section header {
+  margin-bottom: 20px;
+  margin-top: 6px;
 }
 
 h2 {
@@ -149,6 +158,11 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
   display: inline-block;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
 }
 
 // UTILITY CLASSES
@@ -375,8 +389,9 @@ footer nav li + li:before{
   margin: 0px 4px;
 }
 
-.footer-mission {
-  padding: 0 16px;
+footer p {
+  font-size: 13px;
+  font-weight: 500;
 }
 
 footer .row:last-child {
