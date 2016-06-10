@@ -259,10 +259,7 @@ nav.navbar.navbar-default {
   text-align: center; }
 
 button.navbar-toggle {
-  position: absolute;
-  top: -64px;
-  right: 24px;
-  margin: 0; }
+  margin-right: 36px; }
 
 .footer-bar {
   padding: 18px 0;
