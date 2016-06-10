@@ -262,11 +262,15 @@ button.navbar-toggle {
   margin-right: 36px; }
 
 .footer-bar {
-  padding: 18px 0;
+  padding: 10px 0;
   background-color: rgba(96, 130, 193, 0.4);
   text-align: center;
-  text-transform: uppercase;
   border: 2px solid #253d93; }
+
+.social {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 4px; }
 
 footer input {
   text-align: center;
@@ -282,10 +286,15 @@ footer nav li + li h6 {
 
 footer nav li + li:before {
   content: '|';
-  color: grey; }
+  color: grey;
+  font-size: 10px;
+  margin: 0px 4px; }
 
 .footer-mission {
   padding: 0 16px; }
+
+footer .row:last-child h6 {
+  letter-spacing: 1px; }
 
 .hero-img {
   height: 300px;

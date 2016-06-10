@@ -339,11 +339,16 @@ button.navbar-toggle {
 // // FOOTER
 
 .footer-bar {
-  padding: 18px 0;
+  padding: 10px 0;
   background-color: $lt-blue-trans;
   text-align: center;
-  text-transform: uppercase;
   border: 2px solid $dk-blue;
+}
+
+.social {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 4px;
 }
 
 footer input {
@@ -366,10 +371,18 @@ footer nav li + li h6 {
 footer nav li + li:before{
   content: '|';
   color: grey;
+  font-size: 10px;
+  margin: 0px 4px;
 }
 
 .footer-mission {
   padding: 0 16px;
+}
+
+footer .row:last-child {
+  h6 {
+    letter-spacing: 1px;
+  }
 }
 
 .hero-img {
