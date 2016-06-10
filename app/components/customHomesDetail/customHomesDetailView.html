@@ -25,19 +25,23 @@
   </section>
 
   <!-- PROJECT GALLERY -->
-  <section class="row margin-lg bg-blue">
-    <header class="col-xs-12 text-center">
-      <h3 class="header-sm text-success">Project Gallery</h3>
-    </header>
-    <ul class="col-xs-12 col-sm-10 col-sm-offset-1 pad-0">
-      <li class="col-sm-4" ng-repeat="image in customHomes.selectedHome.gallery track by $index">
-        <img class="full-width" ng-src="{{ image }}" alt="" />
-      </li>
-    </ul>
+  <section class="row bg-blue">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <header class="row">
+        <div class="col-xs-12 text-center">
+          <h3 class="header-sm text-success">Project Gallery</h3>
+        </div>
+      </header>
+      <div class="row text-center">
+        <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in customHomes.selectedHome.gallery track by $index">
+          <img class="full-width" ng-src="{{ image }}" alt="" />
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CUSTOM HOME SERVICES -->
-  <section class="row margin-lg bg-blue">
+  <section class="row margin-lg">
     <header class="col-xs-12 text-center">
       <h3 class="header-sm text-success">Custom Home Services</h3>
     </header>

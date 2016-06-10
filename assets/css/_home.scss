@@ -6,7 +6,7 @@
   background-color: rgba(19, 19, 119, .6);
   position: absolute;
   width: 30%;
-  left: 8%;
+  left: 87px;
   top: 0;
   bottom: 0;
   z-index: 1;
@@ -25,6 +25,45 @@
 .carousel-caption-box p {
   font-size: 18px;
   font-weight: 300;
+}
+
+#slider-cap {
+  background-color: rbga(0,0,255, .22);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.hover {
+  display: none;
+}
+
+.pre-footer:hover {
+  .main {
+    display: none;
+  }
+  .hover {
+    display: block;
+  }
+}
+
+.pre-footer h1 {
+  font-size: 24px;
+  font-family: museo-slab;
+  font-weight: 300;
+  color: white;
+  position: absolute;
+  width: 56%;
+  top: 2%;
+}
+
+#pre-footer-left h1 {
+  right: 8%;
+}
+
+#pre-footer-right h1 {
+  left: 8%;
 }
 
 /* Small devices (tablets, 768px and up) */

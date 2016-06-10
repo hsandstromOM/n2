@@ -3,7 +3,7 @@
   <div id="myCarousel" class="row carousel slide" data-ride="carousel">
 
     <!-- CAROUSEL INDICATORS -->
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators hidden-xs">
        <!--!!!! ADD NG-CLICKS TO SWAP CAPTION !!!!-->
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -35,24 +35,32 @@
       </div>
     </div>
 
-    <!-- CAPTION BOX -->
-    <aside class="carousel-caption-box hidden-xs hidden-sm flex-col text-left">
-      <h1>
-        Home Management
-      </h1>
-      <p>
-        Keeping your home in the best possible shape year round
-      </p>
-    </aside>
+    <!-- <div class="row margin-lg" id="slider-cap"> -->
+      <!-- CAPTION BOX -->
+      <aside class="col-md-4 carousel-caption-box hidden-xs hidden-sm flex-col text-left">
+        <h1>
+          Home Management
+        </h1>
+        <p>
+          Keeping your home in the best possible shape year round
+        </p>
+      </aside>
+    <!-- </div> -->
+
   </div>
 
+
   <!-- PRE-FOOTER IMAGES -->
-  <section class="row margin-lg v-margin-30">
-    <div class="col-xs-6">
-      <img class="full-width" src="http://fillmurray.com/550/150" alt="" />
-    </div>
-    <div class="col-xs-6">
-      <img class="full-width" src="http://fillmurray.com/550/150" alt="" />
-    </div>
-  </section>
+  <div class="row margin-lg v-margin-30">
+    <a ui-sref="homeMgmt"class="col-xs-6 hidden-xs hidden-sm text-right pre-footer" id="pre-footer-left">
+      <h1>Custom Home Construction</h1>
+      <img class="full-width main" src="../../../assets/img/pre-footer-left.png" alt="" />
+      <img class="full-width hover" src="../../../assets/img/pre-footer-left-hover.png" alt="" />
+    </a>
+    <a ui-sref="homeMgmt" class="col-xs-6 hidden-xs hidden-sm text-left pre-footer" id="pre-footer-right">
+      <h1>Home Management Services</h1>
+      <img class="full-width main" src="../../../assets/img/pre-footer-right.png" alt="" />
+      <img class="full-width hover" src="../../../assets/img/pre-footer-right-hover.png" alt="" />
+    </a>
+  </div>
 </div>
