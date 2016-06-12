@@ -1,0 +1,79 @@
+.news-article div {
+  float: left;
+  width: 50%;
+  height: 370px;
+  display: inline-block;
+}
+
+.news-article div:first-child {
+  background-image: url('http://placehold.it/400x400');
+}
+
+.news-article div:last-child {
+  padding: 16px;
+}
+
+.news-article h3 {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.news-article h1 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.news-article h4 {
+  font-size: 11px;
+  margin-top: 14px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.news-article p {
+  font-size: 18px;
+  margin-top: 46px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.news-nav ul {
+  list-style-type: none;
+
+}
+
+.news-nav li {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.news-nav a {
+  color: $dk-blue;
+}
+
+.search-bar {
+  width: 100%;
+  border: solid $lt-blue;
+  border-width: 2px 0;
+  padding: 8px;
+}
+
+.search-bar input::-webkit-input-placeholder {
+  color: $dk-blue;
+  font-style: italic;
+}
+
+.search-bar .btn {
+  color: $dk-blue;
+}
+
+.news-nav p {
+  font-size: 12px;
+}
+
+
+.news-listing {
+  margin-bottom: 20px;
+}
