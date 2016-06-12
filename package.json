@@ -1,8 +1,11 @@
-{
+f{
   "name": "nautilus",
   "version": "1.0.0",
+  "engines": {
+    "node": "0.12.4"
+  },
   "description": "## Overview An effective marketing website offering easily managed content updates.",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/serve & ./node_modules/.bin/node-sass ./assets/css/styles.scss ./assets/css/styles.css -w & ./node_modules/.bin/watchify ./app/app.module.js -o bundle.js",
@@ -22,6 +25,7 @@
     "bootstrap": "^3.3.6",
     "bower": "^1.7.9",
     "browserify": "^13.0.1",
+    "express": "^4.13.4",
     "grunt": "^1.0.1",
     "jquery": "^2.2.4",
     "node-sass": "^3.7.0",
