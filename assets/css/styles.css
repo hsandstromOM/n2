@@ -450,6 +450,36 @@ footer .row:last-child h6 {
 
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
+.career-listing header h2 {
+  margin-top: 0; }
+
+.career-listing header h3 {
+  margin-bottom: 0; }
+
+.career-listing h3 {
+  font-weight: 700; }
+
+.career-listing ul {
+  padding-left: 16px;
+  font-weight: 300; }
+
+.career-listing li {
+  padding-left: 20px;
+  margin-bottom: 10px; }
+
+.apply-box {
+  margin-top: 100px; }
+
+.apply-box h3 {
+  font-weight: 900; }
+
+.apply-box .circle-full {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  margin: auto;
+  font-weight: 700; }
+
 .custom-home {
   margin-bottom: 20px; }
 
