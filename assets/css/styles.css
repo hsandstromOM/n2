@@ -547,3 +547,12 @@ footer .row:last-child h6 {
 @media (min-width: 992px) {
   .carousel-indicators {
     left: 20%; } }
+
+.news-article div {
+  float: left;
+  width: 50%;
+  height: 370px;
+  display: inline-block; }
+
+.news-listing {
+  margin-bottom: 20px; }
