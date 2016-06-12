@@ -2,10 +2,14 @@
   left: 50%;
 }
 
+.carousel-indicators li, .carousel-indicators .active {
+  margin: 0 3px;
+}
+
 .carousel-caption-box {
   background-color: rgba(19, 19, 119, .6);
   position: absolute;
-  width: 30%;
+  width: 26%;
   left: 87px;
   top: 0;
   bottom: 0;
@@ -74,6 +78,6 @@
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .carousel-indicators {
-    left: 23%;
+    left: 20%;
   }
 }
