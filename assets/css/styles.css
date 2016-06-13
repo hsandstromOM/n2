@@ -181,7 +181,7 @@ aside blockquote footer {
   flex-direction: column;
   justify-content: center; }
 
-.circle-button-100 {
+.circle-button-40 {
   width: 40px;
   height: 40px;
   font-weight: 900;
@@ -271,7 +271,6 @@ aside blockquote footer {
 
 .sm-article p {
   font-size: 14px;
-  font-weight: 500;
   margin: 0;
   line-height: inherit; }
 
@@ -503,6 +502,22 @@ footer .row:last-child h6 {
 .team-member {
   padding: 0 32px;
   margin-bottom: 20px; }
+
+.team-member button {
+  float: right;
+  margin-right: 15px;
+  margin-top: 3px;
+  font-weight: 700;
+  background-color: transparent;
+  font-size: 12px;
+  padding-left: 0px;
+  padding-top: 4px; }
+
+.team-member .arrow-right::after {
+  border-width: 4px 0 4px 4px;
+  border-color: transparent transparent transparent #6082c1;
+  bottom: 14px;
+  right: 4px; }
 
 .core-values {
   padding: 0 80px; }
