@@ -126,6 +126,32 @@ p {
   font-weight: 300;
   line-height: 1.5; }
 
+blockquote {
+  padding: 40px 20px 50px 30px;
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 34px;
+  border: solid #6082c1;
+  border-width: 2px 0; }
+
+blockquote span {
+  font-size: 24px; }
+
+blockquote footer {
+  font-size: 14px;
+  text-align: right;
+  font-style: normal;
+  line-height: 1.42857143;
+  margin-top: 8px;
+  color: black;
+  font-weight: 700; }
+
+.blockquote-wide {
+  padding: 40px 65px 50px 85px;
+  border: none; }
+
 .bg-lt {
   background-image: url("../img/bg-pattern-light.jpg");
   background-repeat: repeat; }
