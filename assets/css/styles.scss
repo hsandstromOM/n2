@@ -191,6 +191,14 @@ blockquote footer {
   font-weight: 700;
 }
 
+aside blockquote {
+  padding: 60px 25px 36px 25px;
+}
+
+aside blockquote footer {
+  margin-top: 13px;
+}
+
 .blockquote-wide {
   padding: 40px 65px 50px 85px;
   border: none;
@@ -221,6 +229,18 @@ blockquote footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.circle-button-100 {
+  width: 40px;
+  height: 40px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  color: #6082c1;
+  background: white;
+  border: 2px solid #6082c1;
+  border-radius: 100%;
 }
 
 .margin-lg {
@@ -512,6 +532,16 @@ footer .row:last-child {
 
 .main-photo figcaption span {
   font-size: 24px;
+}
+
+.main-aside {
+  margin-top: 40px;
+}
+
+.main-aside .arrow-right {
+  margin-right: 10px;
+  display: block;
+  text-align: right;
 }
 
 .caption h4 {
