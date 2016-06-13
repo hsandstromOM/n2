@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .container-fluid {
   padding: 0; }
 
@@ -148,6 +149,12 @@ blockquote footer {
   color: black;
   font-weight: 700; }
 
+aside blockquote {
+  padding: 60px 25px 36px 25px; }
+
+aside blockquote footer {
+  margin-top: 13px; }
+
 .blockquote-wide {
   padding: 40px 65px 50px 85px;
   border: none; }
@@ -173,6 +180,17 @@ blockquote footer {
   display: flex;
   flex-direction: column;
   justify-content: center; }
+
+.circle-button-100 {
+  width: 40px;
+  height: 40px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  color: #6082c1;
+  background: white;
+  border: 2px solid #6082c1;
+  border-radius: 100%; }
 
 .margin-lg {
   padding-left: 18px;
@@ -388,8 +406,28 @@ footer .row:last-child h6 {
   .main-article h2 {
     margin: 0 0 20px; }
 
-.main-aside img {
-  width: 100%; }
+.main-photo figcaption {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500; }
+
+.main-photo figcaption::before {
+  content: '“'; }
+
+.main-photo figcaption::after {
+  content: '”'; }
+
+.main-photo figcaption span {
+  font-size: 24px; }
+
+.main-aside {
+  margin-top: 40px; }
+
+.main-aside .arrow-right {
+  margin-right: 10px;
+  display: block;
+  text-align: right; }
 
 .caption h4 {
   font-family: "museo-slab", Times, serif;
@@ -452,9 +490,6 @@ footer .row:last-child h6 {
     text-align: left; }
   footer nav {
     text-align: right; }
-  .main-aside {
-    padding-left: 0;
-    padding-right: 0; }
   .section-img {
     width: 92%; }
   form {
@@ -509,6 +544,10 @@ footer .row:last-child h6 {
   background-color: white;
   margin: auto;
   font-weight: 700; }
+
+.contact-form button[type="submit"] {
+  display: block;
+  margin: 25px auto; }
 
 .custom-home {
   margin-bottom: 20px; }
