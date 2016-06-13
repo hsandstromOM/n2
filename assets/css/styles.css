@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .container-fluid {
   padding: 0; }
 
@@ -388,8 +389,20 @@ footer .row:last-child h6 {
   .main-article h2 {
     margin: 0 0 20px; }
 
-.main-aside img {
-  width: 100%; }
+.main-photo figcaption {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500; }
+
+.main-photo figcaption::before {
+  content: '“'; }
+
+.main-photo figcaption::after {
+  content: '”'; }
+
+.main-photo figcaption span {
+  font-size: 24px; }
 
 .caption h4 {
   font-family: "museo-slab", Times, serif;
@@ -452,9 +465,6 @@ footer .row:last-child h6 {
     text-align: left; }
   footer nav {
     text-align: right; }
-  .main-aside {
-    padding-left: 0;
-    padding-right: 0; }
   .section-img {
     width: 92%; }
   form {
