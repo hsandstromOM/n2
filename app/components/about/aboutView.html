@@ -10,13 +10,13 @@
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Our Story</h2>
       <p>
-        Founded by Bill Payzant in 2010, Nautilus Company is passionate consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+        Founded by Bill Payzant in 2010, Nautilus Company is passionate about improving the lives of our clients. By focusing on long-term solutions, Nautilus reduces the stress of owning or building a home in the South Carolina Lowcountry.
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        With dedicated teams for both custom homebuilding and home management, Nautilus services the Charleston peninsula, Daniel Island, Sullivan's Island, Isle of Palms and the surrounding areas.
       </p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporelit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud. Duis aute voluptate velit uios eu fugiat nullafugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Integrity means doing the right thing, even when no one else is watching. That's why we hold ourselves accountable to our core values in all that we do, whether in the office or on the worksite. We stand by these values: They are exemplified in the people we hire, the people we work with, and in the way in which we do our work.
       </p>
     </article>
     <figure class="main-photo col-xs-12 col-md-6">
@@ -34,6 +34,59 @@
           </div>
         </header>
         <div class="row text-center">
+          <!-- CONTENTFUL MODEL
+          <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
+            <div class="row">
+              <div class="col-xs-12">
+                <img class="full-width" src="https://images.contentful.com/80s1v057uxnv/1iWVe5AaVIAO8oekIEEGCM/0c44352efcbea1ca24563faf5d52c0fd/Nautilus-team-Bill.jpg" alt="" />
+              </div>
+            </div>
+            <div class="row caption text-left">
+              <div class="col-xs-12">
+                <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+              </div>
+              <div class="col-xs-9">
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+              </div>
+              <div class="col-xs-3">
+                <button type="button" class="circle-full" data-toggle="modal" data-target="#myModal">BIO</button>
+              </div>
+              MODAL
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                      <div class="modal-banner">
+                        <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+                        </div>
+                      </div>
+                      <div class="modal-body bg-lt">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <ul class="ul-circles">
+                              <li><p>{{ teamMember.fields.teamMemberBioPoints }}</p></li>
+                              <li><p>Founded Nautilus Company in 2010</p></li>
+                              <li><p>Founded Nautilus Company in 2010</p></li>
+                              <li><p>Founded Nautilus Company in 2010</p></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <h2>
+                              About {{ teamMember.fields.teamMemberName }}
+                            </h2>
+                            <p>
+                              {{ teamMember.fields.teamMemberBio }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div> -->
           <div class="col-sm-6 col-md-4 team-member">
             <div class="row">
               <div class="col-xs-12">
@@ -46,11 +99,9 @@
               </div>
               <div class="col-xs-9">
                 <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.7922</h5>
               </div>
-              <div class="col-xs-3">
-                <button type="button" class="circle-full" data-toggle="modal" data-target="#myModal">BIO</button>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
               <!-- MODAL -->
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -94,15 +145,13 @@
             </div>
             <div class="row caption text-left">
               <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
+                <h4>Denise Carpentier, <span>Special Projects Mgr<span></h4>
               </div>
-              <div class="col-xs-9">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+              <div class="col-xs-10">
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> denise.carpentier@nautilusco.com</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.343.9661</h5>
               </div>
-              <div class="col-xs-3">
-                <div class="circle-full">BIO</div>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 team-member">
@@ -113,15 +162,13 @@
             </div>
             <div class="row caption text-left">
               <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
+                <h4>James Rose, <span>Project Manager<span></h4>
               </div>
               <div class="col-xs-9">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> james.rose@nautilusco.com</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.224.5669</h5>
               </div>
-              <div class="col-xs-3">
-                <div class="circle-full">BIO</div>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 team-member">
@@ -132,15 +179,13 @@
             </div>
             <div class="row caption text-left">
               <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
+                <h4>Laura Forger, <span>Business Manager<span></h4>
               </div>
               <div class="col-xs-9">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> billingdept@nautilusco.com</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.6224</h5>
               </div>
-              <div class="col-xs-3">
-                <div class="circle-full">BIO</div>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 team-member">
@@ -151,15 +196,13 @@
             </div>
             <div class="row caption text-left">
               <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
+                <h4>Chris Jones, <span>Project Manager<span></h4>
               </div>
               <div class="col-xs-9">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> chris.jones@nautilusco.com</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 404.216.2746</h5>
               </div>
-              <div class="col-xs-3">
-                <div class="circle-full">BIO</div>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 team-member">
@@ -170,15 +213,13 @@
             </div>
             <div class="row caption text-left">
               <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
+                <h4>Marty Snyder, <span>Operations Manager<span></h4>
               </div>
               <div class="col-xs-9">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.823.9883</h5>
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> marty.snyder@nautilusco.com</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.670.3676</h5>
               </div>
-              <div class="col-xs-3">
-                <div class="circle-full">BIO</div>
-              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
         </div>

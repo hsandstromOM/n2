@@ -21,7 +21,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/about',
           templateUrl: './app/components/about/aboutView.html',
           controller: 'AboutController',
-          controllerAs: 'about'
+          controllerAs: 'aboutCtrl'
         })
 
         .state('customHomes', {
@@ -84,6 +84,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 require('./components/home/homeController');
 
 require('./components/about/aboutController');
+require('./components/about/aboutService');
 
 require('./components/customHomes/customHomesController');
 require('./components/customHomes/customHomesService');
