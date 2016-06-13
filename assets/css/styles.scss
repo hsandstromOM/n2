@@ -283,6 +283,10 @@ p {
   justify-content: center;
 }
 
+.sm-article {
+  margin-bottom: 20px;
+}
+
 .sm-article h3 {
   margin: 0;
 }
@@ -427,9 +431,10 @@ footer nav li + li:before{
 }
 
 footer p {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   line-height: inherit;
+  margin-top: 10px;
 }
 
 footer .row:last-child {

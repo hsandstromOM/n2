@@ -219,6 +219,9 @@ p {
   flex-direction: column;
   justify-content: center; }
 
+.sm-article {
+  margin-bottom: 20px; }
+
 .sm-article h3 {
   margin: 0; }
 
@@ -333,9 +336,10 @@ footer nav li + li:before {
   margin: 0px 4px; }
 
 footer p {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: inherit; }
+  line-height: inherit;
+  margin-top: 10px; }
 
 footer .row:last-child h6 {
   letter-spacing: 1px; }
@@ -581,13 +585,21 @@ footer .row:last-child h6 {
   line-height: 1.7;
   margin-bottom: 18px; }
 
+.news-nav h3 {
+  margin: -3px 0 0; }
+
+.news-nav img {
+  margin-left: -19px; }
+
 .news-nav ul {
-  list-style-type: none; }
+  list-style-type: none;
+  margin-top: 11px;
+  margin-bottom: 35px; }
 
 .news-nav li {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
 .news-nav a {
   color: #253d93; }
@@ -596,7 +608,13 @@ footer .row:last-child h6 {
   width: 100%;
   border: solid #6082c1;
   border-width: 2px 0;
-  padding: 8px; }
+  padding: 8px 10px; }
+
+.search-bar input {
+  padding: 8px 10px 2px; }
+
+.search-bar button {
+  padding: 10px 10px 2px; }
 
 .search-bar input::-webkit-input-placeholder {
   color: #253d93;
@@ -606,7 +624,8 @@ footer .row:last-child h6 {
   color: #253d93; }
 
 .news-nav p {
-  font-size: 12px; }
+  font-size: 12px;
+  margin-top: 15px; }
 
 .news-listing {
   margin-bottom: 20px; }
