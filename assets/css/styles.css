@@ -402,13 +402,14 @@ button.navbar-toggle {
   margin-right: 36px; }
 
 .footer-bar {
-  padding: 10px 0;
+  padding: 0 0 10px 0;
   margin-bottom: 24px;
   /*background-color: $lt-blue-trans;*/
   text-align: center;
   /*border: 2px solid $dk-blue;*/ }
 
 .social {
+  padding: 0;
   font-size: 24px;
   font-weight: bold;
   margin-top: 4px; }
@@ -584,17 +585,24 @@ footer .row:last-child h6 {
 
 .tips-mid-footer {
   text-align: center;
+  padding: 0;
   padding-top: 44px;
   height: 90px;
-  width: 500px;
-  background-image: url("../../assets/img/Nautilus-footer_Mid.png");
-  /*background-image: url("../../assets/img/Nautilus-footer_Sides.png");*/ }
+  /*width:500px;*/
+  background-image: url("../../assets/img/Nautilus-footer_Mid.png"); }
 
 .tips-side-footer {
+  text-align: center;
   padding: 0;
   padding-top: 44px;
   height: 90px;
   background-image: url("../../assets/img/Nautilus-footer_Sides.png"); }
+
+.no-padding {
+  padding: 0; }
+
+.no-margin-bottom {
+  margin-bottom: 0; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
