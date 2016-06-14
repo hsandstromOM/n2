@@ -6,7 +6,12 @@
   color: #6082c1; }
 
 .text-success {
-  color: #253d93; }
+  color: #253d93;
+  margin-bottom: 0; }
+
+.headerDecoration {
+  width: 245px;
+  fill: #253d93; }
 
 .text-info {
   color: #6082c1; }
@@ -127,6 +132,38 @@ p {
   font-weight: 300;
   line-height: 1.5; }
 
+.quote {
+  font-family: "garamond-premier-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(96, 130, 193, 0.4);
+  overflow: hidden;
+  text-align: center;
+  font-size: 250px; }
+
+.quote:before,
+.quote:after {
+  background-color: rgba(96, 130, 193, 0.4);
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+  margin-bottom: 180px; }
+
+.quote:before {
+  right: 0.05em;
+  margin-left: -50%; }
+
+.quote:after {
+  left: 0.05em;
+  margin-right: -50%; }
+
+.quoteContent {
+  margin-top: -185px;
+  margin-bottom: -105px; }
+
 blockquote {
   padding: 40px 20px 50px 30px;
   margin: 0 0 20px;
@@ -134,7 +171,6 @@ blockquote {
   font-weight: 300;
   font-style: italic;
   line-height: 34px;
-  border: solid #6082c1;
   border-width: 2px 0; }
 
 blockquote span {
@@ -150,7 +186,7 @@ blockquote footer {
   font-weight: 700; }
 
 aside blockquote {
-  padding: 60px 25px 36px 25px; }
+  padding: 10px 25px 36px 25px; }
 
 aside blockquote footer {
   margin-top: 13px; }

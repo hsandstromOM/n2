@@ -19,8 +19,12 @@ $serif: "museo-slab", Times, serif;
 
 .text-success {
   color: $dk-blue;
+  margin-bottom: 0;
 }
-
+.headerDecoration{
+    width: 245px;
+    fill: $dk-blue;
+  }
 .text-info {
   color: $lt-blue;
 }
@@ -165,6 +169,40 @@ p {
   font-weight: 300;
   line-height: 1.5;
 }
+.quote{
+  font-family: "garamond-premier-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: $lt-blue-trans;
+  overflow: hidden;
+  text-align: center;
+  font-size: 250px;
+}
+.quote:before,
+.quote:after {
+    background-color: $lt-blue-trans;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+    margin-bottom: 180px;
+}
+.quote:before {
+    right: 0.05em;
+    margin-left: -50%;
+}
+.quote:after {
+    left: 0.05em;
+    margin-right: -50%;
+
+}
+.quoteContent{
+  margin-top: -185px;
+  margin-bottom: -105px;
+}
+
 
 blockquote {
   padding: 40px 20px 50px 30px;
@@ -173,7 +211,6 @@ blockquote {
   font-weight: 300;
   font-style: italic;
   line-height: 34px;
-  border: solid $lt-blue;
   border-width: 2px 0;
 }
 
@@ -192,7 +229,7 @@ blockquote footer {
 }
 
 aside blockquote {
-  padding: 60px 25px 36px 25px;
+  padding: 10px 25px 36px 25px;
 }
 
 aside blockquote footer {
