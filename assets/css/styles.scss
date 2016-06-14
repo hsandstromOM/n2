@@ -24,7 +24,8 @@ $serif: "museo-slab", Times, serif;
 .headerDecoration{
     width: 245px;
     fill: $dk-blue;
-  }
+}
+
 .text-info {
   color: $lt-blue;
 }
@@ -177,6 +178,7 @@ p {
   overflow: hidden;
   text-align: center;
   font-size: 250px;
+  margin-top: -85px;
 }
 .quote:before,
 .quote:after {
@@ -202,7 +204,6 @@ p {
   margin-top: -185px;
   margin-bottom: -105px;
 }
-
 
 blockquote {
   padding: 40px 20px 50px 30px;
