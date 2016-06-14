@@ -139,7 +139,8 @@ p {
   color: rgba(96, 130, 193, 0.4);
   overflow: hidden;
   text-align: center;
-  font-size: 250px; }
+  font-size: 250px;
+  margin-top: -85px; }
 
 .quote:before,
 .quote:after {
