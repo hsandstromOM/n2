@@ -349,13 +349,55 @@ angular
           number: 0,
           name: "Daniel Island",
           subtitle: "Residence - Home Management",
-          image: "http://placehold.it/600x320",
+          image: "assets/img/home-mgt-thumbnail.jpg",
         },
         {
           number: 1,
           name: "Isle of Palms",
           subtitle: "Residence - Home Management",
-          image: "http://placehold.it/600x320",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 2,
+          name: "Daniel Island",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 3,
+          name: "Isle of Palms",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 4,
+          name: "Daniel Island",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 5,
+          name: "Isle of Palms",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 6,
+          name: "Daniel Island",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 7,
+          name: "Isle of Palms",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
+        },
+        {
+          number: 8,
+          name: "Daniel Island",
+          subtitle: "Residence - Home Management",
+          image: "assets/img/home-mgt-thumbnail.jpg",
         }
     ];
 

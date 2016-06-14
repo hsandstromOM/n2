@@ -19,6 +19,11 @@ $serif: "museo-slab", Times, serif;
 
 .text-success {
   color: $dk-blue;
+  margin-bottom: 0;
+}
+.headerDecoration{
+    width: 245px;
+    fill: $dk-blue;
 }
 
 .text-info {
@@ -165,6 +170,63 @@ p {
   font-weight: 300;
   line-height: 1.5;
 }
+.quote{
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: $lt-blue-trans;
+  overflow: hidden;
+  text-align: center;
+  font-size: 250px;
+  margin-top: -85px;
+}
+.testimonialsView{
+    margin-top: -60px;
+  }
+.quote:before,
+.quote:after {
+    background-color: $lt-blue-trans;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+    margin-bottom: 180px;
+}
+.quote:before {
+    right: 0.05em;
+    margin-left: -50%;
+}
+.quote:after {
+    left: 0.05em;
+    margin-right: -50%;
+
+}
+
+.quoteOffset{
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-bottom: -220px;
+}
+.quoteOffsetRight{
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-top: -100px;
+  float: right;
+}
+.quoteContent{
+  margin-top: -185px;
+  margin-bottom: -105px;
+}
 
 blockquote {
   padding: 40px 20px 50px 30px;
@@ -173,7 +235,6 @@ blockquote {
   font-weight: 300;
   font-style: italic;
   line-height: 34px;
-  border: solid $lt-blue;
   border-width: 2px 0;
 }
 
@@ -192,7 +253,7 @@ blockquote footer {
 }
 
 aside blockquote {
-  padding: 60px 25px 36px 25px;
+  padding: 10px 25px 36px 25px;
 }
 
 aside blockquote footer {
@@ -492,11 +553,72 @@ footer .row:last-child {
   }
 }
 
+.hero-font{
+  font-size:26px;
+  line-height: 1.5;
+  font-weight: 200;
+  font-family: "museo-slab",serif;
+}
+
 .hero-img {
   height: 300px;
-  background-image: url('http://placehold.it/1400x300');
+  background-image: url('../../assets/img/home-banner.png');
   background-position: center;
   color: white;
+}
+
+.hero-img-about {
+  height: 300px;
+  background-image: url('../../assets/img/about-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
+}
+
+.hero-img-careers {
+  height: 300px;
+  background-image: url('../../assets/img/careers-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
+}
+
+.hero-img-contact {
+  height: 300px;
+  background-image: url('../../assets/img/contact-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
+}
+
+.hero-img-custom {
+  height: 300px;
+  background-image: url('../../assets/img/custom-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
+}
+
+.hero-img-homemgmt {
+  height: 300px;
+  background-image: url('../../assets/img/home-management-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
+}
+
+.hero-img-news {
+  height: 300px;
+  background-image: url('../../assets/img/news-banner.png');
+  background-position: center;
+  color: white;
+  background-size:cover;
+  background-position-y:initial;
 }
 
 .hero-img h1 {
@@ -541,6 +663,7 @@ footer .row:last-child {
   margin-right: 10px;
   display: block;
   text-align: right;
+  margin-top:-100px;
 }
 
 .caption h4 {
@@ -642,6 +765,7 @@ footer .row:last-child {
     width: 870px;
   }
 }
+
 //
 @import 'about';
 @import 'careers';

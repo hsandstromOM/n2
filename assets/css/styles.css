@@ -6,7 +6,12 @@
   color: #6082c1; }
 
 .text-success {
-  color: #253d93; }
+  color: #253d93;
+  margin-bottom: 0; }
+
+.headerDecoration {
+  width: 245px;
+  fill: #253d93; }
 
 .text-info {
   color: #6082c1; }
@@ -127,6 +132,61 @@ p {
   font-weight: 300;
   line-height: 1.5; }
 
+.quote {
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(96, 130, 193, 0.4);
+  overflow: hidden;
+  text-align: center;
+  font-size: 250px;
+  margin-top: -85px; }
+
+.testimonialsView {
+  margin-top: -60px; }
+
+.quote:before,
+.quote:after {
+  background-color: rgba(96, 130, 193, 0.4);
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+  margin-bottom: 180px; }
+
+.quote:before {
+  right: 0.05em;
+  margin-left: -50%; }
+
+.quote:after {
+  left: 0.05em;
+  margin-right: -50%; }
+
+.quoteOffset {
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-bottom: -220px; }
+
+.quoteOffsetRight {
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-top: -100px;
+  float: right; }
+
+.quoteContent {
+  margin-top: -185px;
+  margin-bottom: -105px; }
+
 blockquote {
   padding: 40px 20px 50px 30px;
   margin: 0 0 20px;
@@ -134,7 +194,6 @@ blockquote {
   font-weight: 300;
   font-style: italic;
   line-height: 34px;
-  border: solid #6082c1;
   border-width: 2px 0; }
 
 blockquote span {
@@ -150,7 +209,7 @@ blockquote footer {
   font-weight: 700; }
 
 aside blockquote {
-  padding: 60px 25px 36px 25px; }
+  padding: 10px 25px 36px 25px; }
 
 aside blockquote footer {
   margin-top: 13px; }
@@ -387,11 +446,65 @@ footer p {
 footer .row:last-child h6 {
   letter-spacing: 1px; }
 
+.hero-font {
+  font-size: 26px;
+  line-height: 1.5;
+  font-weight: 200;
+  font-family: "museo-slab",serif; }
+
 .hero-img {
   height: 300px;
-  background-image: url("http://placehold.it/1400x300");
+  background-image: url("../../assets/img/home-banner.png");
   background-position: center;
   color: white; }
+
+.hero-img-about {
+  height: 300px;
+  background-image: url("../../assets/img/about-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-careers {
+  height: 300px;
+  background-image: url("../../assets/img/careers-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-contact {
+  height: 300px;
+  background-image: url("../../assets/img/contact-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-custom {
+  height: 300px;
+  background-image: url("../../assets/img/custom-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-homemgmt {
+  height: 300px;
+  background-image: url("../../assets/img/home-management-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-news {
+  height: 300px;
+  background-image: url("../../assets/img/news-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
 
 .hero-img h1 {
   font-family: "museo-slab", Times, serif;
@@ -426,7 +539,8 @@ footer .row:last-child h6 {
 .main-aside .arrow-right {
   margin-right: 10px;
   display: block;
-  text-align: right; }
+  text-align: right;
+  margin-top: -100px; }
 
 .caption h4 {
   font-family: "museo-slab", Times, serif;
@@ -577,21 +691,32 @@ footer .row:last-child h6 {
 .carousel-indicators {
   left: 50%; }
 
+.home-slider-img {
+  height: 425px;
+  width: 100%;
+  overflow: hidden; }
+
 .carousel-indicators li, .carousel-indicators .active {
   margin: 0 3px; }
 
 .carousel-caption-box {
-  background-color: rgba(19, 19, 119, 0.6);
   position: absolute;
-  width: 26%;
+  height: 100%;
   left: 87px;
   top: 0;
   bottom: 0;
   z-index: 1;
-  padding: 36px;
+  padding-left: 20px;
+  padding-right: 78px;
   color: #fff;
   font-family: "museo-slab", Times, serif;
-  line-height: 42px; }
+  line-height: 42px;
+  background-image: url("../../assets/img/home-slider-cta.png");
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.carousel-caption-box:hover {
+  color: #fff !important; }
 
 .carousel-caption-box h1 {
   font-size: 24px;
@@ -599,7 +724,8 @@ footer .row:last-child h6 {
 
 .carousel-caption-box p {
   font-size: 18px;
-  font-weight: 300; }
+  font-weight: 300;
+  padding-right: 50px; }
 
 #slider-cap {
   background-color: rbga(0, 0, 255, 0.22);
@@ -634,10 +760,16 @@ footer .row:last-child h6 {
   left: 8%; }
 
 /* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .home-slider-img {
+    height: 200px;
+    width: 100%;
+    overflow: hidden; } }
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .carousel-indicators {
-    left: 20%; } }
+    left: 18.5%; } }
 
 .news-article div {
   float: left;
@@ -645,8 +777,12 @@ footer .row:last-child h6 {
   height: 370px;
   display: inline-block; }
 
-.news-article div:first-child {
-  background-image: url("http://placehold.it/400x400"); }
+.news-article {
+  height: 325px; }
+
+.news-article-lead {
+  width: auto !important;
+  height: 100%; }
 
 .news-article div:last-child {
   padding: 16px; }

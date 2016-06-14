@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img">
-    <h1 class="col-md-6">
+  <section class="row margin-lg v-center hero-img-custom overlay">
+    <h1 class="col-md-6 hero-font">
       Build the perfect house<br>to call home.
     </h1>
   </section>
@@ -21,10 +21,12 @@
       </p>
     </article>
     <aside class="main-aside col-xs-12 col-md-6">
-      <blockquote>
+      <h1 class="quote">“<h1>
+      <blockquote class="quoteContent">
         The house is <span>beautiful</span> and it is due to your high standards, patience, implementation skills, market knowledge and determination that you exceeded our expectations...We look forward to <span>working with you again</span> and recommending you highly to other islanders (and beyond).
         <footer>Bill and Ruth Ennis</footer>
       </blockquote>
+      <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
   </section>
@@ -33,7 +35,7 @@
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
       <h3 class="header-sm text-success">Custom Homes Portfolio</h3>
-      <img src="http://placehold.it/300x10" alt="" />
+      <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <ul class="col-xs-12 pad-0">
       <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">

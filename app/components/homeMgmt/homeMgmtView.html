@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img">
-    <h1 class="col-md-6 tk-museo-slab">
-      Providing piece of mind that your home is in good hands.
+  <section class="row margin-lg v-center hero-img-homemgmt overlay">
+    <h1 class="col-md-6 tk-museo-slab hero-font">
+      Providing peace of mind that your home is in good hands.
     </h1>
   </section>
 
@@ -21,35 +21,32 @@
       </p>
     </article>
     <aside class="main-aside col-xs-12 col-md-6">
-      <blockquote>
+      <h1 class="quote">“<h1>
+      <blockquote class="quoteContent">
         From <span>renovation to maintenance...</span> from roof to pool deck to dock to appliances to interior design to bathroom addition...we have <span>done it all with Nautilus.</span>
         <footer>The Smith Family</footer>
       </blockquote>
+      <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
   </section>
   <!-- PORTFOLIO SECTION  -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="header-sm text-success">Home Management Portfolio</h3>
-      <img src="http://placehold.it/300x10" alt="" />
+      <h3 class="header-sm text-success">Project Gallery</h3>
+      <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <div class="col-sm-6 margin-b-20" ng-repeat="home in homeMgmt.homeMgmtPortfolio | limitTo:2">
-      <div>
-        <img class="full-width" ng-src="{{home.image}}" alt="" />
-      </div>
-      <div class="caption">
-        <h4>{{home.name}}, <span>{{home.subtitle}}</span></h4>
-      </div>
+    <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmt.homeMgmtPortfolio | limitTo:8" style="position: relative; left: 0; top: 0;">
+      <img ng-src="{{home.image}}" style="position: relative; top: 0; left: 0;"/>
     </div>
   </section>
   <!-- SERVICES LIST -->
   <section class="row margin-lg margin-b-30">
     <header class="col-xs-12 text-center">
       <h3 class="header-sm text-success">Home Management Services</h3>
-      <img src="http://placehold.it/300x10" alt="" />
+      <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <article class="col-sm-4 sm-article">
+    <article class="col-sm-3 sm-article">
       <h3 class="header-sm">Preventative Maintenance</h3>
       <ul class="ul-circles">
         <li><p>Planned, scheduled, implemented and fully documented maintenance</li>
@@ -58,14 +55,14 @@
         <li><p>Repairs to leaky windows or doors</p></li>
       </ul>
     </article>
-    <article class="col-sm-4 sm-article">
+    <article class="col-sm-3 sm-article">
       <h3 class="header-sm">Home Watch</h3>
       <ul class="ul-circles">
         <li><p>Available for both second home and part-time residents</li>
         <li><p>Regular inspections of the home while you are away</p></li>
       </ul>
     </article>
-    <article class="col-sm-4 sm-article">
+    <article class="col-sm-3 sm-article">
       <h3 class="header-sm">Arrival / Departure + Concierge</h3>
       <ul class="ul-circles">
         <li><p>Pickup/drop off services from Charleston International Airport</p></li>
@@ -74,6 +71,15 @@
         <li><p>Set up tee times at your favorite Charleston golf courses</p></li>
         <li><p>Coordinate dinner reservations</p></li>
         <li><p>Book a fishing excursion</p></li>
+      </ul>
+    </article>
+    <article class="col-sm-3 sm-article">
+      <h3 class="header-sm">Special Projects</h3>
+      <ul class="ul-circles">
+        <li><p>Project management</p></li>
+        <li><p>Renovations</p></li>
+        <li><p>Window/door replacements</p></li>
+        <li><p>Roof repair</p></li>
       </ul>
     </article>
   </section>

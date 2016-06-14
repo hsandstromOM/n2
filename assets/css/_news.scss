@@ -5,8 +5,17 @@
   display: inline-block;
 }
 
+.news-article{
+  height:325px;
+}
+
 .news-article div:first-child {
-  background-image: url('http://placehold.it/400x400');
+
+}
+
+.news-article-lead{
+  width:auto !important;
+  height:100%;
 }
 
 .news-article div:last-child {
