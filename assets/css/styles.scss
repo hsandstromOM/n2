@@ -640,6 +640,7 @@ footer .row:last-child {
   margin-right: 10px;
   display: block;
   text-align: right;
+  margin-top:-100px;
 }
 
 .caption h4 {
@@ -741,6 +742,7 @@ footer .row:last-child {
     width: 870px;
   }
 }
+
 //
 @import 'about';
 @import 'careers';

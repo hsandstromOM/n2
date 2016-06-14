@@ -517,7 +517,8 @@ footer .row:last-child h6 {
 .main-aside .arrow-right {
   margin-right: 10px;
   display: block;
-  text-align: right; }
+  text-align: right;
+  margin-top: -100px; }
 
 .caption h4 {
   font-family: "museo-slab", Times, serif;
@@ -739,8 +740,12 @@ footer .row:last-child h6 {
   height: 370px;
   display: inline-block; }
 
-.news-article div:first-child {
-  background-image: url("http://placehold.it/400x400"); }
+.news-article {
+  height: 325px; }
+
+.news-article-lead {
+  width: auto !important;
+  height: 100%; }
 
 .news-article div:last-child {
   padding: 16px; }
