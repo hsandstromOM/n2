@@ -22,7 +22,18 @@ angular
       return defer.promise;
     }
 
+    function getCoreValues() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'coreValue').then(function(coreValues) {
+        defer.resolve(coreValues);
+      });
+
+      return defer.promise;
+    }
+
     return {
       getTeamMembers: getTeamMembers,
+      getCoreValues: getCoreValues,
     };
   }

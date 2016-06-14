@@ -8,21 +8,21 @@ angular
 
     AboutService.getTeamMembers().then(function(teamMembers) {
 
-      console.log("team members: " + teamMembers.data.items);
-      window.team = teamMembers.data.items;
+      // console.log("team members: " + teamMembers.data.items);
+      // window.team = teamMembers.data.items;
       vm.teamMembers = teamMembers.data.items;
 
-      console.log("images: " + teamMembers.data.includes.Asset);
-      window.images = teamMembers.data.includes.Asset;
+      // console.log("images: " + teamMembers.data.includes.Asset);
+      // window.images = teamMembers.data.includes.Asset;
       var imageArr = teamMembers.data.includes.Asset;
 
       var imageId;
 
       angular.forEach(vm.teamMembers, function(teamMember) {
-        console.log("team member: " + teamMember.fields.teamMemberName);
+        // console.log("team member: " + teamMember.fields.teamMemberName);
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
-        console.log("team member image id: " + imageId);
+        // console.log("team member image id: " + imageId);
 
          angular.forEach(imageArr, function (image) {
           if (image.sys.id == imageId) {
@@ -32,7 +32,10 @@ angular
       });
     });
 
-    console.log('the  Aboutcontroller, it does nothing');
+    AboutService.getCoreValues().then(function (coreValues) {
+      // console.log("coreValues: " +coreValues.data.items);
+      // window.core =coreValues.data.items;
 
-    this.fromCtrl = 'hello from about ctrl';
+      vm.coreValues =coreValues.data.items;
+    });
   }
