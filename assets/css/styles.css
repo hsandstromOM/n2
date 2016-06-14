@@ -424,11 +424,65 @@ footer p {
 footer .row:last-child h6 {
   letter-spacing: 1px; }
 
+.hero-font {
+  font-size: 26px;
+  line-height: 1.5;
+  font-weight: 200;
+  font-family: "museo-slab",serif; }
+
 .hero-img {
   height: 300px;
-  background-image: url("http://placehold.it/1400x300");
+  background-image: url("../../assets/img/home-banner.png");
   background-position: center;
   color: white; }
+
+.hero-img-about {
+  height: 300px;
+  background-image: url("../../assets/img/about-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-careers {
+  height: 300px;
+  background-image: url("../../assets/img/careers-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-contact {
+  height: 300px;
+  background-image: url("../../assets/img/contact-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-custom {
+  height: 300px;
+  background-image: url("../../assets/img/custom-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-homemgmt {
+  height: 300px;
+  background-image: url("../../assets/img/home-management-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
+
+.hero-img-news {
+  height: 300px;
+  background-image: url("../../assets/img/news-banner.png");
+  background-position: center;
+  color: white;
+  background-size: cover;
+  background-position-y: initial; }
 
 .hero-img h1 {
   font-family: "museo-slab", Times, serif;
@@ -618,17 +672,20 @@ footer .row:last-child h6 {
   margin: 0 3px; }
 
 .carousel-caption-box {
-  background-color: rgba(19, 19, 119, 0.6);
   position: absolute;
-  width: 26%;
+  width: 28%;
   left: 87px;
   top: 0;
   bottom: 0;
   z-index: 1;
-  padding: 36px;
+  padding-left: 20px;
+  padding-right: 50px;
   color: #fff;
   font-family: "museo-slab", Times, serif;
-  line-height: 42px; }
+  line-height: 42px;
+  background-image: url("../../assets/img/home-slider-cta.png");
+  background-size: contain;
+  background-repeat: no-repeat; }
 
 .carousel-caption-box h1 {
   font-size: 24px;
@@ -674,7 +731,7 @@ footer .row:last-child h6 {
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .carousel-indicators {
-    left: 20%; } }
+    left: 18.5%; } }
 
 .news-article div {
   float: left;
