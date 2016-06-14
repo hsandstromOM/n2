@@ -411,8 +411,7 @@ button.navbar-toggle {
 .social {
   padding: 0;
   font-size: 24px;
-  font-weight: bold;
-  margin-top: 4px; }
+  font-weight: bold; }
 
 .social h2 {
   font-size: 18px;
@@ -586,16 +585,20 @@ footer .row:last-child h6 {
 .tips-mid-footer {
   text-align: center;
   padding: 0;
-  padding-top: 44px;
-  height: 90px;
+  padding-top: 52px;
+  height: 110px;
+  /*width:100%;*/
   /*width:500px;*/
-  background-image: url("../../assets/img/Nautilus-footer_Mid.png"); }
+  background-image: url("../../assets/img/Nautilus-footer_Mid.png");
+  background-repeat: no-repeat;
+  background-position: center; }
 
 .tips-side-footer {
+  margin-top: 8px;
   text-align: center;
   padding: 0;
-  padding-top: 44px;
-  height: 90px;
+  padding-top: 52px;
+  height: 110px;
   background-image: url("../../assets/img/Nautilus-footer_Sides.png"); }
 
 .no-padding {

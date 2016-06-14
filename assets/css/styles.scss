@@ -507,7 +507,6 @@ button.navbar-toggle {
   padding:0;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 4px;
 }
 
 .social h2 {
@@ -719,17 +718,21 @@ footer .row:last-child {
 .tips-mid-footer {
   text-align:center;
   padding:0;
-  padding-top:44px;
-  height:90px;
+  padding-top:52px;
+  height:110px;
+  /*width:100%;*/
   /*width:500px;*/
   background-image: url("../../assets/img/Nautilus-footer_Mid.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .tips-side-footer {
+  margin-top:8px;
   text-align:center;
   padding:0;
-  padding-top:44px;
-  height:90px;
+  padding-top:52px;
+  height:110px;
   background-image: url("../../assets/img/Nautilus-footer_Sides.png");
 }
 
