@@ -34,11 +34,11 @@
           </div>
         </header>
         <div class="row text-center">
-          <!-- CONTENTFUL MODEL
+          <!-- CONTENTFUL MODEL -->
           <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
             <div class="row">
               <div class="col-xs-12">
-                <img class="full-width" src="https://images.contentful.com/80s1v057uxnv/1iWVe5AaVIAO8oekIEEGCM/0c44352efcbea1ca24563faf5d52c0fd/Nautilus-team-Bill.jpg" alt="" />
+                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
               </div>
             </div>
             <div class="row caption text-left">
@@ -49,11 +49,9 @@
                 <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
                 <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
               </div>
-              <div class="col-xs-3">
-                <button type="button" class="circle-full" data-toggle="modal" data-target="#myModal">BIO</button>
-              </div>
-              MODAL
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
+              <!-- MODAL -->
+              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -86,8 +84,8 @@
                   </div>
                 </div>
             </div>
-          </div> -->
-          <div class="col-sm-6 col-md-4 team-member">
+          </div>
+          <!-- <div class="col-sm-6 col-md-4 team-member">
             <div class="row">
               <div class="col-xs-12">
                 <img class="full-width" src="http://placehold.it/250x150" alt="" />
@@ -102,7 +100,7 @@
                 <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.7922</h5>
               </div>
               <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-              <!-- MODAL -->
+              MODAL
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -222,7 +220,7 @@
               <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
   </section>
   <!-- CORE VALUES -->

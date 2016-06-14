@@ -15,7 +15,7 @@ angular
     function getTeamMembers() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'teamMember').then(function(teamMembers) {
+      $http.get(GET_URL + 'teamMember&include=1').then(function(teamMembers) {
         defer.resolve(teamMembers);
       });
 
