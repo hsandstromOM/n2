@@ -496,6 +496,7 @@ button.navbar-toggle {
 // // FOOTER
 
 .footer-bar {
+  display:none;
   padding: 0 0 10px 0;
   margin-bottom: 24px;
   /*background-color: $lt-blue-trans;*/
@@ -736,6 +737,18 @@ footer .row:last-child {
   background-image: url("../../assets/img/Nautilus-footer_Sides.png");
 }
 
+.footer-larger {
+  @media (min-width: 992px) {
+    display:block;
+  }
+}
+
+.footer-smaller {
+  @media (max-width: 992px) {
+    display:block;
+  }
+}
+
 .no-padding {
   padding:0;
 }
@@ -786,6 +799,7 @@ footer .row:last-child {
   form {
     padding-right: 60px;
   }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
