@@ -2,8 +2,9 @@
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');
 
-
-var nautilusApp = angular.module('nautilusApp', ['ui.router']);
+var nautilusApp = angular.module('nautilusApp', [
+  'ui.router',
+]);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -50,7 +51,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/news',
           templateUrl: './app/components/news/newsView.html',
           controller: 'NewsController',
-          controllerAs: 'news'
+          controllerAs: 'newsCtrl'
         })
 
         .state('contact', {
@@ -71,7 +72,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/careers',
           templateUrl: './app/components/careers/careersView.html',
           controller: 'CareersController',
-          controllerAs: 'careers'
+          controllerAs: 'careersCtrl'
         })
 
         .state('clientLogin', {
@@ -94,18 +95,25 @@ require('./components/homeMgmt/homeMgmtController');
 require('./components/homeMgmt/homeMgmtService');
 
 require('./components/news/newsController');
+require('./components/news/newsService');
 
 require('./components/contact/contactController');
 
 require('./components/testimonials/testimonialsController');
 
 require('./components/careers/careersController');
+require('./components/careers/careersService');
 
 require('./components/clientLogin/clientLoginController');
 
 require('./shared/customHomeListing/customHomeListingDirective');
 
-},{"./components/about/aboutController":2,"./components/about/aboutService":3,"./components/careers/careersController":4,"./components/clientLogin/clientLoginController":5,"./components/contact/contactController":6,"./components/customHomes/customHomesController":7,"./components/customHomes/customHomesService":8,"./components/home/homeController":9,"./components/homeMgmt/homeMgmtController":10,"./components/homeMgmt/homeMgmtService":11,"./components/news/newsController":12,"./components/testimonials/testimonialsController":13,"./shared/customHomeListing/customHomeListingDirective":14,"angular":17,"angular-ui-router":15}],2:[function(require,module,exports){
+// require('showdown');
+// require('angular-sanitize/angular-sanitize');
+//
+// require('angular-markdown-directive/markdown.js');
+
+},{"./components/about/aboutController":2,"./components/about/aboutService":3,"./components/careers/careersController":4,"./components/careers/careersService":5,"./components/clientLogin/clientLoginController":6,"./components/contact/contactController":7,"./components/customHomes/customHomesController":8,"./components/customHomes/customHomesService":9,"./components/home/homeController":10,"./components/homeMgmt/homeMgmtController":11,"./components/homeMgmt/homeMgmtService":12,"./components/news/newsController":13,"./components/news/newsService":14,"./components/testimonials/testimonialsController":15,"./shared/customHomeListing/customHomeListingDirective":16,"angular":19,"angular-ui-router":17}],2:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -115,9 +123,8 @@ angular
     var vm = this;
 
     AboutService.getTeamMembers().then(function(teamMembers) {
-
       // console.log("team members: " + teamMembers.data.items);
-      // window.team = teamMembers.data.items;
+      window.team = teamMembers.data.items;
       vm.teamMembers = teamMembers.data.items;
 
       // console.log("images: " + teamMembers.data.includes.Asset);
@@ -128,6 +135,10 @@ angular
 
       angular.forEach(vm.teamMembers, function(teamMember) {
         // console.log("team member: " + teamMember.fields.teamMemberName);
+
+        console.log(teamMember.fields.teamMemberBioPoints);
+        console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
+        teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
         // console.log("team member image id: " + imageId);
@@ -194,15 +205,47 @@ angular
   .module('nautilusApp')
   .controller('CareersController', CareersController);
 
-  function CareersController() {
+  function CareersController(CareersService) {
     var vm = this;
 
-    console.log('the careers controller, it does nothing');
-
-    this.fromCtrl = 'hello from careers controller';
+    CareersService.getCareerListings().then(function(careerListings) {
+      console.log("careerListings: " + careerListings.data.items);
+      window.careers = careerListings.data.items;
+      vm.careerListings = careerListings.data.items;
+    });
   }
 
 },{}],5:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .service('CareersService', CareersService);
+
+  CareersService.$inject = ['$http', '$q'];
+
+  function CareersService($http, $q) {
+    const CONTENT_URL = 'https://cdn.contentful.com';
+    const MEDIA_URL = 'https://images.contentful.com';
+    const SPACE_ID = '80s1v057uxnv';
+    const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
+
+    const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
+
+    function getCareerListings() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'career').then(function(careerListings) {
+        defer.resolve(careerListings);
+      });
+
+      return defer.promise;
+    }
+
+    return {
+      getCareerListings: getCareerListings,
+    };
+  }
+
+},{}],6:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('ClientLoginController', ClientLoginController);
@@ -215,7 +258,7 @@ angular
     this.fromCtrl = 'hello from client login controller';
   }
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('ContactController', ContactController);
@@ -228,7 +271,7 @@ angular
     this.fromCtrl = 'hello from contact controller';
   }
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
@@ -255,7 +298,7 @@ angular
 
   }
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('CustomHomesService', CustomHomesService);
@@ -322,7 +365,7 @@ angular
     };
   }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeController', HomeController);
@@ -336,7 +379,7 @@ angular
     this.fromCtrl = 'hello from home controller';
   }
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
@@ -349,7 +392,7 @@ angular
     console.log('the HomeMgmt controller, it does nothing');
   }
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('HomeMgmtService', HomeMgmtService);
@@ -425,20 +468,71 @@ angular
     };
   }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController($scope) {
+  function NewsController(NewsService) {
     var vm = this;
 
-    console.log('the News controller, it does nothing');
+    NewsService.getNewsPosts().then(function(newsPosts) {
+      // console.log("news posts: " + newsPosts.data.items);
+      window.news = newsPosts.data.items;
+      vm.newsPosts = newsPosts.data.items;
 
-    this.fromCtrl = 'hello from news ctrl';
+      // console.log("news images: " + newsPosts.data.includes.Asset);
+      // window.newsImages = newsPosts.data.includes.Asset;
+      var imageArr = newsPosts.data.includes.Asset;
+
+      var imageId;
+
+      angular.forEach(vm.newsPosts, function(newsPost) {
+        // console.log("news post: " + teamMember.fields.title);
+
+        imageId = newsPost.fields.thumbnailImage.sys.id;
+        // console.log("news post thumbnail id: " + imageId);
+
+        angular.forEach(imageArr, function (image) {
+          if (image.sys.id == imageId) {
+            newsPost.fields.thumbnailImageUrl = image.fields.file.url;
+          }
+        });
+      });
+    });
   }
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
+angular
+  .module('nautilusApp')
+  .service('NewsService', NewsService);
+
+  NewsService.$inject = ['$http', '$q'];
+
+  function NewsService($http, $q) {
+    const CONTENT_URL = 'https://cdn.contentful.com';
+    const MEDIA_URL = 'https://images.contentful.com';
+    const SPACE_ID = '80s1v057uxnv';
+    const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
+
+    const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
+
+    function getNewsPosts() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'newsPost&include=1').then(function(newsPosts) {
+        defer.resolve(newsPosts);
+      });
+
+      return defer.promise;
+    }
+
+    return {
+      getNewsPosts: getNewsPosts,
+    };
+  }
+
+},{}],15:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('TestimonialsController', TestimonialsController);
@@ -451,7 +545,7 @@ angular
     this.fromCtrl = 'hello from Testimonials controller';
   }
 
-},{}],14:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .directive('customHomeListing', CustomHomeListing);
@@ -488,7 +582,7 @@ angular
     }
   }
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.3.1
@@ -5065,7 +5159,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.6
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -36089,8 +36183,8 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],17:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":16}]},{},[1]);
+},{"./angular":18}]},{},[1]);

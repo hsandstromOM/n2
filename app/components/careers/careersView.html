@@ -23,7 +23,19 @@
   </section>
 
   <!-- CAREER LISTING -->
-  <section class="row margin-lg career-listing bg-blue">
+  <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in careersCtrl.careerListings">
+    <div class="col-md-6">
+      <header>
+        <h3>April 2016</h3>
+        <h2 class="text-uppercase">{{ careerListing.fields.careerTitle }}</h2>
+      </header>
+      <btf-markdown>
+        {{ careerListing.fields.careerDescription }}
+      </btf-markdown>
+
+    </div>
+  </section>
+  <!-- <section class="row margin-lg career-listing bg-blue">
     <div class="col-md-6">
       <header>
         <h3>April 2016</h3>
@@ -96,7 +108,7 @@
         <li>Bonus: ability to speak and understand Spanish</li>
       </ul>
     </div>
-  </section>
+  </section> -->
   <!-- PRE-FOOTER BUFFER -->
   <section class="buffer"></section>
   <section class="buffer"></section>

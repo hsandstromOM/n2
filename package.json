@@ -21,6 +21,8 @@
   "dependencies": {
     "angular": "^1.5.6",
     "angular-bootstrap": "^0.12.2",
+    "angular-markdown-directive": "^0.3.1",
+    "angular-sanitize": "^1.5.6",
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.6",
     "bower": "^1.7.9",
@@ -31,6 +33,7 @@
     "node-sass": "^3.7.0",
     "normalize": "^0.3.1",
     "serve": "^1.4.0",
+    "showdown": "^1.4.1",
     "watchify": "^3.7.0"
   }
 }

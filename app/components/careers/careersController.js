@@ -2,10 +2,12 @@ angular
   .module('nautilusApp')
   .controller('CareersController', CareersController);
 
-  function CareersController() {
+  function CareersController(CareersService) {
     var vm = this;
 
-    console.log('the careers controller, it does nothing');
-
-    this.fromCtrl = 'hello from careers controller';
+    CareersService.getCareerListings().then(function(careerListings) {
+      console.log("careerListings: " + careerListings.data.items);
+      window.careers = careerListings.data.items;
+      vm.careerListings = careerListings.data.items;
+    });
   }

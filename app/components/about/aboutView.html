@@ -64,10 +64,7 @@
                         <div class="row">
                           <div class="col-md-6">
                             <ul class="ul-circles">
-                              <li><p>{{ teamMember.fields.teamMemberBioPoints }}</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
+                              <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
                             </ul>
                           </div>
                           <div class="col-md-6">

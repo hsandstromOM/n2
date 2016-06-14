@@ -7,9 +7,8 @@ angular
     var vm = this;
 
     AboutService.getTeamMembers().then(function(teamMembers) {
-
       // console.log("team members: " + teamMembers.data.items);
-      // window.team = teamMembers.data.items;
+      window.team = teamMembers.data.items;
       vm.teamMembers = teamMembers.data.items;
 
       // console.log("images: " + teamMembers.data.includes.Asset);
@@ -20,6 +19,10 @@ angular
 
       angular.forEach(vm.teamMembers, function(teamMember) {
         // console.log("team member: " + teamMember.fields.teamMemberName);
+
+        console.log(teamMember.fields.teamMemberBioPoints);
+        console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
+        teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
         // console.log("team member image id: " + imageId);
