@@ -52,7 +52,19 @@
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <ul class="col-xs-12 pad-0">
-      <div class="news-listing col-sm-6">
+      <!-- CONTENTFUL MODEL -->
+      <div class="news-listing col-sm-6" ng-repeat="newsPost in newsCtrl.newsPosts">
+        <a href="#">
+          <div>
+            <img class="full-width news-article" ng-src="{{ newsPost.fields.thumbnailImageUrl }}" alt="" />
+          </div>
+          <div class="caption">
+            <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
+          </div>
+        </a>
+      </div>
+      <!-- HARD-CODED NEWS POSTS -- TO BE DELETED -->
+      <!-- <div class="news-listing col-sm-6">
         <a href="#">
           <div>
             <img class="full-width news-article" src="assets/img/news-pollen.jpg" alt="" />
@@ -91,7 +103,7 @@
             <h4>Properly Finishing Doors | <span>Custom Homes</span></h4>
           </div>
         </a>
-      </div>
+      </div> -->
     </ul>
   </section>
   <!-- PRE-FOOTER BUFFER -->

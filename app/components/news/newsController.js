@@ -2,10 +2,31 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController($scope) {
+  function NewsController(NewsService) {
     var vm = this;
 
-    console.log('the News controller, it does nothing');
+    NewsService.getNewsPosts().then(function(newsPosts) {
+      // console.log("news posts: " + newsPosts.data.items);
+      window.news = newsPosts.data.items;
+      vm.newsPosts = newsPosts.data.items;
 
-    this.fromCtrl = 'hello from news ctrl';
+      // console.log("news images: " + newsPosts.data.includes.Asset);
+      // window.newsImages = newsPosts.data.includes.Asset;
+      var imageArr = newsPosts.data.includes.Asset;
+
+      var imageId;
+
+      angular.forEach(vm.newsPosts, function(newsPost) {
+        // console.log("news post: " + teamMember.fields.title);
+
+        imageId = newsPost.fields.thumbnailImage.sys.id;
+        // console.log("news post thumbnail id: " + imageId);
+
+        angular.forEach(imageArr, function (image) {
+          if (image.sys.id == imageId) {
+            newsPost.fields.thumbnailImageUrl = image.fields.file.url;
+          }
+        });
+      });
+    });
   }

@@ -15,8 +15,18 @@ angular
     function getTeamMembers() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'teamMember').then(function(teamMembers) {
+      $http.get(GET_URL + 'teamMember&include=1').then(function(teamMembers) {
         defer.resolve(teamMembers);
+      });
+
+      return defer.promise;
+    }
+
+    function getCoreValues() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'coreValue').then(function(coreValues) {
+        defer.resolve(coreValues);
       });
 
       return defer.promise;
@@ -24,5 +34,6 @@ angular
 
     return {
       getTeamMembers: getTeamMembers,
+      getCoreValues: getCoreValues,
     };
   }

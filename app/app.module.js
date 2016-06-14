@@ -1,8 +1,10 @@
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');
 
-
-var nautilusApp = angular.module('nautilusApp', ['ui.router']);
+var nautilusApp = angular.module('nautilusApp', [
+  'ui.router',
+  'ngSanitize'
+]);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 
@@ -49,7 +51,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/news',
           templateUrl: './app/components/news/newsView.html',
           controller: 'NewsController',
-          controllerAs: 'news'
+          controllerAs: 'newsCtrl'
         })
 
         .state('contact', {
@@ -70,7 +72,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/careers',
           templateUrl: './app/components/careers/careersView.html',
           controller: 'CareersController',
-          controllerAs: 'careers'
+          controllerAs: 'careersCtrl'
         })
 
         .state('clientLogin', {
@@ -81,6 +83,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
+
+require('./app.module.js');
 require('./components/home/homeController');
 
 require('./components/about/aboutController');
@@ -93,13 +97,20 @@ require('./components/homeMgmt/homeMgmtController');
 require('./components/homeMgmt/homeMgmtService');
 
 require('./components/news/newsController');
+require('./components/news/newsService');
 
 require('./components/contact/contactController');
 
 require('./components/testimonials/testimonialsController');
 
 require('./components/careers/careersController');
+require('./components/careers/careersService');
 
 require('./components/clientLogin/clientLoginController');
 
 require('./shared/customHomeListing/customHomeListingDirective');
+
+// require('showdown');
+require('angular-sanitize/angular-sanitize');
+//
+// require('angular-markdown-directive/markdown.js');

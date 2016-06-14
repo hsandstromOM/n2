@@ -34,11 +34,11 @@
           </div>
         </header>
         <div class="row text-center">
-          <!-- CONTENTFUL MODEL
+          <!-- CONTENTFUL MODEL -->
           <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
             <div class="row">
               <div class="col-xs-12">
-                <img class="full-width" src="https://images.contentful.com/80s1v057uxnv/1iWVe5AaVIAO8oekIEEGCM/0c44352efcbea1ca24563faf5d52c0fd/Nautilus-team-Bill.jpg" alt="" />
+                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
               </div>
             </div>
             <div class="row caption text-left">
@@ -49,11 +49,9 @@
                 <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
                 <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
               </div>
-              <div class="col-xs-3">
-                <button type="button" class="circle-full" data-toggle="modal" data-target="#myModal">BIO</button>
-              </div>
-              MODAL
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
+              <!-- MODAL -->
+              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -64,13 +62,12 @@
                       </div>
                       <div class="modal-body bg-lt">
                         <div class="row">
-                          <div class="col-md-6">
-                            <ul class="ul-circles">
-                              <li><p>{{ teamMember.fields.teamMemberBioPoints }}</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                            </ul>
+                          <!-- MARKDOWN.JS CONVERSION -->
+                          <div class="col-md-6" ng-bind-html="teamMember.fields.teamMemberBioPointsHTML">
+                            <!-- MANUAL PARSING -->
+                            <!-- <ul class="ul-circles">
+                              <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
+                            </ul> -->
                           </div>
                           <div class="col-md-6">
                             <h2>
@@ -86,8 +83,10 @@
                   </div>
                 </div>
             </div>
-          </div> -->
-          <div class="col-sm-6 col-md-4 team-member">
+          </div>
+
+          <!-- HARD-CODED TEAM MEMBERS -- TO DELETE -->
+          <!-- <div class="col-sm-6 col-md-4 team-member">
             <div class="row">
               <div class="col-xs-12">
                 <img class="full-width" src="assets/img/team-bill.jpg" alt="" />
@@ -102,7 +101,7 @@
                 <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.7922</h5>
               </div>
               <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-              <!-- MODAL -->
+              MODAL
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -222,7 +221,7 @@
               <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
   </section>
   <!-- CORE VALUES -->
@@ -233,7 +232,16 @@
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
       </div>
     </header>
-    <div class="col-sm-3 sm-article">
+    <!-- CONTENTFUL MODEL -->
+    <div class="col-sm-3 sm-article" ng-repeat="coreValue in aboutCtrl.coreValues">
+      <h3 class="text-uppercase">{{ coreValue.fields.coreValueTitle }}</h3>
+      <p>
+        {{ coreValue.fields.coreValueDescription }}
+      </p>
+    </div>
+
+    <!--  HARD-CODED CORE VALUES -- TO DELETE -->
+    <!-- <div class="col-sm-3 sm-article">
       <h3 class="text-uppercase">Do the right thing</h3>
       <p>
         We all have choices. We choose to do what is right over the many other options. We focus on quality and service and never cut corners. We support our team members and treat them with respect.
@@ -280,7 +288,7 @@
       <p>
         It is the little things that really count and our team strives to go beyond our clients' and team members' expectations. We ensure that each little detail is accounted for. At Nautilus, we see special things happen every day because our team wants to acheive our mission and understands whil that is important.
       </p>
-    </div>
+    </div> -->
   </section>
 
   <!-- PRE-FOOTER BUFFER -->
