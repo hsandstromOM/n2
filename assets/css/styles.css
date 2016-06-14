@@ -691,18 +691,23 @@ footer .row:last-child h6 {
 .carousel-indicators {
   left: 50%; }
 
+.home-slider-img {
+  height: 425px;
+  width: 100%;
+  overflow: hidden; }
+
 .carousel-indicators li, .carousel-indicators .active {
   margin: 0 3px; }
 
 .carousel-caption-box {
   position: absolute;
-  width: 28%;
+  height: 100%;
   left: 87px;
   top: 0;
   bottom: 0;
   z-index: 1;
   padding-left: 20px;
-  padding-right: 50px;
+  padding-right: 78px;
   color: #fff;
   font-family: "museo-slab", Times, serif;
   line-height: 42px;
@@ -710,13 +715,17 @@ footer .row:last-child h6 {
   background-size: contain;
   background-repeat: no-repeat; }
 
+.carousel-caption-box:hover {
+  color: #fff !important; }
+
 .carousel-caption-box h1 {
   font-size: 24px;
   font-weight: 300; }
 
 .carousel-caption-box p {
   font-size: 18px;
-  font-weight: 300; }
+  font-weight: 300;
+  padding-right: 50px; }
 
 #slider-cap {
   background-color: rbga(0, 0, 255, 0.22);
@@ -751,6 +760,12 @@ footer .row:last-child h6 {
   left: 8%; }
 
 /* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .home-slider-img {
+    height: 200px;
+    width: 100%;
+    overflow: hidden; } }
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .carousel-indicators {
