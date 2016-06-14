@@ -498,9 +498,9 @@ button.navbar-toggle {
 .footer-bar {
   padding: 10px 0;
   margin-bottom: 24px;
-  background-color: $lt-blue-trans;
+  /*background-color: $lt-blue-trans;*/
   text-align: center;
-  border: 2px solid $dk-blue;
+  /*border: 2px solid $dk-blue;*/
 }
 
 .social {
@@ -715,10 +715,17 @@ footer .row:last-child {
   margin-top: 10px
 }
 
-.tips-footer {
+.tips-mid-footer {
+  padding-top:44px;
   height:90px;
   background-image: url("../../assets/img/Nautilus-footer_Mid.png");
   /*background-image: url("../../assets/img/Nautilus-footer_Sides.png");*/
+}
+
+.tips-side-footer {
+  padding-top:44px;
+  height:90px;
+  background-image: url("../../assets/img/Nautilus-footer_Sides.png");
 }
 
 /* Small devices (tablets, 768px and up) */

@@ -404,9 +404,9 @@ button.navbar-toggle {
 .footer-bar {
   padding: 10px 0;
   margin-bottom: 24px;
-  background-color: rgba(96, 130, 193, 0.4);
+  /*background-color: $lt-blue-trans;*/
   text-align: center;
-  border: 2px solid #253d93; }
+  /*border: 2px solid $dk-blue;*/ }
 
 .social {
   font-size: 24px;
@@ -582,10 +582,16 @@ footer .row:last-child h6 {
 .modal-body h2 {
   margin-top: 10px; }
 
-.tips-footer {
+.tips-mid-footer {
+  padding-top: 44px;
   height: 90px;
   background-image: url("../../assets/img/Nautilus-footer_Mid.png");
   /*background-image: url("../../assets/img/Nautilus-footer_Sides.png");*/ }
+
+.tips-side-footer {
+  padding-top: 44px;
+  height: 90px;
+  background-image: url("../../assets/img/Nautilus-footer_Sides.png"); }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
