@@ -171,7 +171,7 @@ p {
   line-height: 1.5;
 }
 .quote{
-  font-family: "garamond-premier-pro",serif;
+  font-family: "adobe-garamond-pro",serif;
   font-style: normal;
   font-weight: 400;
   color: $lt-blue-trans;
@@ -180,6 +180,9 @@ p {
   font-size: 250px;
   margin-top: -85px;
 }
+.testimonialsView{
+    margin-top: -60px;
+  }
 .quote:before,
 .quote:after {
     background-color: $lt-blue-trans;
@@ -199,6 +202,26 @@ p {
     left: 0.05em;
     margin-right: -50%;
 
+}
+
+.quoteOffset{
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-bottom: -220px;
+}
+.quoteOffsetRight{
+  font-family: "adobe-garamond-pro",serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  overflow: hidden;
+  font-size: 250px;
+  margin-top: -100px;
+  float: right;
 }
 .quoteContent{
   margin-top: -185px;
