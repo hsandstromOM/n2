@@ -715,6 +715,12 @@ footer .row:last-child {
   margin-top: 10px
 }
 
+.tips-footer {
+  height:90px;
+  background-image: url("../../assets/img/Nautilus-footer_Mid.png");
+  /*background-image: url("../../assets/img/Nautilus-footer_Sides.png");*/
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .footer-mission {
