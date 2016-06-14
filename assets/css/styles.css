@@ -583,12 +583,15 @@ footer .row:last-child h6 {
   margin-top: 10px; }
 
 .tips-mid-footer {
+  text-align: center;
   padding-top: 44px;
   height: 90px;
+  width: 500px;
   background-image: url("../../assets/img/Nautilus-footer_Mid.png");
   /*background-image: url("../../assets/img/Nautilus-footer_Sides.png");*/ }
 
 .tips-side-footer {
+  padding: 0;
   padding-top: 44px;
   height: 90px;
   background-image: url("../../assets/img/Nautilus-footer_Sides.png"); }
