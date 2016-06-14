@@ -1,3 +1,5 @@
+var markdown = require('markdown').markdown;
+
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -21,13 +23,16 @@ angular
         // console.log("team member: " + teamMember.fields.teamMemberName);
 
         console.log(teamMember.fields.teamMemberBioPoints);
-        console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
+        // console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
         teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
+
+        console.log( markdown.toHTML(teamMember.fields.teamMemberBioPoints) );
+        teamMember.fields.teamMemberBioPointsHTML = markdown.toHTML(teamMember.fields.teamMemberBioPoints);
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
         // console.log("team member image id: " + imageId);
 
-         angular.forEach(imageArr, function (image) {
+        angular.forEach(imageArr, function (image) {
           if (image.sys.id == imageId) {
             teamMember.fields.teamMemberImageUrl = image.fields.file.url;
           }

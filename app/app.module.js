@@ -3,6 +3,7 @@ var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusApp', [
   'ui.router',
+  'ngSanitize'
 ]);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider) {
@@ -82,6 +83,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
         });
 });
 
+
+require('./app.module.js');
 require('./components/home/homeController');
 
 require('./components/about/aboutController');
@@ -108,6 +111,6 @@ require('./components/clientLogin/clientLoginController');
 require('./shared/customHomeListing/customHomeListingDirective');
 
 // require('showdown');
-// require('angular-sanitize/angular-sanitize');
+require('angular-sanitize/angular-sanitize');
 //
 // require('angular-markdown-directive/markdown.js');

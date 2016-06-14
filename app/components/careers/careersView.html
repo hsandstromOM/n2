@@ -29,10 +29,9 @@
         <h3>April 2016</h3>
         <h2 class="text-uppercase">{{ careerListing.fields.careerTitle }}</h2>
       </header>
-      <btf-markdown>
-        {{ careerListing.fields.careerDescription }}
-      </btf-markdown>
+      <div ng-bind-html="careerListing.fields.careerDescriptionHTML">
 
+      </div>
     </div>
   </section>
   <!-- <section class="row margin-lg career-listing bg-blue">

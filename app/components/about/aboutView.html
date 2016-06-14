@@ -62,10 +62,12 @@
                       </div>
                       <div class="modal-body bg-lt">
                         <div class="row">
-                          <div class="col-md-6">
-                            <ul class="ul-circles">
+                          <!-- MARKDOWN.JS CONVERSION -->
+                          <div class="col-md-6" ng-bind-html="teamMember.fields.teamMemberBioPointsHTML">
+                            <!-- MANUAL PARSING -->
+                            <!-- <ul class="ul-circles">
                               <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
-                            </ul>
+                            </ul> -->
                           </div>
                           <div class="col-md-6">
                             <h2>
