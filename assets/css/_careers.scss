@@ -16,12 +16,22 @@
 
 .career-listing ul {
   padding-left: 16px;
-  font-weight: 300;
+  list-style: none;
 }
 
 .career-listing li {
-  padding-left: 20px;
+  padding-left: 14px;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.career-listing li::before {
+  content: '○';
+  color: $dk-blue;
+  font-size: 24px;
+  position: absolute;
+  top: -7px;
+  left: -17px;
 }
 
 .apply-box {
@@ -32,10 +42,6 @@
   font-weight: 900;
 }
 
-.apply-box .circle-full {
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  margin: auto;
-  font-weight: 700;
+.apply-box .circle-button-60 {
+  margin: 30px auto;
 }

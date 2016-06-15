@@ -5,6 +5,14 @@ angular
   function NewsController(NewsService) {
     var vm = this;
 
+    NewsService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.mediaInquiriesText = mainContent.data.items;
+    });
+
     NewsService.getNewsPosts().then(function(newsPosts) {
       // console.log("news posts: " + newsPosts.data.items);
       window.news = newsPosts.data.items;

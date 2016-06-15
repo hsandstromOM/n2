@@ -251,6 +251,24 @@ aside blockquote footer {
   border: 2px solid #6082c1;
   border-radius: 100%; }
 
+.circle-button-60 {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #6082c1;
+  border-radius: 100%;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: white;
+  color: #6082c1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; }
+
+.circle-button-60:hover {
+  background-color: #6082c1;
+  color: white; }
+
 .margin-lg {
   padding-left: 18px;
   padding-right: 18px; }
@@ -299,15 +317,25 @@ aside blockquote footer {
   .ul-inline li {
     display: inline-block; }
 
-.ul-circles {
-  padding-left: 22px;
-  list-style: circle;
-  color: #253d93;
-  font-size: 24px; }
+.modal-body ul {
+  list-style: none; }
 
-.ul-circles p {
+.modal-body li {
   color: #000;
-  font-size: 14px; }
+  font-size: 14px;
+  position: relative;
+  padding-left: 20px; }
+
+.modal-body li::before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #253d93;
+  left: 6px;
+  top: 4px; }
 
 .flex-h {
   display: flex;
@@ -565,20 +593,40 @@ footer .row:last-child h6 {
 .caption h5:first-child {
   margin-top: 0; }
 
+.modal-header .glyphicon {
+  color: white; }
+
 .modal-banner {
   background-color: rgba(37, 61, 147, 0.7);
   position: absolute;
   left: 0;
   right: 0;
-  padding: 10px 34px;
+  padding: 15px 34px;
   bottom: 4%; }
+
+.modal-banner::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  border: solid white;
+  border-width: 2px 0; }
 
 .modal-banner h4 {
   color: #fff;
-  font-size: 30px; }
+  font-size: 30px;
+  display: inline-block; }
 
 .modal-banner h4 span {
   font-size: 14px; }
+
+.modal-banner .glyphicon {
+  float: right;
+  font-size: 24px;
+  margin-left: 5%;
+  margin-top: 2%; }
 
 .modal-body h2 {
   margin-top: 10px; }
@@ -651,6 +699,19 @@ footer .row:last-child h6 {
   padding: 0 32px;
   margin-bottom: 20px; }
 
+.team-member .img-container:hover {
+  opacity: .6;
+  cursor: pointer; }
+
+.team-member .img-container::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 25px;
+  left: 25px;
+  border: 2px solid white; }
+
 .team-member .xs {
   font-size: 7px; }
 
@@ -658,7 +719,7 @@ footer .row:last-child h6 {
   width: 80%;
   padding-right: 0; }
 
-.team-member button {
+.team-member .circle-button-40 {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
@@ -667,6 +728,9 @@ footer .row:last-child h6 {
   font-size: 12px;
   padding-left: 0px;
   padding-top: 4px; }
+
+.team-member button:hover {
+  opacity: .6; }
 
 .team-member .arrow-right::after {
   border-width: 4px 0 4px 4px;
@@ -696,11 +760,20 @@ footer .row:last-child h6 {
 
 .career-listing ul {
   padding-left: 16px;
-  font-weight: 300; }
+  list-style: none; }
 
 .career-listing li {
-  padding-left: 20px;
-  margin-bottom: 10px; }
+  padding-left: 14px;
+  margin-bottom: 10px;
+  position: relative; }
+
+.career-listing li::before {
+  content: '○';
+  color: #253d93;
+  font-size: 24px;
+  position: absolute;
+  top: -7px;
+  left: -17px; }
 
 .apply-box {
   margin-top: 100px; }
@@ -708,12 +781,8 @@ footer .row:last-child h6 {
 .apply-box h3 {
   font-weight: 900; }
 
-.apply-box .circle-full {
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  margin: auto;
-  font-weight: 700; }
+.apply-box .circle-button-60 {
+  margin: 30px auto; }
 
 .contact-form button[type="submit"] {
   display: block;
