@@ -29,9 +29,20 @@
         <h3>April 2016</h3>
         <h2 class="text-uppercase">{{ careerListing.fields.careerTitle }}</h2>
       </header>
-      <div ng-bind-html="careerListing.fields.careerDescriptionHTML">
+      <div ng-bind-html="careerListing.fields.careerDescriptionFirstCol">
 
       </div>
+      <div class="apply-box text-center">
+        <h3 class="text-success">Are you our next team member?</h3>
+        <a href="#">
+          <div class="circle-button-60">
+            Apply<br>here
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6" ng-bind-html="careerListing.fields.careerDescriptionSecondCol">
+
     </div>
   </section>
   <!-- <section class="row margin-lg career-listing bg-blue">

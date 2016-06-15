@@ -298,10 +298,32 @@ aside blockquote footer {
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
-  color: #6082c1;
+  color: $lt-blue;
   background: white;
-  border: 2px solid #6082c1;
+  border: 2px solid $lt-blue;
   border-radius: 100%;
+}
+
+.circle-button-60 {
+  width: 60px;
+  height: 60px;
+  border: 2px solid $lt-blue;
+  border-radius: 100%;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  background-color: white;
+  color: $lt-blue;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.circle-button-60:hover {
+  background-color: $lt-blue;
+  color: white;
 }
 
 .margin-lg {
