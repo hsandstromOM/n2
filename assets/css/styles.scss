@@ -496,17 +496,18 @@ button.navbar-toggle {
 // // FOOTER
 
 .footer-bar {
-  padding: 10px 0;
+  display:none;
+  padding: 0 0 10px 0;
   margin-bottom: 24px;
-  background-color: $lt-blue-trans;
+  /*background-color: $lt-blue-trans;*/
   text-align: center;
-  border: 2px solid $dk-blue;
+  /*border: 2px solid $dk-blue;*/
 }
 
 .social {
+  padding:0;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 4px;
 }
 
 .social h2 {
@@ -715,6 +716,47 @@ footer .row:last-child {
   margin-top: 10px
 }
 
+.tips-mid-footer {
+  text-align:center;
+  padding:0;
+  padding-top:52px;
+  height:110px;
+  /*width:100%;*/
+  /*width:500px;*/
+  background-image: url("../../assets/img/Nautilus-footer_Mid.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tips-side-footer {
+  margin-top:8px;
+  text-align:center;
+  padding:0;
+  padding-top:52px;
+  height:110px;
+  background-image: url("../../assets/img/Nautilus-footer_Sides.png");
+}
+
+.footer-larger {
+  @media (min-width: 992px) {
+    display:block;
+  }
+}
+
+.footer-smaller {
+  @media (max-width: 992px) {
+    display:block;
+  }
+}
+
+.no-padding {
+  padding:0;
+}
+
+.no-margin-bottom {
+  margin-bottom:0;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .footer-mission {
@@ -757,6 +799,7 @@ footer .row:last-child {
   form {
     padding-right: 60px;
   }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
