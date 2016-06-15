@@ -15,7 +15,7 @@ angular
     function getMainContent() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
+      $http.get(GET_URL + 'aboutUsPage&include=1').then(function(mainContent) {
         defer.resolve(mainContent);
       });
 

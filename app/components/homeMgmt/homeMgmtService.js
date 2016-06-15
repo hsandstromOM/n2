@@ -5,7 +5,28 @@ angular
   HomeMgmtService.$inject = ['$http', '$q'];
 
   function HomeMgmtService($http, $q) {
-    // INSERT CUSTOM HOMES DATA
+
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'homeManagementPage&include=1').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
+    function getHomeMgmtPortfolio() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'homeManagementProject&include=1').then(function(homeMgmtPortfolio) {
+        defer.resolve(homeMgmtPortfolio);
+      });
+
+      return defer.promise;
+    }
+
+    // DUMMY DATA
     var homeMgmtPortfolio = [
         {
           number: 0,
@@ -63,12 +84,13 @@ angular
         }
     ];
 
-    getHomeMgmtPortfolio = function() {
+    getDummyPortfolio = function() {
       return homeMgmtPortfolio;
     };
 
     return {
+      getMainContent: getMainContent,
       getHomeMgmtPortfolio: getHomeMgmtPortfolio,
-      // getProject: getProject
+      getDummyPortfolio: getDummyPortfolio,
     };
   }

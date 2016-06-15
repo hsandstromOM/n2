@@ -2,6 +2,8 @@
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-custom overlay">
     <h1 class="col-md-6 hero-font">
+      <!-- CONTENTFUL MODEL -->
+      <!-- {{ customHomesCtrl.bannerImageDescription }} -->
       Build the perfect house<br>to call home.
     </h1>
   </section>
@@ -10,6 +12,8 @@
   <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Our Work</h2>
+      <!-- CONTENTFUL MODEL -->
+      <!-- {{ customHomesCtrl.ourWorkDescription }} -->
       <p>
         With more than a decade of experience in construction management, the Nautilus team brings innovation and cutting-edge technologies to your new home. With exceptional service and a personalized construction plan, the Nautilus team will make the building process as enjoyable and easy as possible, whether you live in Charleston or are building from afar.
       </p>
@@ -26,6 +30,11 @@
         The house is <span>beautiful</span> and it is due to your high standards, patience, implementation skills, market knowledge and determination that you exceeded our expectations...We look forward to <span>working with you again</span> and recommending you highly to other islanders (and beyond).
         <footer>Bill and Ruth Ennis</footer>
       </blockquote>
+      <!-- CONTENTFUL MODEL -->
+      <!-- <blockquote class="quoteContent">
+        {{ customHomesCtrl.ourWorkQuote }}
+        <footer>{{ customHomesCtrl.ourWorkQuoteAuthor }}</footer>
+      </blockquote> -->
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
@@ -38,7 +47,7 @@
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <ul class="col-xs-12 pad-0">
-      <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+      <div class="custom-home col-sm-6" ng-repeat="home in customHomesCtrl.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
         <a ui-sref="customHomesDetail">
           <div>
             <img class="full-width" ng-src="{{ home.image }}" alt="" />
@@ -48,13 +57,17 @@
           </div>
         </a>
       </div>
-<!-- <custom-home-listing ng-repeat="customHome in customHomes.customHomes | limitTo:4"
-        number="{{ customHome.number }}"
-        name="{{ customHome.name }}"
-        subtitle="{{ customHome.subtitle }}"
-        image="{{ customHome.image }}"
-        selectHome="{{ customHomes.selectHome }}">
-      </project-listing> -->
+      <!-- CONTENTFUL MODEL -->
+      <!-- <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+        <a ui-sref="customHomesDetail">
+          <div>
+            <img class="full-width" ng-src="{{ home.thumbnailImage }}" alt="" />
+          </div>
+          <div class="caption">
+            <h4>{{ home.customHomeTitle }}, <span>{{ home.customHomeType }} - { home.serviceType }}</span></h4>
+          </div>
+        </a>
+      </div> -->
     </ul>
   </section>
 

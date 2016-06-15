@@ -2,27 +2,57 @@
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img">
     <h1 class="col-md-6">
-      {{ customHomes.selectedHome.name }}
+      {{ customHomesCtrl.selectedHome.name }}
       <br>
-      {{ customHomes.selectedHome.subtitle }}
+      {{ customHomesCtrl.selectedHome.subtitle }}
     </h1>
   </section>
+  <!-- CONTENTFUL MODEL -->
+  <!-- <section class="row margin-lg v-center hero-img">
+    <h1 class="col-md-6">
+      {{ customHomesCtrl.selectedHome.customHomeTitle }}
+      <br>
+      {{ customHomesCtrl.selectedHome.customHomeType }}
+    </h1>
+  </section> -->
+
 
   <!-- MAIN CONTENT -->
   <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
-      <h2 class="text-uppercase">{{ customHomes.selectedHome.heading }}</h2>
+      <h2 class="text-uppercase">{{ customHomesCtrl.selectedHome.heading }}</h2>
       <p>
-        {{ customHomes.selectedHome.summary }}
+        {{ customHomesCtrl.selectedHome.summary }}
       </p>
     </article>
-    <aside class="col-xs-12 col-md-6 margin-b-30">
-      <div>
-        <img class="full-width" src="http://placehold.it/600x350" alt="" />
-      </div>
-      <!-- <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci</h3> -->
+    <aside class="main-aside col-xs-12 col-md-6">
+      <h1 class="quote">“<h1>
+      <blockquote class="quoteContent">
+        The house is <span>beautiful</span> and it is due to your high standards, patience, implementation skills, market knowledge and determination that you exceeded our expectations...We look forward to <span>working with you again</span> and recommending you highly to other islanders (and beyond).
+        <footer>Bill and Ruth Ennis</footer>
+      </blockquote>
+      <h1 class="quote">”<h1>
+      <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
   </section>
+  <!-- CONTENTFUL MODEL  -->
+  <!-- <section class="row margin-lg v-margin-30">
+    <article class="main-article col-md-6">
+      <h2 class="text-uppercase">{{ customHomesCtrl.selectedHome.customHomeHeadline }}</h2>
+      <p>
+        {{ customHomesCtrl.selectedHome.customHomeDescription }}
+      </p>
+    </article>
+    <aside class="main-aside col-xs-12 col-md-6">
+      <h1 class="quote">“<h1>
+      <blockquote class="quoteContent">
+        {{ customHomesCtrl.selectedHome.quote }}
+        <footer>{{ customHomesCtrl.selectedHome.quoteAuthor }}</footer>
+      </blockquote>
+      <h1 class="quote">”<h1>
+      <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
+    </aside>
+  </section> -->
 
   <!-- PROJECT GALLERY -->
   <section class="row bg-blue">
@@ -34,9 +64,13 @@
         </div>
       </header>
       <div class="row text-center">
-        <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in customHomes.selectedHome.gallery track by $index">
+        <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in customHomesCtrl.selectedHome.gallery track by $index">
           <img class="full-width" ng-src="{{ image }}" alt="" />
         </div>
+        <!-- CONTENTFUL MODEL -->
+        <!-- <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in customHomesCtrl.selectedHome.customHomeGallery track by $index">
+          <img class="full-width" ng-src="{{ image }}" alt="" />
+        </div> -->
       </div>
     </div>
   </section>
@@ -53,6 +87,10 @@
       <li><h3 class="header-sm">Additions</h3></li>
       <li><h3 class="header-sm">Customer Support</h3></li>
     </ul>
+    <!-- CONTENTFUL MODEL -->
+    <!-- <ul class="ul-inline h-pad-18 margin-b-20 flex-h">
+      <li ng-repeat="service in customHomesCtrl.selectedHome.customHomeServices"><h3 class="header-sm">{{ service }}</h3></li>
+    </ul> -->
   </section>
 
   <!-- PRE-FOOTER BUFFER -->

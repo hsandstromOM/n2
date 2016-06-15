@@ -16,7 +16,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: './app/components/home/homeView.html',
             controller: 'HomeController',
-            controllerAs: 'home'
+            controllerAs: 'homeCtrl'
         })
 
         .state('about', {
@@ -30,21 +30,21 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/customHomes',
           templateUrl: './app/components/customHomes/customHomesView.html',
           controller: 'CustomHomesController',
-          controllerAs: 'customHomes'
+          controllerAs: 'customHomesCtrl'
         })
 
         .state('customHomesDetail', {
           url: '/customHomesDetail',
           templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
           controller: 'CustomHomesController',
-          controllerAs: 'customHomes'
+          controllerAs: 'customHomesCtrl'
         })
 
         .state('homeMgmt', {
           url: '/homeMgmt',
           templateUrl: './app/components/homeMgmt/homeMgmtView.html',
           controller: 'HomeMgmtController',
-          controllerAs: 'homeMgmt'
+          controllerAs: 'homeMgmtCtrl'
         })
 
         .state('news', {
@@ -58,14 +58,14 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/contact',
           templateUrl: './app/components/contact/contactView.html',
           controller: 'ContactController',
-          controllerAs: 'contact'
+          controllerAs: 'contactCtrl'
         })
 
         .state('testimonials', {
           url: '/testimonials',
           templateUrl: './app/components/testimonials/testimonialsView.html',
           controller: 'TestimonialsController',
-          controllerAs: 'testimonials'
+          controllerAs: 'testimonialsCtrl'
         })
 
         .state('careers', {

@@ -8,14 +8,14 @@ angular
   function AboutController(AboutService) {
     var vm = this;
 
-    AboutService.getMainContent().then(function(teamMembers) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+    AboutService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
       // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = teamMembers.data.items;
-      vm.bannerImageDescription = teamMembers.data.items;
-      vm.ourStoryDescription = teamMembers.data.items;
-      vm.ourStoryImage = teamMembers.data.items;
-      vm.ourStoryQuote = teamMembers.data.items;
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.ourStoryDescription = mainContent.data.items;
+      vm.ourStoryImage = mainContent.data.items;
+      vm.ourStoryQuote = mainContent.data.items;
     });
 
     AboutService.getTeamMembers().then(function(teamMembers) {

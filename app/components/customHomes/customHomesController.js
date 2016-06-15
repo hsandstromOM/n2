@@ -5,15 +5,32 @@ angular
   function CustomHomesController($scope, CustomHomesService) {
     var vm = this;
 
-    vm.customHomes = CustomHomesService.getCustomHomes();
-    vm.selectedHome = CustomHomesService.getSelectedHome(0);
+    CustomHomesService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.ourWorkDescription = mainContent.data.items;
+      vm.ourWorkQuote = mainContent.data.items;
+      vm.ourWorkQuoteAuthor = mainContent.data.items;
+    });
+
+    CustomHomesService.getCustomHomes().then(function(customHomes) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
+
+      vm.customHomes = customHomes.data.items;
+    });
+
+    vm.customHomes = CustomHomesService.getDummyHomes();
+    vm.selectedHome = CustomHomesService.getSelectedDummyHome(0);
 
     vm.selectHome = selectHome;
     vm.fromCtrl = 'hi';
     console.log('the custom homes controller');
 
     function selectHome(listingId) {
-       vm.selectedHome = CustomHomesService.getSelectedHome(listingId);
+       vm.selectedHome = CustomHomesService.getSelectedDummyHome(listingId);
        console.log("you selected: " + vm.selectedHome);
        window.glob = vm.selectedHome;
        window.vm.home = vm.selectedHome;

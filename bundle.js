@@ -17,7 +17,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: './app/components/home/homeView.html',
             controller: 'HomeController',
-            controllerAs: 'home'
+            controllerAs: 'homeCtrl'
         })
 
         .state('about', {
@@ -31,21 +31,21 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/customHomes',
           templateUrl: './app/components/customHomes/customHomesView.html',
           controller: 'CustomHomesController',
-          controllerAs: 'customHomes'
+          controllerAs: 'customHomesCtrl'
         })
 
         .state('customHomesDetail', {
           url: '/customHomesDetail',
           templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
           controller: 'CustomHomesController',
-          controllerAs: 'customHomes'
+          controllerAs: 'customHomesCtrl'
         })
 
         .state('homeMgmt', {
           url: '/homeMgmt',
           templateUrl: './app/components/homeMgmt/homeMgmtView.html',
           controller: 'HomeMgmtController',
-          controllerAs: 'homeMgmt'
+          controllerAs: 'homeMgmtCtrl'
         })
 
         .state('news', {
@@ -59,14 +59,14 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
           url: '/contact',
           templateUrl: './app/components/contact/contactView.html',
           controller: 'ContactController',
-          controllerAs: 'contact'
+          controllerAs: 'contactCtrl'
         })
 
         .state('testimonials', {
           url: '/testimonials',
           templateUrl: './app/components/testimonials/testimonialsView.html',
           controller: 'TestimonialsController',
-          controllerAs: 'testimonials'
+          controllerAs: 'testimonialsCtrl'
         })
 
         .state('careers', {
@@ -127,14 +127,14 @@ angular
   function AboutController(AboutService) {
     var vm = this;
 
-    AboutService.getMainContent().then(function(teamMembers) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+    AboutService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
       // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = teamMembers.data.items;
-      vm.bannerImageDescription = teamMembers.data.items;
-      vm.ourStoryDescription = teamMembers.data.items;
-      vm.ourStoryImage = teamMembers.data.items;
-      vm.ourStoryQuote = teamMembers.data.items;
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.ourStoryDescription = mainContent.data.items;
+      vm.ourStoryImage = mainContent.data.items;
+      vm.ourStoryQuote = mainContent.data.items;
     });
 
     AboutService.getTeamMembers().then(function(teamMembers) {
@@ -188,7 +188,7 @@ angular
     function getMainContent() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
+      $http.get(GET_URL + 'aboutUsPage&include=1').then(function(mainContent) {
         defer.resolve(mainContent);
       });
 
@@ -324,15 +324,32 @@ angular
   function CustomHomesController($scope, CustomHomesService) {
     var vm = this;
 
-    vm.customHomes = CustomHomesService.getCustomHomes();
-    vm.selectedHome = CustomHomesService.getSelectedHome(0);
+    CustomHomesService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.ourWorkDescription = mainContent.data.items;
+      vm.ourWorkQuote = mainContent.data.items;
+      vm.ourWorkQuoteAuthor = mainContent.data.items;
+    });
+
+    CustomHomesService.getCustomHomes().then(function(customHomes) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
+
+      vm.customHomes = customHomes.data.items;
+    });
+
+    vm.customHomes = CustomHomesService.getDummyHomes();
+    vm.selectedHome = CustomHomesService.getSelectedDummyHome(0);
 
     vm.selectHome = selectHome;
     vm.fromCtrl = 'hi';
     console.log('the custom homes controller');
 
     function selectHome(listingId) {
-       vm.selectedHome = CustomHomesService.getSelectedHome(listingId);
+       vm.selectedHome = CustomHomesService.getSelectedDummyHome(listingId);
        console.log("you selected: " + vm.selectedHome);
        window.glob = vm.selectedHome;
        window.vm.home = vm.selectedHome;
@@ -351,6 +368,32 @@ angular
   CustomHomesService.$inject = ['$http', '$q'];
 
   function CustomHomesService($http, $q) {
+    const CONTENT_URL = 'https://cdn.contentful.com';
+    const MEDIA_URL = 'https://images.contentful.com';
+    const SPACE_ID = '80s1v057uxnv';
+    const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
+
+    const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
+
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'customHomesPage&include=1').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
+    function getCustomHomes() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'customHomes&include=1').then(function(customHomes) {
+        defer.resolve(customHomes);
+      });
+
+      return defer.promise;
+    }
     // INSERT CUSTOM HOMES DATA
     var customHomes = [
         {
@@ -391,11 +434,11 @@ angular
         },
     ];
 
-    getCustomHomes = function() {
+    getDummyHomes = function() {
       return customHomes;
     };
 
-    getSelectedHome = function(selectedId) {
+    getSelectedDummyHome = function(selectedId) {
       var selectedHome = customHomes.filter(function(home) {
         return home.number == selectedId;
       });
@@ -405,8 +448,10 @@ angular
     };
 
     return {
+      getMainContent: getMainContent,
       getCustomHomes: getCustomHomes,
-      getSelectedHome: getSelectedHome
+      getDummyHomes: getDummyHomes,
+      getSelectedDummyHome: getSelectedDummyHome,
     };
   }
 
@@ -432,7 +477,26 @@ angular
   function HomeMgmtController(HomeMgmtService) {
     var vm = this;
 
-    vm.homeMgmtPortfolio = HomeMgmtService.getHomeMgmtPortfolio();
+    HomeMgmtService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.homeManagementHeadline = mainContent.data.items;
+      vm.homeManagementDescription = mainContent.data.items;
+      vm.homeManagementQuote = mainContent.data.items;
+      vm.homeManagementQuoteAuthor = mainContent.data.items;
+    });
+
+
+    HomeMgmtService.getHomeMgmtPortfolio().then(function(homeMgmtPortfolio) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
+
+      vm.homeMgmtPortfolio = homeMgmtPortfolio.data.items;
+    });
+
+    vm.homeMgmtPortfolio = HomeMgmtService.getDummyPortfolio();
 
     console.log('the HomeMgmt controller, it does nothing');
   }
@@ -445,7 +509,28 @@ angular
   HomeMgmtService.$inject = ['$http', '$q'];
 
   function HomeMgmtService($http, $q) {
-    // INSERT CUSTOM HOMES DATA
+
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'homeManagementPage&include=1').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
+    function getHomeMgmtPortfolio() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'homeManagementProject&include=1').then(function(homeMgmtPortfolio) {
+        defer.resolve(homeMgmtPortfolio);
+      });
+
+      return defer.promise;
+    }
+
+    // DUMMY DATA
     var homeMgmtPortfolio = [
         {
           number: 0,
@@ -503,13 +588,14 @@ angular
         }
     ];
 
-    getHomeMgmtPortfolio = function() {
+    getDummyPortfolio = function() {
       return homeMgmtPortfolio;
     };
 
     return {
+      getMainContent: getMainContent,
       getHomeMgmtPortfolio: getHomeMgmtPortfolio,
-      // getProject: getProject
+      getDummyPortfolio: getDummyPortfolio,
     };
   }
 
@@ -520,6 +606,14 @@ angular
 
   function NewsController(NewsService) {
     var vm = this;
+
+    NewsService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.mediaInquiriesText = mainContent.data.items;
+    });
 
     NewsService.getNewsPosts().then(function(newsPosts) {
       // console.log("news posts: " + newsPosts.data.items);
@@ -562,6 +656,16 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'newsPage&include=1').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
     function getNewsPosts() {
       var defer = $q.defer();
 
@@ -573,6 +677,7 @@ angular
     }
 
     return {
+      getMainContent: getMainContent,
       getNewsPosts: getNewsPosts,
     };
   }
