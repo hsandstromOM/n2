@@ -60,8 +60,8 @@
       <h3 class="header-sm text-success">Project Gallery</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmtCtrl.homeMgmtPortfolio | limitTo:9" style="position: relative; left: 0; top: 0;">
-      <img ng-src="{{home.image}}" style="position: relative; top: 0; left: 0;"/>
+    <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmtCtrl.homeMgmtPortfolio" style="position: relative; left: 0; top: 0;">
+      <img ng-src="{{ home.image }}" style="position: relative; top: 0; left: 0;"/>
     </div>
     <!-- CONTENTFUL MODEL -->
     <!-- <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmtCtrl.homeMgmtPortfolio | limitTo:9" style="position: relative; left: 0; top: 0;">

@@ -17,14 +17,14 @@ angular
     });
 
 
-    HomeMgmtService.getHomeMgmtPortfolio().then(function(homeMgmtPortfolio) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT
-      // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
-
-      vm.homeMgmtPortfolio = homeMgmtPortfolio.data.items;
-    });
+    // HomeMgmtService.getHomeMgmtPortfolio().then(function(homeMgmtPortfolio) {
+    //   // TO BE EDITED AFTER CLIENT ADDS CONTENT
+    //   // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
+    //
+    //   vm.homeMgmtPortfolio = homeMgmtPortfolio.data.items;
+    // });
 
     vm.homeMgmtPortfolio = HomeMgmtService.getDummyPortfolio();
 
-    console.log('the HomeMgmt controller, it does nothing');
+    console.log(vm.homeMgmtPortfolio);
   }
