@@ -299,15 +299,18 @@ aside blockquote footer {
   .ul-inline li {
     display: inline-block; }
 
-.ul-circles {
-  padding-left: 22px;
-  list-style: circle;
-  color: #253d93;
-  font-size: 24px; }
+.modal-body ul {
+  list-style: none; }
 
-.ul-circles p {
+.modal-body li {
   color: #000;
   font-size: 14px; }
+
+.modal-body li::before {
+  content: '○';
+  color: #253d93;
+  font-size: 24px;
+  margin-right: 20px; }
 
 .flex-h {
   display: flex;
@@ -650,6 +653,15 @@ footer .row:last-child h6 {
 .team-member {
   padding: 0 32px;
   margin-bottom: 20px; }
+
+.team-member .img-container::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 25px;
+  left: 25px;
+  border: 2px solid white; }
 
 .team-member .xs {
   font-size: 7px; }

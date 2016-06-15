@@ -26,7 +26,7 @@ angular
         // console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
         teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
 
-        console.log( markdown.toHTML(teamMember.fields.teamMemberBioPoints) );
+        console.log(markdown.toHTML(teamMember.fields.teamMemberBioPoints));
         teamMember.fields.teamMemberBioPointsHTML = markdown.toHTML(teamMember.fields.teamMemberBioPoints);
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
