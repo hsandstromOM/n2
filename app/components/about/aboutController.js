@@ -20,17 +20,13 @@ angular
       var imageId;
 
       angular.forEach(vm.teamMembers, function(teamMember) {
-        // console.log("team member: " + teamMember.fields.teamMemberName);
 
-        console.log(teamMember.fields.teamMemberBioPoints);
-        // console.log(teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n'));
-        teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
+        teamMember.fields.teamMemberFirstName = teamMember.fields.teamMemberName.split(' ')[0];
 
-        console.log(markdown.toHTML(teamMember.fields.teamMemberBioPoints));
+        // teamMember.fields.teamMemberBioPointsParsed = teamMember.fields.teamMemberBioPoints.replace(/- /g, '').split('\n');
         teamMember.fields.teamMemberBioPointsHTML = markdown.toHTML(teamMember.fields.teamMemberBioPoints);
 
         imageId = teamMember.fields.teamMemberImage.sys.id;
-        // console.log("team member image id: " + imageId);
 
         angular.forEach(imageArr, function (image) {
           if (image.sys.id == imageId) {
@@ -41,9 +37,6 @@ angular
     });
 
     AboutService.getCoreValues().then(function (coreValues) {
-      // console.log("coreValues: " +coreValues.data.items);
-      // window.core =coreValues.data.items;
-
       vm.coreValues =coreValues.data.items;
     });
   }

@@ -373,13 +373,20 @@ aside blockquote footer {
 .modal-body li {
   color: #000;
   font-size: 14px;
+  position: relative;
+  padding-left: 20px;
 }
 
 .modal-body li::before {
-  content: '○';
-  color: $dk-blue;
-  font-size: 24px;
-  margin-right: 20px;
+  position: absolute;
+  content: '';
+  width:0;
+  height:0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent $dk-blue;
+  left: 6px;
+  top: 4px;
 }
 
 .flex-h {
@@ -698,22 +705,46 @@ footer .row:last-child {
   margin-top: 0;
 }
 
+
+.modal-header .glyphicon {
+  color: white;
+}
+
 .modal-banner {
   background-color: $dk-blue-trans;
   position: absolute;
   left: 0;
   right: 0;
-  padding: 10px 34px;
+  padding: 15px 34px;
   bottom: 4%;
+}
+
+.modal-banner::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  border: solid white;
+  border-width: 2px 0;
 }
 
 .modal-banner h4 {
   color: #fff;
   font-size: 30px;
+  display: inline-block;
 }
 
 .modal-banner h4 span {
   font-size: 14px;
+}
+
+.modal-banner .glyphicon {
+  float: right;
+  font-size: 24px;
+  margin-left: 5%;
+  margin-top: 2%;
 }
 
 .modal-body h2 {

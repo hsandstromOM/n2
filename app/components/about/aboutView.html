@@ -37,7 +37,7 @@
           <!-- CONTENTFUL MODEL -->
           <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
             <div class="row">
-              <div class="col-xs-12 img-container">
+              <div class="col-xs-12 img-container" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
                 <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
               </div>
             </div>
@@ -58,6 +58,8 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                       <div class="modal-banner">
                         <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+                          <a href="http://stackoverflow.com/questions/23664802/links-not-working-on-twitter-bootstrap-modal-2-3-2"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a> 
+                          <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
                         </div>
                       </div>
                       <div class="modal-body bg-lt">
@@ -71,7 +73,7 @@
                           </div>
                           <div class="col-md-6">
                             <h2>
-                              About {{ teamMember.fields.teamMemberName }}
+                              About {{ teamMember.fields.teamMemberFirstName }}
                             </h2>
                             <p>
                               {{ teamMember.fields.teamMemberBio }}

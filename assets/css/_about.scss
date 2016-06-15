@@ -3,6 +3,11 @@
   margin-bottom: 20px;
 }
 
+.team-member .img-container:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
 .team-member .img-container::after {
   content: '';
   position: absolute;
@@ -22,7 +27,7 @@
   padding-right: 0;
 }
 
-.team-member button {
+.team-member .circle-button-40 {
   float: right;
   margin-right: 15px;
   margin-top: 3px;
@@ -31,6 +36,10 @@
   font-size: 12px;
   padding-left: 0px;
   padding-top: 4px;
+}
+
+.team-member button:hover {
+  opacity: .6;
 }
 
 .team-member .arrow-right::after {
