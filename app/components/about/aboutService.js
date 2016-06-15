@@ -12,6 +12,16 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
     function getTeamMembers() {
       var defer = $q.defer();
 
@@ -33,7 +43,8 @@ angular
     }
 
     return {
+      getMainContent: getMainContent,
       getTeamMembers: getTeamMembers,
-      getCoreValues: getCoreValues,
+      getCoreValues: getCoreValues
     };
   }

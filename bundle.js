@@ -127,6 +127,16 @@ angular
   function AboutController(AboutService) {
     var vm = this;
 
+    AboutService.getMainContent().then(function(teamMembers) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = teamMembers.data.items;
+      vm.bannerImageDescription = teamMembers.data.items;
+      vm.ourStoryDescription = teamMembers.data.items;
+      vm.ourStoryImage = teamMembers.data.items;
+      vm.ourStoryQuote = teamMembers.data.items;
+    });
+
     AboutService.getTeamMembers().then(function(teamMembers) {
       // console.log("team members: " + teamMembers.data.items);
       window.team = teamMembers.data.items;
@@ -175,6 +185,16 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
     function getTeamMembers() {
       var defer = $q.defer();
 
@@ -196,8 +216,9 @@ angular
     }
 
     return {
+      getMainContent: getMainContent,
       getTeamMembers: getTeamMembers,
-      getCoreValues: getCoreValues,
+      getCoreValues: getCoreValues
     };
   }
 
