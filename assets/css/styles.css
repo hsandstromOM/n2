@@ -620,37 +620,33 @@ footer .row:last-child h6 {
 @media (min-width: 768px) {
   .footer-mission {
     padding: 0 80px; }
-
   .margin-lg {
     padding-left: 72px;
     padding-right: 72px; }
-
   .hero-img h1 {
     padding-right: 94px; }
-
   .main-article {
     padding-right: 58px;
     text-align: left; } }
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .header-phone {
     display: block; }
-
   .social {
     text-align: left; }
-
   footer nav {
     text-align: right; }
-
   .section-img {
     width: 92%; }
-
   form {
     padding-right: 60px; } }
+
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {
     width: 870px; } }
+
 .team-member {
   padding: 0 32px;
   margin-bottom: 20px; }
@@ -686,6 +682,7 @@ footer .row:last-child h6 {
   .team-member {
     padding-left: 15px;
     padding-right: 15px; } }
+
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
 .career-listing header h2 {
@@ -777,6 +774,7 @@ footer .row:last-child h6 {
 
 .pre-footer:hover .main {
   display: none; }
+
 .pre-footer:hover .hover {
   display: block; }
 
@@ -801,10 +799,12 @@ footer .row:last-child h6 {
     height: 200px;
     width: 100%;
     overflow: hidden; } }
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .carousel-indicators {
     left: 18.5%; } }
+
 .news-article div {
   float: left;
   width: 50%;
@@ -886,5 +886,3 @@ footer .row:last-child h6 {
 
 .news-listing {
   margin-bottom: 20px; }
-
-/*# sourceMappingURL=styles.css.map */
