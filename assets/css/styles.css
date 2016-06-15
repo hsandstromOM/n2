@@ -590,7 +590,7 @@ footer .row:last-child h6 {
   height: 110px;
   /*width:100%;*/
   /*width:500px;*/
-  background-image: url("../../assets/img/Nautilus-footer_Mid.png");
+  background-image: url("../../assets/img/footer-mid.png");
   background-repeat: no-repeat;
   background-position: center; }
 
@@ -600,7 +600,7 @@ footer .row:last-child h6 {
   padding: 0;
   padding-top: 52px;
   height: 110px;
-  background-image: url("../../assets/img/Nautilus-footer_Sides.png"); }
+  background-image: url("../../assets/img/footer-sides.png"); }
 
 @media (min-width: 992px) {
   .footer-larger {
