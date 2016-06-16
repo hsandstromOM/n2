@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div contentful-entry="'id'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img">
     <h1 class="col-md-6">
@@ -7,12 +7,12 @@
       {{ customHomesCtrl.selectedHome.subtitle }}
     </h1>
   </section>
-  <!-- CONTENTFUL MODEL -->
-  <!-- <section class="row margin-lg v-center hero-img">
+  <!-- CONTENTFUL MODEL
+  <section class="row margin-lg v-center hero-img-custom overlay" ng-style="{ background: 'url({{ $contentfulEntry.fields.bannerImage }}'">
     <h1 class="col-md-6">
-      {{ customHomesCtrl.selectedHome.customHomeTitle }}
+      {{ $contentfulEntry.fields.customHomeTitle }}
       <br>
-      {{ customHomesCtrl.selectedHome.customHomeType }}
+      {{ $contentfulEntry.fields.customHomeType }}
     </h1>
   </section> -->
 
@@ -38,16 +38,16 @@
   <!-- CONTENTFUL MODEL  -->
   <!-- <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
-      <h2 class="text-uppercase">{{ customHomesCtrl.selectedHome.customHomeHeadline }}</h2>
+      <h2 class="text-uppercase">{{ $contentfulEntry.fields.customHomeHeadline }}</h2>
       <p>
-        {{ customHomesCtrl.selectedHome.customHomeDescription }}
+        {{ $contentfulEntry.fields.customHomeDescription }}
       </p>
     </article>
     <aside class="main-aside col-xs-12 col-md-6">
       <h1 class="quote">“<h1>
       <blockquote class="quoteContent">
-        {{ customHomesCtrl.selectedHome.quote }}
-        <footer>{{ customHomesCtrl.selectedHome.quoteAuthor }}</footer>
+        {{ $contentfulEntry.fields.quote }}
+        <footer>{{ $contentfulEntry.fields.quoteAuthor }}</footer>
       </blockquote>
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
@@ -68,7 +68,7 @@
           <img class="full-width" ng-src="{{ image }}" alt="" />
         </div>
         <!-- CONTENTFUL MODEL -->
-        <!-- <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in customHomesCtrl.selectedHome.customHomeGallery track by $index">
+        <!-- <div class="col-sm-6 col-md-4 margin-b-30" ng-repeat="image in $contentfulEntry.fields.customHomeGallery track by $index">
           <img class="full-width" ng-src="{{ image }}" alt="" />
         </div> -->
       </div>
@@ -89,7 +89,7 @@
     </ul>
     <!-- CONTENTFUL MODEL -->
     <!-- <ul class="ul-inline h-pad-18 margin-b-20 flex-h">
-      <li ng-repeat="service in customHomesCtrl.selectedHome.customHomeServices"><h3 class="header-sm">{{ service }}</h3></li>
+      <li ng-repeat="service in $contentfulEntry.fields.customHomeServices"><h3 class="header-sm">{{ service }}</h3></li>
     </ul> -->
   </section>
 
