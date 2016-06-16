@@ -1,12 +1,14 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=homeManagementPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-homemgmt overlay">
+  <!-- CONTENTFUL MODEL -->
+  <!-- <section class="row margin-lg v-center hero-img-homemgmt overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage }}'"> -->
     <h1 class="col-md-6 tk-museo-slab hero-font">
       Providing peace of mind that your home is in good hands.
     </h1>
     <!-- CONTENTFUL MODEL -->
     <!-- <h1 class="col-md-6 tk-museo-slab hero-font">
-      {{ homeMgmtCtrl.bannerImageDescription }}
+      {{ $contentfulEntries.items.bannerImageDescription }}
     </h1> -->
   </section>
 
@@ -37,16 +39,16 @@
   <!-- CONTENTFUL MODEL -->
   <!-- <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
-      <h2 class="text-uppercase">{{ homeMgmtCtrl.homeManagementHeadline }}</h2>
+      <h2 class="text-uppercase">{{ $contentfulEntries.items.homeManagementHeadline }}</h2>
       <p>
-        {{ homeMgmtCtrl.homeManagementDescription }}
+        {{ $contentfulEntries.items.homeManagementDescription }}
       </p>
     </article>
     <aside class="main-aside col-xs-12 col-md-6">
       <h1 class="quote">“<h1>
       <blockquote class="quoteContent">
-        {{ homeMgmtCtrl.homeManagementQuote }}
-        <footer>{{ homeMgmtCtrl.homeManagementQuoteAuthor }}</footer>
+        {{ $contentfulEntries.items.homeManagementQuote }}
+        <footer>{{ $contentfulEntries.items.homeManagementQuoteAuthor }}</footer>
       </blockquote>
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
@@ -64,8 +66,10 @@
       <img ng-src="{{ home.image }}" style="position: relative; top: 0; left: 0;"/>
     </div>
     <!-- CONTENTFUL MODEL -->
-    <!-- <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmtCtrl.homeMgmtPortfolio | limitTo:9" style="position: relative; left: 0; top: 0;">
-      <img ng-src="{{ home.thumbnailImage }}" style="position: relative; top: 0; left: 0;"/>
+    <!-- <div contentful-entries="'content_type=homeManagementProject'" class="">
+      <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in $contentfulEntries.items" style="position: relative; left: 0; top: 0;">
+        <img ng-src="{{ home.fields.thumbnailImage }}" style="position: relative; top: 0; left: 0;"/>
+      </div>
     </div> -->
   </section>
 
