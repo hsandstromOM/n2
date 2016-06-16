@@ -1,9 +1,11 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=customHomesPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-custom overlay">
+  <!-- CONTENTFUL MODEL -->
+  <!-- <section class="row margin-lg v-center hero-img-custom overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage }}'"> -->
     <h1 class="col-md-6 hero-font">
       <!-- CONTENTFUL MODEL -->
-      <!-- {{ customHomesCtrl.bannerImageDescription }} -->
+      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
       Build the perfect house<br>to call home.
     </h1>
   </section>
@@ -13,7 +15,7 @@
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Our Work</h2>
       <!-- CONTENTFUL MODEL -->
-      <!-- {{ customHomesCtrl.ourWorkDescription }} -->
+      <!-- {{ $contentfulEntries.items.ourWorkDescription }} -->
       <p>
         With more than a decade of experience in construction management, the Nautilus team brings innovation and cutting-edge technologies to your new home. With exceptional service and a personalized construction plan, the Nautilus team will make the building process as enjoyable and easy as possible, whether you live in Charleston or are building from afar.
       </p>
@@ -32,8 +34,8 @@
       </blockquote>
       <!-- CONTENTFUL MODEL -->
       <!-- <blockquote class="quoteContent">
-        {{ customHomesCtrl.ourWorkQuote }}
-        <footer>{{ customHomesCtrl.ourWorkQuoteAuthor }}</footer>
+        {{ $contentfulEntries.items.ourWorkQuote }}
+        <footer>{{ $contentfulEntries.items.ourWorkQuoteAuthor }}</footer>
       </blockquote> -->
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
@@ -47,6 +49,8 @@
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <ul class="col-xs-12 pad-0">
+    <!-- CONTENTFUL MODEL -->
+    <!-- <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0"> -->
       <div class="custom-home col-sm-6" ng-repeat="home in customHomesCtrl.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
         <a ui-sref="customHomesDetail">
           <div>
@@ -58,13 +62,13 @@
         </a>
       </div>
       <!-- CONTENTFUL MODEL -->
-      <!-- <div class="custom-home col-sm-6" ng-repeat="home in customHomes.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+      <!-- <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items" ng-click="customHomes.selectHome(home.number)">
         <a ui-sref="customHomesDetail">
           <div>
-            <img class="full-width" ng-src="{{ home.thumbnailImage }}" alt="" />
+            <img class="full-width" ng-src="{{ home.fields.thumbnailImage }}" alt="" />
           </div>
           <div class="caption">
-            <h4>{{ home.customHomeTitle }}, <span>{{ home.customHomeType }} - { home.serviceType }}</span></h4>
+            <h4>{{ home.fields.customHomeTitle }}, <span>{{ home.fields.customHomeType }} - { home.fields.serviceType }}</span></h4>
           </div>
         </a>
       </div> -->
