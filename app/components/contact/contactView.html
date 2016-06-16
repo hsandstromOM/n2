@@ -1,9 +1,11 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=contactUsPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-contact overlay">
+  <!-- <section class="row margin-lg v-center hero-img-contact overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
     <h1 class="col-md-6 hero-font">
       Let's get started:<br>
       Contact us today.
+      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
     </h1>
   </section>
   <!-- MAIN CONTENT -->
@@ -67,19 +69,49 @@
         <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
       </ul>
     </aside>
+    <!-- CONTENTFUL MODEL -->
+    <!-- <aside class="col-xs-12 col-md-6">
+      <img class="full-width" src="assets/img/contact-map.png" alt="" />
+      <div class="map-caption">
+        <h3 class="text-success" style="font-size:20px;">{{ $contentfulEntries.items.contactInformationTitle }}</h3>
+        <p style="font-size:20px;">
+          {{ $contentfulEntries.items.contactAddress }}<br>
+          {{ $contentfulEntries.items.contactCityStateZipCode }}<br>
+          United States
+        </p>
+        <ul class="ul-inline text-primary">
+          <li><i class="fa fa-2x fa-phone" aria-hidden="true"></i></li>
+          <li><p class="text-primary" style="font-size:20px;"> {{ $contentfulEntries.items.contactPhoneNumber }}</p></li>
+        </ul>
+      </div>
+      <ul class="ul-inline">
+        <br><br>
+        <li><p class="text-primary" style="font-size:20px;">Connect with us:</p></li>
+        <li><a href="http://facebook.com/NautilusCompany" target="_blank"><i class="fa fa-2x fa-facebook-f" aria-hidden="true"></i></a></li>
+        <li><a href="http://twitter.com/@NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="http://linkedin.com/company/nautilus-company" target="_blank"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a></li>
+        <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+      </ul>
+    </aside> -->
   </section>
   <!-- CAREERS SECTION -->
   <section class="row bg-blue margin-lg">
     <div class="col-xs-12 margin-b-20">
       <header class="row">
         <div class="col-xs-12 text-center">
+          <!-- CONTENTFUL MODEL -->
+          <!-- <h3 class="header-sm text-success">{{ $contentfulEntries.items.careersSectionTitle }}</h3> -->
           <h3 class="header-sm text-success">Careers</h3>
           <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
         </div>
       </header>
       <div class="row text-center">
         <div class="col-sm-6 col-sm-offset-3 text-justify">
-          <p >
+          <!-- CONTENTFUL MODEL -->
+          <!-- <p>
+            {{ $contentfulEntries.items.careersSectionDescription }}
+          </p> -->
+          <p>
             Nautilus Company is a passionate team of industry experts who strive to go the extra mile for our clients. The leadership at Nautilus aims to inspire teamwork and cultivate employee productivity, learning and growth.
           </p>
           <p class="inline">

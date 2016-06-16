@@ -27,6 +27,10 @@ angular
       angular.forEach(vm.newsPosts, function(newsPost) {
         // console.log("news post: " + teamMember.fields.title);
 
+        if (newsPost.fields.featured === "true") {
+          vm.featuredNewsPost = newsPost;
+        }
+
         imageId = newsPost.fields.thumbnailImage.sys.id;
         // console.log("news post thumbnail id: " + imageId);
 

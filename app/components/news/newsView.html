@@ -1,12 +1,13 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=newsPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-news overlay">
+  <!-- <section class="row margin-lg v-center hero-img-news overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
     <h1 class="col-md-6 hero-font">
       Nautilus News
     </h1>
     <!-- CONTENTFUL MODEL -->
     <!-- <h1 class="col-md-6 hero-font">
-      {{ newsCtrl.bannerImageDescription }}
+      {{ $contentfulEntries.items.bannerImageDescription }}
     </h1> -->
   </section>
 
@@ -26,6 +27,23 @@
         <a href="#"><h3 class="text-success arrow-right">Read on</h3></a>
       </div>
     </article>
+    <!-- CONTENTFUL MODEL -->
+    <!-- NEED TO FIND FEATURED POST -->
+    <!-- <section contentful-entries="'content_type=newsPost'" class="row margin-lg v-margin-30">
+    <article ng-repeat="featuredPost in $contentfulEntries.items | filter:{featured: 'true'} | limitTo:1" class="news-article col-md-9">
+      <div>
+        <img class="full-width news-article-lead" ng-src="featuredPost.fields.thumbnailImageUrl.fields.file.url" alt="" />
+      </div>
+      <div class="bg-blue">
+        <h3 class="text-success">{{ featuredPost.fields.topic }}:</h3>
+        <h1 class="text-success">{{ featuredPost.fields.title }}</h1>
+        <h4>{{ featuredPost.fields.date }}</h4>
+        <p>
+          {{ featuredPost.fields.featuredDescription }}
+        </p>
+        <a href="#"><h3 class="text-success arrow-right">Read on</h3></a>
+      </div>
+    </article> -->
     <nav class="col-md-3 text-center news-nav">
         <h3 class="header-sm text-success">Topics</h3>
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
@@ -48,7 +66,7 @@
         </p>
         <!-- CONTENTFUL MODEL -->
         <!-- <p>
-          {{ newsCtrl.mediaInquiriesText }}
+          {{ $contentfulEntries.items.mediaInquiriesText }}
         </p> -->
     </nav>
   </section>
@@ -59,12 +77,12 @@
       <h3 class="header-sm text-success">2016 News</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <ul class="col-xs-12 pad-0">
+    <ul contentful-entries="'content_type=newsPost'" class="col-xs-12 pad-0">
       <!-- CONTENTFUL MODEL -->
-      <div class="news-listing col-sm-6" ng-repeat="newsPost in newsCtrl.newsPosts">
+      <div class="news-listing col-sm-6" ng-repeat="newsPost in $contentfulEntries.items">
         <a href="#">
           <div>
-            <img class="full-width news-article" ng-src="{{ newsPost.fields.thumbnailImageUrl }}" alt="" />
+            <img class="full-width news-article" ng-src="{{ newsPost.fields.thumbnailImage.fields.file.url }}" alt="" />
           </div>
           <div class="caption">
             <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
