@@ -1,9 +1,11 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=aboutUsPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-about overlay">
+  <!-- CONTENTFUL MODEL -->
+  <!-- <section class="row margin-lg v-center hero-img-about overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage }}'"> -->
     <h1 class="col-md-6 hero-font">
       <!-- CONTENTFUL MODEL -->
-      <!-- {{ aboutCtrl.bannerImageDescription }} -->
+      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
       We strive to set new standards in customer satisfaction and work purposefully to surpass our customers' expectations
     </h1>
   </section>
@@ -12,7 +14,7 @@
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Our Story</h2>
       <!-- CONTENTFUL MODEL -->
-      <!-- {{ aboutCtrl.ourStoryDescription }} -->
+      <!-- {{ $contentfulEntries.items.ourStoryDescription }} -->
       <p>
         Founded by Bill Payzant in 2010, Nautilus Company is passionate about improving the lives of our clients. By focusing on long-term solutions, Nautilus reduces the stress of owning or building a home in the South Carolina Lowcountry.
       </p>
@@ -27,8 +29,8 @@
       <img class="full-width" src="assets/img/about.jpg" alt="" />
       <figcaption>A <span>passion</span> to make people's lives easier by reducing the stress associated with <span>building</span> and <span>owning a home.</span></figcaption>
       <!-- CONTENTFUL MODEL -->
-      <!-- <img class="full-width" ng-src="{{ ourStoryImage }}" alt="" /> -->
-      <!-- <figcaption>{{ ourStoryQuote }}</figcaption> -->
+      <!-- <img class="full-width" ng-src="{{ $contentfulEntries.items.ourStoryImage }}" alt="Our Story Image" /> -->
+      <!-- <figcaption>{{ $contentfulEntries.items.ourStoryQuote }}</figcaption> -->
     </figure>
   </section>
   <!-- TEAM SECTION -->
@@ -40,12 +42,12 @@
             <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
           </div>
         </header>
-        <div class="row text-center">
+        <div contentful-entries="'content_type=teamMember'" class="row text-center">
           <!-- CONTENTFUL MODEL -->
-          <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
+          <div ng-repeat="teamMember in $contentfulEntries.items" class="col-sm-6 col-md-4 team-member">
             <div class="row">
               <div class="col-xs-12 img-container" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
-                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
+                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
               </div>
             </div>
             <div class="row caption text-left">
@@ -71,12 +73,8 @@
                       </div>
                       <div class="modal-body bg-lt">
                         <div class="row">
-                          <!-- MARKDOWN.JS CONVERSION -->
-                          <div class="col-md-6" ng-bind-html="teamMember.fields.teamMemberBioPointsHTML">
-                            <!-- MANUAL PARSING -->
-                            <!-- <ul class="ul-circles">
-                              <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
-                            </ul> -->
+                          <div class="col-md-6" marked="teamMember.fields.teamMemberBioPoints">
+                            <!-- CONVERTED BIO POINTS MARKDOWN -->
                           </div>
                           <div class="col-md-6">
                             <h2>
@@ -93,6 +91,57 @@
                 </div>
             </div>
           </div>
+          <!-- <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
+            <div class="row">
+              <div class="col-xs-12 img-container" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
+                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
+              </div>
+            </div>
+            <div class="row caption text-left">
+              <div class="col-xs-12">
+                <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+              </div>
+              <div class="col-xs-10 contact">
+                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
+                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+              </div>
+              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
+              MODAL
+              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                      <div class="modal-banner">
+                        <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+                          <a href="http://stackoverflow.com/questions/23664802/links-not-working-on-twitter-bootstrap-modal-2-3-2"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
+                          <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+                        </div>
+                      </div>
+                      <div class="modal-body bg-lt">
+                        <div class="row">
+                          MARKDOWN.JS CONVERSION
+                          <div class="col-md-6" ng-bind-html="teamMember.fields.teamMemberBioPointsHTML">
+                            MANUAL PARSING
+                            <! <ul class="ul-circles">
+                              <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-6">
+                            <h2>
+                              About {{ teamMember.fields.teamMemberFirstName }}
+                            </h2>
+                            <p>
+                              {{ teamMember.fields.teamMemberBio }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div> -->
 
           <!-- HARD-CODED TEAM MEMBERS -- TO DELETE -->
           <!-- <div class="col-sm-6 col-md-4 team-member">
@@ -242,12 +291,15 @@
       </div>
     </header>
     <!-- CONTENTFUL MODEL -->
-    <div class="col-sm-3 sm-article" ng-repeat="coreValue in aboutCtrl.coreValues">
-      <h3 class="text-uppercase">{{ coreValue.fields.coreValueTitle }}</h3>
-      <p>
-        {{ coreValue.fields.coreValueDescription }}
-      </p>
+    <div contentful-entries="'content_type=coreValue'" class="">
+      <div class="col-sm-3 sm-article" ng-repeat="coreValue in $contentfulEntries.items">
+        <h3 class="text-uppercase">{{ coreValue.fields.coreValueTitle }}</h3>
+        <p>
+          {{ coreValue.fields.coreValueDescription }}
+        </p>
+      </div>
     </div>
+
 
     <!--  HARD-CODED CORE VALUES -- TO DELETE -->
     <!-- <div class="col-sm-3 sm-article">

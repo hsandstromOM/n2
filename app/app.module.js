@@ -3,10 +3,17 @@ var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusApp', [
   'ui.router',
-  'ngSanitize'
+  'ngSanitize',
+  'contentful',
+  'hc.marked'
 ]);
 
-nautilusApp.config(function($stateProvider, $urlRouterProvider) {
+nautilusApp.config(function($stateProvider, $urlRouterProvider, contentfulProvider) {
+
+    contentfulProvider.setOptions({
+      space: '80s1v057uxnv',
+      accessToken: '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500'
+    });
 
     $urlRouterProvider.otherwise('/home');
 
@@ -84,7 +91,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 
-require('./app.module.js');
+require('./app.routes.js');
 require('./components/home/homeController');
 
 require('./components/about/aboutController');
@@ -110,7 +117,6 @@ require('./components/clientLogin/clientLoginController');
 
 require('./shared/customHomeListing/customHomeListingDirective');
 
-// require('showdown');
 require('angular-sanitize/angular-sanitize');
-//
-// require('angular-markdown-directive/markdown.js');
+require('angular-contentful/dist/angular-contentful.js');
+require('angular-marked/dist/angular-marked.js');

@@ -12,10 +12,20 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
+    function getMainContent() {
+      var defer = $q.defer();
+
+      $http.get(GET_URL + 'career').then(function(mainContent) {
+        defer.resolve(mainContent);
+      });
+
+      return defer.promise;
+    }
+
     function getCareerListings() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'career').then(function(careerListings) {
+      $http.get(GET_URL + 'careersPage&include=1').then(function(careerListings) {
         defer.resolve(careerListings);
       });
 
@@ -23,6 +33,7 @@ angular
     }
 
     return {
+      getMainContent: getMainContent,
       getCareerListings: getCareerListings,
     };
   }

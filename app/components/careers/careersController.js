@@ -7,6 +7,16 @@ angular
   function CareersController(CareersService) {
     var vm = this;
 
+    CareersService.getMainContent().then(function(mainContent) {
+      // TO BE EDITED AFTER CLIENT ADDS CONTENT
+      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
+      vm.bannerImage = mainContent.data.items;
+      vm.bannerImageDescription = mainContent.data.items;
+      vm.careersDescription = mainContent.data.items;
+      vm.careersImage = mainContent.data.items;
+      vm.careersQuote = mainContent.data.items;
+    });
+
     CareersService.getCareerListings().then(function(careerListings) {
       console.log("careerListings: " + careerListings.data.items);
       window.careers = careerListings.data.items;
