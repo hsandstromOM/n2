@@ -1,12 +1,13 @@
-<div class="container-fluid">
+<div contentful-entries="'content_type=careersPage'" class="container-fluid">
   <!-- HERO IMAGE -->
   <section class="row margin-lg v-center hero-img-careers overlay">
+  <!-- <section class="row margin-lg v-center hero-img-careers overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
     <h1 class="col-md-6 hero-font">
       We seek out only the best team players and understand that together we accomplish great things.
     </h1>
     <!-- CONTENTFUL MODEL -->
     <!-- <h1 class="col-md-6 hero-font">
-      {{ careersCtrl.bannerImageDescription }}
+      {{ $contentfulEntries.items.bannerImageDescription }}
     </h1> -->
   </section>
   <!-- MAIN CONTENT -->
@@ -30,17 +31,32 @@
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Careers</h2>
       <p>
-        {{ careersCtrl.careersDescription }}
+        {{ $contentfulEntries.items.careersDescription }}
       </p>
     </article>
     <figure class="main-photo col-xs-12 col-md-6">
-      <img class="full-width" ng-src="{{ careersCtrl.careersImage }}" alt="" />
-      <figcaption>{{ careersCtrl.careersQuote }}</figcaption>
+      <img class="full-width" ng-src="{{ $contentfulEntries.items.careersImage.fields.file.url }}" alt="" />
+      <figcaption>{{ $contentfulEntries.items.careersQuote }}</figcaption>
     </figure>
   </section> -->
 
   <!-- CAREER LISTING -->
-  <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in careersCtrl.careerListings">
+  <div contentful-entries="'content_type=career'" class="">
+    <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in $contentfulEntries.items">
+      <div class="col-md-6">
+        <header>
+          <h3>April 2016</h3>
+          <h2 class="text-uppercase">{{ careerListing.fields.careerTitle }}</h2>
+        </header>
+
+        <div marked="careerListing.fields.careerDescription">
+          <!-- CONVERTED CAREER DESCRIPTION MARKDOWN -->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in contentfulEntries.items">
     <div class="col-md-6">
       <header>
         <h3>April 2016</h3>
@@ -61,7 +77,8 @@
     <div class="col-md-6" ng-bind-html="careerListing.fields.careerDescriptionSecondCol">
 
     </div>
-  </section>
+  </section> -->
+
   <!-- <section class="row margin-lg career-listing bg-blue">
     <div class="col-md-6">
       <header>

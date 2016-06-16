@@ -64,6 +64,13 @@
   font-size: 28px;
   text-shadow: none; }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; }
+
 body {
   background-image: url("../img/bg-pattern-light.jpg");
   background-repeat: repeat;
@@ -185,7 +192,7 @@ p {
 
 .quoteContent {
   margin-top: -185px;
-  margin-bottom: -105px; }
+  margin-bottom: -85px; }
 
 blockquote {
   padding: 40px 20px 50px 30px;
@@ -215,6 +222,7 @@ aside blockquote footer {
   margin-top: 13px; }
 
 .blockquote-wide {
+  padding: 40px 20px 50px 30px;
   padding: 40px 65px 50px 85px;
   border: none; }
 
@@ -270,8 +278,8 @@ aside blockquote footer {
   color: white; }
 
 .margin-lg {
-  padding-left: 18px;
-  padding-right: 18px; }
+  padding-left: 32px;
+  padding-right: 32px; }
 
 .buffer {
   height: 60px; }
@@ -351,7 +359,8 @@ aside blockquote footer {
   justify-content: center; }
 
 .sm-article {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  padding: 0; }
 
 .sm-article h3 {
   margin: 0; }
@@ -407,7 +416,7 @@ aside blockquote footer {
   border-width: 5px 5px 0 5px;
   border-color: #253d93 transparent transparent transparent;
   bottom: 15px;
-  left: 42%; }
+  left: 47.5%; }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -543,12 +552,16 @@ footer .row:last-child h6 {
 
 .main-article {
   text-align: justify;
-  padding: 0; }
+  padding: 0 0 30px; }
   .main-article h2 {
     margin: 0 0 20px; }
 
+.main-photo {
+  padding: 0; }
+
 .main-photo figcaption {
-  padding: 12px 30px;
+  padding: 0;
+  text-align: center;
   font-size: 16px;
   font-style: italic;
   font-weight: 500; }
@@ -563,13 +576,14 @@ footer .row:last-child h6 {
   font-size: 24px; }
 
 .main-aside {
-  margin-top: 40px; }
+  margin-top: 40px;
+  padding: 0; }
 
 .main-aside .arrow-right {
   margin-right: 10px;
   display: block;
   text-align: right;
-  margin-top: -100px; }
+  margin-top: -165px; }
 
 .caption h4 {
   font-family: "museo-slab", Times, serif;
@@ -666,6 +680,9 @@ footer .row:last-child h6 {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .navbar .nav > li > a:focus:after,
+  .navbar .nav > li > a:hover:after {
+    left: 42%; }
   .footer-mission {
     padding: 0 80px; }
   .margin-lg {
@@ -674,7 +691,7 @@ footer .row:last-child h6 {
   .hero-img h1 {
     padding-right: 94px; }
   .main-article {
-    padding-right: 58px;
+    padding: 0 58px 0 0;
     text-align: left; } }
 
 /* Medium devices (desktops, 992px and up) */
@@ -687,8 +704,20 @@ footer .row:last-child h6 {
     text-align: right; }
   .section-img {
     width: 92%; }
+  .main-aside, .main-photo, .sm-article {
+    padding-right: 15px;
+    padding-left: 15px; }
+  .main-aside .arrow-right {
+    margin-top: -200px; }
+  .main-photo figcaption {
+    padding: 12px 30px;
+    text-align: left; }
+  .quoteContent {
+    margin-bottom: -105px; }
   form {
-    padding-right: 60px; } }
+    padding-right: 60px; }
+  .blockquote-wide {
+    padding: 40px 65px 50px 85px; } }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
@@ -789,7 +818,14 @@ footer .row:last-child h6 {
   margin: 25px auto; }
 
 .custom-home {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  padding: 0; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .custom-home {
+    padding-right: 15px;
+    padding-left: 15px; } }
 
 .carousel-indicators {
   left: 50%; }
