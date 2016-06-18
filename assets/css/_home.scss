@@ -1,17 +1,15 @@
 .carousel-indicators {
   left: 50%;
 }
-
 .home-slider-img{
-  height:425px;
-  width:100%;
+  height: 425px;
+  width: 100%;
   overflow: hidden;
 }
-
-.carousel-indicators li, .carousel-indicators .active {
+.carousel-indicators li,
+.carousel-indicators .active {
   margin: 0 3px;
 }
-
 .carousel-caption-box {
   position: absolute;
   height:100%;
@@ -31,39 +29,34 @@
 .carousel-caption-box:hover{
   color: #fff !important;
 }
-
 .carousel-caption-box h1 {
   font-size: 24px;
   font-weight: 300;
 }
-
 .carousel-caption-box p {
   font-size: 18px;
   font-weight: 300;
   padding-right:50px;
 }
-
 #slider-cap {
-  background-color: rbga(0,0,255, .22);
+  background-color: rbga(0, 0, 255, .22);
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
 }
-.hover {
+.active {
   display: none;
 }
-
 .pre-footer:hover {
-  .main {
+  .inactive {
     display: none;
   }
-  .hover {
+  .active {
     display: block;
   }
 }
-
 .pre-footer h1 {
   font-size: 24px;
   font-family: museo-slab;
@@ -73,11 +66,9 @@
   width: 56%;
   top: 2%;
 }
-
 #pre-footer-left h1 {
   right: 8%;
 }
-
 #pre-footer-right h1 {
   left: 8%;
 }
