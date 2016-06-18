@@ -14,18 +14,18 @@
   font-weight: 700;
 }
 
-.career-listing ul {
+.career-listing ul, .sm-article ul {
   padding-left: 16px;
   list-style: none;
 }
 
-.career-listing li {
-  padding-left: 14px;
+.career-listing li, .sm-article li {
+  padding-left: 6px;
   margin-bottom: 10px;
   position: relative;
 }
 
-.career-listing li::before {
+.career-listing li::before, .sm-article li::before {
   content: '○';
   color: $dk-blue;
   font-size: 24px;

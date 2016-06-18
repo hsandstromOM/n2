@@ -40,9 +40,9 @@
     </figure>
   </section> -->
 
-  <!-- CAREER LISTING -->
   <div contentful-entries="'content_type=career'" class="">
-    <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in $contentfulEntries.items">
+    <!-- CAREER LISTING -->
+    <section ng-repeat="careerListing in $contentfulEntries.items" class="row margin-lg career-listing bg-blue">
       <div class="col-md-6">
         <header>
           <h3>April 2016</h3>
@@ -52,107 +52,36 @@
         <div marked="careerListing.fields.careerDescription">
           <!-- CONVERTED CAREER DESCRIPTION MARKDOWN -->
         </div>
+
+        <h3>Requirements</h3>
+        <div marked="careerListing.fields.requirements">
+          <!-- CONVERTED REQUIREMENTS MARKDOWN -->
+        </div>
+
+        <div class="apply-box text-center">
+          <h3 class="text-success">Are you our next team member?</h3>
+          <a ng-href="{{ careerListing.fields.careerLinkUrl }}">
+            <div class="circle-button-60">
+              Apply<br>here
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 v-margin-20">
+        <h3>Responsibilities</h3>
+        <div marked="careerListing.fields.responsibilities">
+          <!-- CONVERTED RESPONSIBILITIES MARKDOWN -->
+        </div>
+
+        <h3>Preferred Skills</h3>
+        <div marked="careerListing.fields.preferredSkills">
+          <!-- CONVERTED PREFERRED SKILLS MARKDOWN -->
+        </div>
       </div>
     </section>
   </div>
 
-  <!-- <section class="row margin-lg career-listing bg-blue" ng-repeat="careerListing in contentfulEntries.items">
-    <div class="col-md-6">
-      <header>
-        <h3>April 2016</h3>
-        <h2 class="text-uppercase">{{ careerListing.fields.careerTitle }}</h2>
-      </header>
-      <div ng-bind-html="careerListing.fields.careerDescriptionFirstCol">
-
-      </div>
-      <div class="apply-box text-center">
-        <h3 class="text-success">Are you our next team member?</h3>
-        <a href="#">
-          <div class="circle-button-60">
-            Apply<br>here
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6" ng-bind-html="careerListing.fields.careerDescriptionSecondCol">
-
-    </div>
-  </section> -->
-
-  <!-- <section class="row margin-lg career-listing bg-blue">
-    <div class="col-md-6">
-      <header>
-        <h3>April 2016</h3>
-        <h2 class="text-uppercase">Warranty / Punch Position Available</h2>
-      </header>
-      <p>
-        Nautilus is looking for a bright, driven, organized individual seeking a long-term career opportunity as a multi-skilled craftsman/ Remodeler specializing in all types of home repair, maintenance and remodeling. You must have advanced construction / handyman skills with the ability to effectively communicate with others with a positive attitude. Under general supervision, perform finish work in the design, repair and maintenance of custom residential homes. In this role, you will also assist our project manager in the day-to-day operation of our custom home building and remodeling projects. You MUST have the passion to go the extra mile, support our team members, and to exceed our exceptional quality and customer service standards.
-      </p>
-      <p>
-        You will spend 95% of your time in the field which will require you to be independent, motivated, detail oriented, well organized, with the ability and confidence to make sound decisions. As a result, Nautilus is only looking for "A Players" who are willing to follow our processes with enthusiasm.
-      </p>
-      <p>
-        Position is located in Mount Pleasant, SC. Estimated hourly earnings the first year is $15-20/hour, based on your skillset + potential benefits package. Team members are eligible for benefits package after 3-month review.
-      </p>
-      <p>
-        Nautilus is a growing company that encourages promotion from within. Potential upward mobility is available for the right individual. Education and development programs are available to enhance our team members' professional growth. We also offer excellent vacatino benefits, health and wellness plan, personal home maintenance allowance, auto allowance, and other great perks.
-      </p>
-      <h3>Requirements</h3>
-      <ul>
-        <li>Basic set of hand tools and power tools</li>
-        <li>Personal vehicle: SUV or Pickup preferred</li>
-      </ul>
-      <div class="apply-box text-center">
-        <h3 class="text-success">Are you our next team member?</h3>
-        <a href="#">
-          <div class="circle-full text-uppercase">
-            Apply<br>here
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-6 v-margin-20">
-      <h3>Responsibilities</h3>
-      <ul>
-        <li>Follow building plans to meet the needs of clients</li>
-        <li>Constructs, remodels, retrofits and repairs interior and exterior structures made of wood, drywall, plaster, concrete or brick</li>
-        <li>Measure, cut or shape wood, fiberglass, drywall and other matherials</li>
-        <li>Inspect and replace damaged framework or other structures and fixtures</li>
-        <li>Have base knowledge of building codes</li>
-        <li>Install and finish drywall</li>
-        <li>Interior and exterior painting</li>
-        <li>Good use of basic math skills</li>
-        <li>Attention to detail</li>
-        <li>Monitors work completed by outside contractors for adherence to Company Strandards, Local, State and Federal Code Requirements and reports back to supervisor</li>
-        <li>Good knowledge of mechanical, electrical, and plumbing systems</li>
-        <li>Organize and maintain multiple job schedules</li>
-        <li>Lead and manage subcontractors</li>
-        <li>Order materials and fixtures</li>
-        <li>Enforce jobsite safety requirements and maintain clean jobsites</li>
-        <li>Uphold our quality control standards</li>
-        <li>Maintain job records and documentation on a daily basis</li>
-        <li>Participate in weekly, monthly, and quarterly team meetings</li>
-        <li>Interact with government officials and enforce various Code requirements</li>
-        <li>Deliver an exceptional customer experience</li>
-      </ul>
-      <h3>Preferred Skills</h3>
-      <ul>
-        <li>Must have a passion for building & maintaining high quality homes</li>
-        <li>Must be extremely detail & process oriented, able to multi-task, & meet deadlines</li>
-        <li>Willing and able to manage other people</li>
-        <li>Must be a problem solver and feel comfortable and confident making decisions on your own</li>
-        <li>Have very strong organizational and time management skills</li>
-        <li>Desire to contribute to the success of our growing company</li>
-        <li>Must have a vehicle capable of accessing jobsites</li>
-        <li>Basic computer skills, including ability to type, required (Word, Excel, & cloud-based computing)</li>
-        <li>2 years minimum experience supervising residential contruction projects. College degree preferred</li>
-        <li>Must be able to read and translate architectural plans and specifications</li>
-        <li>Experienced carpenter</li>
-        <li>Good understanding of plumbing, electrical, and mechanical systems</li>
-        <li>Bonus: ability to speak and understand Spanish</li>
-      </ul>
-    </div>
-  </section> -->
   <!-- PRE-FOOTER BUFFER -->
   <section class="buffer"></section>
   <section class="buffer"></section>

@@ -55,7 +55,8 @@
 
 .modal-header {
   height: 400px;
-  background-image: url("http://fillmurray.com/600/400");
+  background-position: center;
+  background-size: cover;
   position: relative; }
 
 .close {
@@ -147,7 +148,8 @@ p {
   overflow: hidden;
   text-align: center;
   font-size: 250px;
-  margin-top: -85px; }
+  margin-top: -85px;
+  margin-bottom: -150px; }
 
 .testimonialsView {
   margin-top: -60px; }
@@ -188,6 +190,7 @@ p {
   overflow: hidden;
   font-size: 250px;
   margin-top: -100px;
+  margin-bottom: -110px;
   float: right; }
 
 .quoteContent {
@@ -223,7 +226,6 @@ aside blockquote footer {
 
 .blockquote-wide {
   padding: 40px 20px 50px 30px;
-  padding: 40px 65px 50px 85px;
   border: none; }
 
 .bg-lt {
@@ -359,8 +361,7 @@ aside blockquote footer {
   justify-content: center; }
 
 .sm-article {
-  margin-bottom: 20px;
-  padding: 0; }
+  margin-bottom: 20px; }
 
 .sm-article h3 {
   margin: 0; }
@@ -552,12 +553,9 @@ footer .row:last-child h6 {
 
 .main-article {
   text-align: justify;
-  padding: 0 0 30px; }
+  padding-bottom: 0 0 30px; }
   .main-article h2 {
     margin: 0 0 20px; }
-
-.main-photo {
-  padding: 0; }
 
 .main-photo figcaption {
   padding: 0;
@@ -576,8 +574,7 @@ footer .row:last-child h6 {
   font-size: 24px; }
 
 .main-aside {
-  margin-top: 40px;
-  padding: 0; }
+  margin-top: 40px; }
 
 .main-aside .arrow-right {
   margin-right: 10px;
@@ -725,14 +722,17 @@ footer .row:last-child h6 {
     width: 870px; } }
 
 .team-member {
-  padding: 0 32px;
+  padding: 0 47px;
   margin-bottom: 20px; }
 
-.team-member .img-container:hover {
+.hover-mute:hover {
   opacity: .6;
   cursor: pointer; }
 
-.team-member .img-container::after {
+.white-box {
+  position: relative; }
+
+.white-box::after {
   content: '';
   position: absolute;
   top: 10px;
@@ -787,16 +787,16 @@ footer .row:last-child h6 {
 .career-listing h3 {
   font-weight: 700; }
 
-.career-listing ul {
+.career-listing ul, .sm-article ul {
   padding-left: 16px;
   list-style: none; }
 
-.career-listing li {
-  padding-left: 14px;
+.career-listing li, .sm-article li {
+  padding-left: 6px;
   margin-bottom: 10px;
   position: relative; }
 
-.career-listing li::before {
+.career-listing li::before, .sm-article li::before {
   content: '○';
   color: #253d93;
   font-size: 24px;
@@ -818,8 +818,7 @@ footer .row:last-child h6 {
   margin: 25px auto; }
 
 .custom-home {
-  margin-bottom: 20px;
-  padding: 0; }
+  margin-bottom: 20px; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -910,21 +909,26 @@ footer .row:last-child h6 {
   .carousel-indicators {
     left: 18.5%; } }
 
-.news-article div {
+.featured-article {
+  margin-bottom: 30px; }
+
+.featured-article div {
   float: left;
-  width: 50%;
-  height: 370px;
+  width: 100%;
+  height: 350px;
   display: inline-block; }
 
-.news-article {
-  height: 325px; }
+.featured-article div:first-child {
+  background-image: url("../img/team-laura.jpg");
+  background-size: cover;
+  background-position: center; }
+
+.featured-article div:last-child {
+  padding: 0px 26px; }
 
 .news-article-lead {
   width: auto !important;
   height: 100%; }
-
-.news-article div:last-child {
-  padding: 16px; }
 
 .news-article h3 {
   font-weight: 700;
@@ -966,6 +970,9 @@ footer .row:last-child h6 {
 .news-nav a {
   color: #253d93; }
 
+.news-nav li:hover {
+  font-weight: 500; }
+
 .search-bar {
   width: 100%;
   border: solid #6082c1;
@@ -991,3 +998,15 @@ footer .row:last-child h6 {
 
 .news-listing {
   margin-bottom: 20px; }
+
+.news-listing .white-box::after {
+  right: 10px;
+  left: 10px; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .featured-article div {
+    width: 50%;
+    height: 370px; }
+  .featured-article div:last-child {
+    padding: 16px; } }

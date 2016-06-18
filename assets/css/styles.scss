@@ -77,7 +77,8 @@ $serif: "museo-slab", Times, serif;
 
 .modal-header {
   height: 400px;
-  background-image: url('http://fillmurray.com/600/400');
+  background-position: center;
+  background-size: cover;
   position: relative;
 }
 
@@ -186,6 +187,7 @@ p {
   text-align: center;
   font-size: 250px;
   margin-top: -85px;
+  margin-bottom: -150px;
 }
 .testimonialsView{
     margin-top: -60px;
@@ -228,6 +230,7 @@ p {
   overflow: hidden;
   font-size: 250px;
   margin-top: -100px;
+  margin-bottom: -110px;
   float: right;
 }
 
@@ -270,7 +273,6 @@ aside blockquote footer {
 
 .blockquote-wide {
   padding: 40px 20px 50px 30px;
-  padding: 40px 65px 50px 85px;
   border: none;
 }
 
@@ -438,7 +440,6 @@ aside blockquote footer {
 
 .sm-article {
   margin-bottom: 20px;
-  padding: 0;
 }
 
 .sm-article h3 {
@@ -674,14 +675,10 @@ footer .row:last-child {
 
 .main-article {
   text-align: justify;
-  padding: 0 0 30px;
+  padding-bottom: 0 0 30px;
   h2 {
     margin: 0 0 20px;
   }
-}
-
-.main-photo {
-  padding: 0;
 }
 
 .main-photo figcaption {
@@ -706,7 +703,6 @@ footer .row:last-child {
 
 .main-aside {
   margin-top: 40px;
-  padding: 0;
 }
 
 .main-aside .arrow-right {
