@@ -7,7 +7,6 @@ $lt-blue-trans: rgba(96, 130, 193, .4);
 $sans: "museo-sans", Helvetica, sans-serif;
 $serif: "museo-slab", Times, serif;
 
-
 // BOOTSTRAP DEFAULT OVERRIDES
 .container-fluid {
   padding: 0;
@@ -78,7 +77,8 @@ $serif: "museo-slab", Times, serif;
 
 .modal-header {
   height: 400px;
-  background-image: url('http://fillmurray.com/600/400');
+  background-position: center;
+  background-size: cover;
   position: relative;
 }
 
@@ -90,6 +90,14 @@ $serif: "museo-slab", Times, serif;
 }
 
 // PRIMARY STYLES
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 body {
   background-image: url('../img/bg-pattern-light.jpg');
   background-repeat: repeat;
@@ -179,6 +187,7 @@ p {
   text-align: center;
   font-size: 250px;
   margin-top: -85px;
+  margin-bottom: -150px;
 }
 .testimonialsView{
     margin-top: -60px;
@@ -221,11 +230,13 @@ p {
   overflow: hidden;
   font-size: 250px;
   margin-top: -100px;
+  margin-bottom: -110px;
   float: right;
 }
+
 .quoteContent{
   margin-top: -185px;
-  margin-bottom: -105px;
+  margin-bottom: -85px;
 }
 
 blockquote {
@@ -261,7 +272,7 @@ aside blockquote footer {
 }
 
 .blockquote-wide {
-  padding: 40px 65px 50px 85px;
+  padding: 40px 20px 50px 30px;
   border: none;
 }
 
@@ -327,8 +338,8 @@ aside blockquote footer {
 }
 
 .margin-lg {
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .buffer {
@@ -498,7 +509,7 @@ aside blockquote footer {
   border-width: 5px 5px 0 5px;
   border-color: $dk-blue transparent transparent transparent;
   bottom: 15px;
-  left: 42%;
+  left: 47.5%;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -664,14 +675,15 @@ footer .row:last-child {
 
 .main-article {
   text-align: justify;
-  padding: 0;
+  padding-bottom: 0 0 30px;
   h2 {
     margin: 0 0 20px;
   }
 }
 
 .main-photo figcaption {
-  padding: 12px 30px;
+  padding: 0;
+  text-align: center;
   font-size: 16px;
   font-style: italic;
   font-weight: 500;
@@ -697,7 +709,7 @@ footer .row:last-child {
   margin-right: 10px;
   display: block;
   text-align: right;
-  margin-top:-100px;
+  margin-top: -165px;
 }
 
 .caption h4 {
@@ -816,6 +828,11 @@ footer .row:last-child {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .navbar .nav > li > a:focus:after,
+  .navbar .nav > li > a:hover:after {
+    left: 42%;
+  }
+
   .footer-mission {
     padding: 0 80px;
   }
@@ -830,7 +847,7 @@ footer .row:last-child {
   }
 
   .main-article {
-    padding-right: 58px;
+    padding: 0 58px 0 0;
     text-align: left;
   }
 }
@@ -853,10 +870,31 @@ footer .row:last-child {
     width: 92%;
   }
 
+  .main-aside, .main-photo, .sm-article {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .main-aside .arrow-right {
+    margin-top: -200px;
+  }
+
+  .main-photo figcaption {
+    padding: 12px 30px;
+    text-align: left;
+  }
+
+  .quoteContent {
+    margin-bottom: -105px;
+  }
+
   form {
     padding-right: 60px;
   }
 
+  .blockquote-wide {
+    padding: 40px 65px 50px 85px;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */

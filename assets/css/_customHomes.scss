@@ -1,3 +1,11 @@
 .custom-home {
   margin-bottom: 20px;
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .custom-home {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

@@ -1,25 +1,27 @@
-.news-article div {
+.featured-article {
+  margin-bottom: 30px;
+}
+
+.featured-article div {
   float: left;
-  width: 50%;
-  height: 370px;
+  width: 100%;
+  height: 350px;
   display: inline-block;
 }
 
-.news-article{
-  height:325px;
+.featured-article div:first-child {
+  background-image: url('../img/team-laura.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.news-article div:first-child {
-
+.featured-article div:last-child {
+  padding: 0px 26px;
 }
 
 .news-article-lead{
   width:auto !important;
   height:100%;
-}
-
-.news-article div:last-child {
-  padding: 16px;
 }
 
 .news-article h3 {
@@ -71,6 +73,10 @@
   color: $dk-blue;
 }
 
+.news-nav li:hover {
+  font-weight: 500;
+}
+
 .search-bar {
   width: 100%;
   border: solid $lt-blue;
@@ -100,7 +106,23 @@
   margin-top: 15px;
 }
 
-
 .news-listing {
   margin-bottom: 20px;
+}
+
+.news-listing .white-box::after {
+  right: 10px;
+  left: 10px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .featured-article div {
+    width: 50%;
+    height: 370px;
+  }
+
+  .featured-article div:last-child {
+    padding: 16px;
+  }
 }

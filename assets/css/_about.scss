@@ -1,14 +1,17 @@
 .team-member {
-  padding: 0 32px;
+  padding: 0 47px;
   margin-bottom: 20px;
 }
 
-.team-member .img-container:hover {
+.hover-mute:hover {
   opacity: .6;
   cursor: pointer;
 }
 
-.team-member .img-container::after {
+.white-box {
+  position: relative;
+}
+.white-box::after {
   content: '';
   position: absolute;
   top: 10px;

@@ -1,5 +1,3 @@
-var markdown = require('markdown').markdown;
-
 angular
   .module('nautilusApp')
   .controller('CareersController', CareersController);

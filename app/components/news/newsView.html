@@ -13,10 +13,8 @@
 
   <!-- MAIN CONTENT -->
   <section class="row margin-lg v-margin-30">
-    <article class="news-article col-md-9">
-      <div>
-        <img class="full-width news-article-lead" src="assets/img/team-laura.jpg" alt="" />
-      </div>
+    <article class="featured-article white-box col-xs-12 col-md-9">
+      <div></div>
       <div class="bg-blue">
         <h3 class="text-success">Nautilus Employee Spotlight:</h3>
         <h1 class="text-success">Laura Forger</h1>
@@ -44,8 +42,8 @@
         <a href="#"><h3 class="text-success arrow-right">Read on</h3></a>
       </div>
     </article> -->
-    <nav class="col-md-3 text-center news-nav">
-        <h3 class="header-sm text-success">Topics</h3>
+    <nav class="col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-0 text-center news-nav">
+        <h3 class="text-success">Topics</h3>
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
         <ul class="text-success">
           <a href="#"><li>Custom Homes</li></a>
@@ -74,15 +72,15 @@
   <!-- ARTICLE LIST -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="header-sm text-success">2016 News</h3>
+      <h3 class="text-success">2016 News</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <ul contentful-entries="'content_type=newsPost'" class="col-xs-12 pad-0">
       <!-- CONTENTFUL MODEL -->
       <div class="news-listing col-sm-6" ng-repeat="newsPost in $contentfulEntries.items">
         <a href="#">
-          <div>
-            <img class="full-width news-article" ng-src="{{ newsPost.fields.thumbnailImage.fields.file.url }}" alt="" />
+          <div class="white-box hover-mute">
+            <img class="full-width" ng-src="{{ newsPost.fields.thumbnailImage.fields.file.url }}" alt="" />
           </div>
           <div class="caption">
             <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
