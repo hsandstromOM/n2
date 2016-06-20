@@ -546,7 +546,8 @@ footer .row:last-child h6 {
   background-repeat: repeat; }
 
 .modal-dialog {
-  width: 62%; }
+  width: 62%;
+  text-align: left; }
 
 .modal-content {
   border-radius: 0; }
@@ -583,9 +584,6 @@ footer .row:last-child h6 {
   left: 6px;
   top: 4px; }
 
-.modal-header .glyphicon {
-  color: white; }
-
 .modal-banner {
   background-color: rgba(37, 61, 147, 0.7);
   position: absolute;
@@ -612,11 +610,15 @@ footer .row:last-child h6 {
 .modal-banner h4 span {
   font-size: 14px; }
 
-.modal-banner .glyphicon {
+.modal-banner .fa {
   float: right;
+  color: white;
   font-size: 24px;
   margin-left: 5%;
   margin-top: 2%; }
+
+.modal-banner .fa-mobile {
+  font-size: 32px; }
 
 .modal-body h2 {
   margin-top: 10px; }

@@ -633,6 +633,7 @@ footer .row:last-child {
 }
 .modal-dialog {
   width: 62%;
+  text-align: left;
 }
 .modal-content {
   border-radius: 0;
@@ -669,9 +670,9 @@ footer .row:last-child {
   left: 6px;
   top: 4px;
 }
-.modal-header .glyphicon {
-  color: white;
-}
+// .modal-header .fa {
+//   color: white;
+// }
 .modal-banner {
   background-color: $dk-blue-trans;
   position: absolute;
@@ -698,11 +699,15 @@ footer .row:last-child {
 .modal-banner h4 span {
   font-size: 14px;
 }
-.modal-banner .glyphicon {
+.modal-banner .fa {
   float: right;
+  color: white;
   font-size: 24px;
   margin-left: 5%;
   margin-top: 2%;
+}
+.modal-banner .fa-mobile {
+  font-size: 32px;
 }
 .modal-body h2 {
   margin-top: 10px

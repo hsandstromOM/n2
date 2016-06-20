@@ -1,4 +1,5 @@
-<div contentful-entries="'content_type=aboutUsPage'" class="container-fluid">
+<div class="container-fluid">
+  <div contentful-entries="'content_type=aboutUsPage'" >
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
@@ -22,11 +23,10 @@
       </figure>
     </section>
   </div>
+  </div>
 
   <!-- TEAM SECTION -->
   <section class="row bg-blue">
-
-
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
       <header class="row">
         <div class="col-xs-12 text-center">
@@ -35,58 +35,60 @@
         </div>
       </header>
       <div contentful-entries="'content_type=teamMember'" class="row text-center">
-        <div ng-repeat="teamMember in $contentfulEntries.items"class="">
+        <div ng-repeat="teamMember in $contentfulEntries.items">
           <div class="clearfix visible-sm-block" ng-if="$index % 2 == 0"></div>
           <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
           <div class="col-xs-12 col-sm-6 col-md-4 team-member">
-              <div class="col-xs-12 white-box hover-mute" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
-                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
-              </div>
-              <div class="col-xs-12 caption text-left">
-                <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-                <!-- <h4>{{ teamMember.fields.teamMemberName }}, <span ng-class="{ 'xs' : teamMember.fields.teamMemberTitle.length > 18}">{{ teamMember.fields.teamMemberTitle }}<span></h4> -->
-              </div>
-              <button type="button" class="caption circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
+            <div class="col-xs-12 white-box hover-mute" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
+              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
+            </div>
+            <div class="col-xs-12 caption text-left">
+              <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+              <!-- <h4>{{ teamMember.fields.teamMemberName }}, <span ng-class="{ 'xs' : teamMember.fields.teamMemberTitle.length > 18}">{{ teamMember.fields.teamMemberTitle }}<span></h4> -->
+            </div>
+            <button type="button" class="caption circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
 
-              <div class="contact caption text-left">
-                <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ teamMember.fields.teamMemberEmail }}</h5>
-                <h5><i class="fa fa-mobile" aria-hidden="true"></i> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
-              </div>
-              <!-- MODAL -->
-              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header" ng-style="{'background-image' : 'url({{ teamMember.fields.teamMemberImage.fields.file.url }})'}">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                      <div class="modal-banner">
-                        <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-                          <a href="http://stackoverflow.com/questions/23664802/links-not-working-on-twitter-bootstrap-modal-2-3-2"><i class="fa fa-mobile" aria-hidden="true"></i></a>
-                          <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
-                        </div>
+            <div class="contact caption text-left">
+              <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ teamMember.fields.teamMemberEmail }}</h5>
+              <h5><i class="fa fa-mobile" aria-hidden="true"></i> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+            </div>
+            <!-- MODAL -->
+            <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" ng-style="{'background-image' : 'url({{ teamMember.fields.teamMemberImage.fields.file.url }})'}">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                    <div class="modal-banner">
+                      <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+                      <a href=""><i class="fa fa-mobile" aria-hidden="true"></i></a>
+                      <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                  <div class="modal-body bg-lt">
+                    <div class="row">
+                      <div class="col-md-6" marked="teamMember.fields.teamMemberBioPoints">
+                        <!-- CONVERTED BIO POINTS MARKDOWN -->
                       </div>
-                      <div class="modal-body bg-lt">
-                        <div class="row">
-                          <div class="col-md-6" marked="teamMember.fields.teamMemberBioPoints">
-                            <!-- CONVERTED BIO POINTS MARKDOWN -->
-                          </div>
-                          <div class="col-md-6">
-                            <h2>
-                              About {{ teamMember.fields.teamMemberFirstName }}
-                            </h2>
-                            <p>
-                              {{ teamMember.fields.teamMemberBio }}
-                            </p>
-                          </div>
-                        </div>
+                      <div class="col-md-6">
+                        <h2>
+                          About {{ teamMember.fields.teamMemberFirstName }}
+                        </h2>
+                        <p>
+                          {{ teamMember.fields.teamMemberBio }}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <!-- END MODAL DIALOG -->
             </div>
+            <!-- END MODAL -->
           </div>
+          <!-- END TEAM MEMBER -->
         </div>
       </div>
-    </div>
+    </div>  
   </section>
 
   <!-- CORE VALUES -->
