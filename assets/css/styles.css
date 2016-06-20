@@ -687,12 +687,12 @@ footer .row:last-child h6 {
   font-size: 7px; }
 
 .contact {
-  width: 80%;
-  padding-right: 0; }
+  float: left;
+  padding-left: 15px; }
 
 .team-member .circle-button-40 {
   float: right;
-  margin-right: 15px;
+  margin-right: 11px;
   margin-top: 3px;
   font-weight: 700;
   background-color: transparent;
@@ -715,8 +715,8 @@ footer .row:last-child h6 {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .team-member {
-    padding-left: 15px;
-    padding-right: 15px; } }
+    padding-left: 0;
+    padding-right: 0; } }
 
 .career-listing header h2 {
   margin-top: 0; }
