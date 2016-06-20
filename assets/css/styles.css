@@ -474,55 +474,8 @@ footer .row:last-child h6 {
   height: 300px;
   background-image: url("../../assets/img/home-banner.png");
   background-position: center;
+  background-position-y: initial;
   color: white; }
-
-.hero-img-about {
-  height: 300px;
-  background-image: url("../../assets/img/about-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
-
-.hero-img-careers {
-  height: 300px;
-  background-image: url("../../assets/img/careers-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
-
-.hero-img-contact {
-  height: 300px;
-  background-image: url("../../assets/img/contact-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
-
-.hero-img-custom {
-  height: 300px;
-  background-image: url("../../assets/img/custom-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
-
-.hero-img-homemgmt {
-  height: 300px;
-  background-image: url("../../assets/img/home-management-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
-
-.hero-img-news {
-  height: 300px;
-  background-image: url("../../assets/img/news-banner.png");
-  background-position: center;
-  color: white;
-  background-size: cover;
-  background-position-y: initial; }
 
 .hero-img h1 {
   font-family: "museo-slab", Times, serif;
