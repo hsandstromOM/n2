@@ -1,98 +1,101 @@
 <div contentful-entries="'content_type=contactUsPage'" class="container-fluid">
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
-  <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
-    <h1 class="col-md-6 hero-font">
-      {{ page.fields.bannerImageDescription }}
-    </h1>
-  </section>
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30">
-    <article class="main-article col-xs-12 col-md-6">
-      <h2 class="text-uppercase">
-        Contact
-      </h2>
-      <form class="contact-form" action="index.html" method="post">
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Name*" class="form-control">
+    <!-- HERO IMAGE -->
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+      <h1 class="col-md-6 hero-font">
+        {{ page.fields.bannerImageDescription }}
+      </h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="row margin-lg v-margin-30">
+      <article class="main-article col-xs-12 col-md-6">
+        <h2 class="text-uppercase">
+          Contact
+        </h2>
+        <form class="contact-form" action="index.html" method="post">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Name*" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Email*" class="form-control">
+          </div>
+          <div class="form-group input-group">
+            <input type="text" name="subject" placeholder="Subject:" class="form-control">
+            <!-- /btn-group -->
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Subject</a></li>
+                <li><a href="#">Another subject</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Other</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea name="comments" rows="7" placeholder="Comments..." class="form-control"></textarea>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
+          </div>
+          <button type="submit" class="circle-button-40" name="button">Go</button>
+        </form>
+      </article>
+      <aside class="col-xs-12 col-md-6">
+        <img class="full-width" src="assets/img/contact-map.png" alt="" />
+        <div class="map-caption">
+          <h3 class="text-success" style="font-size:20px;">{{ page.fields.contactInformationTitle }}</h3>
+          <p style="font-size:20px;">
+            {{ page.fields.contactAddress }}<br>
+            {{ page.fields.contactCityStateZipCode }}<br>
+            {{ page.fields.contactCounty }}
+          </p>
+          <ul class="ul-inline text-primary">
+            <li><i class="fa fa-2x fa-phone" aria-hidden="true"></i></li>
+            <li><p class="text-primary" style="font-size:20px;">{{ page.fields.contactPhoneNumber }}</p></li>
+          </ul>
         </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Email*" class="form-control">
-        </div>
-        <div class="form-group input-group">
-          <input type="text" name="subject" placeholder="Subject:" class="form-control">
-          <!-- /btn-group -->
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Subject</a></li>
-              <li><a href="#">Another subject</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Other</a></li>
-            </ul>
+        <ul class="ul-inline">
+          <br><br>
+          <li><p class="text-primary" style="font-size:20px;">Connect with us:</p></li>
+          <li><a href="http://facebook.com/NautilusCompany" target="_blank"><i class="fa fa-2x fa-facebook-f" aria-hidden="true"></i></a></li>
+          <li><a href="http://twitter.com/@NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="http://linkedin.com/company/nautilus-company" target="_blank"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a></li>
+          <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- CAREERS SECTION -->
+    <section class="row bg-blue margin-lg">
+      <div class="col-xs-12 margin-b-20">
+        <header class="row">
+          <div class="col-xs-12 text-center">
+            <h3 class="header-sm text-success">{{ page.fields.careersSectionTitle }}</h3>
+            <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
+          </div>
+        </header>
+        <div class="row text-center">
+          <div class="col-sm-6 col-sm-offset-3 text-justify">
+            <div marked="page.fields.careersSectionDescription">
+              <!-- CONVERTED CAREER SECTION DESCRIPTION MARKDOWN -->
+            </div>
+            <a ui-sref="careers">
+              <h3 class="text-success arrow-right">
+                Nautilus Careers
+              </h3>
+            </a>
           </div>
         </div>
-        <div class="form-group">
-          <textarea name="comments" rows="7" placeholder="Comments..." class="form-control"></textarea>
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
-        </div>
-        <button type="submit" class="circle-button-40" name="button">Go</button>
-      </form>
-    </article>
-    <aside class="col-xs-12 col-md-6">
-      <img class="full-width" src="assets/img/contact-map.png" alt="" />
-      <div class="map-caption">
-        <h3 class="text-success" style="font-size:20px;">{{ page.fields.contactInformationTitle }}</h3>
-        <p style="font-size:20px;">
-          {{ page.fields.contactAddress }}<br>
-          {{ page.fields.contactCityStateZipCode }}<br>
-          {{ page.fields.contactCounty }}
-        </p>
-        <ul class="ul-inline text-primary">
-          <li><i class="fa fa-2x fa-phone" aria-hidden="true"></i></li>
-          <li><p class="text-primary" style="font-size:20px;">{{ page.fields.contactPhoneNumber }}</p></li>
-        </ul>
       </div>
-      <ul class="ul-inline">
-        <br><br>
-        <li><p class="text-primary" style="font-size:20px;">Connect with us:</p></li>
-        <li><a href="http://facebook.com/NautilusCompany" target="_blank"><i class="fa fa-2x fa-facebook-f" aria-hidden="true"></i></a></li>
-        <li><a href="http://twitter.com/@NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a></li>
-        <li><a href="http://linkedin.com/company/nautilus-company" target="_blank"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a></li>
-        <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
-      </ul>
-    </aside>
-  </section>
-  <!-- CAREERS SECTION -->
-  <section class="row bg-blue margin-lg">
-    <div class="col-xs-12 margin-b-20">
-      <header class="row">
-        <div class="col-xs-12 text-center">
-          <h3 class="header-sm text-success">{{ page.fields.careersSectionTitle }}</h3>
-          <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
-        </div>
-      </header>
-      <div class="row text-center">
-        <div class="col-sm-6 col-sm-offset-3 text-justify">
-          <p>
-            {{ page.fields.careersSectionDescription }}
-          </p>
-          <a ui-sref="careers">
-            <h3 class="text-success arrow-right">
-              Nautilus Careers
-            </h3>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
+  
   <!-- PRE-FOOTER BUFFER -->
   <section class="buffer"></section>
 </div>

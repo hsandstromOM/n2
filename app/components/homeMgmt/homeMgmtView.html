@@ -1,61 +1,35 @@
 <div contentful-entries="'content_type=homeManagementPage'" class="container-fluid">
-  <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img-homemgmt overlay">
-  <!-- CONTENTFUL MODEL -->
-  <!-- <section class="row margin-lg v-center hero-img-homemgmt overlay" ng-style="{ background: 'url({{ item.fields.bannerImage.fields.file.url }}'"> -->
-    <h1 class="col-md-6 tk-museo-slab hero-font">
-      Providing peace of mind that your home is in good hands.
-    </h1>
-    <!-- CONTENTFUL MODEL -->
-    <!-- <h1 class="col-md-6 tk-museo-slab hero-font">
-      {{ page.fields.bannerImageDescription }}
-    </h1> -->
-  </section>
+  <div ng-repeat="page in $contentfulEntries.items">
+    <!-- HERO IMAGE -->
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+      <h1 class="col-md-6 tk-museo-slab hero-font">
+        {{ page.fields.bannerImageDescription }}
+      </h1>
+    </section>
 
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30">
-    <article class="main-article col-md-6">
-      <h2 class="text-uppercase">What is Home Management?</h2>
-      <p>
-        Whether Charleston is your permanent address or your second residence, the Nautilus Company offers a range of services to simplify your lifestyle and maintain the value of your home.
-      </p>
-      <p>
-        Not only does Nautilus' home management program upkeep your home on a consistent schedule, our team also uses preventative measures to save our clients money by quelling problems before the begin. No two homes are the same, which is why Nautilus creates a detailed, premium and personalized program for each client through a combination of thorough inspections and preventative maintenance.
-      </p>
-      <p>
-        Nautilus is Charleston's home management company.
-      </p>
-    </article>
-    <aside class="main-aside col-xs-12 col-md-6">
-      <h1 class="quote">“<h1>
-      <blockquote class="quoteContent">
-        From <span>renovation to maintenance...</span> from roof to pool deck to dock to appliances to interior design to bathroom addition...we have <span>done it all with Nautilus.</span>
-        <footer>The Smith Family</footer>
-      </blockquote>
-      <h1 class="quote">”<h1>
-      <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
-    </aside>
-  </section>
-  <!-- CONTENTFUL MODEL -->
-  <!-- <section class="row margin-lg v-margin-30">
-    <article class="main-article col-md-6">
-      <h2 class="text-uppercase">{{ $contentfulEntries.items.homeManagementHeadline }}</h2>
-      <p>
-        {{ $contentfulEntries.items.homeManagementDescription }}
-      </p>
-    </article>
-    <aside class="main-aside col-xs-12 col-md-6">
-      <h1 class="quote">“<h1>
-      <blockquote class="quoteContent">
-        {{ $contentfulEntries.items.homeManagementQuote }}
-        <footer>{{ $contentfulEntries.items.homeManagementQuoteAuthor }}</footer>
-      </blockquote>
-      <h1 class="quote">”<h1>
-      <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
-    </aside>
-  </section> -->
-
-</div>
+    <!-- MAIN CONTENT -->
+    <section class="row margin-lg v-margin-30">
+      <article class="main-article col-md-6">
+        <h2 class="text-uppercase">{{ page.fields.homeManagementHeadline }}</h2>
+        <p marked="page.fields.homeManagementDescription">
+          <!-- CONVERTED HOME MGMT DESCRIPTION MARKDOWN -->
+        </p>
+      </article>
+      <aside class="main-aside col-xs-12 col-md-6">
+        <h1 class="quote">“<h1>
+        <blockquote class="quoteContent">
+          <div marked="page.fields.homeManagementQuote">
+            <!-- CONVERTED HOME MGMT QUOTE MARKDOWN -->
+          </div>
+          <footer>{{ page.fields.homeManagementQuoteAuthor }}</footer>
+        </blockquote>
+        <h1 class="quote">”<h1>
+        <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
+      </aside>
+      </section>
+    </div>
+  </div>
+  
   <!-- PORTFOLIO SECTION  -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
