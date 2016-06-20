@@ -1,287 +1,96 @@
-<div contentful-entries="'content_type=aboutUsPage'" class="container-fluid">
-  <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img-about overlay">
-  <!-- CONTENTFUL MODEL -->
-  <!-- <section class="row margin-lg v-center hero-img-about overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
-    <h1 class="col-md-6 hero-font">
-      <!-- CONTENTFUL MODEL -->
-      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
-      We strive to set new standards in customer satisfaction and work purposefully to surpass our customers' expectations
-    </h1>
-  </section>
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30">
-    <article class="main-article col-xs-12 col-md-6">
-      <h2 class="text-uppercase">Our Story</h2>
-      <!-- CONTENTFUL MODEL -->
-      <!-- {{ $contentfulEntries.items.ourStoryDescription }} -->
-      <p>
-        Founded by Bill Payzant in 2010, Nautilus Company is passionate about improving the lives of our clients. By focusing on long-term solutions, Nautilus reduces the stress of owning or building a home in the South Carolina Lowcountry.
-      </p>
-      <p>
-        With dedicated teams for both custom homebuilding and home management, Nautilus services the Charleston peninsula, Daniel Island, Sullivan's Island, Isle of Palms and the surrounding areas.
-      </p>
-      <p>
-        Integrity means doing the right thing, even when no one else is watching. That's why we hold ourselves accountable to our core values in all that we do, whether in the office or on the worksite. We stand by these values: They are exemplified in the people we hire, the people we work with, and in the way in which we do our work.
-      </p>
-    </article>
-    <figure class="main-photo col-xs-12 col-md-6">
-      <img class="full-width" src="assets/img/about.jpg" alt="" />
-      <figcaption>A <span>passion</span> to make people's lives easier by reducing the stress associated with <span>building</span> and <span>owning a home.</span></figcaption>
-      <!-- CONTENTFUL MODEL -->
-      <!-- <img class="full-width" ng-src="{{ $contentfulEntries.items.ourStoryImage }}" alt="Our Story Image" /> -->
-      <!-- <figcaption>{{ $contentfulEntries.items.ourStoryQuote }}</figcaption> -->
-    </figure>
-  </section>
+<div class="container-fluid">
+  <div contentful-entries="'content_type=aboutUsPage'" >
+  <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
+
+    <!-- HERO IMAGE -->
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+      <h1 class="col-md-6 hero-font">
+        {{ page.fields.bannerImageDescription }}
+      </h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="row margin-lg v-margin-30">
+      <article class="main-article col-xs-12 col-md-6">
+        <h2 class="text-uppercase">Our Story</h2>
+        <div marked="page.fields.ourStoryDescription">
+          <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
+        </div>
+      </article>
+      <figure class="main-photo col-xs-12 col-md-6">
+        <img class="full-width" ng-src="{{ page.fields.ourStoryImage.fields.file.url }}" alt="Our Story Image" />
+        <figcaption>{{ page.fields.ourStoryQuote }}</figcaption>
+      </figure>
+    </section>
+  </div>
+  </div>
+
   <!-- TEAM SECTION -->
   <section class="row bg-blue">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-        <header class="row">
-          <div class="col-xs-12 text-center">
-            <h3 class="header-sm text-success">The Nautilus Team</h3>
-            <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
-          </div>
-        </header>
-        <div contentful-entries="'content_type=teamMember'" class="row text-center">
-          <!-- CONTENTFUL MODEL -->
-          <div ng-repeat="teamMember in $contentfulEntries.items" class="col-xs-12 col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12 white-box hover-mute" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
-                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
-              </div>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <header class="row">
+        <div class="col-xs-12 text-center">
+          <h3 class="header-sm text-success">The Nautilus Team</h3>
+          <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
+        </div>
+      </header>
+      <div contentful-entries="'content_type=teamMember'" class="row text-center">
+        <div ng-repeat="teamMember in $contentfulEntries.items">
+          <div class="clearfix visible-sm-block" ng-if="$index % 2 == 0"></div>
+          <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
+          <div class="col-xs-12 col-sm-6 col-md-4 team-member">
+            <div class="col-xs-12 white-box hover-mute" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
+              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
             </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
-              <!-- MODAL -->
-              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header" ng-style="{'background-image' : 'url({{ teamMember.fields.teamMemberImage.fields.file.url }})'}">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                      <div class="modal-banner">
-                        <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-                          <a href="http://stackoverflow.com/questions/23664802/links-not-working-on-twitter-bootstrap-modal-2-3-2"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
-                          <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-                        </div>
-                      </div>
-                      <div class="modal-body bg-lt">
-                        <div class="row">
-                          <div class="col-md-6" marked="teamMember.fields.teamMemberBioPoints">
-                            <!-- CONVERTED BIO POINTS MARKDOWN -->
-                          </div>
-                          <div class="col-md-6">
-                            <h2>
-                              About {{ teamMember.fields.teamMemberFirstName }}
-                            </h2>
-                            <p>
-                              {{ teamMember.fields.teamMemberBio }}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-xs-12 caption text-left">
+              <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+              <!-- <h4>{{ teamMember.fields.teamMemberName }}, <span ng-class="{ 'xs' : teamMember.fields.teamMemberTitle.length > 18}">{{ teamMember.fields.teamMemberTitle }}<span></h4> -->
             </div>
-          </div>
-          <!-- <div class="col-sm-6 col-md-4 team-member" ng-repeat="teamMember in aboutCtrl.teamMembers">
-            <div class="row">
-              <div class="col-xs-12 img-container" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">
-                <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImageUrl }}" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ teamMember.fields.teamMemberEmail }}</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
-              MODAL
-              <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                      <div class="modal-banner">
-                        <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
-                          <a href="http://stackoverflow.com/questions/23664802/links-not-working-on-twitter-bootstrap-modal-2-3-2"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></a>
-                          <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-                        </div>
-                      </div>
-                      <div class="modal-body bg-lt">
-                        <div class="row">
-                          MARKDOWN.JS CONVERSION
-                          <div class="col-md-6" ng-bind-html="teamMember.fields.teamMemberBioPointsHTML">
-                            MANUAL PARSING
-                            <! <ul class="ul-circles">
-                              <li ng-repeat="bioPoint in teamMember.fields.teamMemberBioPointsParsed"><p>{{ bioPoint }}</p></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-6">
-                            <h2>
-                              About {{ teamMember.fields.teamMemberFirstName }}
-                            </h2>
-                            <p>
-                              {{ teamMember.fields.teamMemberBio }}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div> -->
+            <button type="button" class="caption circle-button-40 arrow-right" data-toggle="modal" data-target="#modal-{{ teamMember.sys.id }}">BIO</button>
 
-          <!-- HARD-CODED TEAM MEMBERS -- TO DELETE -->
-          <!-- <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-bill.jpg" alt="" />
-              </div>
+            <div class="contact caption text-left">
+              <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ teamMember.fields.teamMemberEmail }}</h5>
+              <h5><i class="fa fa-mobile" aria-hidden="true"></i> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
             </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>Bill Payzant, <span>President<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bill@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.7922</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-              MODAL
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                      <div class="modal-banner">
-                        <h4>Bill Payzant, <span>President<span></h4>
-                        </div>
+            <!-- MODAL -->
+            <div class="modal fade" id="modal-{{ teamMember.sys.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" ng-style="{'background-image' : 'url({{ teamMember.fields.teamMemberImage.fields.file.url }})'}">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                    <div class="modal-banner">
+                      <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+                      <a href=""><i class="fa fa-mobile" aria-hidden="true"></i></a>
+                      <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                  <div class="modal-body bg-lt">
+                    <div class="row">
+                      <div class="col-md-6" marked="teamMember.fields.teamMemberBioPoints">
+                        <!-- CONVERTED BIO POINTS MARKDOWN -->
                       </div>
-                      <div class="modal-body bg-lt">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <ul class="ul-circles">
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                              <li><p>Founded Nautilus Company in 2010</p></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-6">
-                            <h2>
-                              About Bill
-                            </h2>
-                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </p>
-                          </div>
-                        </div>
+                      <div class="col-md-6">
+                        <h2>
+                          About {{ teamMember.fields.teamMemberFirstName }}
+                        </h2>
+                        <p>
+                          {{ teamMember.fields.teamMemberBio }}
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <!-- END MODAL DIALOG -->
             </div>
+            <!-- END MODAL -->
           </div>
-          <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-denise.jpg" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>Denise Carpentier, <span class="xs">Special Projects Mgr<span></h4>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> denise.carpentier@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.343.9661</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-james.jpg" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>James Rose, <span>Project Manager<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> james.rose@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.224.5669</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-laura.jpg" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>Laura Forger, <span>Business Manager<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> billingdept@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.647.6224</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-chris.jpg" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>Chris Jones, <span>Project Manager<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> chris.jones@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 404.216.2746</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 team-member">
-            <div class="row">
-              <div class="col-xs-12">
-                <img class="full-width" src="assets/img/team-marty.jpg" alt="" />
-              </div>
-            </div>
-            <div class="row caption text-left">
-              <div class="col-xs-12">
-                <h4>Marty Snyder, <span>Operations Manager<span></h4>
-              </div>
-              <div class="col-xs-10 contact">
-                <h5><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> marty.snyder@nautilusco.com</h5>
-                <h5><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 843.670.3676</h5>
-              </div>
-              <button type="button" class="circle-button-40 arrow-right" data-toggle="modal" data-target="#myModal">BIO</button>
-            </div>
-          </div>
-        </div> -->
+          <!-- END TEAM MEMBER -->
+        </div>
       </div>
+    </div>  
   </section>
+
   <!-- CORE VALUES -->
   <section class="row margin-lg">
     <header class="row">
@@ -290,66 +99,17 @@
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
       </div>
     </header>
-    <!-- CONTENTFUL MODEL -->
     <div contentful-entries="'content_type=coreValue'" class="">
-      <div class="col-sm-3 sm-article" ng-repeat="coreValue in $contentfulEntries.items">
-        <h3 class="text-uppercase">{{ coreValue.fields.coreValueTitle }}</h3>
-        <p>
-          {{ coreValue.fields.coreValueDescription }}
-        </p>
+      <div ng-repeat="coreValue in $contentfulEntries.items">
+        <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 4 == 0"></div>
+        <div class="col-sm-3 sm-article" >
+          <h3 class="text-uppercase">{{ coreValue.fields.coreValueTitle }}</h3>
+          <p>
+            {{ coreValue.fields.coreValueDescription }}
+          </p>
+        </div>
       </div>
     </div>
-
-
-    <!--  HARD-CODED CORE VALUES -- TO DELETE -->
-    <!-- <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Do the right thing</h3>
-      <p>
-        We all have choices. We choose to do what is right over the many other options. We focus on quality and service and never cut corners. We support our team members and treat them with respect.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Be passionate in everything we do</h3>
-      <p>
-        We love what we do and our passion drives us to acheive our goals. We strive to set new standards in customer satisfaction and work purposefully to surpass our customers' expectations.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Inspire teamwork</h3>
-      <p>
-        We seek out only the best team players and understand that together - <em> and only together </em> - we accomplish greater things.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Cultivate individual ability, productivity, learning and growth</h3>
-      <p>
-        We nurture our relationships with our team members by supporting and encouraging them to be the best that they can be. We provide the tools and support necessary for individuals to acheive their goals and we never let anyone fall behind.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Build trust and personal responsibility</h3>
-      <p>
-        By using clear and effective communication and setting realistic expectations upfront, we stick by our word and deliver on our prpomises. We accept ownership in our individual responsibilities and understand that each team member's role is critical to the success of the greater Nautilus family.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Be adventurous, open-minded and willing to accept change</h3>
-      <p>
-        Our business is fluid and we are alsways seeking innovative ways to enhance our products and services. We value those who think outside the box and find new ways to develop and enchance the products and services we deliver.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Create a fun, light-hearted environment</h3>
-      <p>
-        It is not work if it is fun! While we are serious about what we do, we try not to take ourselves too seriously. Laughter and smiles are contagious and we have found that happy people are more productive and able to deliver a higher level of customer service.
-      </p>
-    </div>
-    <div class="col-sm-3 sm-article">
-      <h3 class="text-uppercase">Do the unexpected and go the extra mile</h3>
-      <p>
-        It is the little things that really count and our team strives to go beyond our clients' and team members' expectations. We ensure that each little detail is accounted for. At Nautilus, we see special things happen every day because our team wants to acheive our mission and understands whil that is important.
-      </p>
-    </div> -->
   </section>
 
   <!-- PRE-FOOTER BUFFER -->

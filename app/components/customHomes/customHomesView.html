@@ -1,12 +1,10 @@
 <div contentful-entries="'content_type=customHomesPage'" class="container-fluid">
+<div ng-repeat="page in $contentfulEntries.items">
+
   <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img-custom overlay">
-  <!-- CONTENTFUL MODEL -->
-  <!-- <section class="row margin-lg v-center hero-img-custom overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
+  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
     <h1 class="col-md-6 hero-font">
-      <!-- CONTENTFUL MODEL -->
-      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
-      Build the perfect house<br>to call home.
+      {{ page.fields.bannerImageDescription }}
     </h1>
   </section>
 
@@ -14,34 +12,21 @@
   <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Our Work</h2>
-      <!-- CONTENTFUL MODEL -->
-      <!-- {{ $contentfulEntries.items.ourWorkDescription }} -->
-      <p>
-        With more than a decade of experience in construction management, the Nautilus team brings innovation and cutting-edge technologies to your new home. With exceptional service and a personalized construction plan, the Nautilus team will make the building process as enjoyable and easy as possible, whether you live in Charleston or are building from afar.
-      </p>
-      <p>
-        Out experience has shown us how to build a legacy home that withstands the Lowcountry environment. In addition, our contructino capabilities extend beyond new builds, but also to large remodeling projects. If you have a home that needs an update, give Nautilus a call.
-      </p>
-      <p>
-        A home built by the Nautilus Company means one-of-a-kind quality, with exceptional service throughout a personalized construction process.
-      </p>
+      <div marked="page.fields.ourWorkDescription">
+        <!-- CONVERTED OUR WORK DESCRIPTION MARKDOWN -->
+      </div>
     </article>
     <aside class="main-aside col-md-6">
       <h1 class="quote">“<h1>
       <blockquote class="quoteContent">
-        The house is <span>beautiful</span> and it is due to your high standards, patience, implementation skills, market knowledge and determination that you exceeded our expectations...We look forward to <span>working with you again</span> and recommending you highly to other islanders (and beyond).
-        <footer>Bill and Ruth Ennis</footer>
+        {{ page.fields.ourWorkQuote }}
+        <footer>{{ page.fields.ourWorkQuoteAuthor }}</footer>
       </blockquote>
-      <!-- CONTENTFUL MODEL -->
-      <!-- <blockquote class="quoteContent">
-        {{ $contentfulEntries.items.ourWorkQuote }}
-        <footer>{{ $contentfulEntries.items.ourWorkQuoteAuthor }}</footer>
-      </blockquote> -->
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
   </section>
-
+</div>
   <!-- PORTFOLIO SECTION  -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">

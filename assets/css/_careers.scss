@@ -1,31 +1,23 @@
-.career-listing {
-
-}
-
 .career-listing header h2 {
   margin-top: 0;
 }
-
 .career-listing header h3 {
   margin-bottom: 0;
 }
-
 .career-listing h3 {
   font-weight: 700;
 }
-
 .career-listing ul, .sm-article ul {
   padding-left: 16px;
   list-style: none;
 }
-
 .career-listing li, .sm-article li {
   padding-left: 6px;
   margin-bottom: 10px;
   position: relative;
 }
-
-.career-listing li::before, .sm-article li::before {
+.career-listing li::before,
+.sm-article li::before {
   content: '○';
   color: $dk-blue;
   font-size: 24px;
@@ -33,15 +25,12 @@
   top: -7px;
   left: -17px;
 }
-
 .apply-box {
   margin-top: 100px;
 }
-
 .apply-box h3 {
   font-weight: 900;
 }
-
 .apply-box .circle-button-60 {
   margin: 30px auto;
 }
