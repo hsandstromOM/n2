@@ -35,8 +35,8 @@
     </header>
     <ul class="col-xs-12 pad-0">
     <!-- CONTENTFUL MODEL -->
-    <!-- <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0"> -->
-      <div class="custom-home col-sm-6" ng-repeat="home in customHomesCtrl.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
+    <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0">
+      <!-- <div class="custom-home col-sm-6" ng-repeat="home in customHomesCtrl.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
         <a ui-sref="customHomesDetail">
           <div>
             <img class="full-width" ng-src="{{ home.image }}" alt="" />
@@ -45,18 +45,18 @@
             <h4>{{ home.name }}, <span>{{ home.subtitle }}</span></h4>
           </div>
         </a>
-      </div>
+      </div> -->
       <!-- CONTENTFUL MODEL -->
-      <!-- <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items" ng-click="customHomes.selectHome(home.fields.id)">
-        <a ui-sref="customHomesDetail">
-          <div>
-            <img class="full-width" ng-src="{{ home.fields.thumbnailImage }}" alt="" />
+      <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items">
+        <a ui-sref="customHomesDetail({ customHomeID:home.sys.id })">
+          <div >
+            <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="" />
           </div>
           <div class="caption">
-            <h4>{{ home.fields.customHomeTitle }}, <span>{{ home.fields.customHomeType }} - { home.fields.serviceType }}</span></h4>
+            <h4>{{ home.fields.customHomeTitle }}, <span>{{ home.fields.customHomeType }} - {{ home.fields.serviceType }}</span></h4>
           </div>
         </a>
-      </div> -->
+      </div>
     </ul>
   </section>
 
