@@ -760,6 +760,10 @@ footer .row:last-child h6 {
   display: block;
   margin: 25px auto; }
 
+.career-desc,
+.career-desc p:last-child {
+  display: inline; }
+
 .custom-home {
   margin-bottom: 20px; }
 
