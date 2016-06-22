@@ -40,8 +40,9 @@
           </div>
         </header>
         <div class="row text-center">
-          <ul contentful-entries="'content_type=homeManagementProject'" class="custom-home-list">
-            <li ng-repeat="project in $contentfulEntries.items" class="project-sm white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.thumbnailImage.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
+          <ul contentful-entries="'content_type=homeManagementProject'" class="gallery-list">
+            <li ng-repeat="project in $contentfulEntries.items" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.thumbnailImage.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
+              <h1>{{ project.fields.descriptionTitle }}</h1>
               <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
             </li>
           </ul>

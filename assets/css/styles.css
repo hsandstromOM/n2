@@ -773,14 +773,14 @@ footer .row:last-child h6 {
     padding-right: 15px;
     padding-left: 15px; } }
 
-.custom-home-list {
+.gallery-list {
   list-style: none;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 32px; }
 
-.custom-home-list li {
+.gallery-list li {
   height: 0;
   width: 44%;
   padding-bottom: 44%;
@@ -788,27 +788,27 @@ footer .row:last-child h6 {
   background-size: cover;
   background-position: center; }
 
-.custom-home-list li::after {
+.gallery-list li::after {
   right: 10px;
   left: 10px; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .custom-home-list {
+  .gallery-list {
     margin: 0 32px; }
-  .custom-home-list li {
+  .gallery-list li {
     width: 28.7%;
     padding-bottom: 28.7%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .custom-home-list li {
+  .gallery-list li {
     width: 28.9%;
     padding-bottom: 28.9%; } }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-  .custom-home-list li {
+  .gallery-list li {
     width: 29%;
     padding-bottom: 29%; } }
 
@@ -895,6 +895,17 @@ footer .row:last-child h6 {
 @media (min-width: 992px) {
   .carousel-indicators {
     left: 18.5%; } }
+
+.home-mgmt-project h1 {
+  display: none;
+  font-family: museo-slab;
+  font-size: 24px;
+  width: 80%;
+  margin: 41% auto;
+  color: #253d93; }
+
+.home-mgmt-project:hover h1 {
+  display: block; }
 
 .featured-article {
   margin-bottom: 30px; }
