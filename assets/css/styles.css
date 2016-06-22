@@ -911,6 +911,21 @@ footer .row:last-child h6 {
 .home-mgmt-project:hover h1 {
   opacity: 1; }
 
+#home-mgmt-modal .social {
+  float: right;
+  width: 33%;
+  text-align: right; }
+
+#home-mgmt-modal h3 {
+  color: white; }
+
+#home-mgmt-modal .social li {
+  margin-left: 4%;
+  vertical-align: middle; }
+
+#home-mgmt-modal .social li:first-child {
+  vertical-align: baseline; }
+
 .featured-article {
   margin-bottom: 30px; }
 
