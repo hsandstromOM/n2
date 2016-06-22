@@ -118,14 +118,20 @@ p {
   font-weight: 300;
   line-height: 1.5; }
 
+figure strong {
+  font-size: 24px;
+  font-weight: 300; }
+
 blockquote {
   padding: 40px 20px 50px 30px;
   margin: 0 0 20px;
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
-  line-height: 34px;
   border-width: 2px 0; }
+
+blockquote p {
+  line-height: 34px; }
 
 blockquote strong {
   font-size: 24px;
@@ -497,13 +503,7 @@ footer .row:last-child h6 {
   font-style: italic;
   font-weight: 500; }
 
-.main-photo figcaption::before {
-  content: '“'; }
-
-.main-photo figcaption::after {
-  content: '”'; }
-
-.main-photo figcaption span {
+.main-photo figcaption strong {
   font-size: 24px; }
 
 .main-aside {
@@ -760,6 +760,10 @@ footer .row:last-child h6 {
   display: block;
   margin: 25px auto; }
 
+.career-desc,
+.career-desc p:last-child {
+  display: inline; }
+
 .custom-home {
   margin-bottom: 20px; }
 
@@ -768,6 +772,45 @@ footer .row:last-child h6 {
   .custom-home {
     padding-right: 15px;
     padding-left: 15px; } }
+
+.custom-home-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 32px; }
+
+.custom-home-list li {
+  height: 0;
+  width: 44%;
+  padding-bottom: 44%;
+  margin: 0 auto 30px;
+  background-size: cover;
+  background-position: center; }
+
+.custom-home-list li::after {
+  right: 10px;
+  left: 10px; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .custom-home-list {
+    margin: 0 32px; }
+  .custom-home-list li {
+    width: 28.7%;
+    padding-bottom: 28.7%; } }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .custom-home-list li {
+    width: 28.9%;
+    padding-bottom: 28.9%; } }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .custom-home-list li {
+    width: 29%;
+    padding-bottom: 29%; } }
 
 .carousel-indicators {
   left: 50%; }

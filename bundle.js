@@ -57,7 +57,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
       })
 
       .state('customHomesDetail', {
-        url: '/customHomesDetail',
+        url: '/customHomes/:customHomeID',
         templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
         controller: 'CustomHomesController',
         controllerAs: 'customHomesCtrl'
@@ -313,9 +313,29 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController($scope, CustomHomesService) {
+  function CustomHomesController($scope, $stateParams, contentful, CustomHomesService) {
     var vm = this;
+    if ($stateParams.customHomeID) {
+      console.log("customHomesPage: " + $stateParams.customHomeID);
+      vm.customHomeID = $stateParams.customHomeID;
+      // Get all entries
+    contentful
+      .entries('sys.id=' + $stateParams.customHomeID)
+      .then(
 
+        // Success handler
+        function(response){
+          vm.customHome = response.data.items[0];
+          console.log(vm.customHome);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
+    }
+    // console.log($stateParams);
     CustomHomesService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
       // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
@@ -380,7 +400,7 @@ angular
     function getCustomHomes() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'customHomes&include=1').then(function(customHomes) {
+      $http.get(GET_URL + 'customHome&include=1').then(function(customHomes) {
         defer.resolve(customHomes);
       });
 

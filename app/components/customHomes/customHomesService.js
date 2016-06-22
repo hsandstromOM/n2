@@ -25,7 +25,7 @@ angular
     function getCustomHomes() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'customHomes&include=1').then(function(customHomes) {
+      $http.get(GET_URL + 'customHome&include=1').then(function(customHomes) {
         defer.resolve(customHomes);
       });
 

@@ -1,9 +1,9 @@
 <div contentful-entries="'content_type=customHomesPage'" class="container-fluid">
-<div ng-repeat="page in $contentfulEntries.items">
+  <div ng-repeat="page in $contentfulEntries.items">
 
   <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
-    <h1 class="col-md-6 hero-font">
+  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+    <h1 class="col-md-4 hero-font">
       {{ page.fields.bannerImageDescription }}
     </h1>
   </section>
@@ -19,37 +19,27 @@
     <aside class="main-aside col-md-6">
       <h1 class="quote">“<h1>
       <blockquote class="quoteContent">
-        {{ page.fields.ourWorkQuote }}
+        <div marked="page.fields.ourWorkQuote">
+          <!-- CONVERTED OUR WORK QUOTE MARKDOWN -->
+        </div>
         <footer>{{ page.fields.ourWorkQuoteAuthor }}</footer>
       </blockquote>
       <h1 class="quote">”<h1>
       <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
     </aside>
   </section>
-</div>
+  </div>
+
   <!-- PORTFOLIO SECTION  -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
       <h3 class="header-sm text-success">Custom Homes Portfolio</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <ul class="col-xs-12 pad-0">
-    <!-- CONTENTFUL MODEL -->
     <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0">
-      <!-- <div class="custom-home col-sm-6" ng-repeat="home in customHomesCtrl.customHomes | limitTo:4 " ng-click="customHomes.selectHome(home.number)">
-        <a ui-sref="customHomesDetail">
-          <div>
-            <img class="full-width" ng-src="{{ home.image }}" alt="" />
-          </div>
-          <div class="caption">
-            <h4>{{ home.name }}, <span>{{ home.subtitle }}</span></h4>
-          </div>
-        </a>
-      </div> -->
-      <!-- CONTENTFUL MODEL -->
       <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items">
         <a ui-sref="customHomesDetail({ customHomeID:home.sys.id })">
-          <div >
+          <div ng-style="{{home.sys.id}}">
             <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="" />
           </div>
           <div class="caption">

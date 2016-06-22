@@ -2,9 +2,29 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController($scope, CustomHomesService) {
+  function CustomHomesController($scope, $stateParams, contentful, CustomHomesService) {
     var vm = this;
+    if ($stateParams.customHomeID) {
+      console.log("customHomesPage: " + $stateParams.customHomeID);
+      vm.customHomeID = $stateParams.customHomeID;
+      // Get all entries
+    contentful
+      .entries('sys.id=' + $stateParams.customHomeID)
+      .then(
 
+        // Success handler
+        function(response){
+          vm.customHome = response.data.items[0];
+          console.log(vm.customHome);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
+    }
+    // console.log($stateParams);
     CustomHomesService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
       // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
