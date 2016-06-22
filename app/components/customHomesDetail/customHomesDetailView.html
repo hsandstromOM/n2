@@ -39,12 +39,11 @@
         </div>
       </header>
       <div class="row text-center">
-        <ul class="custom-home-list">
+        <ul class="gallery-list">
           <li class="white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}">
             <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
           </li>
         </ul>
-
       </div>
     </div>
   </section>

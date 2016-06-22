@@ -29,22 +29,55 @@
       </section>
     </div>
   </div>
-  
+
   <!-- PORTFOLIO SECTION  -->
-  <section class="row margin-lg bg-blue">
-    <header class="col-xs-12 text-center">
-      <h3 class="header-sm text-success">Project Gallery</h3>
-      <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
-    </header>
-    <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in homeMgmtCtrl.homeMgmtPortfolio" style="position: relative; left: 0; top: 0;">
-      <img ng-src="{{ home.image }}" style="position: relative; top: 0; left: 0;"/>
-    </div>
-    <!-- CONTENTFUL MODEL -->
-    <!-- <div contentful-entries="'content_type=homeManagementProject'" class="">
-      <div class="col-sm-4 margin-b-20 text-center" ng-repeat="home in $contentfulEntries.items" style="position: relative; left: 0; top: 0;">
-        <img ng-src="{{ home.fields.thumbnailImage }}" style="position: relative; top: 0; left: 0;"/>
+    <section class="row bg-blue">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+        <header class="row">
+          <div class="col-xs-12 text-center">
+            <h3 class="header-sm text-success">Project Gallery</h3>
+            <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
+          </div>
+        </header>
+        <div class="row text-center">
+          <ul contentful-entries="'content_type=homeManagementProject'" class="gallery-list">
+            <li ng-repeat="project in $contentfulEntries.items" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.thumbnailImage.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
+              <h1>{{ project.fields.descriptionTitle }}</h1>
+              <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
+            </li>
+          </ul>
+          <!-- MODAL -->
+          <div class="modal fade" id="home-mgmt-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.thumbnailImage.fields.file.url + ')'}">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                  <div class="modal-banner">
+                    <h4>{{ homeMgmtCtrl.selectedProject.fields.title }}, <span>{{ homeMgmtCtrl.selectedProject.fields.homeManagementProjectType }}<span></h4>
+                      <ul class="ul-inline social">
+                        <li><h3>Share:</h3></li>
+                        <li><a href="" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
+                        <li><a href="" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+                      </ul>
+                  </div>
+                </div>
+                <div class="modal-body bg-lt">
+                  <div class="row">
+                    <div class="col-md-12" marked="homeMgmtCtrl.selectedProject.fields.descriptionTitle">
+                      <!-- CONVERTED DESCRIPTION TITLE MARKDOWN -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END MODAL DIALOG -->
+          </div>
+          <!-- END MODAL -->
+        </div>
       </div>
-    </div> -->
+    </section>
   </section>
 
   <!-- SERVICES LIST -->
