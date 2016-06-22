@@ -39,9 +39,12 @@
         </div>
       </header>
       <div class="row text-center">
-        <div class="col-sm-6 col-md-4 gallery-img margin-b-30" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}">
-          <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
-        </div>
+        <ul class="custom-home-list">
+          <li class="white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}">
+            <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
+          </li>
+        </ul>
+
       </div>
     </div>
   </section>
