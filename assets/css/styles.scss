@@ -339,6 +339,9 @@ aside blockquote footer {
   margin: 0;
   line-height: inherit;
 }
+.hover-mute {
+  transition: all 0.5s ease;
+}
 .hover-mute:hover {
   opacity: .6;
   cursor: pointer;

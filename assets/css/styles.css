@@ -325,6 +325,9 @@ aside blockquote footer {
   margin: 0;
   line-height: inherit; }
 
+.hover-mute {
+  transition: all 0.5s ease; }
+
 .hover-mute:hover {
   opacity: .6;
   cursor: pointer; }
@@ -897,15 +900,16 @@ footer .row:last-child h6 {
     left: 18.5%; } }
 
 .home-mgmt-project h1 {
-  display: none;
-  font-family: museo-slab;
+  transition: all 0.5s ease;
+  opacity: 0;
+  font-family: "museo-slab", Times, serif;
   font-size: 24px;
   width: 80%;
   margin: 41% auto;
   color: #253d93; }
 
 .home-mgmt-project:hover h1 {
-  display: block; }
+  opacity: 1; }
 
 .featured-article {
   margin-bottom: 30px; }

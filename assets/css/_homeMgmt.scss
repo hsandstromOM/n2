@@ -1,6 +1,7 @@
 .home-mgmt-project h1 {
-  display: none;
-  font-family: museo-slab;
+  transition: all 0.5s ease;
+  opacity: 0;
+  font-family: $serif;
   font-size: 24px;
   width: 80%;
   margin: 41% auto;
@@ -8,6 +9,6 @@
 }
 .home-mgmt-project:hover {
   h1 {
-    display: block;
+    opacity: 1;
   }
 }
