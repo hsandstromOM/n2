@@ -118,6 +118,10 @@ p {
   font-weight: 300;
   line-height: 1.5; }
 
+figure strong {
+  font-size: 24px;
+  font-weight: 300; }
+
 blockquote {
   padding: 40px 20px 50px 30px;
   margin: 0 0 20px;
@@ -497,13 +501,7 @@ footer .row:last-child h6 {
   font-style: italic;
   font-weight: 500; }
 
-.main-photo figcaption::before {
-  content: '“'; }
-
-.main-photo figcaption::after {
-  content: '”'; }
-
-.main-photo figcaption span {
+.main-photo figcaption strong {
   font-size: 24px; }
 
 .main-aside {
