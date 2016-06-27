@@ -367,6 +367,12 @@ aside blockquote footer {
   width: 120px;
   margin: 8px 22px 0;
 }
+.main-header a {
+  color: $dk-blue;
+}
+.main-header a:focus {
+  text-decoration: none;
+}
 .main-header h3 {
   text-transform: uppercase;
   font-size: 12px;
