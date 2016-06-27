@@ -691,7 +691,8 @@ footer p {
     padding-left: 72px;
     padding-right: 72px; }
   .hero-img h1 {
-    padding-right: 94px; }
+    padding-right: 94px;
+    padding-left: 0; }
   .main-article {
     padding: 0 58px 0 0;
     text-align: left; } }
@@ -882,7 +883,7 @@ footer p {
 .carousel-caption-box {
   position: absolute;
   height: 100%;
-  left: 87px;
+  left: 73px;
   top: 0;
   bottom: 0;
   z-index: 1;
