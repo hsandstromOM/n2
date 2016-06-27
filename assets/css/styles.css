@@ -152,6 +152,10 @@ aside blockquote footer {
   padding: 40px 20px 50px 30px;
   border: none; }
 
+.blockquote-wide footer {
+  margin-right: 94px;
+  margin-top: 26px; }
+
 .quote {
   font-family: "adobe-garamond-pro", serif;
   font-style: normal;
@@ -198,7 +202,7 @@ aside blockquote footer {
   color: #fff;
   overflow: hidden;
   font-size: 250px;
-  margin-top: -100px;
+  margin-top: -160px;
   margin-bottom: -110px;
   float: right; }
 
@@ -724,7 +728,9 @@ footer p {
   .contact-form {
     padding-right: 60px; }
   .blockquote-wide {
-    padding: 40px 65px 50px 85px; } }
+    padding: 40px 65px 50px 85px; }
+  .blockquote-wide footer {
+    margin-right: 48px; } }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
