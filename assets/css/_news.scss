@@ -8,8 +8,12 @@
   display: inline-block;
 }
 .featured-article div:first-child {
-  background-image: url('../img/team-laura.jpg');
-  background-size: cover;
+  background-image:
+    url('../../../assets/img/bg-pattern-light.jpg'),
+    url('../img/team-laura.jpg');
+  background-size: 100px 100px, cover;
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: multiply;
   background-position: center;
 }
 .featured-article div:last-child {

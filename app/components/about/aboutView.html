@@ -3,7 +3,7 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
-    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
       <h1 class="col-md-6 hero-font">
         {{ page.fields.bannerImageDescription }}
       </h1>
@@ -18,7 +18,10 @@
         </div>
       </article>
       <figure class="main-photo col-xs-12 col-md-6">
-        <img class="full-width" ng-src="{{ page.fields.ourStoryImage.fields.file.url }}" alt="Our Story Image" />
+        <div class="full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.ourStoryImage.fields.file.url }})'}">
+          <!-- MAIN PHOTO -->
+        </div>
+        <!-- <img class="full-width" ng-src="{{ page.fields.ourStoryImage.fields.file.url }}" alt="Our Story Image" /> -->
         <figcaption marked="page.fields.ourStoryQuote">
           <!-- CONVERTED OUR STORY QUOTE MARKDOWN -->
         </figcaption>
