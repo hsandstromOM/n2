@@ -121,7 +121,6 @@ h6 {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  display: inline-block;
 }
 p {
   font-size: 16px;
@@ -496,10 +495,11 @@ footer p {
   line-height: inherit;
   margin-top: 10px;
 }
-footer .row:last-child {
-  h6 {
-    letter-spacing: 1px;
-  }
+.copyright h6 {
+  letter-spacing: 1px;
+}
+.copyright a {
+  color: grey;
 }
 .tips-mid-footer {
   text-align:center;
@@ -519,6 +519,9 @@ footer .row:last-child {
   padding-top:52px;
   height:110px;
   background-image: url("../../assets/img/footer-sides.png");
+}
+.tips-side-footer h6 {
+  display: inline-block;
 }
 .tips-side-footer a {
   color: $lt-blue;
