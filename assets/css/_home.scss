@@ -2,9 +2,15 @@
   left: 50%;
 }
 .home-slider-img{
-  height: 425px;
+  height: 0;
+  padding: 30%;
   width: 100%;
   overflow: hidden;
+  background-repeat: repeat,no-repeat;
+  background-size: 100px 100px, cover;
+  background-blend-mode: multiply;
+  background-position-x: center;
+  background-position-y: top;
 }
 .carousel-indicators li,
 .carousel-indicators .active {
@@ -50,6 +56,7 @@
   display: none;
 }
 .pre-footer:hover {
+  opacity: .8;
   .inactive {
     display: none;
   }
@@ -75,10 +82,8 @@
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .home-slider-img{
-    height:200px;
-    width:100%;
-    overflow: hidden;
+  .home-slider-img {
+    padding: 15.8%;
   }
 }
 

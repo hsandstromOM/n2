@@ -3,7 +3,7 @@
 
   <!-- HERO IMAGE -->
   <!-- <section class="row margin-lg v-center hero-img-careers overlay"> -->
-  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background' : 'url({{ page.fields.bannerImage.fields.file.url }})'}">
+  <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
     <!-- <h1 class="col-md-6 hero-font">
       We seek out only the best team players and understand that together we accomplish great things.
     </h1> -->
@@ -37,7 +37,8 @@
       </p>
     </article>
     <figure class="main-photo col-xs-12 col-md-6">
-      <img class="full-width" ng-src="{{ page.fields.careersImage.fields.file.url }}" alt="" />
+      <div class="full-width" ng-style="{'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{page.fields.careersImage.fields.file.url }})'}" alt="" />
+    </div>
       <figcaption marked="page.fields.careersQuote">
         <!-- CONVERTED CAREERS QUOTE MARKDOWN -->
       </figcaption>

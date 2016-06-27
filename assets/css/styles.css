@@ -47,13 +47,10 @@ html, body {
   overflow-x: hidden; }
 
 body {
-  background-image: url("../img/bg-pattern-light.jpg");
-  background-repeat: repeat;
+  background-image: url(../img/bg-gradient.png), url(../img/bg-pattern-light.jpg);
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
   font-family: "museo-sans", Helvetica, sans-serif; }
-
-.gradient {
-  background-image: url("../img/bg-gradient.png");
-  background-size: cover; }
 
 a {
   text-decoration: none; }
@@ -222,6 +219,9 @@ aside blockquote footer {
 
 .full-width {
   width: 100%; }
+
+.blend-multiply {
+  background-blend-mode: multiply; }
 
 .circle-button-40 {
   width: 40px;
@@ -516,6 +516,7 @@ footer p {
   height: 300px;
   background-position: center;
   background-position-y: initial;
+  background-blend-mode: multiply;
   color: white; }
 
 .hero-img h1 {
@@ -530,6 +531,13 @@ footer p {
 
 .main-article h2 {
   margin: 0 0 20px; }
+
+.main-photo div {
+  background-repeat: repeat, no-repeat;
+  background-size: 100px 100px, cover;
+  background-blend-mode: multiply;
+  height: 0;
+  padding-bottom: 52%; }
 
 .main-photo figcaption {
   padding: 0;
@@ -857,9 +865,15 @@ footer p {
   left: 50%; }
 
 .home-slider-img {
-  height: 425px;
+  height: 0;
+  padding: 30%;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  background-repeat: repeat,no-repeat;
+  background-size: 100px 100px, cover;
+  background-blend-mode: multiply;
+  background-position-x: center;
+  background-position-y: top; }
 
 .carousel-indicators li,
 .carousel-indicators .active {
@@ -904,11 +918,12 @@ footer p {
 .active {
   display: none; }
 
-.pre-footer:hover .inactive {
-  display: none; }
-
-.pre-footer:hover .active {
-  display: block; }
+.pre-footer:hover {
+  opacity: .8; }
+  .pre-footer:hover .inactive {
+    display: none; }
+  .pre-footer:hover .active {
+    display: block; }
 
 .pre-footer h1 {
   font-size: 24px;
@@ -928,9 +943,7 @@ footer p {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .home-slider-img {
-    height: 200px;
-    width: 100%;
-    overflow: hidden; } }
+    padding: 15.8%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -974,8 +987,10 @@ footer p {
   display: inline-block; }
 
 .featured-article div:first-child {
-  background-image: url("../img/team-laura.jpg");
-  background-size: cover;
+  background-image: url("../../../assets/img/bg-pattern-light.jpg"), url("../img/team-laura.jpg");
+  background-size: 100px 100px, cover;
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: multiply;
   background-position: center; }
 
 .featured-article div:last-child {

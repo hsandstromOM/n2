@@ -57,13 +57,12 @@ html, body {
     overflow-x: hidden;
 }
 body {
-  background-image: url('../img/bg-pattern-light.jpg');
-  background-repeat: repeat;
+  background-image:
+    url(../img/bg-gradient.png),
+    url(../img/bg-pattern-light.jpg);
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
   font-family: $sans;
-}
-.gradient {
-  background-image: url('../img/bg-gradient.png');
-  background-size: cover;
 }
 a {
   text-decoration: none;
@@ -235,6 +234,9 @@ aside blockquote footer {
 }
 .full-width {
   width: 100%;
+}
+.blend-multiply {
+  background-blend-mode: multiply;
 }
 .circle-button-40 {
   width: 40px;
@@ -547,6 +549,7 @@ footer p {
   height: 300px;
   background-position: center;
   background-position-y: initial;
+  background-blend-mode: multiply;
   color: white;
 }
 .hero-img h1 {
@@ -564,6 +567,13 @@ footer p {
 }
 .main-article h2 {
   margin: 0 0 20px;
+}
+.main-photo div {
+  background-repeat: repeat, no-repeat;
+  background-size: 100px 100px, cover;
+  background-blend-mode: multiply;
+  height: 0;
+  padding-bottom: 52%;
 }
 .main-photo figcaption {
   padding: 0;
