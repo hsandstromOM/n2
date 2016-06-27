@@ -46,8 +46,10 @@
           <button type="submit" class="circle-button-40" name="button">Go</button>
         </form>
       </article>
-      <aside class="col-xs-12 col-md-6">
-        <img class="full-width" src="assets/img/contact-map.png" alt="" />
+      <aside class="main-photo col-xs-12 col-md-6">
+        <div class="full-width" ng-style="{'background-image' : 'url(assets/img/bg-pattern-light.jpg), url(assets/img/contact-map.png)'}" alt="Location Map" />
+          <!-- MAP IMAGE  -->
+        </div>
         <div class="map-caption">
           <h3 class="text-success" style="font-size:20px;">{{ page.fields.contactInformationTitle }}</h3>
           <p style="font-size:20px;">
