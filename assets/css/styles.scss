@@ -477,6 +477,17 @@ footer input {
   border: none;
   padding: 10px;
 }
+footer input[type='submit']{
+  text-align: center;
+  background-image:
+    url('../img/bg-gradient.png'),
+    url('../img/bg-pattern-light.jpg');
+  padding: 0;
+  font-weight: 700;
+  position: absolute;
+  bottom: -12px;
+  left: 44%;
+}
 footer nav {
   padding-top: 6px;
 }
@@ -503,11 +514,8 @@ footer p {
 }
 .tips-mid-footer {
   text-align:center;
-  padding:0;
-  padding-top:52px;
+  padding: 52px 28px 0;
   height:110px;
-  /*width:100%;*/
-  /*width:500px;*/
   background-image: url("../../assets/img/footer-mid.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -761,7 +769,7 @@ footer p {
   .quoteContent {
     margin-bottom: -105px;
   }
-  form {
+  .contact-form {
     padding-right: 60px;
   }
   .blockquote-wide {
