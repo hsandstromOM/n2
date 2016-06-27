@@ -39,7 +39,7 @@
     <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0">
       <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items">
         <a ui-sref="customHomesDetail({ customHomeID:home.sys.id })">
-          <div ng-style="{{home.sys.id}}">
+          <div>
             <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="" />
           </div>
           <div class="caption">

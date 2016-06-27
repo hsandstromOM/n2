@@ -348,6 +348,12 @@ aside blockquote footer {
   width: 120px;
   margin: 8px 22px 0; }
 
+.main-header a {
+  color: #253d93; }
+
+.main-header a:focus {
+  text-decoration: none; }
+
 .main-header h3 {
   text-transform: uppercase;
   font-size: 12px;
@@ -356,13 +362,25 @@ aside blockquote footer {
 
 .header-phone {
   position: fixed;
-  display: none;
   z-index: 1;
   opacity: .8;
-  padding: 20px;
-  width: 230px;
-  top: -23px;
-  right: 20px; }
+  width: 50px;
+  height: 75px;
+  top: -14px;
+  right: 20px;
+  background-image: url("../img/header_phone_mobile.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 22px;
+  text-align: center; }
+
+.header-phone p {
+  margin-top: 32px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px; }
 
 .navbar {
   margin: 18px 0 -16px; }
@@ -634,6 +652,14 @@ footer .row:last-child h6 {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .header-phone-link {
+    pointer-events: none;
+    cursor: default; }
+  .header-phone {
+    width: 196px;
+    height: 100px;
+    top: -23px;
+    background-image: url("../img/header_phone_blank.png"); }
   .navbar .nav > li > a:focus:after,
   .navbar .nav > li > a:hover:after {
     left: 42%; }
@@ -650,8 +676,6 @@ footer .row:last-child h6 {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .header-phone {
-    display: block; }
   .social {
     text-align: left; }
   footer nav {
