@@ -520,6 +520,10 @@ footer .row:last-child {
   height:110px;
   background-image: url("../../assets/img/footer-sides.png");
 }
+.tips-side-footer a {
+  color: $lt-blue;
+}
+
 // // HERO (BANNER) IMAGES
 
 .hero-font{
@@ -644,9 +648,6 @@ footer .row:last-child {
   left: 6px;
   top: 4px;
 }
-// .modal-header .fa {
-//   color: white;
-// }
 .modal-banner {
   background-color: $dk-blue-trans;
   position: absolute;

@@ -492,6 +492,9 @@ footer .row:last-child h6 {
   height: 110px;
   background-image: url("../../assets/img/footer-sides.png"); }
 
+.tips-side-footer a {
+  color: #6082c1; }
+
 .hero-font {
   font-size: 26px;
   line-height: 1.5;
