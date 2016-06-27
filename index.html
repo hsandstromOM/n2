@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./assets/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body ng-app="nautilusApp" >
+  <body ng-app="nautilusApp">
     <div class="gradient">
 
       <!-- HEADER -->
@@ -20,7 +20,7 @@
             <ul class="ul-inline flex-center v-center col-xs-12">
               <li>
                 <a ui-sref="customHomes">
-                  <h3 class="hidden-xs">
+                  <h3 class="hidden-xs hidden-sm">
                     Custom Home Construction
                   </h3>
                 </a>
@@ -32,7 +32,7 @@
               </li>
               <li>
                 <a ui-sref="homeMgmt">
-                  <h3 class="hidden-xs">
+                  <h3 class="hidden-xs hidden-sm">
                     Home Management Services
                   </h3>
                 </a>
@@ -63,9 +63,13 @@
             </div>
           </nav>
           <!-- STICKY PHONE NUMBER -->
-          <div class="header-phone">
-            <img class="full-width" src="assets/img/header_phone.png" alt="" />
-          </div>
+          <a class="header-phone-link" ng-href="tel:{{ navbar.fields.phoneNumber }}">
+            <div class="header-phone">
+              <p class="hidden-xs">
+                {{ navbar.fields.phoneNumberFormatted }}
+              </p>
+            </div>
+          </a>
         </header>
       </div>
       <!-- MAIN CONTENT -->
