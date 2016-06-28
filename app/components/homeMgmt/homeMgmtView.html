@@ -86,42 +86,16 @@
       <h3 class="header-sm text-success">Home Management Services</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
-    <article class="col-sm-3 sm-article">
-      <h3 class="header-sm">Preventative Maintenance</h3>
-      <ul class="ul-circles">
-        <li><p>Planned, scheduled, implemented and fully documented maintenance</li>
-        <li><p>Resolve any wear experiencedfrom heat and humidity: mildew or wood splintering</p></li>
-        <li><p>HVAC monitoring and maintenance</p></li>
-        <li><p>Repairs to leaky windows or doors</p></li>
-      </ul>
-    </article>
-    <article class="col-sm-3 sm-article">
-      <h3 class="header-sm">Home Watch</h3>
-      <ul class="ul-circles">
-        <li><p>Available for both second home and part-time residents</li>
-        <li><p>Regular inspections of the home while you are away</p></li>
-      </ul>
-    </article>
-    <article class="col-sm-3 sm-article">
-      <h3 class="header-sm">Arrival / Departure + Concierge</h3>
-      <ul class="ul-circles">
-        <li><p>Pickup/drop off services from Charleston International Airport</p></li>
-        <li><p>Arrival and departure house cleaning services</p></li>
-        <li><p>Stock the fridge for your arrival</p></li>
-        <li><p>Set up tee times at your favorite Charleston golf courses</p></li>
-        <li><p>Coordinate dinner reservations</p></li>
-        <li><p>Book a fishing excursion</p></li>
-      </ul>
-    </article>
-    <article class="col-sm-3 sm-article">
-      <h3 class="header-sm">Special Projects</h3>
-      <ul class="ul-circles">
-        <li><p>Project management</p></li>
-        <li><p>Renovations</p></li>
-        <li><p>Window/door replacements</p></li>
-        <li><p>Roof repair</p></li>
-      </ul>
-    </article>
+    <div contentful-entries="'content_type=homeManagementService'">
+      <article ng-repeat="serviceCategory in $contentfulEntries.items" class="col-sm-3 sm-article">
+        <h3 class="header-sm">{{ serviceCategory.fields.serviceType }}</h3>
+        <ul class="ul-circles">
+          <div marked="serviceCategory.fields.serviceList">
+            <!-- CONVERTED SERVICE LIST MARKDOWN -->
+          </div>
+        </ul>
+      </article>
+    </div>
   </section>
 
   <!-- PRE-FOOTER BUFFER -->

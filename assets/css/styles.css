@@ -603,8 +603,8 @@ footer p {
 
 .modal-header {
   height: 400px;
-  background-position: center;
-  background-size: cover;
+  background-position-y: 0;
+  background-size: 100%;
   position: relative; }
 
 .close {
