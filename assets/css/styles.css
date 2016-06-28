@@ -907,6 +907,14 @@ footer p {
 .carousel-caption-box:hover {
   color: #fff !important; }
 
+.carousel-caption-box a {
+  height: 15%;
+  width: 15%;
+  position: absolute;
+  right: 14%;
+  bottom: 43%;
+  border-radius: 100%; }
+
 .carousel-caption-box h1 {
   font-size: 24px;
   font-weight: 300; }

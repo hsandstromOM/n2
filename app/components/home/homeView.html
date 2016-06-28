@@ -15,14 +15,16 @@
         <div class="home-slider-img" ng-style="{'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ slide.fields.bannerImage.fields.file.url }})'}">
           <!-- SLIDER BACKGROUND IMAGE -->
         </div>
-        <a ng-href="{{ slide.fields.learnMoreLink }}"><aside class="col-md-4 carousel-caption-box hidden-xs hidden-sm flex-col text-left">
+
+        <aside class="col-md-4 carousel-caption-box hidden-xs hidden-sm flex-col text-left">
           <h1>
             {{ slide.fields.title }}
           </h1>
           <p>
             {{ slide.fields.description }}
           </p>
-        </aside></a>
+          <a ng-href="{{ slide.fields.learnMoreLink }}"></a>
+        </aside>
       </div>
     </div>
   </div>
