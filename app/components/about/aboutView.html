@@ -21,7 +21,6 @@
         <div class="full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.ourStoryImage.fields.file.url }})'}">
           <!-- MAIN PHOTO -->
         </div>
-        <!-- <img class="full-width" ng-src="{{ page.fields.ourStoryImage.fields.file.url }}" alt="Our Story Image" /> -->
         <figcaption marked="page.fields.ourStoryQuote">
           <!-- CONVERTED OUR STORY QUOTE MARKDOWN -->
         </figcaption>
@@ -45,7 +44,7 @@
           <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
           <div class="col-xs-12 col-sm-6 col-md-4 team-member">
             <div class="col-xs-12 white-box hover-mute" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">
-              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
+              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="{{ teamMember.fields.teamMemberName }} Photo" />
             </div>
             <div class="col-xs-12 caption text-left">
               <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>

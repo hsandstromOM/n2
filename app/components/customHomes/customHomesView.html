@@ -40,7 +40,7 @@
       <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items">
         <a ui-sref="customHomesDetail({ customHomeID:home.sys.id })">
           <div>
-            <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="" />
+            <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="{{ home.fields.customHomeTitle }} Photo" />
           </div>
           <div class="caption">
             <h4>{{ home.fields.customHomeTitle }}, <span>{{ home.fields.customHomeType }} - {{ home.fields.serviceType }}</span></h4>

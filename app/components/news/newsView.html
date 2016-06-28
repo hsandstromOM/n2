@@ -80,7 +80,7 @@
       <div class="news-listing col-sm-6" ng-repeat="newsPost in $contentfulEntries.items">
         <a href="#">
           <div class="white-box hover-mute">
-            <img class="full-width" ng-src="{{ newsPost.fields.thumbnailImage.fields.file.url }}" alt="" />
+            <img class="full-width" ng-src="{{ newsPost.fields.thumbnailImage.fields.file.url }}" alt="{{ newsPost.fields.title }} Photo" />
           </div>
           <div class="caption">
             <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
