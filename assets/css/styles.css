@@ -521,6 +521,8 @@ footer p {
   background-position: center;
   background-position-y: initial;
   background-blend-mode: multiply;
+  background-size: 100px 100px, cover;
+  background-repeat: repeat, no-repeat;
   color: white; }
 
 .hero-img h1 {

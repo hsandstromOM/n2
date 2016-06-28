@@ -2,8 +2,24 @@ angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
 
-  function HomeMgmtController(HomeMgmtService) {
+  function HomeMgmtController(HomeMgmtService, MainService) {
     var vm = this;
+
+    MainService
+      .getPageContent('homeManagementPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     HomeMgmtService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
