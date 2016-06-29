@@ -50,16 +50,23 @@
           <div class="modal fade" id="home-mgmt-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.bannerImage.fields.file.url + ')'}">
+                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.bannerImage.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                   <div class="modal-banner">
                     <h4>{{ homeMgmtCtrl.selectedProject.fields.title }}</h4>
                       <ul class="ul-inline social">
                         <li><h3>Share:</h3></li>
-                        <li><a href="" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li><a href="" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
-                        <li><a href="" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
-                        <li><a href="" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.houzz.com" target="_blank"
+                               data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
+                               data-hzid="Your HZID"
+                               data-title="{{ homeMgmtCtrl.selectedProject.fields.title }}"
+                               data-img="{{ homeMgmtCtrl.selectedProject.fields.bannerImage.fields.file.url }}"
+                               data-desc="{{ homeMgmtCtrl.selectedProject.fields.description }}"
+                               data-category="{{ homeMgmtCtrl.selectedProject.fields.homeManagementServices }}"
+                               data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
                       </ul>
                   </div>
                 </div>

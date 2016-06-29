@@ -645,8 +645,12 @@ footer p {
 }
 .modal-header {
   height: 400px;
-  background-position-y: 0;
-  background-size: 100%;
+  // background-position-y: 0;
+  // background-size: 100%;
+  background-repeat: no-repeat, repeat;
+  background-size: contain, 100px 100px;
+  background-position: center;
+  border-bottom: none;
   position: relative;
 }
 .close {
