@@ -538,7 +538,7 @@ footer p {
 .main-article h2 {
   margin: 0 0 20px; }
 
-.main-photo div {
+.main-photo .main-photo-container {
   background-repeat: repeat, no-repeat;
   background-size: 100px 100px, cover;
   background-blend-mode: multiply;
@@ -603,8 +603,10 @@ footer p {
 
 .modal-header {
   height: 400px;
-  background-position-y: 0;
-  background-size: 100%;
+  background-repeat: no-repeat, repeat;
+  background-size: contain, 100px 100px;
+  background-position: center;
+  border-bottom: none;
   position: relative; }
 
 .close {
@@ -825,6 +827,20 @@ footer p {
 .contact-form button[type="submit"] {
   display: block;
   margin: 25px auto; }
+
+.map-caption .fa {
+  font-size: 24px;
+  margin-right: 10px; }
+
+.contact-social li {
+  vertical-align: middle;
+  margin-right: 10px; }
+
+.contact-social a {
+  color: #6082c1; }
+
+.contact-social .fa {
+  margin-bottom: 10px; }
 
 .career-desc,
 .career-desc p:last-child {

@@ -574,7 +574,7 @@ footer p {
 .main-article h2 {
   margin: 0 0 20px;
 }
-.main-photo div {
+.main-photo .main-photo-container {
   background-repeat: repeat, no-repeat;
   background-size: 100px 100px, cover;
   background-blend-mode: multiply;
@@ -645,8 +645,12 @@ footer p {
 }
 .modal-header {
   height: 400px;
-  background-position-y: 0;
-  background-size: 100%;
+  // background-position-y: 0;
+  // background-size: 100%;
+  background-repeat: no-repeat, repeat;
+  background-size: contain, 100px 100px;
+  background-position: center;
+  border-bottom: none;
   position: relative;
 }
 .close {

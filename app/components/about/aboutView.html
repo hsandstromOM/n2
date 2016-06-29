@@ -18,7 +18,7 @@
         </div>
       </article>
       <figure class="main-photo col-xs-12 col-md-6">
-        <div class="full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.ourStoryImage.fields.file.url }})'}">
+        <div class="main-photo-container full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.ourStoryImage.fields.file.url }})'}">
           <!-- MAIN PHOTO -->
         </div>
         <figcaption marked="page.fields.ourStoryQuote">
@@ -39,7 +39,7 @@
         </div>
       </header>
       <div contentful-entries="'content_type=teamMember'" class="row text-center">
-        <div ng-repeat="teamMember in $contentfulEntries.items">
+        <div ng-repeat="teamMember in $contentfulEntries.items | orderBy : 'fields.orderNumber'">
           <div class="clearfix visible-sm-block" ng-if="$index % 2 == 0"></div>
           <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
           <div class="col-xs-12 col-sm-6 col-md-4 team-member">
@@ -62,7 +62,7 @@
         <div class="modal fade" id="about-us-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header" ng-style="{'background-image' : 'url(' + aboutCtrl.selectedTeamMember.fields.teamMemberImage.fields.file.url + ')'}">
+              <div class="modal-header" ng-style="{'background-image' : 'url(' + aboutCtrl.selectedTeamMember.fields.teamMemberImage.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                 <div class="modal-banner">
                   <h4>{{ aboutCtrl.selectedTeamMember.fields.teamMemberName }}, <span>{{ aboutCtrl.selectedTeamMember.fields.teamMemberTitle }}<span></h4>

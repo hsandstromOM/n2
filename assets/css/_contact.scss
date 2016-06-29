@@ -2,6 +2,20 @@
   display: block;
   margin: 25px auto;
 }
+.map-caption .fa {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.contact-social li {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.contact-social a {
+  color: $lt-blue;
+}
+.contact-social .fa {
+  margin-bottom: 10px;
+}
 .career-desc,
 .career-desc p:last-child {
   display: inline;
