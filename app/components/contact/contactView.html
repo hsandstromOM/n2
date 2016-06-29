@@ -29,9 +29,9 @@
                 <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Subject</a></li>
-                <li><a href="#">Another subject</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="">Subject</a></li>
+                <li><a href="">Another subject</a></li>
+                <li><a href="">Something else here</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Other</a></li>
               </ul>
@@ -47,7 +47,7 @@
         </form>
       </article>
       <aside class="main-photo col-xs-12 col-md-6">
-        <div class="full-width" ng-style="{'background-image' : 'url(assets/img/bg-pattern-light.jpg), url(assets/img/contact-map.png)'}" alt="Nautilus Company Location Map" />
+        <div class=" main-photo-container full-width" ng-style="{'background-image' : 'url(assets/img/bg-pattern-light.jpg), url(assets/img/contact-map.png)'}" alt="Nautilus Company Location Map" />
           <!-- MAP IMAGE  -->
         </div>
         <div class="map-caption">
@@ -58,14 +58,14 @@
             {{ page.fields.contactCounty }}
           </p>
           <ul class="ul-inline text-primary">
-            <li><i class="fa fa-2x fa-phone" aria-hidden="true"></i></li>
+            <li><a ng-href="tel:{{ page.fields.contactPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-2x fa-phone" aria-hidden="true"></i></a></li>
             <li><p class="text-primary" style="font-size:20px;">{{ page.fields.contactPhoneNumber }}</p></li>
           </ul>
         </div>
-        <ul class="ul-inline">
+        <ul class="ul-inline contact-social">
           <br><br>
-          <li><p class="text-primary" style="font-size:20px;">Connect with us:</p></li>
-          <li><a href="http://facebook.com/NautilusCompany" target="_blank"><i class="fa fa-2x fa-facebook-f" aria-hidden="true"></i></a></li>
+          <li><p style="font-size:20px;">Connect with us:</p></li>
+          <li><a href="http://facebook.com/NautilusCompany" target="_blank"><i class="fa text-primary fa-2x fa-facebook-f" aria-hidden="true"></i></a></li>
           <li><a href="http://twitter.com/@NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></a></li>
           <li><a href="http://linkedin.com/company/nautilus-company" target="_blank"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a></li>
           <li><a href="http://www.houzz.com/pro/nautilusco/nautilus-company-llc" target="_blank"><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
