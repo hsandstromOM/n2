@@ -79,6 +79,9 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider) {
       });
 });
 
+require('./components/main/mainController');
+require('./components/main/mainService');
+
 require('./components/home/homeController');
 require('./components/home/homeService');
 

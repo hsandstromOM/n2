@@ -2,8 +2,25 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService) {
+  function NewsController(NewsService, MainService) {
     var vm = this;
+
+    MainService.setPageTitle('Nautilus Company | News');
+    // MainService
+    //   .getPageContent('newsPage')
+    //   .then(
+    //
+    //     // Success handler
+    //     function(mainContent){
+    //       console.log(mainContent);
+    //       MainService.setPageTitle(mainContent.pageTitle);
+    //     },
+    //
+    //     // Error handler
+    //     function(response){
+    //       console.log('Oops, error ' + response.status);
+    //     }
+    //   );
 
     NewsService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT

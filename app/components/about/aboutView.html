@@ -21,7 +21,6 @@
         <div class="full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.ourStoryImage.fields.file.url }})'}">
           <!-- MAIN PHOTO -->
         </div>
-        <!-- <img class="full-width" ng-src="{{ page.fields.ourStoryImage.fields.file.url }}" alt="Our Story Image" /> -->
         <figcaption marked="page.fields.ourStoryQuote">
           <!-- CONVERTED OUR STORY QUOTE MARKDOWN -->
         </figcaption>
@@ -45,7 +44,7 @@
           <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
           <div class="col-xs-12 col-sm-6 col-md-4 team-member">
             <div class="col-xs-12 white-box hover-mute" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">
-              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
+              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="{{ teamMember.fields.teamMemberName }} Photo" />
             </div>
             <div class="col-xs-12 caption text-left">
               <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
@@ -53,8 +52,8 @@
             </div>
             <button type="button" class="caption circle-button-40 arrow-right" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">BIO</button>
             <div class="contact caption text-left">
-              <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ teamMember.fields.teamMemberEmail }}</h5>
-              <h5><i class="fa fa-mobile" aria-hidden="true"></i> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+              <h5><a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberEmail }}</h5>
+              <h5><a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
             </div>
           </div>
           <!-- END TEAM MEMBER -->
@@ -67,7 +66,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                 <div class="modal-banner">
                   <h4>{{ aboutCtrl.selectedTeamMember.fields.teamMemberName }}, <span>{{ aboutCtrl.selectedTeamMember.fields.teamMemberTitle }}<span></h4>
-                  <a href=""><i class="fa fa-mobile" aria-hidden="true"></i></a>
+                  <a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a>
                   <a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
                 </div>
               </div>

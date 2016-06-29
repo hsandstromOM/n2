@@ -2,8 +2,24 @@ angular
   .module('nautilusApp')
   .controller('CareersController', CareersController);
 
-  function CareersController(CareersService) {
+  function CareersController(CareersService, MainService) {
     var vm = this;
+
+    MainService
+      .getPageContent('careersPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     CareersService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT

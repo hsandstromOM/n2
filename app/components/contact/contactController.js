@@ -2,8 +2,24 @@ angular
   .module('nautilusApp')
   .controller('ContactController', ContactController);
 
-  function ContactController(ContactService) {
+  function ContactController(ContactService, MainService) {
     var vm = this;
+
+    MainService
+      .getPageContent('contactUsPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     ContactService.getMainContent().then(function(mainContent) {
       // TO BE EDITED AFTER CLIENT ADDS CONTENT

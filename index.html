@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="nautilusApp" ng-controller="MainController as MainCtrl">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nautilus Company | Custom Home Construction</title>
+    <title>{{ MainCtrl.getPageTitle() }}</title>
     <script src="https://use.typekit.net/zpw2fvs.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="./assets/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body ng-app="nautilusApp">
+  <body>
     <div class="gradient">
 
       <!-- HEADER -->
@@ -63,7 +63,7 @@
             </div>
           </nav>
           <!-- STICKY PHONE NUMBER -->
-          <a class="header-phone-link" ng-href="tel:{{ navbar.fields.phoneNumber }}">
+          <a class="link-mobile-only" ng-href="tel:{{ navbar.fields.phoneNumber }}">
             <div class="header-phone">
               <p class="hidden-xs">
                 {{ navbar.fields.phoneNumberFormatted }}
@@ -74,7 +74,6 @@
       </div>
       <!-- MAIN CONTENT -->
       <div class="container-fluid">
-
         <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
         <div ui-view></div>
 
