@@ -27,10 +27,8 @@
         <a ui-sref="testimonials"><h3 class="arrow-right text-success">More Testimonials</h3></a>
       </aside>
       </section>
-    </div>
-  </div>
 
-  <!-- PORTFOLIO SECTION  -->
+    <!-- PORTFOLIO SECTION  -->
     <section class="row bg-blue">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
         <header class="row">
@@ -40,8 +38,8 @@
           </div>
         </header>
         <div class="row text-center">
-          <ul contentful-entries="'content_type=homeManagementProject'" class="gallery-list">
-            <li ng-repeat="project in $contentfulEntries.items" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.thumbnailImage.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
+          <ul class="gallery-list">
+            <li ng-repeat="project in page.fields.projectGallery" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
               <h1>{{ project.fields.title }}</h1>
               <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
             </li>
@@ -50,7 +48,7 @@
           <div class="modal fade" id="home-mgmt-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.bannerImage.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
+                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                   <div class="modal-banner">
                     <h4>{{ homeMgmtCtrl.selectedProject.fields.title }}</h4>
@@ -63,9 +61,8 @@
                                data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
                                data-hzid="Your HZID"
                                data-title="{{ homeMgmtCtrl.selectedProject.fields.title }}"
-                               data-img="{{ homeMgmtCtrl.selectedProject.fields.bannerImage.fields.file.url }}"
+                               data-img="{{ homeMgmtCtrl.selectedProject.fields.file.url }}"
                                data-desc="{{ homeMgmtCtrl.selectedProject.fields.description }}"
-                               data-category="{{ homeMgmtCtrl.selectedProject.fields.homeManagementServices }}"
                                data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
                       </ul>
                   </div>
@@ -85,7 +82,8 @@
         </div>
       </div>
     </section>
-  </section>
+  </div>
+</div>
 
   <!-- SERVICES LIST -->
   <section class="row margin-lg margin-b-30">
