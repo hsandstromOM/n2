@@ -2,8 +2,10 @@ var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
 
-nautilusApp.config(function($stateProvider, $urlRouterProvider) {
+nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
+  $locationProvider.html5Mode(true);
+  
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider

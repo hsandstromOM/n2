@@ -1,89 +1,50 @@
 <div contentful-entries="'content_type=testimonialsPage'" class="container-fluid">
-  <!-- HERO IMAGE -->
-  <section class="row margin-lg v-center hero-img overlay" style="background-image: url(../../../assets/img/bg-pattern-light.jpg), url(../../../assets/img/testimonials-banner.png)">
-  <!-- <section class="row margin-lg v-center hero-img-testimonials overlay" ng-style="{ background: 'url({{ $contentfulEntries.items.bannerImage.fields.file.url }}'"> -->
-    <h1 class="col-md-6 hero-font">
-      Testimonials:<br>
-      Good people saying good things about their Nautilus experience.
-      <!-- {{ $contentfulEntries.items.bannerImageDescription }} -->
-    </h1>
-  </section>
+  <div ng-repeat="page in $contentfulEntries.items | limitTo : 1">
 
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30">
-    <div class="col-md-6">
-      <h1 class="quote testimonialsView">“<h1>
-      <blockquote class="quoteContent">
-        <p>
-          <strong>Bill Payzant</strong> is truly someone that any home owner can <strong>learn</strong> from! As a <strong>first time home owner</strong>, my knowledge base was limited with respect to how to properly <strong>maintain my home.</strong> Bill's knowledge with respect to all elements in home construction is limitless! The guy truly know his craft...he is a <strong>problem solver</strong> to the highest degree - No task is too small or too big for him. He truly embraces <strong>your needs</strong> as if they were his own.
-        </p>
-        <footer>The Branigan Family</footer>
-      </blockquote>
-      <h1 class="quote">”<h1>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <img class="full-width" src="http://placehold.it/552x412" alt="" />
-    </div>
-  </section>
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30 bg-blue">
-    <div class="col-xs-12">
-      <h1 class="quoteOffset">“<h1>
-      <blockquote class="blockquote-wide">
-        <p>
-          There are a lot of <strong>general contractors</strong> out there and I interviewed my share. Through that process, I began to learn <strong>how unique Nautilus Company is.</strong> Before even signing a contract, we thoroughly discussed our perspectives and expectations of the project including the professional relationship. A great deal of <strong>integrity</strong> was established through these <strong>authentic meetings</strong> allowing me to feel confident of my decision to enter the partnership. I use the word <strong>partnership</strong> with intention. I was <strong>consistently confident</strong> that I would be kept well informed and consulted as necessary once construction began. Communication lines were always open and flowed freely. I was further inpressed that the <strong>professionalism</strong> displayed by Nautilus was also expected of the subcontractors.
-        </p>
-        <footer>JS</footer>
-      </blockquote>
-      <h1 class="quoteOffsetRight">”<h1>
-    </div>
-  </section>
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30">
-    <div class="col-md-6">
-      <h1 class="quote testimonialsView">“<h1>
-      <blockquote class="quoteContent">
-        <p>
-          <strong>Bill Payzant</strong> is truly someone that any home owner can <strong>learn</strong> from! As a <strong>first time home owner</strong>, my knowledge base was limited with respect to how to properly <strong>maintain my home.</strong> Bill's knowledge with respect to all elements in home construction is limitless! The guy truly know his craft...he is a <strong>problem solver</strong> to the highest degree - No task is too small or too big for him. He truly embraces <strong>your needs</strong> as if they were his own.
-        </p>
-        <footer>The Branigan Family</footer>
-      </blockquote>
-      <h1 class="quote">”<h1>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <img class="full-width" src="http://placehold.it/552x412" alt="" />
-    </div>
-  </section>
-  <!-- MAIN CONTENT -->
-  <section class="row margin-lg v-margin-30 bg-blue">
-    <div class="col-xs-12">
-      <h1 class="quoteOffset">“<h1>
-      <blockquote class="blockquote-wide">
-        <p>
-          There are a lot of <strong>general contractors</strong> out there and I interviewed my share. Through that process, I began to learn <strong>how unique Nautilus Company is.</strong> Before even signing a contract, we thoroughly discussed our perspectives and expectations of the project including the professional relationship. A great deal of <strong>integrity</strong> was established through these <strong>authentic meetings</strong> allowing me to feel confident of my decision to enter the partnership. I use the word <strong>partnership</strong> with intention. I was <strong>consistently confident</strong> that I would be kept well informed and consulted as necessary once construction began. Communication lines were always open and flowed freely. I was further impressed that the <strong>professionalism</strong> displayed by Nautilus was also expected of the subcontractors.
-        </p>
-        <footer>JS</footer>
-      </blockquote>
-      <h1 class="quote quoteOffsetRight">”<h1>
-    </div>
-  </section>
-
-  <!-- CONTENTFUL MODEL -->
-  <!-- <div contentful-entries="'content_type=testimonial'" class="">
-    <section ng-repeat="testimonial in $contentfulEntries.items" class="row margin-lg v-margin-30">
-      <div class="col-md-6">
-        <h1 class="quote testimonialsView">“<h1>
-        <blockquote class="quoteContent">
-          {{ testimonial.fields.testimonialQuote }}
-          <footer>{{ testimonial.fields.testimonialQuoteAuthor }}</footer>
-        </blockquote>
-        <h1 class="quote">”<h1>
-      </div>
-      <div class="col-xs-12 col-md-6">
-        <img class="full-width" ng-src="testimonial.fields.thumbnailImage.fields.file.url" alt="" />
+    <!-- HERO IMAGE -->
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
+      <div class="col-md-6 hero-font" marked="page.fields.bannerImageDescription">
+        <!-- BANNER DESCRIPTION -->
       </div>
     </section>
-  </div> -->
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div contentful-entries="'content_type=testimonial'">
+    <div ng-repeat="testimonial in $contentfulEntries.items">
+      <!-- TESTIMONIAL WITH IMAGE -->
+      <section ng-if="testimonial.fields.testimonialImage" class="row margin-lg v-margin-30">
+        <div class="col-md-6">
+          <h1 class="quote testimonialsView">“<h1>
+          <blockquote class="quoteContent">
+            <div marked="testimonial.fields.testimonialQuote">
+              <!-- TESTIMONIAL QUOTE -->
+            </div>
+            <footer>{{ testimonial.fields.testimonialAuthor }}</footer>
+          </blockquote>
+          <h1 class="quote">”<h1>
+        </div>
+        <div class="col-xs-12 col-md-6 main-photo">
+          <div class="testimonial-image-container" ng-style="{'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ testimonial.fields.testimonialImage.fields.file.url }})'}" alt="" />
+            <!-- TESTIMONIAL IMAGE -->
+          </div>
+        </div>
+      </section>
+      <!-- TESTIMONIAL WITHOUT IMAGE -->
+      <section ng-if="!testimonial.fields.testimonialImage" class="row margin-lg v-margin-30 bg-blue">
+        <div class="col-xs-12">
+          <h1 class="quoteOffset">“<h1>
+          <blockquote class="blockquote-wide">
+            <div marked="testimonial.fields.testimonialQuote">
+              <!-- TESTIMONIAL QUOTE -->
+            </div>
+            <footer>{{ testimonial.fields.testimonialAuthor }}</footer>
+          </blockquote>
+          <h1 class="quoteOffsetRight">”<h1>
+        </div>
+      </section>
+    </div>
+  </div>
 
   <!-- PRE-FOOTER BUFFER -->
   <section class="buffer"></section>
