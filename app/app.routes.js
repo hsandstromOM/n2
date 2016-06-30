@@ -39,7 +39,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('homeMgmt', {
-        url: '/homeMgmt',
+        url: '/home-management-services',
         templateUrl: './app/components/homeMgmt/homeMgmtView.html',
         controller: 'HomeMgmtController',
         controllerAs: 'homeMgmtCtrl'
@@ -72,13 +72,6 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         controller: 'CareersController',
         controllerAs: 'careersCtrl'
       })
-
-      .state('clientLogin', {
-        url: '/clientLogin',
-        templateUrl: './app/components/clientLogin/clientLoginView.html',
-        controller: 'ClientLoginController',
-        controllerAs: 'clientLogin'
-      });
 });
 
 require('./components/main/mainController');
@@ -107,5 +100,3 @@ require('./components/testimonials/testimonialsService');
 
 require('./components/careers/careersController');
 require('./components/careers/careersService');
-
-require('./components/clientLogin/clientLoginController');
