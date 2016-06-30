@@ -17,25 +17,35 @@
         </div>
 
         <aside class="col-md-4 carousel-caption-box hidden-xs hidden-sm flex-col text-left">
-          <h1>
-            {{ slide.fields.title }}
-          </h1>
-          <p>
-            {{ slide.fields.description }}
-          </p>
-          <a ng-href="{{ slide.fields.learnMoreLink }}">Learn More</a>
+          <div class="carousel-caption-text">
+            <h1>
+              <a ng-href="{{ slide.fields.learnMoreLink }}">
+                {{ slide.fields.title }}
+              </a>
+            </h1>
+            <p>
+              <a ng-href="{{ slide.fields.learnMoreLink }}">
+                {{ slide.fields.description }}
+              </a>
+            </p>
+          </div>
+          <a class="learn-more-button" ng-href="{{ slide.fields.learnMoreLink }}">Learn More</a>
         </aside>
 
         <aside class="col-md-12 carousel-caption-box-mobile hidden-md hidden-lg flex-col text-center">
           <div class="carousel-caption-text">
             <h1>
-              {{ slide.fields.title }}
+              <a ng-href="{{ slide.fields.learnMoreLink }}">
+                {{ slide.fields.title }}
+              </a>
             </h1>
             <p>
-              {{ slide.fields.description }}
+              <a ng-href="{{ slide.fields.learnMoreLink }}">
+                {{ slide.fields.description }}
+              </a>
             </p>
           </div>
-          <a ng-href="{{ slide.fields.learnMoreLink }}">Learn More</a>
+          <a class="learn-more-button-mobile" ng-href="{{ slide.fields.learnMoreLink }}">Learn More</a>
         </aside>
       </div>
     </div>

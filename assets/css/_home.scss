@@ -27,8 +27,7 @@
   top: 0;
   bottom: 0;
   z-index: 1;
-  padding-left:20px;
-  padding-right:78px;
+  padding: 1% 0 2% 3%;
   color: #fff;
   font-family: $serif;
   line-height: 42px;
@@ -39,7 +38,11 @@
 .carousel-caption-box:hover{
   color: #fff !important;
 }
-.carousel-caption-box a {
+.carousel-caption-text a,
+.carousel-caption-text a:hover {
+  color: #fff;
+}
+.learn-more-button {
   position: absolute;
   right: 15%;
   bottom: 42.5%;
@@ -63,18 +66,9 @@
   font-weight: 700;
   line-height: 1.5;
 }
-.carousel-caption-box a:hover {
+.learn-more-button:hover {
   background: #fff;
   color: $dk-blue;
-}
-.carousel-caption-box h1 {
-  font-size: 24px;
-  font-weight: 300;
-}
-.carousel-caption-box p {
-  font-size: 18px;
-  font-weight: 300;
-  padding-right: 50px;
 }
 .carousel-caption-box-mobile {
   height: 0;
@@ -105,7 +99,7 @@
   font-size: 14px;
   padding-right: 7%;
 }
-.carousel-caption-box-mobile a {
+.learn-more-button-mobile {
   position: absolute;
   right: 1.5%;
   bottom: 31.5%;
@@ -184,7 +178,7 @@
   .carousel-caption-text p {
     font-size: 20px;
   }
-  .carousel-caption-box-mobile a {
+  .learn-more-button-mobile {
     position: absolute;
     right: 1.5%;
     bottom: 31.5%;
@@ -204,7 +198,7 @@
     font-weight: 700;
     line-height: 1.5;
   }
-  .carousel-caption-box-mobile a:hover {
+  .learn-more-button-mobile:hover {
     background: #fff;
     color: $dk-blue;
   }
@@ -212,8 +206,21 @@
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .carousel-caption-text {
+    text-align: left;
+    padding: 0;
+  }
+  .carousel-caption-text h1 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .carousel-caption-text p {
+    font-size: 18px;
+    font-weight: 300;
+    padding-right: 36%;
+    line-height: 2.5;
+  }
   .carousel-indicators {
     left: 18.5%;
   }
-
 }
