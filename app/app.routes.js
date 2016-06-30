@@ -32,7 +32,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('customHomesDetail', {
-        url: '/customHomes/:customHomeID',
+        url: '/custom-home-construction/:customHomeID',
         templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
         controller: 'CustomHomesController',
         controllerAs: 'customHomesCtrl'

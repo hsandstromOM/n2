@@ -146,7 +146,8 @@ aside blockquote {
   padding: 10px 25px 36px 25px; }
 
 aside blockquote footer {
-  margin-top: 13px; }
+  margin-top: 13px;
+  margin-left: 57%; }
 
 .blockquote-wide {
   padding: 40px 20px 50px 30px;
