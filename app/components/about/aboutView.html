@@ -61,28 +61,29 @@
         <!-- MODAL -->
         <div class="modal fade" id="about-us-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header" ng-style="{'background-image' : 'url(' + aboutCtrl.selectedTeamMember.fields.teamMemberImage.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
+            <div class="modal-content bg-lt">
+              <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                <div class="modal-banner">
-                  <h4>{{ aboutCtrl.selectedTeamMember.fields.teamMemberName }}, <span>{{ aboutCtrl.selectedTeamMember.fields.teamMemberTitle }}<span></h4>
-                  <a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a>
-                  <a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                <div class="pos-r">
+                  <img class="img-responsive" ng-src="{{ aboutCtrl.selectedTeamMember.fields.teamMemberImage.fields.file.url }}" alt="" />
+                  <div class="modal-banner">
+                    <h4>{{ aboutCtrl.selectedTeamMember.fields.teamMemberName }}, <span>{{ aboutCtrl.selectedTeamMember.fields.teamMemberTitle }}<span></h4>
+                    <a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a>
+                    <a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                  </div>
                 </div>
               </div>
-              <div class="modal-body bg-lt">
-                <div class="row">
-                  <div class="col-md-6" marked="aboutCtrl.selectedTeamMember.fields.teamMemberBioPoints">
-                    <!-- CONVERTED BIO POINTS MARKDOWN -->
-                  </div>
-                  <div class="col-md-6">
-                    <h2>
-                      About {{ aboutCtrl.selectedTeamMember.fields.teamMemberName.split(' ')[0] }}
-                    </h2>
-                    <p>
-                      {{ aboutCtrl.selectedTeamMember.fields.teamMemberBio }}
-                    </p>
-                  </div>
+              <div class="modal-footer row">
+                <div class="ul-arrows col-md-6" marked="aboutCtrl.selectedTeamMember.fields.teamMemberBioPoints">
+                  <!-- CONVERTED BIO POINTS MARKDOWN -->
+                </div>
+                <div class="col-md-6">
+                  <h2>
+                    About {{ aboutCtrl.selectedTeamMember.fields.teamMemberName.split(' ')[0] }}
+                  </h2>
+                  <p>
+                    {{ aboutCtrl.selectedTeamMember.fields.teamMemberBio }}
+                  </p>
                 </div>
               </div>
             </div>

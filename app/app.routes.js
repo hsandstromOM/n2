@@ -4,8 +4,8 @@ var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-  $locationProvider.html5Mode(true);
-  
+  // $locationProvider.html5Mode(true);
+
   $urlRouterProvider.otherwise('/home');
 
   $stateProvider
@@ -25,7 +25,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('customHomes', {
-        url: '/customHomes',
+        url: '/custom-home-construction',
         templateUrl: './app/components/customHomes/customHomesView.html',
         controller: 'CustomHomesController',
         controllerAs: 'customHomesCtrl'
