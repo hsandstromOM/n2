@@ -950,7 +950,7 @@ footer p {
   color: #fff;
   font-family: "museo-slab", Times, serif;
   line-height: 42px;
-  background-image: url("../../assets/img/home-slider-cta.png");
+  background-image: url("../../assets/img/Nautilus-banner-overlay_2x.png");
   background-size: contain;
   background-repeat: no-repeat; }
 
@@ -958,12 +958,28 @@ footer p {
   color: #fff !important; }
 
 .carousel-caption-box a {
+  position: absolute;
+  right: 15%;
+  bottom: 42.5%;
   height: 15%;
   width: 15%;
-  position: absolute;
-  right: 14%;
-  bottom: 43%;
-  border-radius: 100%; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "museo-sans", Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5; }
+
+.carousel-caption-box a:hover {
+  background: #fff;
+  color: #253d93; }
 
 .carousel-caption-box h1 {
   font-size: 24px;
@@ -1001,7 +1017,27 @@ footer p {
 
 .carousel-caption-text p {
   font-size: 14px;
-  padding-right: 10px; }
+  padding-right: 7%; }
+
+.carousel-caption-box-mobile a {
+  position: absolute;
+  right: 1.5%;
+  bottom: 31.5%;
+  height: 38%;
+  width: 11%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "museo-sans", Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5; }
 
 #slider-cap {
   background-color: rbga(0, 0, 255, 0.22);
@@ -1052,7 +1088,29 @@ footer p {
   .carousel-caption-text h1 {
     font-size: 32px; }
   .carousel-caption-text p {
-    font-size: 20px; } }
+    font-size: 20px; }
+  .carousel-caption-box-mobile a {
+    position: absolute;
+    right: 1.5%;
+    bottom: 31.5%;
+    height: 38%;
+    width: 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+    border: 3px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "museo-sans", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5; }
+  .carousel-caption-box-mobile a:hover {
+    background: #fff;
+    color: #253d93; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
