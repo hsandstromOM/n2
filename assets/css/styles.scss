@@ -314,11 +314,25 @@ aside blockquote footer {
 .inline {
   display: inline;
 }
+.pos-r {
+  position: relative;
+}
 .ul-inline {
   list-style-type: none;
   li {
     display: inline-block;
   }
+}
+.ul-arrows li::before {
+  position: absolute;
+  content: '';
+  width:0;
+  height:0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent $dk-blue;
+  left: 6px;
+  top: 4px;
 }
 .flex-h {
   display: flex;
@@ -660,43 +674,35 @@ footer p {
   border-radius: 0;
 }
 .modal-header {
-  height: 400px;
-  // background-position-y: 0;
-  // background-size: 100%;
-  background-repeat: no-repeat, repeat;
-  background-size: contain, 100px 100px;
-  background-position: center;
-  border-bottom: none;
-  position: relative;
+  padding: 0;
 }
 .close {
   color: #fff;
   opacity: 1;
   font-size: 28px;
   text-shadow: none;
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  right: 15px;
 }
-.modal-body ul {
+.modal-body {
+  padding: 0;
+}
+.modal-body img {
+  width: 100%;
+}
+.modal-footer ul {
   list-style: none;
 }
-.modal-body li {
-  color: #000;
+.modal-footer li {
   font-size: 14px;
   position: relative;
   padding-left: 20px;
 }
-.modal-body li::before {
-  position: absolute;
-  content: '';
-  width:0;
-  height:0;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-color: transparent transparent transparent $dk-blue;
-  left: 6px;
-  top: 4px;
-}
 .modal-banner {
   background-color: $dk-blue-trans;
+  color: white;
   position: absolute;
   left: 0;
   right: 0;
@@ -722,12 +728,23 @@ footer p {
   border-width: 1px 0;
 }
 .modal-banner h4 {
-  color: #fff;
   font-size: 30px;
   display: inline-block;
 }
 .modal-banner h4 span {
   font-size: 14px;
+}
+.modal-banner .social {
+  float: right;
+  width: 33%;
+  text-align: right;
+}
+.modal-banner .social li {
+  margin-left: 4%;
+  vertical-align: middle;
+}
+.modal-banner .social li:first-child {
+  vertical-align: baseline;;
 }
 .modal-banner .fa {
   float: right;
@@ -741,6 +758,13 @@ footer p {
 }
 .modal-body h2 {
   margin-top: 10px
+}
+.modal-footer {
+  text-align: left;
+  border: none;
+}
+.modal-footer h2 {
+  margin-top: 0;
 }
 .no-padding {
   padding:0;

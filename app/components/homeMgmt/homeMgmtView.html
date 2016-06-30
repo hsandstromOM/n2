@@ -47,11 +47,13 @@
           <!-- MODAL -->
           <div class="modal fade" id="home-mgmt-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header" ng-style="{'background-image' : 'url(' + homeMgmtCtrl.selectedProject.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
+              <div class="modal-content bg-lt">
+                <div class="modal-body">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                  <div class="modal-banner">
-                    <h4>{{ homeMgmtCtrl.selectedProject.fields.title }}</h4>
+                  <div class="pos-r">
+                    <img class="img-responsive" ng-src="{{ homeMgmtCtrl.selectedProject.fields.file.url }}" alt="" />
+                    <div class="modal-banner">
+                      <h4>{{ homeMgmtCtrl.selectedProject.fields.title }}</h4>
                       <ul class="ul-inline social">
                         <li><h3>Share:</h3></li>
                         <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
@@ -62,16 +64,15 @@
                                data-hzid="12155"
                                data-title="{{ homeMgmtCtrl.selectedProject.fields.title }}"
                                data-img="{{ homeMgmtCtrl.selectedProject.fields.file.url }}"
-                               data-desc="{{ homeMgmtCtrl.selectedProject.fields.description }}"
+                               data-desc="{{ homeMgmtCtrl.selectedProject.description }}"
                                data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
                       </ul>
+                    </div>
                   </div>
                 </div>
-                <div class="modal-body bg-lt">
-                  <div class="row">
-                    <div class="col-md-12" marked="homeMgmtCtrl.selectedProject.fields.description">
+                <div ng-if="homeMgmtCtrl.selectedProject.fields.description" class="modal-footer row">
+                  <div class="col-md-12" marked="homeMgmtCtrl.selectedProject.fields.description">
                       <!-- CONVERTED DESCRIPTION MARKDOWN -->
-                    </div>
                   </div>
                 </div>
               </div>
