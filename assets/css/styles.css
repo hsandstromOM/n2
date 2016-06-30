@@ -440,6 +440,9 @@ nav.navbar.navbar-default {
 button.navbar-toggle {
   margin-right: 36px; }
 
+footer a:hover {
+  color: #253d93; }
+
 .footer-bar {
   padding: 0 0 10px 0;
   text-align: center;
