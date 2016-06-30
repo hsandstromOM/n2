@@ -5,6 +5,9 @@ angular
   function NewsController(NewsService, MainService) {
     var vm = this;
 
+    MainService
+      .setCurrentState('NEWS');
+
     MainService.setPageTitle('Nautilus Company | News');
     // MainService
     //   .getPageContent('newsPage')

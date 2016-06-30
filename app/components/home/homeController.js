@@ -7,6 +7,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('HOME');
+
+    MainService
       .getPageContent('navbar')
       .then(
 

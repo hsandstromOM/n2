@@ -137,6 +137,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('ABOUT');
+
+    MainService
       .getPageContent('aboutUsPage')
       .then(
 
@@ -295,6 +298,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('CONTACT');
+
+    MainService
       .getPageContent('contactUsPage')
       .then(
 
@@ -362,6 +368,9 @@ angular
 
   function CustomHomesController(MainService, $scope, $stateParams, contentful, CustomHomesService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('CUSTOM-HOMES');
 
     MainService
       .getPageContent('customHomesPage')
@@ -542,6 +551,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('HOME');
+
+    MainService
       .getPageContent('navbar')
       .then(
 
@@ -576,6 +588,9 @@ angular
 
   function HomeMgmtController(HomeMgmtService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('HOME-MGMT');
 
     MainService
       .getPageContent('homeManagementPage')
@@ -733,6 +748,10 @@ angular
     vm.getPageTitle = function() {
       return MainService.getPageTitle();
     };
+
+    vm.getCurrentState = function() {
+      return MainService.getCurrentState();
+    };
   }
 
 },{}],16:[function(require,module,exports){
@@ -744,6 +763,8 @@ angular
 
   function MainService($http, $q) {
     var pageTitle = 'Nautilus Company | Custom Home Construction';
+
+    var currentState = 'HOME';
 
     const CONTENT_URL = 'https://cdn.contentful.com';
     const MEDIA_URL = 'https://images.contentful.com';
@@ -760,6 +781,14 @@ angular
       pageTitle = newTitle;
     }
 
+    function getCurrentState() {
+      return currentState;
+    }
+
+    function setCurrentState(newState) {
+      currentState = newState;
+    }
+
     function getPageContent(page) {
       var defer = $q.defer();
 
@@ -773,6 +802,8 @@ angular
     return {
       getPageTitle: getPageTitle,
       setPageTitle: setPageTitle,
+      getCurrentState: getCurrentState,
+      setCurrentState: setCurrentState,
       getPageContent: getPageContent,
    };
   }
@@ -784,6 +815,9 @@ angular
 
   function NewsController(NewsService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('NEWS');
 
     MainService.setPageTitle('Nautilus Company | News');
     // MainService

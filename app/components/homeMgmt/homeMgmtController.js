@@ -6,6 +6,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('HOME-MGMT');
+
+    MainService
       .getPageContent('homeManagementPage')
       .then(
 

@@ -9,4 +9,8 @@ angular
     vm.getPageTitle = function() {
       return MainService.getPageTitle();
     };
+
+    vm.getCurrentState = function() {
+      return MainService.getCurrentState();
+    };
   }
