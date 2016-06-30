@@ -378,6 +378,9 @@ aside blockquote footer {
   font-weight: 900;
   letter-spacing: 4px; }
 
+.main-header h3:hover {
+  color: #6082c1; }
+
 .header-phone {
   position: fixed;
   z-index: 1;
