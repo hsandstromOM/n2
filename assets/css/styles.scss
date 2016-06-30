@@ -496,7 +496,7 @@ footer input {
   border: none;
   padding: 10px;
 }
-footer input[type='submit']{
+footer input[type='submit'] {
   text-align: center;
   background-image:
     url('../img/bg-gradient.png'),
@@ -506,6 +506,11 @@ footer input[type='submit']{
   position: absolute;
   bottom: -21px;
   left: 45%;
+}
+footer input[type='submit']:hover  {
+  color: #fff;
+  background-color: $lt-blue;
+  background-image: none;
 }
 footer nav {
   padding-top: 6px;

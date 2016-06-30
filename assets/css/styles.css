@@ -475,6 +475,11 @@ footer input[type='submit'] {
   bottom: -21px;
   left: 45%; }
 
+footer input[type='submit']:hover {
+  color: #fff;
+  background-color: #6082c1;
+  background-image: none; }
+
 footer nav {
   padding-top: 6px; }
 
