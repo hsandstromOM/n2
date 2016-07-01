@@ -18,7 +18,7 @@
       <div contentful-entries="'content_type=navbar'">
         <header ng-repeat="navbar in $contentfulEntries.items" class="container-fluid main-header">
           <!-- BRAND BANNER -->
-          <div class="row v-center text-center text-success">
+          <div class="row v-center text-center text-success brand-banner">
             <ul class="ul-inline flex-center v-center col-xs-12">
               <li>
                 <a ui-sref="customHomes">
@@ -54,12 +54,18 @@
               </div>
               <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li><a ui-sref="home" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>Home</h3></a></li>
-                  <li><a ui-sref="about" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>About Us</h3></a></li>
-                  <li><a ui-sref="customHomes" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>Custom Homes</h3></a></li>
-                  <li><a ui-sref="homeMgmt" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>Home Management</h3></a></li>
-                  <li><a ui-sref="news" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>News</h3></a></li>
-                  <li><a ui-sref="contact" data-toggle="collapse" data-target=".navbar-collapse.in"><h3>Contact Us</h3></a></li>
+                  <li><a ui-sref="home" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'HOME' || home }" ng-mouseenter="home = true"
+    ng-mouseleave="home = false"><h3>Home</h3></a></li>
+                  <li><a ui-sref="about" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'ABOUT' || about }" ng-mouseenter="about = true"
+    ng-mouseleave="about = false"><h3>About Us</h3></a></li>
+                  <li><a ui-sref="customHomes" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'CUSTOM-HOMES' || custom }" ng-mouseenter="custom = true"
+    ng-mouseleave="custom = false"><h3>Custom Homes</h3></a></li>
+                  <li><a ui-sref="homeMgmt" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'HOME-MGMT' || mgmt }" ng-mouseenter="mgmt = true"
+    ng-mouseleave="mgmt = false"><h3>Home Management</h3></a></li>
+                  <li><a ui-sref="news" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'NEWS' || news }" ng-mouseenter="news = true"
+    ng-mouseleave="news = false"><h3>News</h3></a></li>
+                  <li><a ui-sref="contact" data-toggle="collapse" data-target=".navbar-collapse.in" ng-class="{ 'current-state': MainCtrl.getCurrentState() === 'CONTACT' || contact }" ng-mouseenter="contact = true"
+    ng-mouseleave="contact = false"><h3>Contact Us</h3></a></li>
                 </ul>
               </div>
             </div>

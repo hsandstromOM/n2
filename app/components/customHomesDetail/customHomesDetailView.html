@@ -91,19 +91,9 @@
       <h3 class="header-sm text-success">Custom Home Services</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </div>
-    <div class="col-xs-12 text-center">
-      <h3>
-        {{ customHomesCtrl.customHome.fields.customHomeServices }}
-      </h3>
+    <div marked="customHomesCtrl.customHome.fields.customHomeServices" class="col-xs-12 services-list">
+      <!-- CUSTOM HOME SERVICES LIST -->
     </div>
-    <!-- FOR MULTIPLE ENTRIES -->
-    <!-- <ul class="ul-inline h-pad-18 margin-b-20 flex-h">
-      <li ng-repeat="service in customHomesCtrl.customHome.fields.customHomeServices track by $index">
-        <h3 class="header-sm">
-          {{ service }}
-        </h3>
-      </li>
-    </ul> -->
   </section>
 
   <!-- PRE-FOOTER BUFFER -->

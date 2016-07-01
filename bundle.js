@@ -24,7 +24,7 @@ require('angular-sanitize/angular-sanitize');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');
 
-},{"./app.routes.js":2,"./shared/customHomeListing/customHomeListingDirective":22,"angular":28,"angular-contentful/dist/angular-contentful.js":23,"angular-marked/dist/angular-marked.js":24,"angular-sanitize/angular-sanitize":25}],2:[function(require,module,exports){
+},{"./app.routes.js":2,"./shared/customHomeListing/customHomeListingDirective":21,"angular":27,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-sanitize/angular-sanitize":24}],2:[function(require,module,exports){
 var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
@@ -59,14 +59,14 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('customHomesDetail', {
-        url: '/customHomes/:customHomeID',
+        url: '/custom-home-construction/:customHomeID',
         templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
         controller: 'CustomHomesController',
         controllerAs: 'customHomesCtrl'
       })
 
       .state('homeMgmt', {
-        url: '/homeMgmt',
+        url: '/home-management-services',
         templateUrl: './app/components/homeMgmt/homeMgmtView.html',
         controller: 'HomeMgmtController',
         controllerAs: 'homeMgmtCtrl'
@@ -99,13 +99,6 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         controller: 'CareersController',
         controllerAs: 'careersCtrl'
       })
-
-      .state('clientLogin', {
-        url: '/clientLogin',
-        templateUrl: './app/components/clientLogin/clientLoginView.html',
-        controller: 'ClientLoginController',
-        controllerAs: 'clientLogin'
-      });
 });
 
 require('./components/main/mainController');
@@ -135,15 +128,16 @@ require('./components/testimonials/testimonialsService');
 require('./components/careers/careersController');
 require('./components/careers/careersService');
 
-require('./components/clientLogin/clientLoginController');
-
-},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/clientLogin/clientLoginController":7,"./components/contact/contactController":8,"./components/contact/contactService":9,"./components/customHomes/customHomesController":10,"./components/customHomes/customHomesService":11,"./components/home/homeController":12,"./components/home/homeService":13,"./components/homeMgmt/homeMgmtController":14,"./components/homeMgmt/homeMgmtService":15,"./components/main/mainController":16,"./components/main/mainService":17,"./components/news/newsController":18,"./components/news/newsService":19,"./components/testimonials/testimonialsController":20,"./components/testimonials/testimonialsService":21,"angular-ui-router":26}],3:[function(require,module,exports){
+},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/contact/contactController":7,"./components/contact/contactService":8,"./components/customHomes/customHomesController":9,"./components/customHomes/customHomesService":10,"./components/home/homeController":11,"./components/home/homeService":12,"./components/homeMgmt/homeMgmtController":13,"./components/homeMgmt/homeMgmtService":14,"./components/main/mainController":15,"./components/main/mainService":16,"./components/news/newsController":17,"./components/news/newsService":18,"./components/testimonials/testimonialsController":19,"./components/testimonials/testimonialsService":20,"angular-ui-router":25}],3:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
 
   function AboutController(AboutService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('ABOUT');
 
     MainService
       .getPageContent('aboutUsPage')
@@ -298,23 +292,13 @@ angular
 },{}],7:[function(require,module,exports){
 angular
   .module('nautilusApp')
-  .controller('ClientLoginController', ClientLoginController);
-
-  function ClientLoginController() {
-    var vm = this;
-
-    console.log('the ClientLogin controller, it does nothing');
-
-    this.fromCtrl = 'hello from client login controller';
-  }
-
-},{}],8:[function(require,module,exports){
-angular
-  .module('nautilusApp')
   .controller('ContactController', ContactController);
 
   function ContactController(ContactService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('CONTACT');
 
     MainService
       .getPageContent('contactUsPage')
@@ -347,7 +331,7 @@ angular
     });
   }
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('ContactService', ContactService);
@@ -377,13 +361,16 @@ angular
     };
   }
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
   function CustomHomesController(MainService, $scope, $stateParams, contentful, CustomHomesService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('CUSTOM-HOMES');
 
     MainService
       .getPageContent('customHomesPage')
@@ -459,7 +446,7 @@ angular
 
   }
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('CustomHomesService', CustomHomesService);
@@ -554,7 +541,7 @@ angular
     };
   }
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeController', HomeController);
@@ -562,6 +549,9 @@ angular
 
   function HomeController(MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('HOME');
 
     MainService
       .getPageContent('navbar')
@@ -580,7 +570,7 @@ angular
       );
   }
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('HomeService', HomeService);
@@ -591,13 +581,16 @@ angular
 
   }
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
 
   function HomeMgmtController(HomeMgmtService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('HOME-MGMT');
 
     MainService
       .getPageContent('homeManagementPage')
@@ -639,7 +632,7 @@ angular
     console.log(vm.homeMgmtPortfolio);
   }
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('HomeMgmtService', HomeMgmtService);
@@ -743,7 +736,7 @@ angular
     };
   }
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('MainController', MainController);
@@ -755,9 +748,13 @@ angular
     vm.getPageTitle = function() {
       return MainService.getPageTitle();
     };
+
+    vm.getCurrentState = function() {
+      return MainService.getCurrentState();
+    };
   }
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('MainService', MainService);
@@ -766,6 +763,8 @@ angular
 
   function MainService($http, $q) {
     var pageTitle = 'Nautilus Company | Custom Home Construction';
+
+    var currentState = 'HOME';
 
     const CONTENT_URL = 'https://cdn.contentful.com';
     const MEDIA_URL = 'https://images.contentful.com';
@@ -782,6 +781,14 @@ angular
       pageTitle = newTitle;
     }
 
+    function getCurrentState() {
+      return currentState;
+    }
+
+    function setCurrentState(newState) {
+      currentState = newState;
+    }
+
     function getPageContent(page) {
       var defer = $q.defer();
 
@@ -795,17 +802,22 @@ angular
     return {
       getPageTitle: getPageTitle,
       setPageTitle: setPageTitle,
+      getCurrentState: getCurrentState,
+      setCurrentState: setCurrentState,
       getPageContent: getPageContent,
    };
   }
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
   function NewsController(NewsService, MainService) {
     var vm = this;
+
+    MainService
+      .setCurrentState('NEWS');
 
     MainService.setPageTitle('Nautilus Company | News');
     // MainService
@@ -862,7 +874,7 @@ angular
     });
   }
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('NewsService', NewsService);
@@ -903,7 +915,7 @@ angular
     };
   }
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('TestimonialsController', TestimonialsController);
@@ -933,7 +945,7 @@ angular
     this.fromCtrl = 'hello from Testimonials controller';
   }
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('TestimonialsService', TestimonialsService);
@@ -944,7 +956,7 @@ angular
 
   }
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .directive('customHomeListing', CustomHomeListing);
@@ -981,7 +993,7 @@ angular
     }
   }
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function () {
 
   // Modules
@@ -1557,7 +1569,7 @@ angular
 
 })();
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (global){
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.angularMarked = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
@@ -1940,7 +1952,7 @@ angular.module('hc.marked', [])
 },{"marked":"marked"}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"marked":29}],25:[function(require,module,exports){
+},{"marked":28}],24:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.6
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -2659,7 +2671,7 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.3.1
@@ -7236,7 +7248,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.6
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -38260,11 +38272,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],28:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":27}],29:[function(require,module,exports){
+},{"./angular":26}],28:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser

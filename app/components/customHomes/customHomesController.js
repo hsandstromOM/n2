@@ -6,6 +6,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('CUSTOM-HOMES');
+
+    MainService
       .getPageContent('customHomesPage')
       .then(
 

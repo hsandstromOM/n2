@@ -146,7 +146,8 @@ aside blockquote {
   padding: 10px 25px 36px 25px; }
 
 aside blockquote footer {
-  margin-top: 13px; }
+  margin-top: 13px;
+  margin-left: 57%; }
 
 .blockquote-wide {
   padding: 40px 20px 50px 30px;
@@ -361,6 +362,9 @@ aside blockquote footer {
   left: 25px;
   border: 2px solid white; }
 
+.brand-banner h3:hover {
+  color: #6082c1; }
+
 .main-header .logo {
   width: 120px;
   margin: 8px 22px 0; }
@@ -406,16 +410,11 @@ aside blockquote footer {
   color: #6082c1;
   padding: 10px 14px;
   position: relative; }
-  .navbar-default .navbar-nav > li > a:hover {
-    color: #253d93; }
 
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
-  color: #253d93;
-  background: none; }
+.current-state h3 {
+  color: #253d93; }
 
-.navbar .nav > li > a:focus:after,
-.navbar .nav > li > a:hover:after {
+.current-state:after {
   position: absolute;
   content: '';
   width: 0;
@@ -426,12 +425,6 @@ aside blockquote footer {
   border-color: #253d93 transparent transparent transparent;
   bottom: 15px;
   left: 47.5%; }
-
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #253d93;
-  background: none; }
 
 nav.navbar.navbar-default {
   background-color: transparent;
@@ -446,6 +439,9 @@ nav.navbar.navbar-default {
 
 button.navbar-toggle {
   margin-right: 36px; }
+
+footer a:hover {
+  color: #253d93; }
 
 .footer-bar {
   padding: 0 0 10px 0;
@@ -481,6 +477,11 @@ footer input[type='submit'] {
   position: absolute;
   bottom: -21px;
   left: 45%; }
+
+footer input[type='submit']:hover {
+  color: #fff;
+  background-color: #6082c1;
+  background-image: none; }
 
 footer nav {
   padding-top: 6px; }
@@ -897,6 +898,20 @@ footer p {
 
 .custom-home {
   margin-bottom: 20px; }
+
+.services-list ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin-top: 20px; }
+
+.services-list li {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2.7px;
+  width: 25%;
+  text-align: center; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

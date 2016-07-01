@@ -159,6 +159,7 @@ aside blockquote {
 }
 aside blockquote footer {
   margin-top: 13px;
+  margin-left: 57%;
 }
 .blockquote-wide {
   padding: 40px 20px 50px 30px;
@@ -382,6 +383,11 @@ aside blockquote footer {
 
 // // HEADER
 
+
+.brand-banner h3:hover {
+  color: $lt-blue;
+}
+
 .main-header .logo {
   width: 120px;
   margin: 8px 22px 0;
@@ -428,17 +434,11 @@ aside blockquote footer {
   color: $lt-blue;
   padding: 10px 14px;
   position: relative;
-  &:hover {
-    color: $dk-blue;
-  }
 }
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
+.current-state h3 {
   color: $dk-blue;
-  background: none;
 }
-.navbar .nav > li > a:focus:after,
-.navbar .nav > li > a:hover:after {
+.current-state:after {
   position: absolute;
   content: '';
   width:0;
@@ -449,12 +449,6 @@ aside blockquote footer {
   border-color: $dk-blue transparent transparent transparent;
   bottom: 15px;
   left: 47.5%;
-}
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: $dk-blue;
-  background: none;
 }
 nav.navbar.navbar-default {
   background-color: transparent;
@@ -473,6 +467,9 @@ button.navbar-toggle {
 
 // // FOOTER
 
+footer a:hover {
+  color: $dk-blue;
+}
 .footer-bar {
   padding: 0 0 10px 0;
   // margin-bottom: 24px;
@@ -502,7 +499,7 @@ footer input {
   border: none;
   padding: 10px;
 }
-footer input[type='submit']{
+footer input[type='submit'] {
   text-align: center;
   background-image:
     url('../img/bg-gradient.png'),
@@ -512,6 +509,11 @@ footer input[type='submit']{
   position: absolute;
   bottom: -21px;
   left: 45%;
+}
+footer input[type='submit']:hover  {
+  color: #fff;
+  background-color: $lt-blue;
+  background-image: none;
 }
 footer nav {
   padding-top: 6px;

@@ -7,6 +7,8 @@ angular
   function MainService($http, $q) {
     var pageTitle = 'Nautilus Company | Custom Home Construction';
 
+    var currentState = 'HOME';
+
     const CONTENT_URL = 'https://cdn.contentful.com';
     const MEDIA_URL = 'https://images.contentful.com';
     const SPACE_ID = '80s1v057uxnv';
@@ -22,6 +24,14 @@ angular
       pageTitle = newTitle;
     }
 
+    function getCurrentState() {
+      return currentState;
+    }
+
+    function setCurrentState(newState) {
+      currentState = newState;
+    }
+
     function getPageContent(page) {
       var defer = $q.defer();
 
@@ -35,6 +45,8 @@ angular
     return {
       getPageTitle: getPageTitle,
       setPageTitle: setPageTitle,
+      getCurrentState: getCurrentState,
+      setCurrentState: setCurrentState,
       getPageContent: getPageContent,
    };
   }
