@@ -77,6 +77,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         controllerAs: 'newsCtrl'
       })
 
+      .state('newsDetail', {
+        url: '/news/:postID',
+        templateUrl: './app/components/newsDetail/newsDetailView.html',
+        controller: 'NewsController',
+        controllerAs: 'newsCtrl'
+      })
+
       .state('contact', {
         url: '/contact',
         templateUrl: './app/components/contact/contactView.html',
@@ -321,6 +328,8 @@ angular
   function ContactController(ContactService, MainService) {
     var vm = this;
 
+    vm.contactSubject = '';
+    
     MainService
       .setCurrentState('CONTACT');
 
@@ -339,20 +348,6 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
-
-    ContactService.getMainContent().then(function(mainContent) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT
-      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = mainContent.data.items;
-      vm.bannerImageDescription = mainContent.data.items;
-      vm.contactInformationTitle = mainContent.data.items;
-      vm.contactAddress = mainContent.data.items;
-      vm.contactCityStateZipCode = mainContent.data.items;
-      vm.contactCounty = mainContent.data.items;
-      vm.contactPhoneNumber = mainContent.data.items;
-      vm.careersSectionTitle = mainContent.data.items;
-      vm.careersSectionDescription = mainContent.data.items;
-    });
   }
 
 },{}],8:[function(require,module,exports){
@@ -837,8 +832,10 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService) {
+  function NewsController(NewsService, MainService, $stateParams, contentful) {
     var vm = this;
+
+    vm.searchTopic = '';
 
     MainService
       .setCurrentState('NEWS');
@@ -860,42 +857,38 @@ angular
     //     }
     //   );
 
-    NewsService.getMainContent().then(function(mainContent) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT
-      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = mainContent.data.items;
-      vm.bannerImageDescription = mainContent.data.items;
-      vm.mediaInquiriesText = mainContent.data.items;
-    });
+    if ($stateParams.postID) {
+      console.log("newsPage: " + $stateParams.postID);
+      vm.postID = $stateParams.postID;
+      // Get all entries
+    contentful
+      .entries('sys.id=' + $stateParams.postID)
+      .then(
 
-    NewsService.getNewsPosts().then(function(newsPosts) {
-      // console.log("news posts: " + newsPosts.data.items);
-      window.news = newsPosts.data.items;
-      vm.newsPosts = newsPosts.data.items;
+        // Success handler
+        function(response){
+          vm.selectedPost = response.data.items[0];
+          MainService.setPageTitle(vm.selectedPost.fields.title);
+          var d = new Date(vm.selectedPost.fields.date);
+          var dStr = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
+          vm.selectedPost.fields.prettyDate = dStr;
+          console.log(vm.selectedPost);
+        },
 
-      // console.log("news images: " + newsPosts.data.includes.Asset);
-      // window.newsImages = newsPosts.data.includes.Asset;
-      var imageArr = newsPosts.data.includes.Asset;
-
-      var imageId;
-
-      angular.forEach(vm.newsPosts, function(newsPost) {
-        // console.log("news post: " + teamMember.fields.title);
-
-        if (newsPost.fields.featured === "true") {
-          vm.featuredNewsPost = newsPost;
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
         }
+      );
+    }
 
-        imageId = newsPost.fields.thumbnailImage.sys.id;
-        // console.log("news post thumbnail id: " + imageId);
-
-        angular.forEach(imageArr, function (image) {
-          if (image.sys.id == imageId) {
-            newsPost.fields.thumbnailImageUrl = image.fields.file.url;
-          }
-        });
-      });
-    });
+    vm.selectSearchTopic = function(topic) {
+      vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+    };
+    // 
+    // vm.getSearchTopic = function() {
+    //   return vm.searchTopic;
+    // };
   }
 
 },{}],18:[function(require,module,exports){

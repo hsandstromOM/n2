@@ -52,6 +52,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         controllerAs: 'newsCtrl'
       })
 
+      .state('newsDetail', {
+        url: '/news/:postID',
+        templateUrl: './app/components/newsDetail/newsDetailView.html',
+        controller: 'NewsController',
+        controllerAs: 'newsCtrl'
+      })
+
       .state('contact', {
         url: '/contact',
         templateUrl: './app/components/contact/contactView.html',

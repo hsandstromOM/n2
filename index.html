@@ -70,14 +70,18 @@
               </div>
             </div>
           </nav>
-          <!-- STICKY PHONE NUMBER -->
-          <a class="link-mobile-only" a-disabled="true" ng-href="tel:{{ navbar.fields.phoneNumber }}" disabled="true">
-            <div class="header-phone">
-              <p class="hidden-xs">
-                {{ navbar.fields.phoneNumberFormatted }}
-              </p>
+          <!-- SMALL STICKY PHONE NUMBER BUTTON -->
+          <a class="hidden-md hidden-lg" ng-href="tel:{{ navbar.fields.phoneNumber }}">
+            <div class="header-phone-mobile">
+              <!-- PHONE ICON BUTTON -->
             </div>
           </a>
+          <!-- LARGE STICKY PHONE NUMBER -->
+          <div class="header-phone hidden-xs hidden-sm">
+            <p class="hidden-xs">
+              {{ navbar.fields.phoneNumberFormatted }}
+            </p>
+          </div>
         </header>
       </div>
       <!-- MAIN CONTENT -->
