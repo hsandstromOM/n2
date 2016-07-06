@@ -369,6 +369,12 @@ aside blockquote footer {
   margin: 0;
   line-height: inherit; }
 
+.bold {
+  font-weight: bold; }
+
+.pointer {
+  cursor: pointer; }
+
 .hover-mute {
   transition: all 0.5s ease; }
 
@@ -386,7 +392,8 @@ aside blockquote footer {
   bottom: 10px;
   right: 25px;
   left: 25px;
-  border: 2px solid white; }
+  border: 2px solid white;
+  pointer-events: none; }
 
 .brand-banner h3:hover {
   color: #6082c1; }
@@ -596,7 +603,8 @@ footer p {
   font-family: "museo-slab", Times, serif;
   font-size: 24px;
   font-weight: 300;
-  line-height: 2; }
+  line-height: 2;
+  margin-top: 0; }
 
 .main-article {
   text-align: justify;
@@ -1275,8 +1283,9 @@ footer p {
 .news-nav a {
   color: #253d93; }
 
-.news-nav li:hover {
-  font-weight: 500; }
+.news-nav li:hover,
+.news-nav .selectedTopic {
+  font-weight: 700; }
 
 .search-bar {
   width: 100%;
@@ -1307,6 +1316,12 @@ footer p {
 .news-listing .white-box::after {
   right: 10px;
   left: 10px; }
+
+.news-listing-thumb {
+  height: 300px;
+  background-blend-mode: multiply;
+  background-size: 100px 100px, cover;
+  background-position: center; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {

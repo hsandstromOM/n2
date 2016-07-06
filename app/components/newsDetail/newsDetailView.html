@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div contentful-entries="'content_type=newsPage'" >
+  <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
+
+    <!-- HERO IMAGE -->
+    <section class="row margin-lg flex-col hero-img" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.bannerImage.fields.file.url + ')'}">
+      <h2>
+        {{ newsCtrl.selectedPost.fields.topic }}
+      </h2>
+      <h1 class="col-md-6 hero-font">
+        {{ newsCtrl.selectedPost.fields.headline }}
+      </h1>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="row margin-lg v-margin-30">
+      <article class="main-article col-xs-12 col-md-6">
+        <h2>{{ newsCtrl.selectedPost.fields.title }}</h2>
+        <h2 class="text-success">{{ newsCtrl.selectedPost.fields.prettyDate }}</h2>
+        <div marked="newsCtrl.selectedPost.fields.body">
+          <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
+        </div>
+      </article>
+      <figure class="main-photo col-xs-12 col-md-6">
+        <div class="main-photo-container full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.thumbnailImage.fields.file.url + ')'}">
+          <!-- MAIN PHOTO -->
+        </div>
+        <figcaption marked="page.fields.ourStoryQuote">
+          <!-- CONVERTED OUR STORY QUOTE MARKDOWN -->
+        </figcaption>
+      </figure>
+    </section>
+  </div>
+  </div>
+
+  <!-- PRE-FOOTER BUFFER -->
+  <section class="buffer"></section>
+</div>

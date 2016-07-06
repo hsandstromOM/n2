@@ -63,8 +63,9 @@
 .news-nav a {
   color: $dk-blue;
 }
-.news-nav li:hover {
-  font-weight: 500;
+.news-nav li:hover,
+.news-nav .selectedTopic {
+  font-weight: 700;
 }
 .search-bar {
   width: 100%;
@@ -95,6 +96,12 @@
 .news-listing .white-box::after {
   right: 10px;
   left: 10px;
+}
+.news-listing-thumb {
+  height: 300px;
+  background-blend-mode: multiply;
+  background-size: 100px 100px, cover;
+  background-position: center;
 }
 
 /* Small devices (tablets, 768px and up) */

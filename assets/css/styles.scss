@@ -385,6 +385,12 @@ aside blockquote footer {
   margin: 0;
   line-height: inherit;
 }
+.bold {
+  font-weight: bold;
+}
+.pointer {
+  cursor: pointer;
+}
 .hover-mute {
   transition: all 0.5s ease;
 }
@@ -403,6 +409,7 @@ aside blockquote footer {
   right: 25px;
   left: 25px;
   border: 2px solid white;
+  pointer-events: none;
 }
 
 // MORE SPECIFIC
@@ -637,6 +644,7 @@ footer p {
   font-size: 24px;
   font-weight: 300;
   line-height: 2;
+  margin-top: 0;
 }
 
 // // MAIN CONTENT AREAS
