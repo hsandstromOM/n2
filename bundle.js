@@ -321,6 +321,8 @@ angular
   function ContactController(ContactService, MainService) {
     var vm = this;
 
+    vm.contactSubject = '';
+    
     MainService
       .setCurrentState('CONTACT');
 
@@ -339,20 +341,6 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
-
-    ContactService.getMainContent().then(function(mainContent) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT
-      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = mainContent.data.items;
-      vm.bannerImageDescription = mainContent.data.items;
-      vm.contactInformationTitle = mainContent.data.items;
-      vm.contactAddress = mainContent.data.items;
-      vm.contactCityStateZipCode = mainContent.data.items;
-      vm.contactCounty = mainContent.data.items;
-      vm.contactPhoneNumber = mainContent.data.items;
-      vm.careersSectionTitle = mainContent.data.items;
-      vm.careersSectionDescription = mainContent.data.items;
-    });
   }
 
 },{}],8:[function(require,module,exports){
