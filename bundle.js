@@ -18,13 +18,11 @@ nautilusApp.config(function(contentfulProvider) {
 
 require('./app.routes.js');
 
-require('./shared/customHomeListing/customHomeListingDirective');
-
 require('angular-sanitize/angular-sanitize');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');
 
-},{"./app.routes.js":2,"./shared/customHomeListing/customHomeListingDirective":21,"angular":27,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-sanitize/angular-sanitize":24}],2:[function(require,module,exports){
+},{"./app.routes.js":2,"angular":27,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-sanitize/angular-sanitize":24}],2:[function(require,module,exports){
 var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
@@ -128,7 +126,9 @@ require('./components/testimonials/testimonialsService');
 require('./components/careers/careersController');
 require('./components/careers/careersService');
 
-},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/contact/contactController":7,"./components/contact/contactService":8,"./components/customHomes/customHomesController":9,"./components/customHomes/customHomesService":10,"./components/home/homeController":11,"./components/home/homeService":12,"./components/homeMgmt/homeMgmtController":13,"./components/homeMgmt/homeMgmtService":14,"./components/main/mainController":15,"./components/main/mainService":16,"./components/news/newsController":17,"./components/news/newsService":18,"./components/testimonials/testimonialsController":19,"./components/testimonials/testimonialsService":20,"angular-ui-router":25}],3:[function(require,module,exports){
+require('./shared/aDisabled.directive.js');
+
+},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/contact/contactController":7,"./components/contact/contactService":8,"./components/customHomes/customHomesController":9,"./components/customHomes/customHomesService":10,"./components/home/homeController":11,"./components/home/homeService":12,"./components/homeMgmt/homeMgmtController":13,"./components/homeMgmt/homeMgmtService":14,"./components/main/mainController":15,"./components/main/mainService":16,"./components/news/newsController":17,"./components/news/newsService":18,"./components/testimonials/testimonialsController":19,"./components/testimonials/testimonialsService":20,"./shared/aDisabled.directive.js":21,"angular-ui-router":25}],3:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -154,6 +154,30 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
+
+    AboutService
+      .getTeamMembers()
+      .then(
+
+        // Success handler
+        function(teamMembers){
+          vm.featuredTeamMember = {};
+          vm.teamMembers = [];
+
+          teamMembers.forEach(function(teamMember) {
+            if (teamMember.fields.featured) {
+              vm.featuredTeamMember = teamMember;
+            } else {
+              vm.teamMembers.push(teamMember);
+            }
+          });
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
   }
 
 },{}],4:[function(require,module,exports){
@@ -171,18 +195,18 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
-    function getMainContent() {
+    function getTeamMembers() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
-        defer.resolve(mainContent.data.items[0].fields);
+      $http.get(GET_URL + 'teamMember&include=3').then(function(teamMembers) {
+        defer.resolve(teamMembers.data.items);
       });
 
       return defer.promise;
     }
 
     return {
-      getMainContent: getMainContent,
+      getTeamMembers: getTeamMembers,
     };
   }
 
@@ -959,39 +983,27 @@ angular
 },{}],21:[function(require,module,exports){
 angular
   .module('nautilusApp')
-  .directive('customHomeListing', CustomHomeListing);
+  .directive('aDisabled', aDisabled);
 
-  function CustomHomeListing() {
-    var directive = {
-      templateUrl: 'app/shared/customHomeListing/customHomeListingView.html',
-      restrict: 'EA',
-      replace: true,
-      scope: {
-        number: '@',
-        name: '@',
-        subtitle: '@',
-        image: '@',
-        selectHome: '&'
-      },
-      link:link,
-      // controller: CustomHomesController,
-      // controllerAs: 'vm',
-      // bindToController: true
+function aDisabled() {
+    return {
+        compile: function(tElement, tAttrs, transclude) {
+            //Disable ngClick
+            tAttrs["ngClick"] = "!("+tAttrs["aDisabled"]+") && ("+tAttrs["ngClick"]+")";
+
+            //return a link function
+            return function (scope, iElement, iAttrs) {
+
+                //Disable href on click
+                iElement.on("click", function(e) {
+                    if (scope.$eval(iAttrs["aDisabled"])) {
+                        e.preventDefault();
+                    }
+                });
+            };
+        }
     };
-
-    return directive;
-
-    function link(scope, element, attributes, controller) {
-      element.on('click', function(event) {
-        console.log(scope);
-        console.log(scope.$parent.$parent.customHomes.selectedHome);
-        scope.$parent.$parent.customHomes.selectedHome = attributes;
-        console.log(scope.$parent.$parent.customHomes.selectedHome);
-
-        scope.$apply();
-      });
-    }
-  }
+}
 
 },{}],22:[function(require,module,exports){
 (function () {
