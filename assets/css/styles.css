@@ -381,7 +381,7 @@ aside blockquote footer {
   font-weight: 900;
   letter-spacing: 4px; }
 
-.header-phone {
+.header-phone-mobile {
   position: fixed;
   z-index: 1;
   opacity: .8;
@@ -390,6 +390,21 @@ aside blockquote footer {
   top: -14px;
   right: 20px;
   background-image: url("../img/header_phone_mobile.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 22px;
+  text-align: center; }
+
+.header-phone {
+  position: fixed;
+  z-index: 1;
+  opacity: .8;
+  width: 196px;
+  height: 100px;
+  top: -23px;
+  right: 20px;
+  background-image: url("../img/header_phone_blank.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -731,11 +746,6 @@ footer p {
   .link-mobile-only {
     pointer-events: none;
     cursor: default; }
-  .header-phone {
-    width: 196px;
-    height: 100px;
-    top: -23px;
-    background-image: url("../img/header_phone_blank.png"); }
   .navbar .nav > li > a:focus:after,
   .navbar .nav > li > a:hover:after {
     left: 42%; }
