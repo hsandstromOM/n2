@@ -38,8 +38,28 @@
           <img src="/assets/img/header-decoration.svg" class="headerDecoration" alt="" />
         </div>
       </header>
-      <div contentful-entries="'content_type=teamMember'" class="row text-center">
-        <div ng-repeat="teamMember in $contentfulEntries.items | orderBy : 'fields.orderNumber'">
+    <div contentful-entries="'content_type=teamMember'">
+      <div class="row text-center">
+        <div ng-repeat="teamMember in $contentfulEntries.items | filter: {fields: {featured: true}}">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 team-member">
+            <div class="col-xs-12 white-box hover-mute" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">
+              <img class="full-width" ng-src="{{ teamMember.fields.teamMemberImage.fields.file.url }}" alt="{{ teamMember.fields.teamMemberName }} Photo" />
+            </div>
+            <div class="col-xs-12 caption text-left">
+              <h4>{{ teamMember.fields.teamMemberName }}, <span>{{ teamMember.fields.teamMemberTitle }}<span></h4>
+              <!-- <h4>{{ teamMember.fields.teamMemberName }}, <span ng-class="{ 'xs' : teamMember.fields.teamMemberTitle.length > 18}">{{ teamMember.fields.teamMemberTitle }}<span></h4> -->
+            </div>
+            <button type="button" class="caption circle-button-40 arrow-right" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">BIO</button>
+            <div class="contact caption text-left">
+              <h5><a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberEmail }}</h5>
+              <h5><a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+            </div>
+          </div>
+          <!-- END TEAM MEMBER -->
+        </div>
+      </div>
+      <div class="row text-center">
+        <div ng-repeat="teamMember in $contentfulEntries.items | filter: {fields: {featured: false}}| orderBy : 'fields.orderNumber'">
           <div class="clearfix visible-sm-block" ng-if="$index % 2 == 0"></div>
           <div class="clearfix visible-md-block visible-lg-block" ng-if="$index % 3 == 0"></div>
           <div class="col-xs-12 col-sm-6 col-md-4 team-member">
@@ -92,6 +112,7 @@
         </div>
         <!-- END MODAL -->
       </div>
+    </div>
     </div>
   </section>
 

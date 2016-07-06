@@ -23,4 +23,34 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
+
+    AboutService
+      .getTeamMembers()
+      .then(
+
+        // Success handler
+        function(teamMembers){
+          vm.featuredTeamMember = {};
+          vm.teamMembers = [];
+
+          teamMembers.forEach(function(teamMember) {
+            if (teamMember.fields.featured) {
+              vm.featuredTeamMember = teamMember;
+            } else {
+              vm.teamMembers.push(teamMember);
+            }
+          });
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
+
+      vm.isFeatured = function(value) {
+        return function(teamMember) {
+          return teamMember.fields.featured == value;
+        };
+      };
   }

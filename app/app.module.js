@@ -17,8 +17,6 @@ nautilusApp.config(function(contentfulProvider) {
 
 require('./app.routes.js');
 
-require('./shared/customHomeListing/customHomeListingDirective');
-
 require('angular-sanitize/angular-sanitize');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');

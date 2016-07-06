@@ -100,3 +100,5 @@ require('./components/testimonials/testimonialsService');
 
 require('./components/careers/careersController');
 require('./components/careers/careersService');
+
+require('./shared/aDisabled.directive.js');

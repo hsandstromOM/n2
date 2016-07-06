@@ -12,17 +12,17 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
-    function getMainContent() {
+    function getTeamMembers() {
       var defer = $q.defer();
 
-      $http.get(GET_URL + 'aboutUsPage').then(function(mainContent) {
-        defer.resolve(mainContent.data.items[0].fields);
+      $http.get(GET_URL + 'teamMember&include=3').then(function(teamMembers) {
+        defer.resolve(teamMembers.data.items);
       });
 
       return defer.promise;
     }
 
     return {
-      getMainContent: getMainContent,
+      getTeamMembers: getTeamMembers,
     };
   }
