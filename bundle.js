@@ -178,12 +178,6 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
-
-      vm.isFeatured = function(value) {
-        return function(teamMember) {
-          return teamMember.fields.featured == value;
-        };
-      };
   }
 
 },{}],4:[function(require,module,exports){
