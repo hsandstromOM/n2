@@ -3,32 +3,50 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
-    <section class="row margin-lg flex-col hero-img" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.bannerImage.fields.file.url + ')'}">
-      <h2>
-        {{ newsCtrl.selectedPost.fields.topic }}
-      </h2>
-      <h1 class="col-md-6 hero-font">
-        {{ newsCtrl.selectedPost.fields.headline }}
+    <section class="row margin-lg flex-col news-header">
+      <h1 class="col-md-6 hero-font arrow-left">
+        <a ui-sref="news">Back to Nautilus News</a>
       </h1>
     </section>
 
     <!-- MAIN CONTENT -->
     <section class="row margin-lg v-margin-30">
-      <article class="main-article col-xs-12 col-md-6">
-        <h2>{{ newsCtrl.selectedPost.fields.title }}</h2>
+      <div class="col-xs-3 article-details">
         <h2 class="text-success">{{ newsCtrl.selectedPost.fields.prettyDate }}</h2>
-        <div marked="newsCtrl.selectedPost.fields.body">
+        <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
+        <h3 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h3>
+      </div>
+      <div class="main-article col-xs-6">
+        <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
           <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
         </div>
-      </article>
-      <figure class="main-photo col-xs-12 col-md-6">
-        <div class="main-photo-container full-width blend-multiply" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.thumbnailImage.fields.file.url + ')'}">
-          <!-- MAIN PHOTO -->
+        <!-- BORDER BOTTOM -->
+        <ul class="ul-inline">
+          <li><h3>Tags:</h3></li>
+          <li ng-repeat="tag ing newsCtrl.selectedPost.fields.tags"><h3>{{ tag }}</h3></li>
+        </ul>
+      </div>
+      <nav class="col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-0 text-center news-nav">
+        <h3 class="text-success">Topics</h3>
+        <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
+        <ul class="text-success">
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopic('Custom Homes')">Custom Homes</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopic('Home Management')">Home Management</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
+        </ul>
+        <div class="input-group search-bar">
+          <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
+          <span class="input-group-btn">
+            <button class="btn btn-default bg-blue" type="button">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+          </span>
         </div>
-        <figcaption marked="page.fields.ourStoryQuote">
-          <!-- CONVERTED OUR STORY QUOTE MARKDOWN -->
-        </figcaption>
-      </figure>
+        <div marked="page.fields.mediaInquiriesText">
+          <!-- MEDIA INQUIRIES TEXT -->
+        </div>
+      </nav>
     </section>
   </div>
   </div>

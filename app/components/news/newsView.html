@@ -33,7 +33,7 @@
           <ul class="text-success">
             <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopic('Custom Homes')">Custom Homes</li>
             <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopic('Home Management')">Home Management</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards/Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards/Publications')">Awards/Publications</li>
+            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
             <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
           </ul>
           <div class="input-group search-bar">
@@ -60,15 +60,18 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul contentful-entries="'content_type=newsPost'">
-        <div class="news-listing col-sm-6" ng-repeat="newsPost in $contentfulEntries.items | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }}">
-          <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
-            <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}">
-              <!-- NEWS LISTING IMAGE -->
-            </div>
-            <div class="caption">
-              <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
-            </div>
-          </a>
+        <div ng-repeat="newsPost in $contentfulEntries.items | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }} | orderBy: 'fields.date'">
+          <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
+          <div class="news-listing col-sm-6">
+            <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
+              <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}">
+                <!-- NEWS LISTING IMAGE -->
+              </div>
+              <div class="caption">
+                <h4>{{ newsPost.fields.title }} | <span>{{ newsPost.fields.topic }}</span></h4>
+              </div>
+            </a>
+          </div>
         </div>
       </ul>
       <!-- <ul contentful-entries="'content_type=post&include=3'">
