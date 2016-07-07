@@ -55,8 +55,4 @@ angular
     vm.selectSearchTopic = function(topic) {
       vm.searchTopic = vm.searchTopic === topic ? '' : topic;
     };
-    // 
-    // vm.getSearchTopic = function() {
-    //   return vm.searchTopic;
-    // };
   }
