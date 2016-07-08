@@ -34,7 +34,7 @@
         <!-- BORDER BOTTOM -->
         <ul class="ul-inline">
           <li><h3>Tags:</h3></li>
-          <li ng-repeat="tag ing newsCtrl.selectedPost.fields.tags"><h3>{{ tag }}</h3></li>
+          <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" class="tag">{{ tag }}</li>
         </ul>
       </div>
       <nav class="col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-0 text-center news-nav">
