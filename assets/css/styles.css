@@ -1357,11 +1357,37 @@ footer p {
   letter-spacing: 1px;
   font-size: 32px;
   line-height: 1.75;
-  font-weight: 300; }
+  font-weight: 300;
+  margin-top: 100px; }
+
+.date-icon {
+  border: 2px solid #253d93;
+  border-radius: 100%;
+  float: right;
+  width: 50px;
+  height: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #253d93;
+  text-transform: uppercase;
+  padding-top: 8px;
+  text-align: center;
+  line-height: 1; }
+
+.date-icon .day {
+  display: block;
+  font-size: 24px;
+  margin: 0px 0 10px; }
+
+.article-content {
+  padding: 0 20px 0; }
 
 .article-body {
   border-bottom: 2px #253d93 solid;
   padding-bottom: 15px; }
+
+.article-body p {
+  line-height: 2; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
