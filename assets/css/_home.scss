@@ -141,19 +141,19 @@
   }
 }
 .pre-footer h1 {
-  font-size: 24px;
+  font-size: 12px;
   font-family: museo-slab;
   font-weight: 300;
   color: white;
   position: absolute;
-  width: 56%;
-  top: 2%;
+  width: 65%;
+  top: 0%;
 }
 #pre-footer-left h1 {
-  right: 8%;
+  right: 18%;
 }
 #pre-footer-right h1 {
-  left: 8%;
+  left: 18%;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -178,6 +178,17 @@
   }
   .carousel-caption-text p {
     font-size: 20px;
+  }
+  .pre-footer h1 {
+    font-size: 24px;
+    top: 6%;
+    width: 75%;
+  }
+  #pre-footer-left h1 {
+    right: 12%;
+  }
+  #pre-footer-right h1 {
+    left: 12%;
   }
   .learn-more-button-mobile {
     position: absolute;
@@ -223,5 +234,15 @@
   }
   .carousel-indicators {
     left: 18.5%;
+  }
+  .pre-footer h1 {
+    top: 2%;
+    width: 55%;
+  }
+  #pre-footer-left h1 {
+    right: 8%;
+  }
+  #pre-footer-right h1 {
+    left: 8%;
   }
 }
