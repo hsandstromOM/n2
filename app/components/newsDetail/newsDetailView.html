@@ -25,7 +25,13 @@
           <span class="year">{{ newsCtrl.selectedPost.fields.year }}</span>
         </div>
         <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
-        <h3 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h3>
+        <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
+        <div class="related-media-box bg-blue">
+          <h3>Related Media</h3>
+          <div class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}">
+
+          </div>
+        </div>
       </div>
       <div class="article-content col-xs-6">
         <div class="article-body" marked="newsCtrl.selectedPost.fields.body">

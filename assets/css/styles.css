@@ -1352,21 +1352,13 @@ footer p {
 .article-details {
   text-align: right; }
 
-.article-details h1 {
-  font-family: "museo-slab", Times, serif;
-  letter-spacing: 1px;
-  font-size: 32px;
-  line-height: 1.75;
-  font-weight: 300;
-  margin-top: 100px; }
-
 .date-icon {
   border: 2px solid #253d93;
   border-radius: 100%;
   float: right;
   width: 50px;
   height: 50px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   color: #253d93;
   text-transform: uppercase;
@@ -1376,8 +1368,39 @@ footer p {
 
 .date-icon .day {
   display: block;
-  font-size: 24px;
-  margin: 0px 0 10px; }
+  font-size: 22px;
+  margin: 0px 0 12px; }
+
+.article-details h1 {
+  font-family: "museo-slab", Times, serif;
+  letter-spacing: 1px;
+  font-size: 32px;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-top: 95px; }
+
+.article-details h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase; }
+
+.related-media-box {
+  padding: 10px;
+  text-align: center;
+  color: #253d93;
+  margin-top: 100px; }
+
+.related-media-box h3 {
+  margin: 10px 0; }
+
+.related-media-box .img-box {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: 100px 100px, cover;
+  background-blend-mode: multiply;
+  background-position: center; }
 
 .article-content {
   padding: 0 20px 0; }
