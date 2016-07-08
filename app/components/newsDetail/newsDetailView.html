@@ -3,7 +3,14 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
-    <section class="row margin-lg flex-col news-header">
+    <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }})'}">
+      <h1 class="col-md-6 hero-font">
+        {{ newsCtrl.selectedPost.fields.headline }}
+      </h1>
+    </section>
+
+    <!-- ALT BANNER -->
+    <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg flex-col news-header">
       <h1 class="col-md-6 hero-font arrow-left">
         <a ui-sref="news">Back to Nautilus News</a>
       </h1>
@@ -12,18 +19,28 @@
     <!-- MAIN CONTENT -->
     <section class="row margin-lg v-margin-30">
       <div class="col-xs-3 article-details">
-        <h2 class="text-success">{{ newsCtrl.selectedPost.fields.prettyDate }}</h2>
+        <div class="date-icon">
+          <span class="month">{{ newsCtrl.selectedPost.fields.month }}</span>
+          <span class="day">{{ newsCtrl.selectedPost.fields.day }}</span>
+          <span class="year">{{ newsCtrl.selectedPost.fields.year }}</span>
+        </div>
         <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
-        <h3 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h3>
+        <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
+        <div class="related-media-box bg-blue">
+          <h3>Related Media</h3>
+          <div class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}">
+
+          </div>
+        </div>
       </div>
-      <div class="main-article col-xs-6">
+      <div class="article-content col-xs-6">
         <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
           <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
         </div>
         <!-- BORDER BOTTOM -->
         <ul class="ul-inline">
           <li><h3>Tags:</h3></li>
-          <li ng-repeat="tag ing newsCtrl.selectedPost.fields.tags"><h3>{{ tag }}</h3></li>
+          <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" class="tag">{{ tag }}</li>
         </ul>
       </div>
       <nav class="col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-0 text-center news-nav">
