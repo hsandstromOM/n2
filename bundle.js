@@ -857,6 +857,16 @@ angular
     //     }
     //   );
 
+    vm.allPosts = [];
+
+    contentful.entries('content_type=post&include=3').then(function(res) {
+      var entries = res.data
+      entries.items.forEach(function (entry) {
+          vm.allPosts.push(entry)
+        })
+      console.log(vm.allPosts);
+    });
+
     if ($stateParams.postID) {
       console.log("newsPage: " + $stateParams.postID);
       vm.postID = $stateParams.postID;

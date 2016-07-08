@@ -1047,6 +1047,7 @@ footer p {
   color: #fff; }
 
 .learn-more-button {
+  z-index: 10;
   position: absolute;
   right: 15%;
   bottom: 42.5%;
