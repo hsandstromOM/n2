@@ -744,6 +744,28 @@ footer p {
 .modal-body img {
   width: 100%;
 }
+.modal-body .glyphicon-chevron-right,
+.modal-body .glyphicon-chevron-left {
+  color: white;
+  position: absolute;
+  top: 41%;
+  font-size: 56px;
+  z-index: 10;
+}
+.modal-body .glyphicon-chevron-right:hover,
+.modal-body .glyphicon-chevron-left:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.modal-body .glyphicon-chevron-right {
+  right: 1%;
+}
+.modal-body .glyphicon-chevron-left {
+  left: 1%;
+}
 .modal-footer ul {
   list-style: none;
 }
