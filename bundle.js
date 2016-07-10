@@ -385,7 +385,7 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController(MainService, $scope, $stateParams, contentful, CustomHomesService, Lightbox) {
+  function CustomHomesController(MainService, $scope, $stateParams, contentful, CustomHomesService) {
     var vm = this;
 
     MainService
