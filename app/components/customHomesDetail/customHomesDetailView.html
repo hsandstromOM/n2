@@ -40,8 +40,8 @@
       </header>
       <div class="row text-center">
         <ul class="gallery-list">
-          <li class="white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}" ng-click="customHomesCtrl.selectedProjectImage = image" data-toggle="modal" data-target="#custom-homes-detail-modal">
-            <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
+          <li class="white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}" ng-click="customHomesCtrl.selectPhoto(image.index)" data-toggle="modal" data-target="#custom-homes-detail-modal">
+            <!-- GALLLERY PHOTO -->
           </li>
         </ul>
       </div>
@@ -52,6 +52,8 @@
         <div class="modal-content">
           <div class="modal-body bg-lt">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+            <span ng-click="customHomesCtrl.prevPhoto(customHomesCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span ng-click="customHomesCtrl.nextPhoto(customHomesCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <div class="pos-r">
               <img class="img-responsive" ng-src="{{ customHomesCtrl.selectedProjectImage.fields.file.url }}" alt="" />
               <div class="modal-banner">
