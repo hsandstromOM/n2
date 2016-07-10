@@ -4,9 +4,7 @@ var nautilusApp = angular.module('nautilusApp', [
   'nautilusRouter',
   'ngSanitize',
   'contentful',
-  'hc.marked',
-  'ui.bootstrap',
-  'bootstrapLightbox'
+  'hc.marked'
 ]);
 
 nautilusApp.config(function(contentfulProvider) {
@@ -22,5 +20,3 @@ require('./app.routes.js');
 require('angular-sanitize/angular-sanitize');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');
-require('angular-ui-bootstrap/dist/ui-bootstrap-tpls.js');
-require('angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.js');
