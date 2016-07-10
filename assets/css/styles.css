@@ -1437,7 +1437,8 @@ footer p {
   padding-bottom: 100%;
   background-size: 100px 100px, cover;
   background-blend-mode: multiply;
-  background-position: center; }
+  background-position: center;
+  cursor: pointer; }
 
 .article-content {
   padding: 0 20px 0; }

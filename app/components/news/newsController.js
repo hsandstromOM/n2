@@ -48,6 +48,11 @@ angular
         // Success handler
         function(response){
           vm.selectedPost = response.data.items[0];
+
+          vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+            image.index = idx;
+          });
+
           MainService.setPageTitle(vm.selectedPost.fields.title);
           var d = new Date(vm.selectedPost.fields.date);
           vm.selectedPost.fields.day = d.getDate();
@@ -79,6 +84,28 @@ angular
         case 12: return 'Dec';
       }
     }
+
+    vm.selectPhoto = function(index) {
+
+      vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
+      console.log(vm.selectedProjectImage);
+    };
+
+    vm.nextPhoto = function(index){
+      if(index === vm.selectedPost.fields.gallery.length - 1) {
+        vm.selectPhoto(0);
+      } else {
+        vm.selectPhoto(++index);
+      }
+    };
+
+    vm.prevPhoto = function(index){
+      if(index === 0) {
+        vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
+      } else {
+        vm.selectPhoto(--index);
+      }
+    };
 
     vm.selectSearchTopic = function(topic) {
       vm.searchTopic = vm.searchTopic === topic ? '' : topic;
