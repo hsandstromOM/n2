@@ -39,9 +39,8 @@
         </header>
         <div class="row text-center">
           <ul class="gallery-list">
-            <li ng-repeat="project in page.fields.projectGallery" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectedProject = project" data-toggle="modal" data-target="#home-mgmt-modal">
+            <li ng-repeat="project in homeMgmtCtrl.projectGallery" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
               <h1>{{ project.fields.title }}</h1>
-              <!-- <img class="full-width" ng-src="{{ image.fields.file.url }}" alt="" /> -->
             </li>
           </ul>
           <!-- MODAL -->
@@ -50,6 +49,8 @@
               <div class="modal-content bg-lt">
                 <div class="modal-body">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                  <span ng-click="homeMgmtCtrl.prevPhoto(homeMgmtCtrl.selectedProject.index)" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span ng-click="homeMgmtCtrl.nextPhoto(homeMgmtCtrl.selectedProject.index)" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                   <div class="pos-r">
                     <img class="img-responsive" ng-src="{{ homeMgmtCtrl.selectedProject.fields.file.url }}" alt="" />
                     <div class="modal-banner">

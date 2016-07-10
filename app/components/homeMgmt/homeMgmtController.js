@@ -2,20 +2,24 @@ angular
   .module('nautilusApp')
   .controller('HomeMgmtController', HomeMgmtController);
 
-  function HomeMgmtController(HomeMgmtService, MainService) {
+  function HomeMgmtController(HomeMgmtService, contentful, MainService) {
     var vm = this;
 
     MainService
       .setCurrentState('HOME-MGMT');
 
-    MainService
-      .getPageContent('homeManagementPage')
+    contentful
+      .entries('content_type=homeManagementPage')
       .then(
 
         // Success handler
-        function(mainContent){
-          console.log(mainContent);
-          MainService.setPageTitle(mainContent.pageTitle);
+        function(response){
+          console.log(response);
+          MainService.setPageTitle(response.data.items[0].fields.pageTitle);
+          vm.projectGallery = response.data.items[0].fields.projectGallery;
+          vm.projectGallery.forEach(function(image, idx) {
+            image.index = idx;
+          });
         },
 
         // Error handler
@@ -24,26 +28,24 @@ angular
         }
       );
 
-    HomeMgmtService.getMainContent().then(function(mainContent) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT_URL
-      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = mainContent.data.items;
-      vm.bannerImageDescription = mainContent.data.items;
-      vm.homeManagementHeadline = mainContent.data.items;
-      vm.homeManagementDescription = mainContent.data.items;
-      vm.homeManagementQuote = mainContent.data.items;
-      vm.homeManagementQuoteAuthor = mainContent.data.items;
-    });
+      vm.selectPhoto = function(index) {
+        console.log(vm.projectGallery);
+        vm.selectedProject = vm.projectGallery[index];
+      };
 
+      vm.nextPhoto = function(index){
+        if(index === vm.projectGallery.length - 1) {
+          vm.selectPhoto(0);
+        } else {
+          vm.selectPhoto(++index);
+        }
+      };
 
-    // HomeMgmtService.getHomeMgmtPortfolio().then(function(homeMgmtPortfolio) {
-    //   // TO BE EDITED AFTER CLIENT ADDS CONTENT
-    //   // MIGHT HAVE TO PROCESS HOMES BEFORE ASSIGNMENT
-    //
-    //   vm.homeMgmtPortfolio = homeMgmtPortfolio.data.items;
-    // });
-
-    vm.homeMgmtPortfolio = HomeMgmtService.getDummyPortfolio();
-
-    console.log(vm.homeMgmtPortfolio);
+      vm.prevPhoto = function(index){
+        if(index === 0) {
+          vm.selectPhoto(vm.projectGallery.length - 1);
+        } else {
+          vm.selectPhoto(--index);
+        }
+      };
   }
