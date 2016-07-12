@@ -74,7 +74,11 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         url: '/news',
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          'input': '',
+          'topic': ''
+        }
       })
 
       .state('newsDetail', {
@@ -821,30 +825,38 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $stateParams, contentful) {
+  function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
     var vm = this;
 
-    vm.searchTopic = '';
+
+    if ($stateParams.input) {
+      vm.articleSearch = $stateParams.input;
+    }
+    
+    if ($stateParams.topic) {
+      vm.searchTopic = $stateParams.topic;
+    } else {
+      vm.searchTopic = '';
+    }
 
     MainService
       .setCurrentState('NEWS');
 
-    MainService.setPageTitle('Nautilus Company | News');
-    // MainService
-    //   .getPageContent('newsPage')
-    //   .then(
-    //
-    //     // Success handler
-    //     function(mainContent){
-    //       console.log(mainContent);
-    //       MainService.setPageTitle(mainContent.pageTitle);
-    //     },
-    //
-    //     // Error handler
-    //     function(response){
-    //       console.log('Oops, error ' + response.status);
-    //     }
-    //   );
+    MainService
+      .getPageContent('newsPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     vm.allPosts = [];
 
@@ -868,9 +880,11 @@ angular
         function(response){
           vm.selectedPost = response.data.items[0];
 
-          vm.selectedPost.fields.gallery.forEach(function(image, idx) {
-            image.index = idx;
-          });
+          if(vm.selectedPost.fields.gallery) {
+            vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+              image.index = idx;
+            });
+          }
 
           MainService.setPageTitle(vm.selectedPost.fields.title);
           var d = new Date(vm.selectedPost.fields.date);
@@ -928,6 +942,14 @@ angular
 
     vm.selectSearchTopic = function(topic) {
       vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+    };
+
+    vm.selectSearchTopicRoute = function(topic) {
+      $state.go('news', { topic:topic });
+    };
+
+    vm.submitSearch = function(input) {
+      $state.go('news', { input:input });
     };
   }
 

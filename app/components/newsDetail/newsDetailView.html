@@ -26,7 +26,7 @@
         </div>
         <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
         <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
-        <div class="related-media-box bg-blue">
+        <div ng-show="newsCtrl.selectedPost.fields.gallery" class="related-media-box bg-blue">
           <h3>Related Media</h3>
           <div class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
             <!-- PHOTO GALLERY -->
@@ -84,15 +84,15 @@
         <h3 class="text-success">Topics</h3>
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
         <ul class="text-success">
-          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopic('Custom Homes')">Custom Homes</li>
-          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopic('Home Management')">Home Management</li>
-          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
-          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopicRoute('Custom Homes')">Custom Homes</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopicRoute('Home Management')">Home Management</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopicRoute('Awards / Publications')">Awards/Publications</li>
+          <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopicRoute('Nautilus Happenings')">Nautilus Happenings</li>
         </ul>
         <div class="input-group search-bar">
           <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
           <span class="input-group-btn">
-            <button class="btn btn-default bg-blue" type="button">
+            <button ng-click="newsCtrl.submitSearch(newsCtrl.articleSearch)" class="btn btn-default bg-blue" type="button">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
           </span>
