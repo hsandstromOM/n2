@@ -2,33 +2,13 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
   <!-- HERO IMAGE -->
-  <!-- <section class="row margin-lg v-center hero-img-careers overlay"> -->
   <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
-    <!-- <h1 class="col-md-6 hero-font">
-      We seek out only the best team players and understand that together we accomplish great things.
-    </h1> -->
-    <!-- CONTENTFUL MODEL -->
-    <h1 class="col-md-6 hero-font">
+    <h1 class="col-md-5 hero-font">
       {{ page.fields.bannerImageDescription }}
     </h1>
   </section>
+  
   <!-- MAIN CONTENT -->
-  <!-- <section class="row margin-lg v-margin-30">
-    <article class="main-article col-md-6">
-      <h2 class="text-uppercase">Careers</h2>
-      <p>
-        Nautilus Company is passionate team of industry experts who strive to go the extra mile for our clients. The leadership at Nautilus aims to cultivate employee productivity, learning and growth.
-      </p>
-      <p>
-        Think you could be part of the Nautilus team? See below to view our current job openings.
-      </p>
-    </article>
-    <figure class="main-photo col-xs-12 col-md-6">
-      <img class="full-width" src="http://placehold.it/552x290" alt="" />
-      <figcaption>A <span>passion</span> to make people's lives easier by reducing the stress associated with <span>building</span> and <span>owning a home.</span></figcaption>
-    </figure>
-  </section> -->
-  <!-- CONTENTFUL MODEL -->
   <section class="row margin-lg v-margin-30">
     <article class="main-article col-md-6">
       <h2 class="text-uppercase">Careers</h2>

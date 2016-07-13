@@ -5,7 +5,7 @@
 
       <!-- HERO IMAGE -->
       <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
-        <h1 class="col-md-6 hero-font">
+        <h1 class="col-md-5 hero-font">
           {{ page.fields.bannerImageDescription }}
         </h1>
       </section>
@@ -39,7 +39,7 @@
           <div class="input-group search-bar">
             <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
             <span class="input-group-btn">
-              <button class="btn btn-default bg-blue" type="button">
+              <button ng-click="newsCtrl.submitSearch" class="btn btn-default bg-blue" type="button">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
               </button>
             </span>
@@ -74,18 +74,18 @@
           </div>
         </div>
       </ul>
-      <ul contentful-entries="'content_type=post'">
-        <div class="news-listing col-sm-6" ng-repeat="blogPost in $contentfulEntries.items">
+      <!-- <ul >
+        <div class="news-listing col-sm-6" ng-repeat="blogPost in newsCtrl.allPosts">
           <a ui-sref="newsDetail({ postID:blogPost.sys.id })">
-            <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}">
+            <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}"> -->
               <!-- BLOG POST IMAGE -->
-            </div>
+            <!-- </div>
             <div class="caption">
-              <h4>{{ blogPost.fields.title }} | <span>{{ blogPost.fields.author }}</span></h4>
+              <h4>{{ blogPost.fields.title }} | <span>{{ blogPost.fields.categories[0].fields.name }}</span></h4>
             </div>
           </a>
         </div>
-      </ul>
+      </ul> -->
     </div>
   </section>
 

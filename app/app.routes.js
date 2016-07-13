@@ -49,7 +49,11 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         url: '/news',
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          'input': '',
+          'topic': ''
+        }
       })
 
       .state('newsDetail', {

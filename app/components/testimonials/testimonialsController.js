@@ -5,24 +5,22 @@ angular
   function TestimonialsController(MainService) {
     var vm = this;
 
-    MainService.setPageTitle('Nautilus Company | Testimonials');
+    MainService
+      .setCurrentState('');
 
-    // MainService
-    //   .getPageContent('testimonialsPage')
-    //   .then(
-    //
-    //     // Success handler
-    //     function(mainContent){
-    //       console.log(mainContent);
-    //       MainService.setPageTitle(mainContent.pageTitle);
-    //     },
-    //
-    //     // Error handler
-    //     function(response){
-    //       console.log('Oops, error ' + response.status);
-    //     }
-    //   );
-    console.log('the Testimonials controller, it does nothing');
+    MainService
+      .getPageContent('testimonialsPage')
+      .then(
 
-    this.fromCtrl = 'hello from Testimonials controller';
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
   }
