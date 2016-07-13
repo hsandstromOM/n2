@@ -8,8 +8,6 @@ angular
     MainService
       .setCurrentState('');
 
-    // MainService.setPageTitle('Nautilus Company | Testimonials');
-
     MainService
       .getPageContent('testimonialsPage')
       .then(
