@@ -3,14 +3,17 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
-    <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }})'}">
-      <h1 class="col-md-6 hero-font">
-        {{ newsCtrl.selectedPost.fields.headline }}
-      </h1>
+    <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img news-header" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }})'}">
+      <div class="col-md-6 hero-font">
+        <h1>{{ newsCtrl.selectedPost.fields.headline }}</h1>
+        <h1 class="arrow-left">
+          <a ui-sref="news">Back to Nautilus News</a>
+        </h1>
+      </div>
     </section>
 
     <!-- ALT BANNER -->
-    <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg flex-col news-header">
+    <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg flex-col news-header news-header-blue">
       <h1 class="col-md-6 hero-font arrow-left">
         <a ui-sref="news">Back to Nautilus News</a>
       </h1>
@@ -32,6 +35,19 @@
             <!-- PHOTO GALLERY -->
           </div>
         </div>
+        <ul class="ul-inline social">
+          <li><h3>Share:</h3></li>
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
+          <li><a href="https://www.houzz.com" target="_blank"
+                 data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
+                 data-hzid="12155"
+                 data-title="{{ newsCtrl.selectedPost.fields.title }}"
+                 data-img="{{ newsCtrl.selectedPost.fields.file.url }}"
+                 data-desc="{{ newsCtrl.selectedPost.description }}"
+                 data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+        </ul>
       </div>
       <!-- MODAL -->
       <div class="modal fade" id="news-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

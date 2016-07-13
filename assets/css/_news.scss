@@ -1,16 +1,16 @@
-.news-header {
+.news-header-blue {
   height: 100px;
   background:
     url(../../../assets/img/bg-pattern-light.jpg),
     $dk-blue;
   background-blend-mode: multiply;
 }
-.news-header h1 {
+.news-header .arrow-left {
   padding-left: 25px;
   position: relative;
   display: inline;
 }
-.news-header h1:before {
+.news-header .arrow-left::before {
   position: absolute;
   content: '';
   width:0;
@@ -133,6 +133,16 @@
 .article-details {
   text-align: right;
 }
+.article-details .social {
+  margin-top: 30px;
+}
+.article-details .social li {
+  vertical-align: middle;
+}
+.article-details .social i {
+  font-size: 32px;
+  margin-left: 10px;
+}
 .date-icon {
   border: 2px solid $dk-blue;
   border-radius: 100%;
@@ -202,8 +212,11 @@
   line-height: 1.3;
   color: $lt-blue;
 }
-.tag + .tag::before {
+.tag::after {
   content: ', ';
+}
+.tag:last-child::after {
+    content: '';
 }
 
 /* Small devices (tablets, 768px and up) */
