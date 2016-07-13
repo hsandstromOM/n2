@@ -71,6 +71,9 @@
   line-height: 1.7;
   margin-bottom: 18px;
 }
+.news-nav-detail {
+  margin-top: 30px;
+}
 .news-nav h3 {
   margin: -3px 0 0;
 }
@@ -231,5 +234,8 @@
   }
   .article-body p {
     text-align: left;
+  }
+  .news-nav-detail {
+    margin-top: 0;
   }
 }

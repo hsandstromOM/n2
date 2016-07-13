@@ -721,7 +721,7 @@ footer p {
   background-repeat: repeat;
 }
 .modal-dialog {
-  width: 62%;
+  // width: auto;
   text-align: left;
 }
 .modal-content {
@@ -804,33 +804,37 @@ footer p {
   border-width: 1px 0;
 }
 .modal-banner h4 {
-  font-size: 30px;
+  font-size: 18px;
   display: inline-block;
+  margin-bottom: 0;
+}
+.modal-banner h3 {
+  font-size: 12px;
+  margin: 0;
 }
 .modal-banner h4 span {
   font-size: 14px;
 }
 .modal-banner .social {
-  float: right;
-  width: 33%;
-  text-align: right;
+
 }
 .modal-banner .social li {
-  margin-left: 4%;
+  margin-left: 2%;
   vertical-align: middle;
 }
 .modal-banner .social li:first-child {
-  vertical-align: baseline;;
+  vertical-align: baseline;
+  margin-left: 0;
 }
 .modal-banner .fa {
   float: right;
   color: white;
-  font-size: 24px;
-  margin-left: 5%;
+  font-size: 18px;
   margin-top: 2%;
+  margin-left: 2%;
 }
 .modal-banner .fa-mobile {
-  font-size: 32px;
+  font-size: 24px;
 }
 .modal-body h2 {
   margin-top: 10px
@@ -838,9 +842,6 @@ footer p {
 .modal-footer {
   text-align: left;
   border: none;
-}
-.modal-footer h2 {
-  margin-top: 0;
 }
 .no-padding {
   padding:0;
@@ -884,6 +885,34 @@ footer p {
   .main-article {
     padding: 0 58px 0 0;
     text-align: left;
+  }
+  .modal-dialog {
+    width: 700px;
+  }
+  .modal-banner h4 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .modal-banner h3 {
+    font-size: 14px;
+  }
+  .modal-banner .social {
+    float: right;
+    width: 33%;
+    text-align: right;
+    padding-top: 6px;
+  }
+  .modal-banner .fa {
+    font-size: 24px;
+  }
+  .modal-banner .fa-mobile {
+    font-size: 32px;
+  }
+  .modal-banner .social li {
+    margin-left: 4%;
+  }
+  .modal-footer h2 {
+    margin-top: 0;
   }
 }
 
