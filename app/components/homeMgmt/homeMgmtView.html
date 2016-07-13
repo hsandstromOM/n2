@@ -96,11 +96,9 @@
     <div contentful-entries="'content_type=homeManagementService'">
       <article ng-repeat="serviceCategory in $contentfulEntries.items" class="col-sm-3 sm-article">
         <h3 class="header-sm">{{ serviceCategory.fields.serviceType }}</h3>
-        <ul class="ul-circles">
-          <div marked="serviceCategory.fields.serviceList">
-            <!-- CONVERTED SERVICE LIST MARKDOWN -->
-          </div>
-        </ul>
+        <div marked="serviceCategory.fields.serviceList">
+          <!-- CONVERTED SERVICE LIST MARKDOWN -->
+        </div>
       </article>
     </div>
   </section>
