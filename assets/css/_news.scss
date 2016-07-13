@@ -208,6 +208,11 @@
   line-height: 2;
   text-align: justify;
 }
+.article-body img {
+  display: block;
+  max-width: 100%;
+  margin: 10px auto;
+}
 .tag {
   text-transform: uppercase;
   font-size: 14px;
