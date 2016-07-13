@@ -74,7 +74,11 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         url: '/news',
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          'input': '',
+          'topic': ''
+        }
       })
 
       .state('newsDetail', {
@@ -226,6 +230,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('');
+
+    MainService
       .getPageContent('careersPage')
       .then(
 
@@ -239,44 +246,7 @@ angular
         function(response){
           console.log('Oops, error ' + response.status);
         }
-      );
-
-    CareersService.getMainContent().then(function(mainContent) {
-      // TO BE EDITED AFTER CLIENT ADDS CONTENT
-      // SOME FIELDS MIGHT REQUIRE FURTHER PROCESSING
-      vm.bannerImage = mainContent.data.items;
-      vm.bannerImageDescription = mainContent.data.items;
-      vm.careersDescription = mainContent.data.items;
-      vm.careersImage = mainContent.data.items;
-      vm.careersQuote = mainContent.data.items;
-    });
-
-    CareersService.getCareerListings().then(function(careerListings) {
-      console.log("careerListings: " + careerListings.data.items);
-      window.careers = careerListings.data.items;
-      vm.careerListings = careerListings.data.items;
-
-      var convertedToHTML;
-      var columnDivide;
-
-      angular.forEach(vm.careerListings, function(careerListing) {
-        console.log("career listing: " + careerListing.fields.careerTitle);
-
-        console.log("raw: " + careerListing.fields.careerDescription);
-        console.log("converted: " + markdown.toHTML(careerListing.fields.careerDescription));
-        console.log("indexOf <h3>Resp: " + markdown.toHTML(careerListing.fields.careerDescription).indexOf('<h3>Responsibilities'));
-        convertedToHTML = markdown.toHTML(careerListing.fields.careerDescription);
-        columnDivide = convertedToHTML.indexOf('<h3>Responsibilities</h3>');
-        endIndex = convertedToHTML.indexOf('<h2>Are you our next team member?</h2>');
-        console.log("first col: " + convertedToHTML.slice(0, columnDivide));
-        console.log("second col: " + convertedToHTML.slice(columnDivide, endIndex));
-
-        // careerListing.fields.careerDescriptionHTML = markdown.toHTML(careerListing.fields.careerDescription);
-        careerListing.fields.careerDescriptionFirstCol = convertedToHTML.slice(0, columnDivide);
-        careerListing.fields.careerDescriptionSecondCol = convertedToHTML.slice(columnDivide, endIndex);
-
-      });
-    });
+    );
   }
 
 },{}],6:[function(require,module,exports){
@@ -821,30 +791,38 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $stateParams, contentful) {
+  function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
     var vm = this;
 
-    vm.searchTopic = '';
+
+    if ($stateParams.input) {
+      vm.articleSearch = $stateParams.input;
+    }
+    
+    if ($stateParams.topic) {
+      vm.searchTopic = $stateParams.topic;
+    } else {
+      vm.searchTopic = '';
+    }
 
     MainService
       .setCurrentState('NEWS');
 
-    MainService.setPageTitle('Nautilus Company | News');
-    // MainService
-    //   .getPageContent('newsPage')
-    //   .then(
-    //
-    //     // Success handler
-    //     function(mainContent){
-    //       console.log(mainContent);
-    //       MainService.setPageTitle(mainContent.pageTitle);
-    //     },
-    //
-    //     // Error handler
-    //     function(response){
-    //       console.log('Oops, error ' + response.status);
-    //     }
-    //   );
+    MainService
+      .getPageContent('newsPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
 
     vm.allPosts = [];
 
@@ -867,6 +845,13 @@ angular
         // Success handler
         function(response){
           vm.selectedPost = response.data.items[0];
+
+          if(vm.selectedPost.fields.gallery) {
+            vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+              image.index = idx;
+            });
+          }
+
           MainService.setPageTitle(vm.selectedPost.fields.title);
           var d = new Date(vm.selectedPost.fields.date);
           vm.selectedPost.fields.day = d.getDate();
@@ -899,8 +884,38 @@ angular
       }
     }
 
+    vm.selectPhoto = function(index) {
+
+      vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
+      console.log(vm.selectedProjectImage);
+    };
+
+    vm.nextPhoto = function(index){
+      if(index === vm.selectedPost.fields.gallery.length - 1) {
+        vm.selectPhoto(0);
+      } else {
+        vm.selectPhoto(++index);
+      }
+    };
+
+    vm.prevPhoto = function(index){
+      if(index === 0) {
+        vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
+      } else {
+        vm.selectPhoto(--index);
+      }
+    };
+
     vm.selectSearchTopic = function(topic) {
       vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+    };
+
+    vm.selectSearchTopicRoute = function(topic) {
+      $state.go('news', { topic:topic });
+    };
+
+    vm.submitSearch = function(input) {
+      $state.go('news', { input:input });
     };
   }
 
@@ -953,26 +968,24 @@ angular
   function TestimonialsController(MainService) {
     var vm = this;
 
-    MainService.setPageTitle('Nautilus Company | Testimonials');
+    MainService
+      .setCurrentState('');
 
-    // MainService
-    //   .getPageContent('testimonialsPage')
-    //   .then(
-    //
-    //     // Success handler
-    //     function(mainContent){
-    //       console.log(mainContent);
-    //       MainService.setPageTitle(mainContent.pageTitle);
-    //     },
-    //
-    //     // Error handler
-    //     function(response){
-    //       console.log('Oops, error ' + response.status);
-    //     }
-    //   );
-    console.log('the Testimonials controller, it does nothing');
+    MainService
+      .getPageContent('testimonialsPage')
+      .then(
 
-    this.fromCtrl = 'hello from Testimonials controller';
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
   }
 
 },{}],20:[function(require,module,exports){
