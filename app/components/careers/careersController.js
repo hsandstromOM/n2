@@ -6,6 +6,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('');
+      
+    MainService
       .getPageContent('careersPage')
       .then(
 

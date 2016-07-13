@@ -230,6 +230,9 @@ angular
     var vm = this;
 
     MainService
+      .setCurrentState('');
+      
+    MainService
       .getPageContent('careersPage')
       .then(
 
@@ -1002,26 +1005,26 @@ angular
   function TestimonialsController(MainService) {
     var vm = this;
 
-    MainService.setPageTitle('Nautilus Company | Testimonials');
+    MainService
+      .setCurrentState('');
 
-    // MainService
-    //   .getPageContent('testimonialsPage')
-    //   .then(
-    //
-    //     // Success handler
-    //     function(mainContent){
-    //       console.log(mainContent);
-    //       MainService.setPageTitle(mainContent.pageTitle);
-    //     },
-    //
-    //     // Error handler
-    //     function(response){
-    //       console.log('Oops, error ' + response.status);
-    //     }
-    //   );
-    console.log('the Testimonials controller, it does nothing');
+    // MainService.setPageTitle('Nautilus Company | Testimonials');
 
-    this.fromCtrl = 'hello from Testimonials controller';
+    MainService
+      .getPageContent('testimonialsPage')
+      .then(
+
+        // Success handler
+        function(mainContent){
+          console.log(mainContent);
+          MainService.setPageTitle(mainContent.pageTitle);
+        },
+
+        // Error handler
+        function(response){
+          console.log('Oops, error ' + response.status);
+        }
+      );
   }
 
 },{}],20:[function(require,module,exports){
