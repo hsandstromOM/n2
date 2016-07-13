@@ -12,7 +12,7 @@
 
       <!-- MAIN CONTENT -->
       <section contentful-entries="'content_type=newsPost'" class="row margin-lg v-margin-30">
-        <article ng-repeat="featuredPost in $contentfulEntries.items | filter:{fields: {featured: true}} | limitTo:1" class="featured-article white-box col-md-9">
+        <article ng-repeat="featuredPost in $contentfulEntries.items | filter:{fields: {featured: true}} | limitTo:1" class="featured-article white-box col-xs-12 col-md-9">
         <div ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ featuredPost.fields.thumbnailImage.fields.file.url }})'}">
           <!-- FEATURED POST IMAGE  -->
         </div>
