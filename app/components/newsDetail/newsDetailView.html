@@ -105,14 +105,16 @@
           <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopicRoute('Awards / Publications')">Awards/Publications</li>
           <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopicRoute('Nautilus Happenings')">Nautilus Happenings</li>
         </ul>
-        <div class="input-group search-bar">
-          <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
-          <span class="input-group-btn">
-            <button ng-click="newsCtrl.submitSearch(newsCtrl.articleSearch)" class="btn btn-default bg-blue" type="button">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            </button>
-          </span>
-        </div>
+        <form ng-submit="newsCtrl.submitSearch(newsCtrl.articleSearch)">
+          <div class="input-group search-bar">
+            <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
+            <span class="input-group-btn">
+              <button class="btn btn-default bg-blue" type="submit">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button>
+            </span>
+          </div>
+        </form>
         <div marked="page.fields.mediaInquiriesText">
           <!-- MEDIA INQUIRIES TEXT -->
         </div>
