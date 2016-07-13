@@ -21,7 +21,7 @@
 
     <!-- MAIN CONTENT -->
     <section class="row margin-lg v-margin-30">
-      <div class="col-xs-3 article-details">
+      <div class="col-xs-12 col-sm-3 article-details">
         <div class="date-icon">
           <span class="month">{{ newsCtrl.selectedPost.fields.month }}</span>
           <span class="day">{{ newsCtrl.selectedPost.fields.day }}</span>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <!-- END MODAL -->
-      <div class="article-content col-xs-6">
+      <div class="article-content col-xs-12 col-sm-6">
         <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
           <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
         </div>
@@ -96,7 +96,7 @@
           <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" class="tag">{{ tag }}</li>
         </ul>
       </div>
-      <nav class="col-xs-6 col-xs-offset-3 col-md-3 col-md-offset-0 text-center news-nav">
+      <nav class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 text-center news-nav">
         <h3 class="text-success">Topics</h3>
         <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
         <ul class="text-success">

@@ -201,8 +201,9 @@
   border-bottom: 2px $dk-blue solid;
   padding-bottom: 15px;
 }
-.article-body p{
+.article-body p {
   line-height: 2;
+  text-align: justify;
 }
 .tag {
   text-transform: uppercase;
@@ -227,5 +228,8 @@
   }
   .featured-article div:last-child {
     padding: 16px;
+  }
+  .article-body p {
+    text-align: left;
   }
 }

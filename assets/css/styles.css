@@ -1465,7 +1465,8 @@ footer p {
   padding-bottom: 15px; }
 
 .article-body p {
-  line-height: 2; }
+  line-height: 2;
+  text-align: justify; }
 
 .tag {
   text-transform: uppercase;
@@ -1487,7 +1488,9 @@ footer p {
     width: 50%;
     height: 370px; }
   .featured-article div:last-child {
-    padding: 16px; } }
+    padding: 16px; }
+  .article-body p {
+    text-align: left; } }
 
 .testimonial-image-container {
   margin-top: 10px;
