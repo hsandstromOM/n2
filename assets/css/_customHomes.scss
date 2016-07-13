@@ -3,8 +3,7 @@
 }
 
 .services-list ul {
-  display: flex;
-  justify-content: space-between;
+  margin: auto;
   list-style: none;
   margin-top: 20px;
 }
@@ -14,7 +13,7 @@
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 2.7px;
-  width: 25%;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -23,5 +22,13 @@
   .custom-home {
     padding-right: 15px;
     padding-left: 15px;
+  }
+  .services-list ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .services-list li {
+    max-width: 25%;
+    margin-bottom: 0;
   }
 }
