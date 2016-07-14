@@ -62,7 +62,7 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul contentful-entries="'content_type=newsPost'">
-        <div ng-repeat="newsPost in $contentfulEntries.items | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }} | orderBy: 'fields.date'">
+        <div ng-repeat="newsPost in $contentfulEntries.items | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }}| orderBy: 'fields.date': true">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
             <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
