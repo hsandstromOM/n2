@@ -61,8 +61,8 @@
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <div class="col-xs-12 pad-0">
-      <ul contentful-entries="'content_type=newsPost'">
-        <div ng-repeat="newsPost in $contentfulEntries.items | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }}| orderBy: 'fields.date': true">
+      <ul>
+        <div ng-repeat="newsPost in newsCtrl.posts | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }}">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
             <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
@@ -76,21 +76,15 @@
           </div>
         </div>
       </ul>
-      <!-- <ul >
-        <div class="news-listing col-sm-6" ng-repeat="blogPost in newsCtrl.allPosts">
-          <a ui-sref="newsDetail({ postID:blogPost.sys.id })">
-            <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}"> -->
-              <!-- BLOG POST IMAGE -->
-            <!-- </div>
-            <div class="caption">
-              <h4>{{ blogPost.fields.title }} | <span>{{ blogPost.fields.categories[0].fields.name }}</span></h4>
-            </div>
-          </a>
-        </div>
-      </ul> -->
     </div>
   </section>
 
   <!-- PRE-FOOTER BUFFER -->
-  <section class="buffer"></section>
+  <section class="buffer">
+    <ul ng-show="newsCtrl.pages.length > 1" class="list-inline">
+      <li ng-repeat="page in newsCtrl.pages">
+        <h3 class="text-success" ng-click="newsCtrl.getPage(page)">{{ page }}</h3>
+      </li>
+    </ul>
+  </section>
 </div>

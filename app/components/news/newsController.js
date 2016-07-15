@@ -5,7 +5,6 @@ angular
   function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
     var vm = this;
 
-
     if ($stateParams.input) {
       vm.articleSearch = $stateParams.input;
     }
@@ -35,15 +34,38 @@ angular
         }
       );
 
-    vm.allPosts = [];
+    vm.posts = [];
+    vm.totalPosts = 0;
+    vm.pages = [];
+    vm.postsPerPage = 25;
 
-    contentful.entries('content_type=post&include=3').then(function(res) {
-      var entries = res.data;
-      entries.items.forEach(function (entry) {
-          vm.allPosts.push(entry);
+    contentful
+      .entries('content_type=newsPost&include=3&order=-fields.date&limit=25')
+      .then(function(res) {
+        vm.posts = res.data.items;
+        vm.totalPosts = res.data.total;
+
+        var numberOfPages = Math.ceil(vm.totalPosts / vm.postsPerPage);
+        for (var i = 1; i <= numberOfPages; i++) {
+          vm.pages.push(i);
+        }
+        console.log(vm.posts);
+        console.log(vm.totalPosts);
+        console.log(vm.pages);
+      });
+
+    vm.getPage = function(pageNumber) {
+      getResultsPage(pageNumber);
+    };
+
+    function getResultsPage(pageNumber) {
+      contentful
+        .entries('content_type=newsPost&include=3&order=-fields.date&limit=25&skip=' + ((pageNumber - 1) * 25))
+        .then(function(res) {
+          vm.posts = res.data.items;
+          console.log(vm.posts);
         });
-      console.log(vm.allPosts);
-    });
+    }
 
     if ($stateParams.postID) {
       console.log("newsPage: " + $stateParams.postID);
