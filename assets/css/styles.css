@@ -288,7 +288,8 @@ aside blockquote footer {
   padding-right: 32px; }
 
 .buffer {
-  height: 60px; }
+  height: 60px;
+  text-align: center; }
 
 .pad-0 {
   padding: 0; }
@@ -1413,6 +1414,13 @@ footer p {
   background-size: 100px 100px, cover;
   background-position: center; }
 
+.page-number:hover {
+  cursor: pointer;
+  color: #253d93 !important; }
+
+.no-results {
+  margin: 0 0 20px; }
+
 .article-details {
   text-align: right; }
 
@@ -1487,6 +1495,11 @@ footer p {
 .article-body p {
   line-height: 2;
   text-align: justify; }
+
+.article-body img {
+  display: block;
+  max-width: 100%;
+  margin: 10px auto; }
 
 .tag {
   text-transform: uppercase;

@@ -5,7 +5,6 @@ angular
   function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
     var vm = this;
 
-
     if ($stateParams.input) {
       vm.articleSearch = $stateParams.input;
     }
@@ -35,15 +34,56 @@ angular
         }
       );
 
-    vm.allPosts = [];
+    vm.posts = [];
+    var totalPosts = 0;
+    var postsPerPage = 10;
+    vm.currentPage = 1;
 
-    contentful.entries('content_type=post&include=3').then(function(res) {
-      var entries = res.data;
-      entries.items.forEach(function (entry) {
-          vm.allPosts.push(entry);
+    initPosts();
+
+    function initPosts() {
+      var queryString = 'content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage;
+      if (vm.articleSearch) {
+        queryString += '&query=' + vm.articleSearch;
+      }
+      if (vm.searchTopic) {
+        queryString += '&fields.topic[match]=' + vm.searchTopic;
+      }
+      contentful
+      .entries(queryString)
+      .then(function(res) {
+        vm.posts = res.data.items;
+        totalPosts = res.data.total;
+
+        vm.pages = [];
+        var numberOfPages = Math.ceil(totalPosts / postsPerPage);
+        for (var i = 1; i <= numberOfPages; i++) {
+          vm.pages.push(i);
+        }
+      });
+    }
+
+    vm.submitSearch = function() {
+      if ($state.current.name === 'newsDetail') {
+        $state.go('news', { input:vm.articleSearch, topic:vm.searchTopic });
+      } else {
+        initPosts();
+      }
+    };
+
+    vm.getPage = function(pageNumber) {
+      getResultsPage(pageNumber);
+      vm.currentPage = pageNumber;
+    };
+
+    function getResultsPage(pageNumber) {
+      contentful
+        .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
+        .then(function(res) {
+          vm.posts = res.data.items;
+          console.log(vm.posts);
         });
-      console.log(vm.allPosts);
-    });
+    }
 
     if ($stateParams.postID) {
       console.log("newsPage: " + $stateParams.postID);
@@ -96,7 +136,6 @@ angular
     }
 
     vm.selectPhoto = function(index) {
-
       vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
       console.log(vm.selectedProjectImage);
     };
@@ -119,13 +158,5 @@ angular
 
     vm.selectSearchTopic = function(topic) {
       vm.searchTopic = vm.searchTopic === topic ? '' : topic;
-    };
-
-    vm.selectSearchTopicRoute = function(topic) {
-      $state.go('news', { topic:topic });
-    };
-
-    vm.submitSearch = function(input) {
-      $state.go('news', { input:input });
     };
   }

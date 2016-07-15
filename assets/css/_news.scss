@@ -133,6 +133,15 @@
   background-size: 100px 100px, cover;
   background-position: center;
 }
+.page-number:hover {
+  cursor: pointer;
+  color: $dk-blue !important;
+}
+.no-results {
+
+
+  margin: 0 0 20px;
+}
 .article-details {
   text-align: right;
 }
@@ -207,6 +216,11 @@
 .article-body p {
   line-height: 2;
   text-align: justify;
+}
+.article-body img {
+  display: block;
+  max-width: 100%;
+  margin: 10px auto;
 }
 .tag {
   text-transform: uppercase;
