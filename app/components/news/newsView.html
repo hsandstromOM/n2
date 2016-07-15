@@ -36,7 +36,7 @@
             <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
             <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
           </ul>
-          <form ng-submit="newsCtrl.submitSearch(newsCtrl.articleSearch)">
+          <form ng-submit="newsCtrl.submitSearch()">
             <div class="input-group search-bar">
               <input type="text" class="form-control bg-blue" ng-model="newsCtrl.articleSearch" placeholder="Article Search...">
               <span class="input-group-btn">
@@ -62,7 +62,7 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
-        <div ng-repeat="newsPost in newsCtrl.posts | filter: {fields: {topic: newsCtrl.searchTopic , $: newsCtrl.articleSearch }}">
+        <div ng-repeat="newsPost in newsCtrl.posts">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
             <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
@@ -76,6 +76,9 @@
           </div>
         </div>
       </ul>
+      <div class="text-center">
+        <h3 ng-show="newsCtrl.posts.length === 0" class="text-success no-results">No Results Found</h3>
+      </div>
     </div>
   </section>
 
@@ -83,7 +86,7 @@
   <section class="buffer">
     <ul ng-show="newsCtrl.pages.length > 1" class="list-inline">
       <li ng-repeat="page in newsCtrl.pages">
-        <h3 class="text-success" ng-click="newsCtrl.getPage(page)">{{ page }}</h3>
+        <h3 class="text-primary page-number" ng-class="{ 'text-success': newsCtrl.currentPage === page}" ng-click="newsCtrl.getPage(page)">{{ page }}</h3>
       </li>
     </ul>
   </section>

@@ -1414,6 +1414,13 @@ footer p {
   background-size: 100px 100px, cover;
   background-position: center; }
 
+.page-number:hover {
+  cursor: pointer;
+  color: #253d93 !important; }
+
+.no-results {
+  margin: 0 0 20px; }
+
 .article-details {
   text-align: right; }
 
