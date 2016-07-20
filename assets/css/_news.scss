@@ -120,6 +120,43 @@
   font-size: 12px;
   margin-top: 15px;
 }
+.year-nav {
+  margin: 10px 6px 10px 8px;
+}
+.year-nav h3 {
+  margin: 0;
+  position: relative;
+  font-size: 12px;
+  cursor: pointer;
+}
+.year-nav-left {
+  float: left;
+}
+.year-nav-left h3::before {
+  position: absolute;
+  content: '';
+  height:0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent $dk-blue transparent transparent;
+  left: -8px;
+  top: 1px;
+}
+.year-nav-right {
+  float: right;
+}
+.year-nav-right h3::after {
+  position: absolute;
+  content: '';
+  height:0;
+  width: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent $dk-blue ;
+  right: -6px;
+  top: 1px;
+}
 .news-listing {
   margin-bottom: 20px;
 }
@@ -138,8 +175,6 @@
   color: $dk-blue !important;
 }
 .no-results {
-
-
   margin: 0 0 20px;
 }
 .article-details {

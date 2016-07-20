@@ -93,7 +93,7 @@
         <!-- BORDER BOTTOM -->
         <ul ng-show="newsCtrl.selectedPost.fields.tags" class="ul-inline">
           <li><h3>Tags:</h3></li>
-          <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" ng-click="newsCtrl.submitSearchRoute(tag)" class="tag">{{ tag }}</li>
+          <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" ng-click="newsCtrl.submitSearch(tag)" class="tag">{{ tag }}</li>
         </ul>
       </div>
       <nav class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0 text-center news-nav news-nav-detail">

@@ -57,8 +57,17 @@
   <!-- ARTICLE LIST -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="text-success">{{ newsCtrl.searchTopic || '2016 News'}}</h3>
+      <h3 class="text-success">{{ newsCtrl.filterYear }} News</h3>
+
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
+      <div class="year-nav">
+        <div class="year-nav-left">
+          <h3 ng-hide="newsCtrl.filterYear === newsCtrl.thisYear" ng-click="newsCtrl.getYearPosts(newsCtrl.filterYear + 1)" class="text-success">{{ newsCtrl.filterYear + 1 }} News</h3>
+        </div>
+        <div class="year-nav-right">
+          <h3 ng-hide="newsCtrl.filterYear === 2011" ng-click="newsCtrl.getYearPosts(newsCtrl.filterYear - 1)" class="text-success">{{ newsCtrl.filterYear - 1 }} News</h3>
+        </div>
+      </div>
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
