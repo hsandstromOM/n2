@@ -5,6 +5,9 @@ angular
   function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
     var vm = this;
 
+    vm.thisYear = new Date().getFullYear();
+    vm.filterYear = new Date().getFullYear();
+
     if ($stateParams.input) {
       vm.articleSearch = $stateParams.input;
     }
@@ -42,7 +45,7 @@ angular
     initPosts();
 
     function initPosts() {
-      var queryString = 'content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage;
+      var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.date[gte]=' + vm.filterYear + '-01-01&fields.date[lt]=' + (vm.filterYear + 1) + '-01-01&limit=' + postsPerPage;
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }
@@ -55,6 +58,7 @@ angular
         vm.posts = res.data.items;
         totalPosts = res.data.total;
 
+        console.log(vm.posts);
         vm.pages = [];
         var numberOfPages = Math.ceil(totalPosts / postsPerPage);
         for (var i = 1; i <= numberOfPages; i++) {
@@ -63,11 +67,18 @@ angular
       });
     }
 
-    vm.submitSearch = function() {
+    vm.selectSearchTopic = function(topic) {
+      vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+    };
+
+    vm.submitSearch = function(tag) {
+      if (tag) {
+        vm.articleSearch = tag;
+      }
       if ($state.current.name === 'newsDetail') {
         $state.go('news', { input:vm.articleSearch, topic:vm.searchTopic });
       } else {
-        initPosts();
+        initPosts(vm.thisYear);
       }
     };
 
@@ -78,12 +89,18 @@ angular
 
     function getResultsPage(pageNumber) {
       contentful
-        .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
+        .entries('content_type=newsPost&include=3&order=-fields.date&fields.date[gte]=' + vm.filterYear + '-01-01&fields.date[lt]=' + (vm.filterYear + 1) + '-01-01&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
         .then(function(res) {
           vm.posts = res.data.items;
           console.log(vm.posts);
         });
     }
+
+    vm.getYearPosts = function(filterYear) {
+      vm.filterYear = filterYear;
+      vm.currentPage = 1;
+      initPosts();
+    };
 
     if ($stateParams.postID) {
       console.log("newsPage: " + $stateParams.postID);
@@ -154,9 +171,5 @@ angular
       } else {
         vm.selectPhoto(--index);
       }
-    };
-
-    vm.selectSearchTopic = function(topic) {
-      vm.searchTopic = vm.searchTopic === topic ? '' : topic;
     };
   }
