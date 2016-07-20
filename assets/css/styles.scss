@@ -594,8 +594,9 @@ footer p {
   padding: 45px 28px 0;
   height: 95px;
   background-image:
-    url("../../assets/img/footer-mid.png"),
-    url("../../assets/img/Nautilus-Footer_Sides.png");
+    url("../../assets/img/footer-mid.png");
+    // url("../../assets/img/footer-mid.png"),
+    // url("../../assets/img/Nautilus-Footer_Sides.png");
   background-repeat:
     no-repeat,
     repeat;
@@ -850,6 +851,13 @@ footer p {
 .no-margin-bottom {
   margin-bottom:0;
 }
+/* Not tiny iPhones  */
+@media (min-width: 400px) {
+  .learn-more-button-mobile {
+    font-size: 10px;
+  }
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .link-mobile-only {

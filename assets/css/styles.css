@@ -560,7 +560,7 @@ footer p {
   text-align: center;
   padding: 45px 28px 0;
   height: 95px;
-  background-image: url("../../assets/img/footer-mid.png"), url("../../assets/img/Nautilus-Footer_Sides.png");
+  background-image: url("../../assets/img/footer-mid.png");
   background-repeat: no-repeat, repeat;
   background-repeat-y: no-repeat;
   background-position: center; }
@@ -796,6 +796,11 @@ footer p {
 
 .no-margin-bottom {
   margin-bottom: 0; }
+
+/* Not tiny iPhones  */
+@media (min-width: 400px) {
+  .learn-more-button-mobile {
+    font-size: 10px; } }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -1135,16 +1140,17 @@ footer p {
   padding-left: 6%;
   padding-right: 6%;
   z-index: 10;
-  padding-top: 12%;
+  padding-top: 0;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6); }
 
 .carousel-caption-text h1 {
-  font-size: 16px; }
+  font-size: 12px;
+  margin: 14px 0 0; }
 
 .carousel-caption-text p {
-  font-size: 14px;
+  font-size: 10px;
   padding-right: 7%; }
 
 .learn-more-button-mobile {
@@ -1158,12 +1164,12 @@ footer p {
   justify-content: center;
   text-align: center;
   border-radius: 100%;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   background-color: transparent;
   color: #fff;
   text-transform: uppercase;
   font-family: "museo-sans", Helvetica, sans-serif;
-  font-size: 10px;
+  font-size: 6px;
   font-weight: 700;
   line-height: 1.5; }
 
@@ -1186,19 +1192,34 @@ footer p {
     display: block; }
 
 .pre-footer h1 {
-  font-size: 12px;
+  font-size: 9px;
   font-family: museo-slab;
   font-weight: 300;
   color: white;
   position: absolute;
   width: 65%;
-  top: 0%; }
+  top: -10%; }
 
 #pre-footer-left h1 {
   right: 18%; }
 
 #pre-footer-right h1 {
   left: 18%; }
+
+/* Not tiny iPhones  */
+@media (min-width: 400px) {
+  .carousel-caption-text {
+    padding-top: 12%; }
+  .carousel-caption-text h1 {
+    font-size: 16px; }
+  .carousel-caption-text p {
+    font-size: 14px; }
+  .learn-more-button-mobile {
+    font-size: 10px;
+    border-width: 2px; }
+  .pre-footer h1 {
+    font-size: 12px;
+    top: 0%; } }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
