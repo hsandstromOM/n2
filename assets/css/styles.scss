@@ -524,7 +524,7 @@ footer a:hover {
   padding: 0 0 10px 0;
   text-align: center;
   background-image: url("../../assets/img/Nautilus-Footer_Sides.png");
-  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
 }
 .footer-bar input[type='email'] {
   width: 97%;

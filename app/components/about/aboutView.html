@@ -51,8 +51,8 @@
               </div>
               <button type="button" class="caption circle-button-40 arrow-right" ng-click="aboutCtrl.selectedTeamMember = teamMember" data-toggle="modal" data-target="#about-us-modal">BIO</button>
               <div class="contact caption text-left">
-                <h5><a ng-href="mailto:{{ aboutCtrl.selectedTeamMember.fields.teamMemberEmail }}" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberEmail }}</h5>
-                <h5><a ng-href="tel:{{ aboutCtrl.selectedTeamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only"><i class="fa fa-mobile" aria-hidden="true"></i></a> {{ teamMember.fields.teamMemberPhoneNumber }}</h5>
+                <h5><i class="fa fa-envelope-o" aria-hidden="true"></i> <a ng-href="mailto:{{ teamMember.fields.teamMemberEmail }}" target="_blank">{{ teamMember.fields.teamMemberEmail }}</a></h5>
+                <h5><i class="fa fa-mobile" aria-hidden="true"></i> <a ng-href="tel:{{ teamMember.fields.teamMemberPhoneNumber }}" target="_blank" class="link-mobile-only">{{ teamMember.fields.teamMemberPhoneNumber }}</a></h5>
               </div>
             </div>
           </div>
