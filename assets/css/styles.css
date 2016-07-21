@@ -1508,6 +1508,29 @@ footer p {
   .home-mgmt-project h1 {
     font-size: 24px; } }
 
+.news-header {
+  position: relative; }
+
+.news-header-alt {
+  height: 75px; }
+
+.news-header-back {
+  position: absolute;
+  width: 100%;
+  left: 15px;
+  color: white;
+  height: 75px;
+  top: 0;
+  background: rgba(37, 61, 147, 0.7); }
+
+.news-header-back h1 {
+  margin-left: 65px;
+  line-height: 3;
+  padding-top: 4px; }
+
+.news-header-back a {
+  color: white; }
+
 .news-header-blue {
   height: 100px;
   background: url(../../../assets/img/bg-pattern-light.jpg), #253d93;
