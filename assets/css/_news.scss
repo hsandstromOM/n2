@@ -195,7 +195,7 @@
 }
 .date-icon {
   border: 2px solid $dk-blue;
-  border-radius: 100%;
+  @include border-radius(100%);
   float: right;
   width: 50px;
   height: 50px;
