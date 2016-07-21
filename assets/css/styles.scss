@@ -470,7 +470,6 @@ aside blockquote footer {
   @include opacity(.8);
   width: 50px;
   height: 75px;
-  top: -14px;
   right: 20px;
 
   background-image: url('../img/header_phone_mobile.png');
@@ -485,19 +484,17 @@ aside blockquote footer {
   z-index: 1;
   @include opacity(.8);
   width: 196px;
-  height: 100px;
-  top: -23px;
+  height: 70px;
   right: 20px;
 
   background-image: url('../img/header_phone_blank.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: 22px;
   text-align: center;
 }
 .header-phone p {
-  margin-top: 32px;
+  margin-top: 10px;
   color: white;
   font-size: 18px;
   font-weight: 500;

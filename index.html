@@ -17,6 +17,18 @@
       <!-- HEADER -->
       <div contentful-entries="'content_type=navbar'">
         <header ng-repeat="navbar in $contentfulEntries.items" class="container-fluid main-header">
+          <!-- SMALL STICKY PHONE NUMBER BUTTON -->
+          <a class="hidden-md hidden-lg" ng-href="tel:{{ navbar.fields.phoneNumber }}">
+            <div class="header-phone-mobile">
+              <!-- PHONE ICON BUTTON -->
+            </div>
+          </a>
+          <!-- LARGE STICKY PHONE NUMBER -->
+          <div class="header-phone hidden-xs hidden-sm">
+            <p class="hidden-xs">
+              {{ navbar.fields.phoneNumberFormatted }}
+            </p>
+          </div>
           <!-- BRAND BANNER -->
           <div class="row v-center text-center text-success brand-banner">
             <ul class="ul-inline flex-center v-center col-xs-12">
@@ -70,18 +82,6 @@
               </div>
             </div>
           </nav>
-          <!-- SMALL STICKY PHONE NUMBER BUTTON -->
-          <a class="hidden-md hidden-lg" ng-href="tel:{{ navbar.fields.phoneNumber }}">
-            <div class="header-phone-mobile">
-              <!-- PHONE ICON BUTTON -->
-            </div>
-          </a>
-          <!-- LARGE STICKY PHONE NUMBER -->
-          <div class="header-phone hidden-xs hidden-sm">
-            <p class="hidden-xs">
-              {{ navbar.fields.phoneNumberFormatted }}
-            </p>
-          </div>
         </header>
       </div>
       <!-- MAIN CONTENT -->
