@@ -21,8 +21,17 @@
           <div class="form-group">
             <input type="email" name="email" placeholder="Email*" class="form-control">
           </div>
-          <div class="form-group input-group">
-            <input type="text" name="subject" placeholder="Subject: {{ contactCtrl.contactSubject }}" class="form-control" readonly="true">
+          <div class="form-group input-group subject-select">
+              <button type="button" class="btn btn-default form-control dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Subject: {{ contactCtrl.contactSubject }}
+                <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="subject in page.fields.contactFormSubjects" ng-click="contactCtrl.contactSubject = subject"><a href="">{{ subject }}</a></li>
+              </ul>
+          </div>
+          <!-- <div class="form-group input-group">
+            <input type="text" name="subject" placeholder="Subject: {{ contactCtrl.contactSubject }}" class="form-control" data-toggle="dropdown" readonly="true">
             <div class="input-group-btn">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
@@ -31,7 +40,7 @@
                 <li ng-repeat="subject in page.fields.contactFormSubjects" ng-click="contactCtrl.contactSubject = subject"><a href="">{{ subject }}</a></li>
               </ul>
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <textarea name="comments" rows="7" placeholder="Comments..." class="form-control"></textarea>
           </div>

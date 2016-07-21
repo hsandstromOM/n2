@@ -31,9 +31,12 @@
         <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
         <div ng-show="newsCtrl.selectedPost.fields.gallery" class="related-media-box bg-blue">
           <h3>Related Media</h3>
-          <div class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
+          <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
             <!-- PHOTO GALLERY -->
           </div>
+          <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url}}" class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg)'}" >
+            <!-- AUDIO PLAYER -->
+          </audio>
         </div>
         <ul class="ul-inline social">
           <li><h3>Share:</h3></li>
