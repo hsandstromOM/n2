@@ -100,9 +100,6 @@
 .news-nav h3 {
   margin: -3px 0 0;
 }
-.news-nav img {
-  margin-left: -19px;
-}
 .news-nav ul {
   list-style-type: none;
   margin-top: 11px;
@@ -314,5 +311,12 @@
   }
   .news-nav-detail {
     margin-top: 0;
+  }
+}
+/* Medium devices  */
+@media (min-width: 992px) {
+  .news-nav img {
+    width: 100%;
+    max-width: 245px;
   }
 }
