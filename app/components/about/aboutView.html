@@ -97,12 +97,14 @@
                     <!-- CONVERTED BIO POINTS MARKDOWN -->
                   </div>
                   <div class="col-xs-12 col-sm-6">
-                  <h2>
-                    About {{ aboutCtrl.selectedTeamMember.fields.teamMemberName.split(' ')[0] }}
-                  </h2>
-                  <p>
-                    {{ aboutCtrl.selectedTeamMember.fields.teamMemberBio }}
-                  </p>
+                    <div class="about-block">
+                      <h2>
+                        About {{ aboutCtrl.selectedTeamMember.fields.teamMemberName.split(' ')[0] }}
+                      </h2>
+                      <p>
+                        {{ aboutCtrl.selectedTeamMember.fields.teamMemberBio }}
+                      </p>
+                    </div>
                 </div>
               </div>
             </div>
