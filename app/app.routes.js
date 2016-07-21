@@ -60,7 +60,11 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         url: '/news/:postID',
         templateUrl: './app/components/newsDetail/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          'input': '',
+          'topic': ''
+        }
       })
 
       .state('contact', {

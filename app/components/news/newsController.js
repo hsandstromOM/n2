@@ -14,8 +14,6 @@ angular
 
     if ($stateParams.topic) {
       vm.searchTopic = $stateParams.topic;
-    } else {
-      vm.searchTopic = '';
     }
 
     MainService
@@ -43,6 +41,15 @@ angular
     vm.currentPage = 1;
 
     initPosts();
+    getFeaturedPost();
+
+    function getFeaturedPost() {
+      contentful
+      .entries('content_type=newsPost&fields.featured=true&limit=1')
+      .then(function(res) {
+        vm.featuredPost = res.data.items[0];
+      });
+    }
 
     function initPosts() {
       var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.date[gte]=' + vm.filterYear + '-01-01&fields.date[lt]=' + (vm.filterYear + 1) + '-01-01&limit=' + postsPerPage;

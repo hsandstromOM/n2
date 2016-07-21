@@ -11,19 +11,19 @@
       </section>
 
       <!-- MAIN CONTENT -->
-      <section contentful-entries="'content_type=newsPost'" class="row margin-lg v-margin-30">
-        <article ng-repeat="featuredPost in $contentfulEntries.items | filter:{fields: {featured: true}} | limitTo:1" class="featured-article white-box col-xs-12 col-md-9">
-        <div ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ featuredPost.fields.thumbnailImage.fields.file.url }})'}">
+      <section class="row margin-lg v-margin-30">
+        <article class="featured-article white-box col-xs-12 col-md-9">
+        <div ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.featuredPost.fields.thumbnailImage.fields.file.url }})'}">
           <!-- FEATURED POST IMAGE  -->
         </div>
         <div class="bg-blue">
-          <h3 class="text-success">{{ featuredPost.fields.topic }}:</h3>
-          <a ui-sref="newsDetail({ postID:featuredPost.sys.id })"><h1 class="text-success">{{ featuredPost.fields.title }}</h1></a>
-          <h4>{{ featuredPost.fields.date }}</h4>
+          <h3 class="text-success">{{ newsCtrl.featuredPost.fields.topic }}:</h3>
+          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id })"><h1 class="text-success">{{ newsCtrl.featuredPost.fields.title }}</h1></a>
+          <h4>{{ newsCtrl.featuredPost.fields.date }}</h4>
           <p>
-            {{ featuredPost.fields.featuredDescription }}
+            {{ newsCtrl.featuredPost.fields.featuredDescription }}
           </p>
-          <a ui-sref="newsDetail({ postID:featuredPost.sys.id })"><h3 class="text-success arrow-right">Read on</h3></a>
+          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id })"><h3 class="text-success arrow-right">Read on</h3></a>
         </div>
         </article>
 
@@ -70,7 +70,7 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
-        <div ng-repeat="newsPost in newsCtrl.posts">
+        <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {featured: false}}">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
             <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
