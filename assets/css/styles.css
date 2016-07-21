@@ -1486,15 +1486,27 @@ footer p {
   -moz-opacity: 0;
   opacity: 0;
   font-family: "museo-slab", Times, serif;
-  font-size: 24px;
+  font-size: 16px;
   width: 80%;
-  margin: 41% auto;
+  margin: auto;
   color: #253d93; }
 
 .home-mgmt-project:hover h1 {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1; }
+
+.home-mgmt-project-caption {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center; }
+
+/* Not tiny iPhones  */
+@media (min-width: 400px) {
+  .home-mgmt-project h1 {
+    font-size: 24px; } }
 
 .news-header-blue {
   height: 100px;
