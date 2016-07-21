@@ -965,6 +965,10 @@ footer p {
 .apply-box .circle-button-60 {
   margin: 30px auto; }
 
+.contact-form .form-control,
+.contact-form button {
+  background-color: white; }
+
 .contact-form button[type="submit"] {
   display: block;
   margin: 25px auto; }
