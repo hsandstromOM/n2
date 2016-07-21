@@ -747,7 +747,7 @@ footer p {
   color: white;
   position: absolute;
   top: 41%;
-  font-size: 56px;
+  font-size: 28px;
   z-index: 10;
 }
 .modal-body .glyphicon-chevron-right:hover,
@@ -916,6 +916,10 @@ footer p {
   }
   .modal-banner .social li {
     margin-left: 4%;
+  }
+  .modal-body .glyphicon-chevron-right,
+  .modal-body .glyphicon-chevron-left {
+    font-size: 56px;
   }
   .modal-footer h2 {
     margin-top: 0;
