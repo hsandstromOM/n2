@@ -496,7 +496,8 @@ footer a:hover {
   padding: 0 0 10px 0;
   text-align: center;
   background-image: url("../../assets/img/Nautilus-Footer_Sides.png");
-  background-repeat: repeat-x; }
+  background-repeat: repeat-x;
+  position: relative; }
 
 .footer-bar input[type='email'] {
   width: 97%; }
@@ -561,8 +562,7 @@ footer p {
   padding: 45px 28px 0;
   height: 95px;
   background-image: url("../../assets/img/footer-mid.png");
-  background-repeat: no-repeat, repeat;
-  background-repeat-y: no-repeat;
+  background-repeat: no-repeat;
   background-position: center; }
 
 .footer-bar-left {
@@ -1140,13 +1140,21 @@ footer p {
   background-image: url("../../assets/img/Nautilus-banner-overlay_MOBILE_2x.png");
   background-repeat: no-repeat; }
 
+.carousel-caption-box-mobile .row {
+  height: 0; }
+
 .carousel-caption-text {
-  padding-left: 6%;
-  padding-right: 6%;
   z-index: 10;
-  padding-top: 0;
-  color: #fff;
+  position: absolute;
+  top: 5%;
+  left: 9%;
+  bottom: 22%;
+  right: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6); }
 
 .carousel-caption-text h1 {
@@ -1212,8 +1220,6 @@ footer p {
 
 /* Not tiny iPhones  */
 @media (min-width: 400px) {
-  .carousel-caption-text {
-    padding-top: 12%; }
   .carousel-caption-text h1 {
     font-size: 16px; }
   .carousel-caption-text p {
@@ -1235,9 +1241,6 @@ footer p {
   .carousel-indicators .active {
     height: 12px;
     width: 12px; }
-  .carousel-caption-text {
-    padding-left: 10%;
-    padding-right: 10%; }
   .carousel-caption-text h1 {
     font-size: 32px; }
   .carousel-caption-text p {

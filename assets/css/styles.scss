@@ -525,6 +525,7 @@ footer a:hover {
   text-align: center;
   background-image: url("../../assets/img/Nautilus-Footer_Sides.png");
   background-repeat: repeat-x;
+  position: relative;
 }
 .footer-bar input[type='email'] {
   width: 97%;
@@ -592,14 +593,8 @@ footer p {
   text-align:center;
   padding: 45px 28px 0;
   height: 95px;
-  background-image:
-    url("../../assets/img/footer-mid.png");
-    // url("../../assets/img/footer-mid.png"),
-    // url("../../assets/img/Nautilus-Footer_Sides.png");
-  background-repeat:
-    no-repeat,
-    repeat;
-  background-repeat-y: no-repeat;
+  background-image: url("../../assets/img/footer-mid.png");
+  background-repeat: no-repeat;
   background-position: center;
 }
 .footer-bar-left {
