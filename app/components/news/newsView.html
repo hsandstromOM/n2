@@ -31,10 +31,7 @@
           <h3 class="text-success">Topics</h3>
           <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
           <ul class="text-success">
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopic('Custom Homes')">Custom Homes</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopic('Home Management')">Home Management</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
+            <li ng-repeat="category in page.fields.searchCategories" class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === category }" ng-click="newsCtrl.selectSearchTopic(category)">{{ category }}</li>
           </ul>
           <form ng-submit="newsCtrl.submitSearch()">
             <div class="input-group search-bar">

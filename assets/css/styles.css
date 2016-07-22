@@ -1575,7 +1575,6 @@ footer p {
   display: inline-block; }
 
 .featured-article div:first-child {
-  background-image: url("../../../assets/img/bg-pattern-light.jpg"), url("../img/team-laura.jpg");
   background-size: cover, 100px 100px;
   background-repeat: no-repeat, repeat;
   background-blend-mode: multiply;

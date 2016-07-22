@@ -849,7 +849,7 @@ angular
 
     function getFeaturedPost() {
       contentful
-      .entries('content_type=newsPost&fields.featured=true&limit=1')
+      .entries('content_type=newsPost&include=3&fields.featured=true&limit=1')
       .then(function(res) {
         vm.featuredPost = res.data.items[0];
       });

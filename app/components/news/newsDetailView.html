@@ -11,22 +11,10 @@
       </div>
     </section>
 
-    <!-- HERO IMAGE -->
-    <!-- <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img news-header" >
-      <div class="news-header-back">
-        <h1 class="hero-font arrow-left">
-          <a ui-sref="news({keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
-        </h1>
-      </div>
-      <div class="col-md-5 hero-font">
-        <h1>{{ newsCtrl.selectedPost.fields.headline }}</h1>
-      </div>
-    </section> -->
-
     <!-- MAIN CONTENT -->
     <section class="row margin-lg">
       <div class="col-md-9">
-        <div ng-if="newsCtrl.selectedPost.fields.bannerImage" class="col-xs-12 v-margin-30 bg-texture" ng-style="{ 'background-image' : 'url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
+        <div ng-if="newsCtrl.selectedPost.fields.bannerImage" class="col-xs-12 bg-texture" ng-style="{ 'background-image' : 'url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
           <img class="img-responsive" ng-src="{{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}" alt="{{ newsCtrl.selectedPost.fields.bannerImage.fields.title }}" style="visibility: hidden;"/>
         </div>
 
@@ -115,10 +103,7 @@
           <h3 class="text-success">Topics</h3>
           <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
           <ul class="text-success">
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Custom Homes' }" ng-click="newsCtrl.selectSearchTopic('Custom Homes')">Custom Homes</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Home Management' }" ng-click="newsCtrl.selectSearchTopic('Home Management')">Home Management</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Awards / Publications' }" ng-click="newsCtrl.selectSearchTopic('Awards / Publications')">Awards/Publications</li>
-            <li class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === 'Nautilus Happenings' }" ng-click="newsCtrl.selectSearchTopic('Nautilus Happenings')">Nautilus Happenings</li>
+            <li ng-repeat="category in page.fields.searchCategories" class="pointer" ng-class="{ 'selectedTopic' : newsCtrl.searchTopic === category }" ng-click="newsCtrl.selectSearchTopic(category)">{{ category }}</li>
           </ul>
           <form ng-submit="newsCtrl.submitSearch()">
             <div class="input-group search-bar">
