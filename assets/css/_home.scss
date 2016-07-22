@@ -51,12 +51,12 @@
   height: 15%;
   width: 15%;
 
-  display: flex;
+  @include flexbox();
   flex-direction: column;
   justify-content: center;
   text-align: center;
 
-  border-radius: 100%;
+  @include border-radius(100%);
   border: 2px solid #fff;
   background-color: transparent;
   color: #fff;
@@ -94,7 +94,7 @@
   left: 9%;
   bottom: 22%;
   right: 13%;
-  display: flex;
+  @include flexbox();
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -115,11 +115,11 @@
   bottom: 31.5%;
   height: 38%;
   width: 11%;
-  display: flex;
+  @include flexbox();
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border-radius: 100%;
+  @include border-radius(100%);
   border: 1px solid #fff;
   background-color: transparent;
   color: #fff;
@@ -141,7 +141,7 @@
   display: none;
 }
 .pre-footer:hover {
-  opacity: .8;
+  @include opacity(.8);
   .inactive {
     display: none;
   }
@@ -219,11 +219,11 @@
     bottom: 31.5%;
     height: 38%;
     width: 11%;
-    display: flex;
+    @include flexbox();
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    border-radius: 100%;
+    @include border-radius(100%);
     border: 3px solid #fff;
     background-color: transparent;
     color: #fff;

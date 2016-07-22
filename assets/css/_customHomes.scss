@@ -24,7 +24,7 @@
     padding-left: 15px;
   }
   .services-list ul {
-    display: flex;
+    @include flexbox();
     justify-content: space-between;
   }
   .services-list li {

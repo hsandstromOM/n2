@@ -20,7 +20,7 @@
   padding-top: 4px;
 }
 .team-member button:hover {
-  opacity: .6;
+  @include opacity(.6);
 }
 .team-member .arrow-right::after {
   border-width: 4px 0 4px 4px;

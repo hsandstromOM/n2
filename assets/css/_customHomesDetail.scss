@@ -1,6 +1,6 @@
 .gallery-list {
   list-style: none;
-  display: flex;
+  @include flexbox();
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 32px;

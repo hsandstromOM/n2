@@ -1,4 +1,4 @@
-// VARIABLES (to be determined)
+// VARIABLES
 $dk-blue: #253d93;
 $dk-blue-trans: rgba(37, 61, 147, .7);
 $lt-blue: #6082c1;
@@ -7,6 +7,32 @@ $lt-blue-trans: rgba(96, 130, 193, .4);
 $sans: "museo-sans", Helvetica, sans-serif;
 $serif: "museo-slab", Times, serif;
 
+
+// MIXINS
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin opacity ($opacity) {
+	-webkit-opacity: 	$opacity;
+	   -moz-opacity: 	$opacity;
+	        opacity:  $opacity;
+}
+@mixin transition ($transition) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	    -ms-transition: $transition;
+	     -o-transition: $transition;
+}
+@mixin flexbox () {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
 // BOOTSTRAP DEFAULT OVERRIDES
 .container-fluid {
   padding: 0;
@@ -32,7 +58,7 @@ $serif: "museo-slab", Times, serif;
   font-size: 12px;
   background-color: transparent;
   border-color: #E0E0E0;
-  border-radius: 0;
+  @include border-radius(0);
   box-shadow: none;
   padding: 20px 14px 16px;
 }
@@ -49,7 +75,7 @@ $serif: "museo-slab", Times, serif;
   color: #C7C7C7;
   background-color: white;
   border-color: #E0E0E0;
-  border-radius: 0;
+  @include border-radius(0);
 }
 .btn-default:focus,
 .btn-default:hover {
@@ -126,7 +152,7 @@ section header h3 {
 }
 .headerDecoration {
   width: 245px;
-  opacity: .8;
+  @include opacity(.8);
 }
 h2 {
   text-transform: uppercase;
@@ -278,18 +304,18 @@ aside blockquote footer {
   color: $lt-blue;
   background: white;
   border: 2px solid $lt-blue;
-  border-radius: 100%;
+  @include border-radius(100%);
 }
 .circle-button-60 {
   width: 60px;
   height: 60px;
   border: 2px solid $lt-blue;
-  border-radius: 100%;
+  @include border-radius(100%);
   font-weight: 700;
   text-transform: uppercase;
   background-color: white;
   color: $lt-blue;
-  display: flex;
+  @include flexbox();
   flex-direction: column;
   justify-content: center;
   text-align: center;
@@ -336,7 +362,7 @@ aside blockquote footer {
   padding-left: 94px;
 }
 .v-center {
-  display: flex;
+  @include flexbox();
   align-items: center;
 }
 .inline {
@@ -363,15 +389,15 @@ aside blockquote footer {
   top: 4px;
 }
 .flex-h {
-  display: flex;
+  @include flexbox();
   justify-content: space-between;
 }
 .flex-center {
-  display: flex;
+  @include flexbox();
   justify-content: center;
 }
 .flex-col {
-  display: flex;
+  @include flexbox();
   flex-direction: column;
   justify-content: center;
 }
@@ -393,10 +419,10 @@ aside blockquote footer {
   cursor: pointer;
 }
 .hover-mute {
-  transition: all 0.5s ease;
+  @include transition(all 0.5s ease);
 }
 .hover-mute:hover {
-  opacity: .6;
+  @include opacity(.6);
   cursor: pointer;
 }
 .white-box {
@@ -441,10 +467,9 @@ aside blockquote footer {
 .header-phone-mobile {
   position: fixed;
   z-index: 1;
-  opacity: .8;
+  @include opacity(.8);
   width: 50px;
   height: 75px;
-  top: -14px;
   right: 20px;
 
   background-image: url('../img/header_phone_mobile.png');
@@ -457,21 +482,19 @@ aside blockquote footer {
 .header-phone {
   position: fixed;
   z-index: 1;
-  opacity: .8;
+  @include opacity(.8);
   width: 196px;
-  height: 100px;
-  top: -23px;
+  height: 70px;
   right: 20px;
 
   background-image: url('../img/header_phone_blank.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: 22px;
   text-align: center;
 }
 .header-phone p {
-  margin-top: 32px;
+  margin-top: 10px;
   color: white;
   font-size: 18px;
   font-weight: 500;
@@ -721,14 +744,14 @@ footer p {
   text-align: left;
 }
 .modal-content {
-  border-radius: 0;
+  @include border-radius(0);
 }
 .modal-header {
   padding: 0;
 }
 .close {
   color: #fff;
-  opacity: 1;
+  @include opacity(1);
   font-size: 28px;
   text-shadow: none;
   position: absolute;
@@ -755,8 +778,7 @@ footer p {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-  filter: alpha(opacity=50);
-  opacity: .5;
+  @include opacity(.5);
 }
 .modal-body .glyphicon-chevron-right {
   right: 1%;
@@ -881,9 +903,6 @@ footer p {
     padding-left: 72px;
     padding-right: 72px;
   }
-  .hero-img {
-    background-color: transparent;
-  }
   .hero-img h1 {
     padding-right: 94px;
     padding-left: 0;
@@ -928,6 +947,9 @@ footer p {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .hero-img {
+    background-color: transparent;
+  }
   footer nav {
     text-align: right;
   }

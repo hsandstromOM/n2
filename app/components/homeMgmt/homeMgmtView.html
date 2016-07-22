@@ -38,9 +38,16 @@
           </div>
         </header>
         <div class="row text-center">
+          <!-- <ul class="gallery-list">
+            <li ng-repeat="project in homeMgmtCtrl.projectGallery" class="home-mgmt-project white-box hover-mute" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
+              <img ng-src="{{ project.fields.file.url }}" alt="" />
+            </li>
+          </ul> -->
           <ul class="gallery-list">
             <li ng-repeat="project in homeMgmtCtrl.projectGallery" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
-              <h1>{{ project.fields.title }}</h1>
+              <div class="home-mgmt-project-caption hidden-xs">
+                <h1>{{ project.fields.title }}</h1>
+              </div>
             </li>
           </ul>
           <!-- MODAL -->

@@ -4,19 +4,23 @@
 
     <!-- HERO IMAGE -->
     <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img news-header" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }})'}">
-      <div class="col-md-5 hero-font">
-        <h1>{{ newsCtrl.selectedPost.fields.headline }}</h1>
-        <h1 class="arrow-left">
+      <div class="news-header-back">
+        <h1 class="hero-font arrow-left">
           <a ui-sref="news">Back to Nautilus News</a>
         </h1>
+      </div>
+      <div class="col-md-5 hero-font">
+        <h1>{{ newsCtrl.selectedPost.fields.headline }}</h1>
       </div>
     </section>
 
     <!-- ALT BANNER -->
-    <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg flex-col news-header news-header-blue">
-      <h1 class="col-md-5 hero-font arrow-left">
-        <a ui-sref="news">Back to Nautilus News</a>
-      </h1>
+    <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg news-header news-header-alt">
+      <div class="news-header-back">
+        <h1 class="hero-font arrow-left">
+          <a ui-sref="news">Back to Nautilus News</a>
+        </h1>
+      </div>
     </section>
 
     <!-- MAIN CONTENT -->
