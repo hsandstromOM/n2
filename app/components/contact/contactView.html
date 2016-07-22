@@ -16,7 +16,7 @@
         </h2>
         <form class="contact-form">
           <div class="form-group">
-            <input type="text" name="name" placeholder="Name*" class="form-control">
+            <input type="text" name="name" value="Name*" class="form-control">
           </div>
           <div class="form-group">
             <input type="email" name="email" placeholder="Email*" class="form-control">
@@ -24,7 +24,7 @@
           <div class="form-group input-group subject-select">
               <button type="button" class="btn btn-default form-control dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                 Subject: {{ contactCtrl.contactSubject }}
-                <span class="glyphicon glyphicon-chevron-down pull-right" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li ng-repeat="subject in page.fields.contactFormSubjects" ng-click="contactCtrl.contactSubject = subject"><a href="">{{ subject }}</a></li>
