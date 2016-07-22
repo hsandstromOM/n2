@@ -2,7 +2,7 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- HERO IMAGE -->
-    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url({{ page.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
       <h1 class="col-md-4 hero-font">
         {{ page.fields.bannerImageDescription }}
       </h1>
@@ -42,7 +42,7 @@
         </form>
       </article>
       <aside class="main-photo col-xs-12 col-md-6">
-        <div class=" main-photo-container full-width" ng-style="{'background-image' : 'url(assets/img/bg-pattern-light.jpg), url(assets/img/contact-map.png)'}" alt="Nautilus Company Location Map" />
+        <div class=" main-photo-container full-width" ng-style="{'background-image' : 'url(assets/img/contact-map.png), url(assets/img/bg-pattern-light.jpg)'}" alt="Nautilus Company Location Map" />
           <!-- MAP IMAGE  -->
         </div>
         <div class="map-caption">

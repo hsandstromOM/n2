@@ -12,7 +12,7 @@
     <!-- SLIDES -->
     <div contentful-entries="'content_type=homePageSlider'" class="carousel-inner" role="listbox">
       <div ng-repeat="slide in $contentfulEntries.items | orderBy : 'fields.orderNumber'" ng-class="{item:true, active:$first}">
-        <div class="home-slider-img" ng-style="{'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ slide.fields.bannerImage.fields.file.url }})'}">
+        <div class="home-slider-img" ng-style="{'background-image' : 'url({{ slide.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
           <!-- SLIDER BACKGROUND IMAGE -->
         </div>
 

@@ -1,7 +1,7 @@
 <div contentful-entries="'content_type=homeManagementPage'" class="container-fluid">
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
     <!-- HERO IMAGE -->
-    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ page.fields.bannerImage.fields.file.url }})'}">
+    <section class="row margin-lg v-center hero-img overlay" ng-style="{ 'background-image' : 'url({{ page.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
       <h1 class="col-md-5 hero-font">
         {{ page.fields.bannerImageDescription }}
       </h1>

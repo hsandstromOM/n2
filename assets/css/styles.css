@@ -661,8 +661,8 @@ footer p {
   background-position: center;
   background-position-y: initial;
   background-blend-mode: multiply;
-  background-size: 100px 100px, cover;
-  background-repeat: repeat, no-repeat;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat;
   color: white; }
 
 .hero-img h1 {
@@ -681,8 +681,8 @@ footer p {
   margin: 0 0 20px; }
 
 .main-photo .main-photo-container {
-  background-repeat: repeat, no-repeat;
-  background-size: 100px 100px, cover;
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100px 100px;
   background-blend-mode: multiply;
   height: 0;
   padding-bottom: 52%; }
@@ -1203,8 +1203,8 @@ footer p {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background-repeat: repeat,no-repeat;
-  background-size: 100px 100px, cover;
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100px 100px;
   background-blend-mode: multiply;
   background-position-x: center;
   background-position-y: top; }
@@ -1571,8 +1571,8 @@ footer p {
 
 .featured-article div:first-child {
   background-image: url("../../../assets/img/bg-pattern-light.jpg"), url("../img/team-laura.jpg");
-  background-size: 100px 100px, cover;
-  background-repeat: repeat, no-repeat;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat;
   background-blend-mode: multiply;
   background-position: center; }
 
@@ -1700,7 +1700,8 @@ footer p {
 .news-listing-thumb {
   height: 300px;
   background-blend-mode: multiply;
-  background-size: 100px 100px, cover;
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100px 100px;
   background-position: center; }
 
 .page-number:hover {
@@ -1772,7 +1773,7 @@ footer p {
   width: 100%;
   height: 0;
   padding-bottom: 100%;
-  background-size: 100px 100px, cover;
+  background-size: cover, 100px 100px;
   background-blend-mode: multiply;
   background-position: center;
   cursor: pointer; }
