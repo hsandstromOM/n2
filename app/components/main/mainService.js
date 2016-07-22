@@ -9,6 +9,7 @@ angular
 
     var currentState = 'HOME';
 
+    // CONTENTFUL
     const CONTENT_URL = 'https://cdn.contentful.com';
     const MEDIA_URL = 'https://images.contentful.com';
     const SPACE_ID = '80s1v057uxnv';
@@ -16,6 +17,9 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
+    // MAILCHIMP
+    const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
+    
     function getPageTitle() {
       return pageTitle;
     }

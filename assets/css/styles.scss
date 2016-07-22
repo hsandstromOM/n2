@@ -60,7 +60,6 @@ $serif: "museo-slab", Times, serif;
   border-color: #E0E0E0;
   @include border-radius(0);
   box-shadow: none;
-  padding: 20px 14px 16px;
 }
 .form-control[readonly] {
   background-color: transparent;
