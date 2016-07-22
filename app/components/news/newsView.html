@@ -70,10 +70,10 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
-        <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {featured: false}}">
+        <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}} | filter:{fields: {featured: false}}">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
-            <a ui-sref="newsDetail({ postID:newsPost.sys.id })">
+            <a ui-sref="newsDetail({ postID:newsPost.sys.id, input:newsCtrl.articleSearch, topic:newsCtrl.searchTopic })">
               <div class="news-listing-thumb white-box hover-mute" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsPost.fields.thumbnailImage.fields.file.url }})'}">
                 <!-- NEWS LISTING IMAGE -->
               </div>

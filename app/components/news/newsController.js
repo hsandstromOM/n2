@@ -56,9 +56,9 @@ angular
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }
-      if (vm.searchTopic) {
-        queryString += '&fields.topic[match]=' + vm.searchTopic;
-      }
+      // if (vm.searchTopic) {
+      //   queryString += '&fields.topic[match]=' + vm.searchTopic;
+      // }
       contentful
       .entries(queryString)
       .then(function(res) {
