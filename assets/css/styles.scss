@@ -288,6 +288,11 @@ aside blockquote footer {
   background-image: url('../img/bg-pattern-blue.jpg');
   background-repeat: repeat;
 }
+.bg-texture {
+  background-blend-mode: multiply;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat;
+}
 .full-width {
   width: 100%;
 }
@@ -654,8 +659,8 @@ footer p {
   background-position: center;
   background-position-y: initial;
   background-blend-mode: multiply;
-  background-size: 100px 100px, cover;
-  background-repeat: repeat, no-repeat;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat;
   color: white;
 }
 .hero-img h1 {
@@ -677,8 +682,8 @@ footer p {
   margin: 0 0 20px;
 }
 .main-photo .main-photo-container {
-  background-repeat: repeat, no-repeat;
-  background-size: 100px 100px, cover;
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 100px 100px;
   background-blend-mode: multiply;
   height: 0;
   padding-bottom: 52%;
