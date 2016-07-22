@@ -6,7 +6,7 @@
     <section ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg v-center hero-img news-header" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }})'}">
       <div class="news-header-back">
         <h1 class="hero-font arrow-left">
-          <a ui-sref="news({input:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
+          <a ui-sref="news({keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
         </h1>
       </div>
       <div class="col-md-5 hero-font">
@@ -18,7 +18,7 @@
     <section ng-if="!newsCtrl.selectedPost.fields.bannerImage" class="row margin-lg news-header news-header-alt">
       <div class="news-header-back">
         <h1 class="hero-font arrow-left">
-          <a ui-sref="news({input:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
+          <a ui-sref="news({keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
         </h1>
       </div>
     </section>
@@ -37,7 +37,7 @@
           <h3>Related Media</h3>
           <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg), url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + ')'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
             <!-- PHOTO GALLERY -->
-          </div>
+          </div>keyword
           <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url}}" class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg)'}" >
             <!-- AUDIO PLAYER -->
           </audio>

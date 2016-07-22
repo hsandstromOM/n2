@@ -2,14 +2,14 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
+  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state) {
     var vm = this;
 
     vm.thisYear = new Date().getFullYear();
     vm.filterYear = new Date().getFullYear();
 
-    if ($stateParams.input) {
-      vm.articleSearch = $stateParams.input;
+    if ($stateParams.keyword) {
+      vm.articleSearch = $stateParams.keyword;
     }
 
     if ($stateParams.topic) {
@@ -56,9 +56,6 @@ angular
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }
-      // if (vm.searchTopic) {
-      //   queryString += '&fields.topic[match]=' + vm.searchTopic;
-      // }
       contentful
       .entries(queryString)
       .then(function(res) {
@@ -75,17 +72,18 @@ angular
     }
 
     vm.selectSearchTopic = function(topic) {
-      vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+      if (vm.searchTopic !== topic) {
+        $state.go('news', { topic: topic });
+      } else {
+        $state.go('news', { topic: '' });
+      }
     };
 
     vm.submitSearch = function(tag) {
       if (tag) {
-        vm.articleSearch = tag;
-      }
-      if ($state.current.name === 'newsDetail') {
-        $state.go('news', { input:vm.articleSearch, topic:vm.searchTopic });
+        $state.go('news', { keyword: tag, topic: '' });
       } else {
-        initPosts(vm.thisYear);
+        $state.go('news', { keyword:vm.articleSearch, topic:vm.searchTopic });
       }
     };
 
@@ -110,9 +108,7 @@ angular
     };
 
     if ($stateParams.postID) {
-      console.log("newsPage: " + $stateParams.postID);
-      vm.postID = $stateParams.postID;
-      // Get all entries
+
     contentful
       .entries('sys.id=' + $stateParams.postID + '&include=3')
       .then(
