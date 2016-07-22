@@ -17,7 +17,6 @@ nautilusApp.config(function(contentfulProvider) {
 
 require('./app.routes.js');
 
-require('angular-sanitize/angular-sanitize');
+require('angular-sanitize/angular-sanitize.js');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');
-require('angular-utils-pagination/dirPagination.js');

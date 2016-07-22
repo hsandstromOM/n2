@@ -32,6 +32,7 @@
     "express": "^4.13.4",
     "grunt": "^1.0.1",
     "jquery": "^2.2.4",
+    "ng-sanitize": "0.0.2",
     "node-sass": "^3.7.0",
     "normalize": "^0.3.1",
     "serve": "^1.4.0",

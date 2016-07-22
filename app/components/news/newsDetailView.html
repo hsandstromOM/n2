@@ -3,98 +3,101 @@
   <div ng-repeat="page in $contentfulEntries.items | limitTo:1">
 
     <!-- BLUE BACK BANNER -->
-    <section class="row margin-lg news-header news-header-alt">
-      <div class="news-header-back">
-        <h1 class="hero-font arrow-left">
-          <a ui-sref="news({keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
-        </h1>
-      </div>
+    <section class="row margin-lg v-center news-header" ng-style="{ 'background-color' : 'rgba(37, 61, 147, .7)'}">
+      <h1 class="col-md-5 hero-font arrow-left">
+        <a ui-sref="news({keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic})">Back to Nautilus News</a>
+      </h1>
     </section>
 
     <!-- MAIN CONTENT -->
     <section class="row margin-lg">
       <div class="col-md-9">
-        <div ng-if="newsCtrl.selectedPost.fields.bannerImage" class="col-xs-12 bg-texture" ng-style="{ 'background-image' : 'url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
+        <div ng-if="newsCtrl.selectedPost.fields.bannerImage" class="row bg-texture" ng-style="{ 'background-image' : 'url({{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
           <img class="img-responsive" ng-src="{{ newsCtrl.selectedPost.fields.bannerImage.fields.file.url }}" alt="{{ newsCtrl.selectedPost.fields.bannerImage.fields.title }}" style="visibility: hidden;"/>
         </div>
 
-        <div class="col-xs-12 col-md-4 article-details">
-          <div class="date-icon">
-            <span class="month">{{ newsCtrl.selectedPost.fields.month }}</span>
-            <span class="day">{{ newsCtrl.selectedPost.fields.day }}</span>
-            <span class="year">{{ newsCtrl.selectedPost.fields.year }}</span>
-          </div>
-          <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
-          <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
-          <div ng-show="newsCtrl.selectedPost.fields.gallery" class="related-media-box bg-blue">
-            <h3>Related Media</h3>
-            <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
-              <!-- PHOTO GALLERY -->
+        <div class="row v-margin-30">
+          <div class="col-xs-12 col-md-4 article-details">
+            <div class="date-icon">
+              <span class="month">{{ newsCtrl.selectedPost.fields.month }}</span>
+              <span class="day">{{ newsCtrl.selectedPost.fields.day }}</span>
+              <span class="year">{{ newsCtrl.selectedPost.fields.year }}</span>
             </div>
-            <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url}}" class="img-box" ng-style="{ 'background-image' : 'url(../../../assets/img/bg-pattern-light.jpg)'}" >
-              <!-- AUDIO PLAYER -->
-            </audio>
+            <h1 class="text-success">{{ newsCtrl.selectedPost.fields.title }}</h1>
+            <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
+            <div ng-show="newsCtrl.selectedPost.fields.gallery" class="related-media-box bg-blue">
+              <h3>Related Media</h3>
+              <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
+                <!-- PHOTO GALLERY -->
+              </div>
+              <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" audioplayer controls>
+                <!-- AUDIO PLAYER -->
+              </audio>
+              <video ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'video'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" videoplayer controls>
+                <!-- AUDIO PLAYER -->
+              </video>
+            </div>
+            <ul class="ul-inline social">
+              <li><h3>Share:</h3></li>
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.houzz.com" target="_blank"
+                     data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
+                     data-hzid="12155"
+                     data-title="{{ newsCtrl.selectedPost.fields.title }}"
+                     data-img="{{ newsCtrl.selectedPost.fields.file.url }}"
+                     data-desc="{{ newsCtrl.selectedPost.description }}"
+                     data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+            </ul>
           </div>
-          <ul class="ul-inline social">
-            <li><h3>Share:</h3></li>
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.houzz.com" target="_blank"
-                   data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
-                   data-hzid="12155"
-                   data-title="{{ newsCtrl.selectedPost.fields.title }}"
-                   data-img="{{ newsCtrl.selectedPost.fields.file.url }}"
-                   data-desc="{{ newsCtrl.selectedPost.description }}"
-                   data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-        <!-- MODAL -->
-        <div class="modal fade" id="news-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-body bg-lt">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                <span ng-click="newsCtrl.prevPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span ng-click="newsCtrl.nextPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <div class="pos-r">
-                  <img class="img-responsive" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url }}" alt="" />
-                  <div class="modal-banner">
-                    <h4>{{ newsCtrl.selectedProjectImage.fields.title }}</h4>
-                    <ul class="ul-inline social">
-                      <li><h3>Share:</h3></li>
-                      <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
-                      <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
-                      <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
-                      <li><a href="https://www.houzz.com" target="_blank"
-                             data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
-                             data-hzid="12155"
-                             data-title="{{ newsCtrl.selectedProjectImage.fields.title }}"
-                             data-img="{{ newsCtrl.selectedProjectImage.fields.file.url }}"
-                             data-desc="{{ newsCtrl.selectedProjectImage.description }}"
-                             data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
-                    </ul>
+          <!-- MODAL -->
+          <div class="modal fade" id="news-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body bg-lt">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                  <span ng-click="newsCtrl.prevPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span ng-click="newsCtrl.nextPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <div class="pos-r">
+                    <img class="img-responsive" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url }}" alt="" />
+                    <div class="modal-banner">
+                      <h4>{{ newsCtrl.selectedProjectImage.fields.title }}</h4>
+                      <ul class="ul-inline social">
+                        <li><h3>Share:</h3></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&amp;src=sdkpreparse" target="_blank"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://twitter.com/share" data-text="Nautilus Company Home Management" data-via="NautilusCompany" target="_blank"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fomnautilus.herokuapp.com%2F%23%2FhomeMgmt&media=%2F%2Fimages.contentful.com%2F80s1v057uxnv%2FKrBueqjyQoS6o6YeEoSOk%2F5c2920aa0ca14fbeb5353c0de94d8954%2FHome_Management_exterior02.jpg&description=Next%20stop%3A%20Pinterest" target="_blank"><i class="fa fa-2x fa-pinterest-square" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.houzz.com" target="_blank"
+                               data-url="http://omnautilus.herokuapp.com/#/homeMgmt"
+                               data-hzid="12155"
+                               data-title="{{ newsCtrl.selectedProjectImage.fields.title }}"
+                               data-img="{{ newsCtrl.selectedProjectImage.fields.file.url }}"
+                               data-desc="{{ newsCtrl.selectedProjectImage.description }}"
+                               data-showcount="1 "><i class="fa fa-2x fa-houzz" aria-hidden="true"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div ng-if="newsCtrl.selectedProjectImage.fields.description" class="modal-footer row">
+                  <div class="col-md-12" marked="newsCtrl.selectedProjectImage.fields.description">
+                    <!-- CONVERTED DESCRIPTION MARKDOWN -->
                   </div>
                 </div>
               </div>
-              <div ng-if="newsCtrl.selectedProjectImage.fields.description" class="modal-footer row">
-                <div class="col-md-12" marked="newsCtrl.selectedProjectImage.fields.description">
-                  <!-- CONVERTED DESCRIPTION MARKDOWN -->
-                </div>
-              </div>
             </div>
           </div>
-        </div>
-        <!-- END MODAL -->
-        <div class="article-content col-xs-12 col-md-8">
-          <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
-            <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
+          <!-- END MODAL -->
+          <div class="article-content col-xs-12 col-md-8">
+            <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
+              <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
+            </div>
+            <!-- BORDER BOTTOM -->
+            <ul ng-show="newsCtrl.selectedPost.fields.tags" class="ul-inline">
+              <li><h3>Tags:</h3></li>
+              <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" ng-click="newsCtrl.submitSearch(tag)" class="tag">{{ tag }}</li>
+            </ul>
           </div>
-          <!-- BORDER BOTTOM -->
-          <ul ng-show="newsCtrl.selectedPost.fields.tags" class="ul-inline">
-            <li><h3>Tags:</h3></li>
-            <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" ng-click="newsCtrl.submitSearch(tag)" class="tag">{{ tag }}</li>
-          </ul>
         </div>
       </div>
 
