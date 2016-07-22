@@ -72,25 +72,17 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('news', {
-        url: '/news',
+        url: '/news/:topic/:keyword',
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        params: {
-          'input': '',
-          'topic': ''
-        }
+        controllerAs: 'newsCtrl'
       })
 
       .state('newsDetail', {
-        url: '/news/:postID',
-        templateUrl: './app/components/newsDetail/newsDetailView.html',
+        url: '/news/:topic/:keyword/:postID',
+        templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        params: {
-          'input': '',
-          'topic': ''
-        }
+        controllerAs: 'newsCtrl'
       })
 
       .state('contact', {
@@ -333,12 +325,16 @@ angular
   ContactService.$inject = ['$http', '$q'];
 
   function ContactService($http, $q) {
+    // CONTENTFUL
     const CONTENT_URL = 'https://cdn.contentful.com';
     const MEDIA_URL = 'https://images.contentful.com';
     const SPACE_ID = '80s1v057uxnv';
     const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
+
+    // MAILCHIMP
+    const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
 
     function getMainContent() {
       var defer = $q.defer();
@@ -729,7 +725,7 @@ angular
   .controller('MainController', MainController);
 
 
-  function MainController(MainService) {
+  function MainController(MainService, NewsService, $rootScope) {
     var vm = this;
 
     vm.getPageTitle = function() {
@@ -739,6 +735,12 @@ angular
     vm.getCurrentState = function() {
       return MainService.getCurrentState();
     };
+
+    $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+      if (to.name == "news" && from.name !== "newsDetail") {
+        console.log('clear localStore');
+      }
+    });
   }
 
 },{}],16:[function(require,module,exports){
@@ -804,14 +806,14 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $stateParams, contentful, $state) {
+  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state) {
     var vm = this;
 
     vm.thisYear = new Date().getFullYear();
     vm.filterYear = new Date().getFullYear();
 
-    if ($stateParams.input) {
-      vm.articleSearch = $stateParams.input;
+    if ($stateParams.keyword) {
+      vm.articleSearch = $stateParams.keyword;
     }
 
     if ($stateParams.topic) {
@@ -858,9 +860,6 @@ angular
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }
-      if (vm.searchTopic) {
-        queryString += '&fields.topic[match]=' + vm.searchTopic;
-      }
       contentful
       .entries(queryString)
       .then(function(res) {
@@ -877,17 +876,18 @@ angular
     }
 
     vm.selectSearchTopic = function(topic) {
-      vm.searchTopic = vm.searchTopic === topic ? '' : topic;
+      if (vm.searchTopic !== topic) {
+        $state.go('news', { topic: topic });
+      } else {
+        $state.go('news', { topic: '' });
+      }
     };
 
     vm.submitSearch = function(tag) {
       if (tag) {
-        vm.articleSearch = tag;
-      }
-      if ($state.current.name === 'newsDetail') {
-        $state.go('news', { input:vm.articleSearch, topic:vm.searchTopic });
+        $state.go('news', { keyword: tag, topic: '' });
       } else {
-        initPosts(vm.thisYear);
+        $state.go('news', { keyword:vm.articleSearch, topic:vm.searchTopic });
       }
     };
 
@@ -912,9 +912,7 @@ angular
     };
 
     if ($stateParams.postID) {
-      console.log("newsPage: " + $stateParams.postID);
-      vm.postID = $stateParams.postID;
-      // Get all entries
+
     contentful
       .entries('sys.id=' + $stateParams.postID + '&include=3')
       .then(
@@ -988,43 +986,11 @@ angular
   .module('nautilusApp')
   .service('NewsService', NewsService);
 
-  NewsService.$inject = ['$http', '$q'];
+  NewsService.$inject = [];
 
-  function NewsService($http, $q) {
-    // CONTENTFUL
-    const CONTENT_URL = 'https://cdn.contentful.com';
-    const MEDIA_URL = 'https://images.contentful.com';
-    const SPACE_ID = '80s1v057uxnv';
-    const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
-
-    const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
-
-    // MAILCHIMP
-    const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
-
-    function getMainContent() {
-      var defer = $q.defer();
-
-      $http.get(GET_URL + 'newsPage&include=1').then(function(mainContent) {
-        defer.resolve(mainContent);
-      });
-
-      return defer.promise;
-    }
-
-    function getNewsPosts() {
-      var defer = $q.defer();
-
-      $http.get(GET_URL + 'newsPost&include=1').then(function(newsPosts) {
-        defer.resolve(newsPosts);
-      });
-
-      return defer.promise;
-    }
+  function NewsService() {
 
     return {
-      getMainContent: getMainContent,
-      getNewsPosts: getNewsPosts,
     };
   }
 

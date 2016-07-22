@@ -46,25 +46,17 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('news', {
-        url: '/news',
+        url: '/news/:topic/:keyword',
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        params: {
-          'input': '',
-          'topic': ''
-        }
+        controllerAs: 'newsCtrl'
       })
 
       .state('newsDetail', {
-        url: '/news/:postID',
-        templateUrl: './app/components/newsDetail/newsDetailView.html',
+        url: '/news/:topic/:keyword/:postID',
+        templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        params: {
-          'input': '',
-          'topic': ''
-        }
+        controllerAs: 'newsCtrl'
       })
 
       .state('contact', {

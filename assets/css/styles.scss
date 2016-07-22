@@ -465,7 +465,7 @@ aside blockquote footer {
 }
 .header-phone-mobile {
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   @include opacity(.8);
   width: 50px;
   height: 75px;
@@ -480,7 +480,7 @@ aside blockquote footer {
 }
 .header-phone {
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   @include opacity(.8);
   width: 196px;
   height: 70px;
