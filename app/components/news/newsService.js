@@ -13,9 +13,6 @@ angular
 
     const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
 
-    // MAILCHIMP
-    const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
-
     function getMainContent() {
       var defer = $q.defer();
 

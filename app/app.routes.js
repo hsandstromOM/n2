@@ -50,6 +50,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         templateUrl: './app/components/news/newsView.html',
         controller: 'NewsController',
         controllerAs: 'newsCtrl',
+        cache: true,
         params: {
           'input': '',
           'topic': ''
