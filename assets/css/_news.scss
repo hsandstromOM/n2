@@ -1,5 +1,6 @@
 .news-header {
-  position: relative;
+  background-image: url('../img/Nautilus-banner_news.png');
+  background-size: cover;
 }
 .news-header-alt {
   height: 75px;
@@ -262,6 +263,9 @@
   background-blend-mode: multiply;
   background-position: center;
   cursor: pointer;
+}
+.related-media-box audio {
+  width: 100%;
 }
 .article-content {
   padding: 0;
