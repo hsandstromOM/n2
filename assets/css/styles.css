@@ -255,6 +255,11 @@ aside blockquote footer {
   background-image: url("../img/bg-pattern-blue.jpg");
   background-repeat: repeat; }
 
+.bg-texture {
+  background-blend-mode: multiply;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat; }
+
 .full-width {
   width: 100%; }
 
@@ -1712,7 +1717,8 @@ footer p {
   margin: 0 0 20px; }
 
 .article-details {
-  text-align: right; }
+  text-align: right;
+  padding: 0; }
 
 .article-details .social {
   margin-top: 30px; }
@@ -1779,7 +1785,7 @@ footer p {
   cursor: pointer; }
 
 .article-content {
-  padding: 0 20px 0; }
+  padding: 0; }
 
 .article-body {
   border-bottom: 2px #253d93 solid;
@@ -1824,6 +1830,9 @@ footer p {
 
 /* Medium devices  */
 @media (min-width: 992px) {
+  .article-details,
+  .article-content {
+    padding: 0 15px; }
   .news-nav img {
     width: 100%;
     max-width: 245px; } }

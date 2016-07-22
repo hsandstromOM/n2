@@ -203,6 +203,7 @@
 }
 .article-details {
   text-align: right;
+  padding: 0;
 }
 .article-details .social {
   margin-top: 30px;
@@ -266,7 +267,7 @@
   cursor: pointer;
 }
 .article-content {
-  padding: 0 20px 0;
+  padding: 0;
 }
 .article-body {
   border-bottom: 2px $dk-blue solid;
@@ -316,6 +317,10 @@
 }
 /* Medium devices  */
 @media (min-width: 992px) {
+  .article-details,
+  .article-content {
+    padding: 0 15px;
+  }
   .news-nav img {
     width: 100%;
     max-width: 245px;

@@ -288,6 +288,11 @@ aside blockquote footer {
   background-image: url('../img/bg-pattern-blue.jpg');
   background-repeat: repeat;
 }
+.bg-texture {
+  background-blend-mode: multiply;
+  background-size: cover, 100px 100px;
+  background-repeat: no-repeat, repeat;
+}
 .full-width {
   width: 100%;
 }
