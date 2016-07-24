@@ -14,7 +14,7 @@
         <h2 class="text-uppercase">
           Contact
         </h2>
-        <form class="contact-form" name="contactForm" role="form" method="post" action="form.php" novalidate>
+        <form class="contact-form" name="contactForm" role="form" method="post" action="../../../form.php" novalidate>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$touched && !contactForm.contactName.$valid }">
             <label ng-show="contactForm.contactName.$touched && !contactForm.contactName.$valid" class="control-label" for="contactName">Name Required</label>
             <input type="text" name="contactName" ng-model="contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
