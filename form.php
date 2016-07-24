@@ -2,22 +2,23 @@
 	if (isset($_POST["submit"])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $topic = $_POST['topic'];
+    $subject = $_POST['subject'];
     $comments = $_POST['comments'];
 
     $from = 'Nautilus Contact Form';
-    if ($topic === x) {
-	     $to = 'x@domain.com';
-    }
-    if ($topic === y) {
-	     $to = 'y@domain.com';
-    }
-    if ($topic === z) {
-	     $to = 'z@domain.com';
-    }
+    // if ($topic === x) {
+	  //    $to = 'x@domain.com';
+    // }
+    // if ($topic === y) {
+	  //    $to = 'y@domain.com';
+    // }
+    // if ($topic === z) {
+	  //    $to = 'z@domain.com';
+    // }
+		$to = 'mike@launchpeer.com';
     $subject = 'Message Website Contact Form';
 
-    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+    $body = "From: $name\n E-Mail: $email\n Comments:\n $comments";
 
     // Check if name has been entered
     if (!$_POST['name']) {

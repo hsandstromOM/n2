@@ -14,10 +14,10 @@
         <h2 class="text-uppercase">
           Contact
         </h2>
-        <form class="contact-form" name="contactForm" novalidate>
+        <form class="contact-form" name="contactForm" role="form" method="post" action="form.php" novalidate>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$touched && !contactForm.contactName.$valid }">
             <label ng-show="contactForm.contactName.$touched && !contactForm.contactName.$valid" class="control-label" for="contactName">Name Required</label>
-            <input type="text" name="contactName" ng-model="contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" ng-required="true">
+            <input type="text" name="contactName" ng-model="contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
           </div>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid }">
             <label ng-show="contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid" class="control-label" for="contactEmail">Email Required</label>
