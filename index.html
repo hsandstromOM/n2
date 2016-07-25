@@ -143,7 +143,7 @@
 
             <!-- Show success message if MailChimp returned successfully. -->
             <div ng-show="MainCtrl.mailchimp.result === 'success'" ng-cloak>
-              <h2 style="'color': red" ng-bind-html="MainCtrl.mailchimp.successMessage"></h2>
+              <h2 ng-bind-html="MainCtrl.mailchimp.successMessage"></h2>
             </div>
             <h2>
               Make your home a better place to live.

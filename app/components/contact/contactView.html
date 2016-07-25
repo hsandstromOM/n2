@@ -14,14 +14,15 @@
         <h2 class="text-uppercase">
           Contact
         </h2>
+        <!-- <form class="contact-form" name="contactForm" role="form" novalidate> -->
         <form class="contact-form" name="contactForm" role="form" method="post" action="contactForm.php" novalidate>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$touched && !contactForm.contactName.$valid }">
             <label ng-show="contactForm.contactName.$touched && !contactForm.contactName.$valid" class="control-label" for="contactName">Name Required</label>
-            <input type="text" name="contactName" ng-model="contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
+            <input type="text" name="contactName" ng-model="contactCtrl.contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
           </div>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid }">
             <label ng-show="contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid" class="control-label" for="contactEmail">Email Required</label>
-            <input type="email" name="contactEmail" ng-model="contactEmail" placeholder="Email*" onfocus="this.placeholder = ''" class="form-control" required>
+            <input type="email" name="contactEmail" ng-model="contactCtrl.contactEmail" placeholder="Email*" onfocus="this.placeholder = ''" class="form-control" required>
           </div>
           <div class="form-group input-group subject-select">
               <button type="button" class="btn btn-default form-control dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -36,9 +37,18 @@
             <textarea name="comments" rows="7" placeholder="Comments..." onfocus="this.placeholder = ''" class="form-control"></textarea>
           </div>
           <div class="checkbox">
-            <label><input type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
+            <label><input ng-model="contactCtrl.subscribe" type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
           </div>
-          <button type="submit" class="circle-button-40" name="submit">Go</button>
+          <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit">Go</button>
+          <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+          <div ng-show="contactCtrl.mailchimp.result === 'error'" ng-cloak>
+            <h2 ng-bind-html="contactCtrl.mailchimp.errorMessage"></h2>
+          </div>
+
+          <!-- Show success message if MailChimp returned successfully. -->
+          <div ng-show="contactCtrl.mailchimp.result === 'success'" ng-cloak>
+            <h2 ng-bind-html="contactCtrl.mailchimp.successMessage"></h2>
+          </div>
         </form>
       </article>
       <aside class="main-photo col-xs-12 col-md-6">

@@ -3,7 +3,7 @@ angular
   .controller('MainController', MainController);
 
 
-  function MainController(MainService, NewsService, $log, $resource, $rootScope) {
+  function MainController(MainService, NewsService) {
     var vm = this;
 
     // const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
@@ -53,9 +53,9 @@ angular
             vm.mailchimp.successMessage = response.msg;
           }
 
-          vm.mailchimp.EMAIL = "Email address submitted.";
           //Broadcast the result for global msgs
           $rootScope.$broadcast('mailchimp-response', response.result, response.msg);
+          vm.mailchimp.EMAIL = "Email address submitted.";
         },
 
         // Error sending data to MailChimp
