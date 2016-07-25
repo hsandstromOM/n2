@@ -1,7 +1,7 @@
 <?php
-	if (isset($_POST["submit"])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+	if (isset($_POST['submit'])) {
+    $name = $_POST['contactName'];
+    $email = $_POST['contactEmail'];
     $subject = $_POST['subject'];
     $comments = $_POST['comments'];
 
@@ -31,7 +31,7 @@
     }
 
     //Check if message has been entered
-    if (!$_POST['message']) {
+    if (!$_POST['comments']) {
     	$errMessage = 'Please enter your message';
     }
 
