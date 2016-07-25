@@ -14,7 +14,7 @@
         <h2 class="text-uppercase">
           Contact
         </h2>
-        <form class="contact-form" name="contactForm" role="form" method="post" action="../../../form.php" novalidate>
+        <form class="contact-form" name="contactForm" role="form" method="post" action="contactForm.php" novalidate>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$touched && !contactForm.contactName.$valid }">
             <label ng-show="contactForm.contactName.$touched && !contactForm.contactName.$valid" class="control-label" for="contactName">Name Required</label>
             <input type="text" name="contactName" ng-model="contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
@@ -38,7 +38,7 @@
           <div class="checkbox">
             <label><input type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
           </div>
-          <button type="submit" class="circle-button-40" name="button">Go</button>
+          <button type="submit" class="circle-button-40" name="submit">Go</button>
         </form>
       </article>
       <aside class="main-photo col-xs-12 col-md-6">

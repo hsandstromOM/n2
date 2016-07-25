@@ -2,6 +2,7 @@ var angular = require('angular');
 
 var nautilusApp = angular.module('nautilusApp', [
   'nautilusRouter',
+  'ngResource',
   'ngSanitize',
   'contentful',
   'hc.marked'
@@ -18,5 +19,6 @@ nautilusApp.config(function(contentfulProvider) {
 require('./app.routes.js');
 
 require('angular-sanitize/angular-sanitize.js');
+require('angular-resource/angular-resource.js');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');

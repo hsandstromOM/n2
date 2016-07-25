@@ -2,9 +2,9 @@ angular
   .module('nautilusApp')
   .service('MainService', MainService);
 
-  MainService.$inject = ['$http', '$q'];
+  MainService.$inject = ['$http', '$q', '$resource'];
 
-  function MainService($http, $q) {
+  function MainService($http, $q, $resource) {
     var pageTitle = 'Nautilus Company | Custom Home Construction';
 
     var currentState = 'HOME';
@@ -19,7 +19,7 @@ angular
 
     // MAILCHIMP
     const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
-    
+
     function getPageTitle() {
       return pageTitle;
     }
@@ -46,11 +46,51 @@ angular
       return defer.promise;
     }
 
+    /**
+    * angular-mailchimp
+    * http://github.com/keithio/angular-mailchimp
+    * License: MIT
+    */
+    function mailchimpResource(mailchimp) {
+      var actions,
+          MailChimpSubscription,
+          params = {},
+          url;
+
+
+      mailchimp.username = "nautilusco";
+      mailchimp.dc = "us2";
+      mailchimp.u = "91fe70fad31765c3ac6ebfa04";
+      mailchimp.id = "762b7f2fea";
+
+      window.mc = mailchimp;
+      console.log("MAILCHIMP: " + mailchimp);
+      // Create a resource for interacting with the MailChimp API
+      url = '//' + mailchimp.username + '.' + mailchimp.dc +
+            '.list-manage.com/subscribe/post-json';
+
+      var fields = Object.keys(mailchimp);
+
+      for(var i = 0; i < fields.length; i++) {
+        params[fields[i]] = mailchimp[fields[i]];
+      }
+
+      params.c = 'JSON_CALLBACK';
+
+      actions = {
+        'save': {
+          method: 'jsonp'
+        }
+      };
+      return $resource(url, params, actions);
+    }
+
     return {
       getPageTitle: getPageTitle,
       setPageTitle: setPageTitle,
       getCurrentState: getCurrentState,
       setCurrentState: setCurrentState,
       getPageContent: getPageContent,
+      mailchimpResource: mailchimpResource
    };
   }
