@@ -1167,7 +1167,7 @@ footer p {
   margin: 0 32px; }
 
 .gallery-list li {
-  height: 0;
+  height: 100%;
   width: 44%;
   padding-bottom: 44%;
   margin: 0 auto 30px;
@@ -1177,6 +1177,39 @@ footer p {
 .gallery-list li::after {
   right: 10px;
   left: 10px; }
+
+.gallery-photo {
+  float: left;
+  position: relative;
+  width: 30%;
+  padding-bottom: 30%;
+  /* = width for a 1:1 aspect ratio */
+  margin: 1.66%;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.gallery-photo::after {
+  right: 10px;
+  left: 10px; }
+
+.gallery-photo-content {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 10%; }
+
+.table {
+  display: table;
+  height: 100%;
+  width: 100%; }
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%; }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -1486,7 +1519,7 @@ footer p {
   #pre-footer-right h1 {
     left: 8%; } }
 
-.home-mgmt-project h1 {
+.gallery-photo h1 {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
@@ -1500,21 +1533,14 @@ footer p {
   margin: auto;
   color: #253d93; }
 
-.home-mgmt-project:hover h1 {
+.gallery-photo:hover h1 {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1; }
 
-.home-mgmt-project-caption {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center; }
-
 /* Not tiny iPhones  */
 @media (min-width: 400px) {
-  .home-mgmt-project h1 {
+  .gallery-photo h1 {
     font-size: 24px; } }
 
 .news-header {

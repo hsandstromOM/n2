@@ -39,11 +39,9 @@
         </div>
       </header>
       <div class="row text-center">
-        <ul class="gallery-list">
-          <li class="white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}" ng-click="customHomesCtrl.selectPhoto(image.index)" data-toggle="modal" data-target="#custom-homes-detail-modal">
-            <!-- GALLLERY PHOTO -->
-          </li>
-        </ul>
+        <div class="gallery-photo white-box hover-mute" ng-repeat="image in customHomesCtrl.customHome.fields.customHomeGallery" ng-style="{ 'background-image' : 'url({{ image.fields.file.url }})'}" ng-click="customHomesCtrl.selectPhoto(image.index)" data-toggle="modal" data-target="#custom-homes-detail-modal">
+          <!-- GALLERY PHOTO -->
+        </div>
       </div>
     </div>
     <!-- MODAL -->
