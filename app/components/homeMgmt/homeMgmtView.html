@@ -38,18 +38,15 @@
           </div>
         </header>
         <div class="row text-center">
-          <!-- <ul class="gallery-list">
-            <li ng-repeat="project in homeMgmtCtrl.projectGallery" class="home-mgmt-project white-box hover-mute" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
-              <img ng-src="{{ project.fields.file.url }}" alt="" />
-            </li>
-          </ul> -->
-          <ul class="gallery-list">
-            <li ng-repeat="project in homeMgmtCtrl.projectGallery" class="home-mgmt-project white-box hover-mute" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
-              <div class="home-mgmt-project-caption hidden-xs">
-                <h1>{{ project.fields.title }}</h1>
+          <div class="gallery-photo white-box hover-mute" ng-repeat="project in homeMgmtCtrl.projectGallery" ng-style="{ 'background-image' : 'url({{ project.fields.file.url }})'}" ng-click="homeMgmtCtrl.selectPhoto(project.index)" data-toggle="modal" data-target="#home-mgmt-modal">
+            <div class="gallery-photo-content">
+              <div class="table">
+                <div class="table-cell hidden-xs">
+                  <h1>{{ project.fields.title }}</h1>
+                </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
           <!-- MODAL -->
           <div class="modal fade" id="home-mgmt-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
