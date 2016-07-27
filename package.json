@@ -8,7 +8,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/serve & ./node_modules/.bin/node-sass ./assets/css/styles.scss ./assets/css/styles.css -w & ./node_modules/.bin/watchify ./app/app.module.js -o bundle.js",
+    "start": "node server.js & ./node_modules/.bin/node-sass ./assets/css/styles.scss ./assets/css/styles.css -w & ./node_modules/.bin/watchify ./app/app.module.js -o bundle.js",
     "bundle": "./node_modules/.bin/browserify --entry ./app/app.module.js -o bundle.js",
     "watch": "./node_modules/.bin/watchify --entry ./app/app.module.js -o bundle.js"
   },
