@@ -2,7 +2,7 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state) {
+  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
     var vm = this;
 
     vm.thisYear = new Date().getFullYear();
@@ -105,6 +105,11 @@ angular
       vm.filterYear = filterYear;
       vm.currentPage = 1;
       initPosts();
+    };
+
+
+    vm.slugify = function(string) {
+      return Slug.slugify(string);
     };
 
     if ($stateParams.postID) {

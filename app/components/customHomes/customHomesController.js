@@ -2,13 +2,14 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService) {
+  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService, Slug) {
     var vm = this;
     $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
 
     window.scrollTo(0, 0);
 
   });
+
     MainService
       .setCurrentState('CUSTOM-HOMES');
 
@@ -27,6 +28,10 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
+
+    vm.slugify = function(string) {
+      return Slug.slugify(string);
+    };
 
     if ($stateParams.customHomeID) {
       console.log("customHomesPage: " + $stateParams.customHomeID);

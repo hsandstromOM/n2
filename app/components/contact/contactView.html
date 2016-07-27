@@ -15,26 +15,26 @@
           Contact
         </h2>
         <!-- <form class="contact-form" name="contactForm" role="form" novalidate> -->
-        <form class="contact-form" name="contactForm" role="form" method="post" action="contactForm.php" novalidate>
+        <form class="contact-form" name="contactForm" role="form"novalidate>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactName.$touched && !contactForm.contactName.$valid }">
             <label ng-show="contactForm.contactName.$touched && !contactForm.contactName.$valid" class="control-label" for="contactName">Name Required</label>
-            <input type="text" name="contactName" ng-model="contactCtrl.contactName" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
+            <input type="text" name="contactName" ng-model="contactCtrl.form.name" placeholder="Name*" onfocus="this.placeholder = ''" class="form-control" required>
           </div>
           <div class="form-group" ng-class="{ 'has-error': contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid }">
             <label ng-show="contactForm.contactEmail.$touched && !contactForm.contactEmail.$valid" class="control-label" for="contactEmail">Email Required</label>
-            <input type="email" name="contactEmail" ng-model="contactCtrl.contactEmail" placeholder="Email*" onfocus="this.placeholder = ''" class="form-control" required>
+            <input type="email" name="contactEmail" ng-model="contactCtrl.form.email" placeholder="Email*" onfocus="this.placeholder = ''" class="form-control" required>
           </div>
           <div class="form-group input-group subject-select">
               <button type="button" class="btn btn-default form-control dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                Subject: {{ contactCtrl.contactSubject }}
+                Subject: {{ contactCtrl.form.subject }}
                 <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li ng-repeat="subject in page.fields.contactFormSubjects" ng-click="contactCtrl.contactSubject = subject"><a href="">{{ subject }}</a></li>
+                <li ng-repeat="subject in page.fields.contactFormSubjects" ng-click="contactCtrl.form.subject = subject"><a href="">{{ subject }}</a></li>
               </ul>
           </div>
           <div class="form-group">
-            <textarea name="comments" rows="7" placeholder="Comments..." onfocus="this.placeholder = ''" class="form-control"></textarea>
+            <textarea name="comments" rows="7" ng-model="contactCtrl.form.comments" placeholder="Comments..." onfocus="this.placeholder = ''" class="form-control"></textarea>
           </div>
           <div class="checkbox">
             <label><input ng-model="contactCtrl.subscribe" type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>

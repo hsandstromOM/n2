@@ -37,7 +37,7 @@
     </header>
     <ul contentful-entries="'content_type=customHome'" class="col-xs-12 pad-0">
       <div class="custom-home col-sm-6" ng-repeat="home in $contentfulEntries.items | orderBy : 'fields.orderNumber'">
-        <a ui-sref="customHomesDetail({ customHomeID:home.sys.id })">
+        <a ui-sref="customHomesDetail({ customHomeID:home.sys.id, customHomeTitle:customHomesCtrl.slugify(home.fields.customHomeTitle) })">
           <div>
             <img class="full-width hover-mute" ng-src="{{ home.fields.thumbnailImage.fields.file.url }}" alt="{{ home.fields.customHomeTitle }} Photo" />
           </div>

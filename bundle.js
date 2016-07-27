@@ -4,6 +4,7 @@ var angular = require('angular');
 var nautilusApp = angular.module('nautilusApp', [
   'nautilusRouter',
   'ngResource',
+  'slugifier',
   'ngSanitize',
   'contentful',
   'hc.marked'
@@ -20,11 +21,12 @@ nautilusApp.config(function(contentfulProvider) {
 require('./app.routes.js');
 
 require('angular-sanitize/angular-sanitize.js');
+require('angular-slugify/angular-slugify.js');
 require('angular-resource/angular-resource.js');
 require('angular-contentful/dist/angular-contentful.js');
 require('angular-marked/dist/angular-marked.js');
 
-},{"./app.routes.js":2,"angular":28,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-resource/angular-resource.js":24,"angular-sanitize/angular-sanitize.js":25}],2:[function(require,module,exports){
+},{"./app.routes.js":2,"angular":29,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-resource/angular-resource.js":24,"angular-sanitize/angular-sanitize.js":25,"angular-slugify/angular-slugify.js":26}],2:[function(require,module,exports){
 var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
@@ -59,10 +61,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('customHomesDetail', {
-        url: '/custom-home-construction/:customHomeID',
+        url: '/custom-home-construction/:customHomeTitle',
         templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
         controller: 'CustomHomesController',
-        controllerAs: 'customHomesCtrl'
+        controllerAs: 'customHomesCtrl',
+        params: {
+          customHomeID: null,
+        },
       })
 
       .state('homeMgmt', {
@@ -80,10 +85,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('newsDetail', {
-        url: '/news/:topic/:keyword/:postID',
+        url: '/news/:topic/:keyword/:postTitle',
         templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          postID: null,
+        },
       })
 
       .state('contact', {
@@ -137,7 +145,7 @@ require('./components/careers/careersService');
 
 require('./shared/trustUrl.filter.js');
 
-},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/contact/contactController":7,"./components/contact/contactService":8,"./components/customHomes/customHomesController":9,"./components/customHomes/customHomesService":10,"./components/home/homeController":11,"./components/home/homeService":12,"./components/homeMgmt/homeMgmtController":13,"./components/homeMgmt/homeMgmtService":14,"./components/main/mainController":15,"./components/main/mainService":16,"./components/news/newsController":17,"./components/news/newsService":18,"./components/testimonials/testimonialsController":19,"./components/testimonials/testimonialsService":20,"./shared/trustUrl.filter.js":21,"angular-ui-router":26}],3:[function(require,module,exports){
+},{"./components/about/aboutController":3,"./components/about/aboutService":4,"./components/careers/careersController":5,"./components/careers/careersService":6,"./components/contact/contactController":7,"./components/contact/contactService":8,"./components/customHomes/customHomesController":9,"./components/customHomes/customHomesService":10,"./components/home/homeController":11,"./components/home/homeService":12,"./components/homeMgmt/homeMgmtController":13,"./components/homeMgmt/homeMgmtService":14,"./components/main/mainController":15,"./components/main/mainService":16,"./components/news/newsController":17,"./components/news/newsService":18,"./components/testimonials/testimonialsController":19,"./components/testimonials/testimonialsService":20,"./shared/trustUrl.filter.js":21,"angular-ui-router":27}],3:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .controller('AboutController', AboutController);
@@ -296,7 +304,8 @@ angular
   function ContactController(ContactService, MainService, $rootScope) {
     var vm = this;
 
-    vm.contactSubject = '';
+    vm.form = {};
+    vm.form.subject = '';
 
     MainService
       .setCurrentState('CONTACT');
@@ -318,6 +327,40 @@ angular
       );
 
       vm.submitForm = function() {
+        console.log("form data: " + vm.form);
+        window.form = vm.form;
+        var message = {
+          fromEmail: vm.form.email,
+          fromName: vm.form.name,
+          subject: vm.form.subject,
+          comments: vm.form.comments,
+        };
+        switch (vm.form.subject) {
+          case "Custom Home Construction":
+            message.toEmail = "custom@nautilusco.com";
+            message.toName = "Custom Homes";
+            break;
+          case "Home Management":
+            message.toEmail = "mgmt@nautilusco.com";
+            message.toName = "Home Management";
+            break;
+          case "Careers":
+            message.toEmail = "careers@nautilusco.com";
+            message.toName = "Careers";
+            break;
+          default:
+            message.toEmail = "mike@launchpeer.com";
+            message.toName = "Other, etc";
+        }
+
+        ContactService.sendEmail(message).then(function(data) {
+          if(data[0].status === 'sent') {
+            vm.thisErrorMessage += ' The email was sent.';
+          } else {
+            vm.thisErrorMessage += ' This eamil was not sent to the dev team for an unknown reason. Oops.';
+          }
+        });
+
         if(vm.subscribe) {
           vm.mailchimp = {};
           var splitName = vm.contactName.split(' ');
@@ -385,29 +428,28 @@ angular
   ContactService.$inject = ['$http', '$q'];
 
   function ContactService($http, $q) {
-    // CONTENTFUL
-    const CONTENT_URL = 'https://cdn.contentful.com';
-    const MEDIA_URL = 'https://images.contentful.com';
-    const SPACE_ID = '80s1v057uxnv';
-    const API_KEY = '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500';
 
-    const GET_URL = CONTENT_URL + '/spaces/' + SPACE_ID + '/entries?access_token=' + API_KEY + '&content_type=';
+    function sendEmail(message) {
+      var deferred = $q.defer();
 
-    // MAILCHIMP
-    const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
-
-    function getMainContent() {
-      var defer = $q.defer();
-
-      $http.get(GET_URL + 'contactUsPage&include=1').then(function(mainContent) {
-        defer.resolve(mainContent);
+      $http.post('http://localhost:3001/api/email', {
+          'data': message,
+          // 'message': message
+      })
+      .then(function(data, status, headers, config) {
+        console.log("success");
+        deferred.resolve(data);
       });
+      // .error(function(err) {
+      //   console.log("err" + err);
+      //   deferred.reject();
+      // });
 
-      return defer.promise;
+      return deferred.promise;
     }
 
     return {
-      getMainContent: getMainContent,
+      sendEmail: sendEmail,
     };
   }
 
@@ -416,13 +458,14 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService) {
+  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService, Slug) {
     var vm = this;
     $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
 
     window.scrollTo(0, 0);
 
   });
+
     MainService
       .setCurrentState('CUSTOM-HOMES');
 
@@ -441,6 +484,10 @@ angular
           console.log('Oops, error ' + response.status);
         }
       );
+
+    vm.slugify = function(string) {
+      return Slug.slugify(string);
+    };
 
     if ($stateParams.customHomeID) {
       console.log("customHomesPage: " + $stateParams.customHomeID);
@@ -951,7 +998,7 @@ angular
   .module('nautilusApp')
   .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state) {
+  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
     var vm = this;
 
     vm.thisYear = new Date().getFullYear();
@@ -1054,6 +1101,11 @@ angular
       vm.filterYear = filterYear;
       vm.currentPage = 1;
       initPosts();
+    };
+
+
+    vm.slugify = function(string) {
+      return Slug.slugify(string);
     };
 
     if ($stateParams.postID) {
@@ -2153,7 +2205,7 @@ angular.module('hc.marked', [])
 },{"marked":"marked"}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"marked":29}],24:[function(require,module,exports){
+},{"marked":30}],24:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.8
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -3738,6 +3790,310 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 })(window, window.angular);
 
 },{}],26:[function(require,module,exports){
+/**
+ * angular-slugify -- provides slugification for AngularJS
+ *
+ * Copyright © 2013 Paul Smith <paulsmith@pobox.com>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the “Software”), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+(function() {
+    "use strict";
+
+    var mod = angular.module("slugifier", []);
+
+    // Unicode (non-control) characters in the Latin-1 Supplement and Latin
+    // Extended-A blocks, transliterated into ASCII characters.
+    var charmap = {
+        ' ': " ",
+        '¡': "!",
+        '¢': "c",
+        '£': "lb",
+        '¥': "yen",
+        '¦': "|",
+        '§': "SS",
+        '¨': "\"",
+        '©': "(c)",
+        'ª': "a",
+        '«': "<<",
+        '¬': "not",
+        '­': "-",
+        '®': "(R)",
+        '°': "^0",
+        '±': "+/-",
+        '²': "^2",
+        '³': "^3",
+        '´': "'",
+        'µ': "u",
+        '¶': "P",
+        '·': ".",
+        '¸': ",",
+        '¹': "^1",
+        'º': "o",
+        '»': ">>",
+        '¼': " 1/4 ",
+        '½': " 1/2 ",
+        '¾': " 3/4 ",
+        '¿': "?",
+        'À': "`A",
+        'Á': "'A",
+        'Â': "^A",
+        'Ã': "~A",
+        'Ä': '"A',
+        'Å': "A",
+        'Æ': "AE",
+        'Ç': "C",
+        'È': "`E",
+        'É': "'E",
+        'Ê': "^E",
+        'Ë': '"E',
+        'Ì': "`I",
+        'Í': "'I",
+        'Î': "^I",
+        'Ï': '"I',
+        'Ð': "D",
+        'Ñ': "~N",
+        'Ò': "`O",
+        'Ó': "'O",
+        'Ô': "^O",
+        'Õ': "~O",
+        'Ö': '"O',
+        '×': "x",
+        'Ø': "O",
+        'Ù': "`U",
+        'Ú': "'U",
+        'Û': "^U",
+        'Ü': '"U',
+        'Ý': "'Y",
+        'Þ': "Th",
+        'ß': "ss",
+        'à': "`a",
+        'á': "'a",
+        'â': "^a",
+        'ã': "~a",
+        'ä': '"a',
+        'å': "a",
+        'æ': "ae",
+        'ç': "c",
+        'è': "`e",
+        'é': "'e",
+        'ê': "^e",
+        'ë': '"e',
+        'ì': "`i",
+        'í': "'i",
+        'î': "^i",
+        'ï': '"i',
+        'ð': "d",
+        'ñ': "~n",
+        'ò': "`o",
+        'ó': "'o",
+        'ô': "^o",
+        'õ': "~o",
+        'ö': '"o',
+        '÷': ":",
+        'ø': "o",
+        'ù': "`u",
+        'ú': "'u",
+        'û': "^u",
+        'ü': '"u',
+        'ý': "'y",
+        'þ': "th",
+        'ÿ': '"y',
+        'Ā': "A",
+        'ā': "a",
+        'Ă': "A",
+        'ă': "a",
+        'Ą': "A",
+        'ą': "a",
+        'Ć': "'C",
+        'ć': "'c",
+        'Ĉ': "^C",
+        'ĉ': "^c",
+        'Ċ': "C",
+        'ċ': "c",
+        'Č': "C",
+        'č': "c",
+        'Ď': "D",
+        'ď': "d",
+        'Đ': "D",
+        'đ': "d",
+        'Ē': "E",
+        'ē': "e",
+        'Ĕ': "E",
+        'ĕ': "e",
+        'Ė': "E",
+        'ė': "e",
+        'Ę': "E",
+        'ę': "e",
+        'Ě': "E",
+        'ě': "e",
+        'Ĝ': "^G",
+        'ĝ': "^g",
+        'Ğ': "G",
+        'ğ': "g",
+        'Ġ': "G",
+        'ġ': "g",
+        'Ģ': "G",
+        'ģ': "g",
+        'Ĥ': "^H",
+        'ĥ': "^h",
+        'Ħ': "H",
+        'ħ': "h",
+        'Ĩ': "~I",
+        'ĩ': "~i",
+        'Ī': "I",
+        'ī': "i",
+        'Ĭ': "I",
+        'ĭ': "i",
+        'Į': "I",
+        'į': "i",
+        'İ': "I",
+        'ı': "i",
+        'Ĳ': "IJ",
+        'ĳ': "ij",
+        'Ĵ': "^J",
+        'ĵ': "^j",
+        'Ķ': "K",
+        'ķ': "k",
+        'Ĺ': "L",
+        'ĺ': "l",
+        'Ļ': "L",
+        'ļ': "l",
+        'Ľ': "L",
+        'ľ': "l",
+        'Ŀ': "L",
+        'ŀ': "l",
+        'Ł': "L",
+        'ł': "l",
+        'Ń': "'N",
+        'ń': "'n",
+        'Ņ': "N",
+        'ņ': "n",
+        'Ň': "N",
+        'ň': "n",
+        'ŉ': "'n",
+        'Ō': "O",
+        'ō': "o",
+        'Ŏ': "O",
+        'ŏ': "o",
+        'Ő': '"O',
+        'ő': '"o',
+        'Œ': "OE",
+        'œ': "oe",
+        'Ŕ': "'R",
+        'ŕ': "'r",
+        'Ŗ': "R",
+        'ŗ': "r",
+        'Ř': "R",
+        'ř': "r",
+        'Ś': "'S",
+        'ś': "'s",
+        'Ŝ': "^S",
+        'ŝ': "^s",
+        'Ş': "S",
+        'ş': "s",
+        'Š': "S",
+        'š': "s",
+        'Ţ': "T",
+        'ţ': "t",
+        'Ť': "T",
+        'ť': "t",
+        'Ŧ': "T",
+        'ŧ': "t",
+        'Ũ': "~U",
+        'ũ': "~u",
+        'Ū': "U",
+        'ū': "u",
+        'Ŭ': "U",
+        'ŭ': "u",
+        'Ů': "U",
+        'ů': "u",
+        'Ű': '"U',
+        'ű': '"u',
+        'Ų': "U",
+        'ų': "u",
+        'Ŵ': "^W",
+        'ŵ': "^w",
+        'Ŷ': "^Y",
+        'ŷ': "^y",
+        'Ÿ': '"Y',
+        'Ź': "'Z",
+        'ź': "'z",
+        'Ż': "Z",
+        'ż': "z",
+        'Ž': "Z",
+        'ž': "z",
+        'ſ': "s"
+    };
+
+    function _slugify(s) {
+        if (!s) return "";
+        var ascii = [];
+        var ch, cp;
+        for (var i = 0; i < s.length; i++) {
+            if ((cp = s.charCodeAt(i)) < 0x180) {
+                ch = String.fromCharCode(cp);
+                ascii.push(charmap[ch] || ch);
+            }
+        }
+        s = ascii.join("");
+        s = s.replace(/[^\w\s-]/g, "").trim().toLowerCase();
+        return s.replace(/[-\s]+/g, "-");
+    }
+
+    mod.factory("Slug", function() {
+        return {
+            slugify: _slugify
+        };
+    });
+
+    mod.directive("slug", ["Slug", function(Slug) {
+        return {
+            restrict: "E",
+            scope: {
+                to: "=",
+            },
+            transclude: true,
+            replace: true,
+            template: "<div ng-transclude></div>",
+            link: function(scope, elem, attrs) {
+                if (!attrs.from) {
+                    throw "must set attribute 'from'";
+                }
+                scope.$parent.$watch(attrs.from, function(val) {
+                    scope.to = Slug.slugify(val);
+                });
+            }
+        };
+    }]);
+
+    mod.filter("slugify", ["Slug", function(Slug) {
+        return function(input) {
+            return Slug.slugify(input);
+        };
+    }]);
+
+    module.exports = mod;
+})();
+
+},{}],27:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.3.1
@@ -8314,7 +8670,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -39788,11 +40144,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":27}],29:[function(require,module,exports){
+},{"./angular":28}],30:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
