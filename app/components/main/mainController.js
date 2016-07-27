@@ -3,8 +3,12 @@ angular
   .controller('MainController', MainController);
 
 
-  function MainController(MainService, NewsService) {
+  function MainController(MainService, NewsService, $rootScope, $anchorScroll) {
     var vm = this;
+
+    $rootScope.$on("$stateChangeSuccess", function (event, currentRoute, previousRoute) {
+      $anchorScroll('pageTop');
+    });
 
     // const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
 

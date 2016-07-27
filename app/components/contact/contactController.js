@@ -5,7 +5,8 @@ angular
   function ContactController(ContactService, MainService, $rootScope) {
     var vm = this;
 
-    vm.contactSubject = '';
+    vm.form = {};
+    vm.form.subject = '';
 
     MainService
       .setCurrentState('CONTACT');
@@ -27,6 +28,40 @@ angular
       );
 
       vm.submitForm = function() {
+        console.log("form data: " + vm.form);
+        window.form = vm.form;
+        var message = {
+          fromEmail: vm.form.email,
+          fromName: vm.form.name,
+          subject: vm.form.subject,
+          comments: vm.form.comments,
+        };
+        switch (vm.form.subject) {
+          case "Custom Home Construction":
+            message.toEmail = "custom@nautilusco.com";
+            message.toName = "Custom Homes";
+            break;
+          case "Home Management":
+            message.toEmail = "mgmt@nautilusco.com";
+            message.toName = "Home Management";
+            break;
+          case "Careers":
+            message.toEmail = "careers@nautilusco.com";
+            message.toName = "Careers";
+            break;
+          default:
+            message.toEmail = "mike@launchpeer.com";
+            message.toName = "Other, etc";
+        }
+
+        ContactService.sendEmail(message).then(function(data) {
+          if(data[0].status === 'sent') {
+            vm.thisErrorMessage += ' The email was sent.';
+          } else {
+            vm.thisErrorMessage += ' This eamil was not sent to the dev team for an unknown reason. Oops.';
+          }
+        });
+
         if(vm.subscribe) {
           vm.mailchimp = {};
           var splitName = vm.contactName.split(' ');

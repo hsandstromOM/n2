@@ -884,8 +884,7 @@ footer p {
     pointer-events: none;
     cursor: default;
   }
-  .navbar .nav > li > a:focus:after,
-  .navbar .nav > li > a:hover:after {
+  .current-state:after {
     left: 42%;
   }
   .footer-bar-left {

@@ -32,10 +32,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('customHomesDetail', {
-        url: '/custom-home-construction/:customHomeID',
+        url: '/custom-home-construction/:customHomeTitle',
         templateUrl: './app/components/customHomesDetail/customHomesDetailView.html',
         controller: 'CustomHomesController',
-        controllerAs: 'customHomesCtrl'
+        controllerAs: 'customHomesCtrl',
+        params: {
+          customHomeID: null,
+        },
       })
 
       .state('homeMgmt', {
@@ -53,10 +56,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('newsDetail', {
-        url: '/news/:topic/:keyword/:postID',
+        url: '/news/:topic/:keyword/:postTitle',
         templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl'
+        controllerAs: 'newsCtrl',
+        params: {
+          postID: null,
+        },
       })
 
       .state('contact', {
