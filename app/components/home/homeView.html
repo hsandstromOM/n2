@@ -14,6 +14,7 @@
       <div ng-repeat="slide in $contentfulEntries.items | orderBy : 'fields.orderNumber'" ng-class="{item:true, active:$first}">
         <div class="home-slider-img" ng-style="{'background-image' : 'url({{ slide.fields.bannerImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
           <!-- SLIDER BACKGROUND IMAGE -->
+          <img class="hidden" ng-src="{{ slide.fields.bannerImage.fields.file.url }}" alt="" />
         </div>
 
         <aside class="col-md-4 carousel-caption-box hidden-xs hidden-sm flex-col text-left">

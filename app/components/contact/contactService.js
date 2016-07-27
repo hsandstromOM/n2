@@ -6,13 +6,11 @@ angular
 
   function ContactService($http, $q) {
 
+
     function sendEmail(message) {
       var deferred = $q.defer();
 
-      $http.post('http://localhost:3001/api/email', {
-          'data': message,
-          // 'message': message
-      })
+      $http.post('/api/email', message)
       .then(function(data, status, headers, config) {
         console.log("success");
         deferred.resolve(data);
