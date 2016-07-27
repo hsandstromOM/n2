@@ -4,14 +4,24 @@ var app        = express();             // define our app using express
 var nodemailer = require('nodemailer');
 // var mandrillTransport = require('nodemailer-mandrill-transport');
 //
-// var transport = nodemailer.createTransport(mandrillTransport({
+// var transport = nodemailer.createTransport();
+//
+// var mandrillTransport = nodemailer.createTransport(mandrillTransport({
 //   auth: {
-//     apiKey: 'key'
+//     apiKey: 'HbJA8sp7lHhLsgDp9qazPg'
 //   }
 // }));
 
-var mandrill        = require('mandrill-api/mandrill');
-var mandrill_client = new mandrill.Mandrill('HbJA8sp7lHhLsgDp9qazPg');
+var smtpTransport = nodemailer.createTransport("SMTP",{
+   service: 'Mandrill',
+   auth: {
+     user: 'inquiries@nautilusco.com',
+     pass: 'HbJA8sp7lHhLsgDp9qazPg'
+   }
+});
+
+// var mandrill        = require('mandrill-api/mandrill');
+// var mandrill_client = new mandrill.Mandrill('HbJA8sp7lHhLsgDp9qazPg');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -39,35 +49,34 @@ var router     = express.Router();
 app.use('/api', router);
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
-});
+// router.get('/', function(req, res) {
+//     res.json({ message: 'hooray! welcome to our api!' });
+// });
 
 router.route('/email')
 
   .post(function(req, res) {
-    console.log("Creating transporter...");
-    var transporter = nodemailer.createTransport();
 
     var mailOptions = {
-       from: 'sender@address',
-       to: 'mike@launchpeer.com',
-       subject: 'hello',
-       html: '<b>hello world!</b>',
+       from: 'inquiries@nautilusco.com',
+       replyTo: req.body.fromName + ' <' + req.body.fromEmail + '>',
+       to: req.body.toName + ' <' + req.body.toEmail + '>',
+       subject: 'Website Contact Form: ' + req.body.subject,
+       html: '<p>' + req.body.comments + '</p>',
        text: 'hello world!'
     };
 
     console.log("Sending mail...");
 
-    transporter.sendMail(mailOptions, function(error, info){
-      if(error){
-        return console.log(error);
+    smtpTransport.sendMail(mailOptions, function(error, response){  //callback
+      if(error) {
+        console.log(error);
+      } else {
+        console.log("Message sent: " + response.message);
       }
-      console.log('Message sent: ' + info.response);
-    });
 
-    // console.log("closing transporter...");
-    // transporter.close();
+      smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+    });
   });
 
 // START THE SERVER
