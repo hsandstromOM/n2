@@ -2,13 +2,8 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService, Slug) {
+  function CustomHomesController(MainService, $stateParams, contentful, CustomHomesService, Slug) {
     var vm = this;
-    $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
-
-    window.scrollTo(0, 0);
-
-  });
 
     MainService
       .setCurrentState('CUSTOM-HOMES');

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./assets/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <div class="gradient">
+    <div id="pageTop" class="gradient">
 
       <!-- HEADER -->
       <div contentful-entries="'content_type=navbar'">
@@ -87,7 +87,7 @@
       <!-- MAIN CONTENT -->
       <div class="container-fluid">
         <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-        <div ui-view></div>
+        <div ui-view autoscroll="false"></div>
 
       </div>
 

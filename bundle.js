@@ -458,13 +458,8 @@ angular
   .module('nautilusApp')
   .controller('CustomHomesController', CustomHomesController);
 
-  function CustomHomesController(MainService, $rootScope, $scope, $stateParams, contentful, CustomHomesService, Slug) {
+  function CustomHomesController(MainService, $stateParams, contentful, CustomHomesService, Slug) {
     var vm = this;
-    $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
-
-    window.scrollTo(0, 0);
-
-  });
 
     MainService
       .setCurrentState('CUSTOM-HOMES');
@@ -832,8 +827,12 @@ angular
   .controller('MainController', MainController);
 
 
-  function MainController(MainService, NewsService) {
+  function MainController(MainService, NewsService, $rootScope, $anchorScroll) {
     var vm = this;
+
+    $rootScope.$on("$stateChangeSuccess", function (event, currentRoute, previousRoute) {
+      $anchorScroll('pageTop');
+    });
 
     // const MAILCHIMP_KEY = '1029176b8a172367513eab75bfd1d6b0-us2';
 
