@@ -2,7 +2,7 @@ angular
   .module('nautilusApp')
   .controller('ContactController', ContactController);
 
-  function ContactController(ContactService, MainService, $rootScope) {
+  function ContactController(ContactService, MainService, contentful, $rootScope) {
     var vm = this;
 
     vm.form = {};
@@ -27,6 +27,13 @@ angular
         }
       );
 
+      contentful
+      .entries('content_type=contactFormSubject&order=fields.orderNumber')
+      .then(function(res) {
+        console.log("form subjects: " + res.data.items);
+        vm.formSubjects = res.data.items;
+      });
+
       vm.submitForm = function() {
         console.log("form data: " + vm.form);
         window.form = vm.form;
@@ -37,21 +44,21 @@ angular
           comments: vm.form.comments,
         };
         switch (vm.form.subject) {
-          case "Custom Home Construction":
-            message.toEmail = "custom@nautilusco.com";
-            message.toName = "Custom Homes";
+          case vm.formSubjects[0].fields.title:
+            message.toEmail = vm.formSubjects[0].fields.recipientEmail;
+            message.toName = vm.formSubjects[0].fields.recipientName;
             break;
-          case "Home Management":
-            message.toEmail = "mgmt@nautilusco.com";
-            message.toName = "Home Management";
+          case vm.formSubjects[1].fields.title:
+            message.toEmail = vm.formSubjects[1].fields.recipientEmail;
+            message.toName = vm.formSubjects[1].fields.recipientName;
             break;
-          case "Careers":
-            message.toEmail = "careers@nautilusco.com";
-            message.toName = "Careers";
+          case vm.formSubjects[2].fields.title:
+            message.toEmail = vm.formSubjects[2].fields.recipientEmail;
+            message.toName = vm.formSubjects[2].fields.recipientName;
             break;
           default:
-            message.toEmail = "mike@launchpeer.com";
-            message.toName = "Other, etc";
+            message.toEmail = vm.formSubjects[3].fields.recipientEmail;
+            message.toName = vm.formSubjects[3].fields.recipientName;
         }
 
         ContactService.sendEmail(message).then(function(data) {
