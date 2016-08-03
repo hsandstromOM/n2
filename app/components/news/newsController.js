@@ -5,6 +5,9 @@ angular
   function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
     var vm = this;
 
+    console.log("STATE PARAMS: " + $stateParams);
+    window.params = $stateParams;
+
     vm.thisYear = new Date().getFullYear();
     vm.filterYear = new Date().getFullYear();
 
@@ -113,34 +116,40 @@ angular
     };
 
     if ($stateParams.postID) {
+      sessionStorage.setItem('currentNewsPostID', $stateParams.postID);
+      getPost($stateParams.postID);
+    } else if (sessionStorage.getItem('currentNewsPostID')) {
+      getPost(sessionStorage.getItem('currentNewsPostID'));
+    }
 
-    contentful
-      .entries('sys.id=' + $stateParams.postID + '&include=3')
-      .then(
+    function getPost(postID) {
+      contentful
+        .entries('sys.id=' + postID + '&include=3')
+        .then(
 
-        // Success handler
-        function(response){
-          vm.selectedPost = response.data.items[0];
+          // Success handler
+          function(response){
+            vm.selectedPost = response.data.items[0];
 
-          if(vm.selectedPost.fields.gallery) {
-            vm.selectedPost.fields.gallery.forEach(function(image, idx) {
-              image.index = idx;
-            });
+            if(vm.selectedPost.fields.gallery) {
+              vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+                image.index = idx;
+              });
+            }
+
+            MainService.setPageTitle(vm.selectedPost.fields.title);
+            var d = new Date(vm.selectedPost.fields.date);
+            vm.selectedPost.fields.day = d.getDate();
+            vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
+            vm.selectedPost.fields.year = d.getFullYear();
+            console.log(vm.selectedPost);
+          },
+
+          // Error handler
+          function(response){
+            console.log('Oops, error ' + response.status);
           }
-
-          MainService.setPageTitle(vm.selectedPost.fields.title);
-          var d = new Date(vm.selectedPost.fields.date);
-          vm.selectedPost.fields.day = d.getDate();
-          vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
-          vm.selectedPost.fields.year = d.getFullYear();
-          console.log(vm.selectedPost);
-        },
-
-        // Error handler
-        function(response){
-          console.log('Oops, error ' + response.status);
-        }
-      );
+        );
     }
 
     function getMonthAbbrev(monthNum) {

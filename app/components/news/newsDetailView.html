@@ -30,12 +30,14 @@
               <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
                 <!-- PHOTO GALLERY -->
               </div>
-              <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" audioplayer controls>
-                <!-- AUDIO PLAYER -->
-              </audio>
-              <!-- <video ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'video'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" videoplayer controls> -->
-                <!-- VIDEO PLAYER -->
-              <!-- </video> -->
+              <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" class="pointer" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                <h3>Play Audio</h3>
+              </div>
+              <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'video/quicktime'" class="pointer" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                <h3>Play Video</h3>
+              </div>
             </div>
             <ul class="ul-inline social">
               <li><h3>Share:</h3></li>
@@ -55,13 +57,19 @@
           <div class="modal fade" id="news-detail-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-body bg-lt">
+                <div class="modal-body bg-lt text-center">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                   <span ng-click="newsCtrl.prevPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                   <span ng-click="newsCtrl.nextPhoto(newsCtrl.selectedProjectImage.index)" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                   <div class="pos-r">
-                    <img class="img-responsive" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url }}" alt="" />
-                    <div class="modal-banner">
+                    <img ng-if="newsCtrl.selectedProjectImage.fields.file.contentType == 'image/jpeg'" class="img-responsive" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url }}" alt="" />
+                    <audio ng-if="newsCtrl.selectedProjectImage.fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url | trustUrl }}" audioplayer controls autoplay>
+                      <!-- AUDIO PLAYER -->
+                    </audio>
+                    <video ng-if="newsCtrl.selectedProjectImage.fields.file.contentType == 'video/quicktime'" ng-src="{{ newsCtrl.selectedProjectImage.fields.file.url | trustUrl }}" videoplayer controls autoplay>
+                      <!-- VIDEO PLAYER -->
+                    </video>
+                    <div ng-hide="newsCtrl.selectedProjectImage.fields.file.contentType == 'video/quicktime'" class="modal-banner">
                       <h4>{{ newsCtrl.selectedProjectImage.fields.title }}</h4>
                       <ul class="ul-inline social">
                         <li><h3>Share:</h3></li>
@@ -79,7 +87,7 @@
                     </div>
                   </div>
                 </div>
-                <div ng-if="newsCtrl.selectedProjectImage.fields.description" class="modal-footer row">
+                <div ng-if="newsCtrl.selectedProjectImage.fields.description" class="modal-footer row bg-lt">
                   <div class="col-md-12" marked="newsCtrl.selectedProjectImage.fields.description">
                     <!-- CONVERTED DESCRIPTION MARKDOWN -->
                   </div>
