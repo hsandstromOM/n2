@@ -20,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.6",
+    "angular-animate": "^1.5.8",
     "angular-bootstrap": "^0.12.2",
     "angular-contentful": "^2.0.0",
     "angular-marked": "^1.2.1",
