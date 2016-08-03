@@ -18,12 +18,12 @@
         </div>
         <div class="bg-blue">
           <h3 class="text-success">{{ newsCtrl.featuredPost.fields.topic }}:</h3>
-          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id })"><h1 class="text-success">{{ newsCtrl.featuredPost.fields.title }}</h1></a>
+          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h1 class="text-success">{{ newsCtrl.featuredPost.fields.title }}</h1></a>
           <h4>{{ newsCtrl.featuredPost.fields.date }}</h4>
           <p>
             {{ newsCtrl.featuredPost.fields.featuredDescription }}
           </p>
-          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id })"><h3 class="text-success arrow-right">Read on</h3></a>
+          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h3 class="text-success arrow-right">Read on</h3></a>
         </div>
         </article>
 

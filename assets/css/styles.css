@@ -812,7 +812,8 @@ footer p {
   left: 0;
   right: 0;
   padding: 15px 34px;
-  bottom: 4%; }
+  bottom: 4%;
+  text-align: left; }
 
 .modal-banner::before {
   content: '';
@@ -1816,6 +1817,17 @@ footer p {
   cursor: pointer; }
 
 .related-media-box audio {
+  width: 100%; }
+
+.related-media-box .glyphicon-play {
+  font-size: 30px; }
+
+.modal audio {
+  margin: 200px 0;
+  width: 80%; }
+
+.modal video {
+  display: block;
   width: 100%; }
 
 .article-content {
