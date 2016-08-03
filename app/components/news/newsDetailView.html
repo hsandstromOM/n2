@@ -33,9 +33,9 @@
               <audio ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" audioplayer controls>
                 <!-- AUDIO PLAYER -->
               </audio>
-              <video ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'video'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" videoplayer controls>
-                <!-- AUDIO PLAYER -->
-              </video>
+              <!-- <video ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'video'" ng-src="{{ newsCtrl.selectedPost.fields.gallery[0].fields.file.url | trustUrl }}" videoplayer controls> -->
+                <!-- VIDEO PLAYER -->
+              <!-- </video> -->
             </div>
             <ul class="ul-inline social">
               <li><h3>Share:</h3></li>
@@ -90,10 +90,13 @@
           <!-- END MODAL -->
           <div class="article-content col-xs-12 col-md-8">
             <div class="article-body" marked="newsCtrl.selectedPost.fields.body">
-              <!-- CONVERTED OUR STORY DESCRIPTION MARKDOWN -->
+              <!-- CONVERTED ARTICLE BODY DESCRIPTION MARKDOWN -->
+            </div>
+            <div class="text-center v-margin-20" ng-if="newsCtrl.selectedPost.fields.youTubeVideo">
+              <iframe width="420" height="315" ng-src="{{ newsCtrl.selectedPost.fields.youTubeVideo  | trustUrl }}" frameborder="0" allowfullscreen></iframe>
             </div>
             <!-- BORDER BOTTOM -->
-            <ul ng-show="newsCtrl.selectedPost.fields.tags" class="ul-inline">
+            <ul ng-show="newsCtrl.selectedPost.fields.tags" class="ul-inline tag-list">
               <li><h3>Tags:</h3></li>
               <li ng-repeat="tag in newsCtrl.selectedPost.fields.tags" ng-click="newsCtrl.submitSearch(tag)" class="tag">{{ tag }}</li>
             </ul>
