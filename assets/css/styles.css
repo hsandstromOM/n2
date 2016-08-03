@@ -1821,10 +1821,6 @@ footer p {
 .article-content {
   padding: 0; }
 
-.article-body {
-  border-bottom: 2px #253d93 solid;
-  padding-bottom: 15px; }
-
 .article-body p {
   line-height: 2;
   text-align: justify; }
@@ -1856,6 +1852,9 @@ footer p {
   line-height: 1.5;
   list-style: outside decimal;
   margin-left: 1em; }
+
+.tag-list {
+  border-top: 2px #253d93 solid; }
 
 .tag {
   text-transform: uppercase;
