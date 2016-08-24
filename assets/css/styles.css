@@ -1020,6 +1020,9 @@ footer p {
 .career-listing header h2 {
   margin-top: 0; }
 
+.career-listing header h2:hover {
+  color: #253d93; }
+
 .career-listing header h3 {
   margin-bottom: 0; }
 

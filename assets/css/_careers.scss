@@ -1,6 +1,9 @@
 .career-listing header h2 {
   margin-top: 0;
 }
+.career-listing header h2:hover {
+  color: $dk-blue;
+}
 .career-listing header h3 {
   margin-bottom: 0;
 }
