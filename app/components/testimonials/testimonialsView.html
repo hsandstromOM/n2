@@ -11,7 +11,7 @@
 
   <!-- MAIN CONTENT -->
   <div contentful-entries="'content_type=testimonial'">
-    <div ng-repeat="testimonial in $contentfulEntries.items">
+    <div ng-repeat="testimonial in $contentfulEntries.items | orderBy: 'fields.orderNumber'">
       <!-- TESTIMONIAL WITH IMAGE -->
       <section ng-if="testimonial.fields.testimonialImage" class="row margin-lg v-margin-30">
         <div class="col-md-6">
