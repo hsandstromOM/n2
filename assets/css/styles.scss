@@ -108,6 +108,8 @@ html, body {
     overflow-x: hidden;
 }
 body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   background-image:
     url(../img/bg-gradient.png),
     url(../img/bg-pattern-light.jpg);
@@ -677,7 +679,6 @@ footer p {
 // // MAIN CONTENT AREAS
 
 .main-article {
-  text-align: justify;
   padding-bottom: 0 0 30px;
 }
 .main-article h2 {
@@ -916,7 +917,6 @@ footer p {
   }
   .main-article {
     padding: 0 58px 0 0;
-    text-align: left;
   }
   .modal-dialog {
     width: 700px;

@@ -20,9 +20,9 @@
 .sm-article li::before {
   content: '○';
   color: $dk-blue;
-  font-size: 24px;
+  font-size: 12px;
   position: absolute;
-  top: -7px;
+  top: 2px;
   left: -17px;
 }
 .apply-box {
@@ -35,5 +35,14 @@
   margin: 30px auto;
 }
 .responsibilities {
-  margin-top: 0; 
+  margin-top: 0;
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .career-listing li::before,
+  .sm-article li::before {
+    font-size: 24px;
+    top: -7px;
+  }
 }

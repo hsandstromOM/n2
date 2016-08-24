@@ -283,7 +283,6 @@
 }
 .article-body p {
   line-height: 2;
-  text-align: justify;
 }
 .article-body img {
   display: block;
@@ -302,9 +301,9 @@
 .article-body ul li::before {
   content: '○';
   color: $dk-blue;
-  font-size: 24px;
+  font-size: 12px;
   position: absolute;
-  top: -7px;
+  top: 2px;
   left: -17px;
 }
 .article-body ol {
@@ -354,6 +353,10 @@
   .article-details,
   .article-content {
     padding: 0 15px;
+  }
+  .article-body ul li::before {
+    font-size: 24px;
+    top: -7px;
   }
   .news-nav img {
     width: 100%;
