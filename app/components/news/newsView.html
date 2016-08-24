@@ -54,19 +54,12 @@
   <!-- ARTICLE LIST -->
   <section class="row margin-lg bg-blue">
     <header class="col-xs-12 text-center">
-      <h3 class="text-success">{{ newsCtrl.filterYear }} News</h3>
-      <div class="year-nav">
-        <div class="year-nav-left">
-          <h3 ng-hide="newsCtrl.filterYear === newsCtrl.thisYear" ng-click="newsCtrl.getYearPosts(newsCtrl.filterYear + 1)" class="text-success">{{ newsCtrl.filterYear + 1 }}</h3>
-        </div>
-        <div class="year-nav-right">
-          <h3 ng-hide="newsCtrl.filterYear === 2010" ng-click="newsCtrl.getYearPosts(newsCtrl.filterYear - 1)" class="text-success">{{ newsCtrl.filterYear - 1 }}</h3>
-        </div>
-      </div>
+      <h3 class="text-success">Nautilus News</h3>
       <img class="headerDecoration" src="assets/img/header-decoration.svg" alt="" />
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
+        <!-- <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}} | filter:{fields: {featured: false}}"> -->
         <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}} | filter:{fields: {featured: false}}">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
