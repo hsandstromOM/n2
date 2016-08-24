@@ -110,8 +110,7 @@
             <!-- Begin MailChimp Signup Form -->
             <form name="MailchimpSubscriptionForm" novalidate>
 	               <input type="email" ng-model="MainCtrl.mailchimp.EMAIL" name="EMAIL" class="email" placeholder="Enter your email address" onfocus="this.placeholder = ''" required>
-                 <input type="submit" value="GO" name="subscribe" ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="MainCtrl.addSubscription()" class="circle-button-40 button">
-
+                 <input type="submit" value="GO" name="subscribe" ng-click="MainCtrl.addSubscription(MailchimpSubscriptionForm.$valid)" class="circle-button-40 button">
              </form>
              <!--End mc_embed_signup-->
           </div>

@@ -7,6 +7,7 @@ angular
 
     vm.form = {};
     vm.form.subject = '';
+    vm.subscribe = true;
 
     MainService
       .setCurrentState('CONTACT');

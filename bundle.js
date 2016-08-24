@@ -350,6 +350,7 @@ angular
 
     vm.form = {};
     vm.form.subject = '';
+    vm.subscribe = true;
 
     MainService
       .setCurrentState('CONTACT');
@@ -898,48 +899,50 @@ angular
     * http://github.com/keithio/angular-mailchimp
     * License: MIT
     */
-    vm.addSubscription = function() {
-      // Create MailChimp resource
-      MailChimpSubscription = MainService.mailchimpResource(vm.mailchimp);
+    vm.addSubscription = function(formValid) {
+      if(formValid) {
+        // Create MailChimp resource
+        MailChimpSubscription = MainService.mailchimpResource(vm.mailchimp);
 
-      // Send subscriber data to MailChimp
-      MailChimpSubscription.save(
-        // Successfully sent data to MailChimp.
-        function (response) {
-          // Define message containers.
-          vm.mailchimp.errorMessage = '';
-          vm.mailchimp.successMessage = '';
+        // Send subscriber data to MailChimp
+        MailChimpSubscription.save(
+          // Successfully sent data to MailChimp.
+          function (response) {
+            // Define message containers.
+            vm.mailchimp.errorMessage = '';
+            vm.mailchimp.successMessage = '';
 
-          // Store the result from MailChimp
-          vm.mailchimp.result = response.result;
+            // Store the result from MailChimp
+            vm.mailchimp.result = response.result;
 
-          // Mailchimp returned an error.
-          if (response.result === 'error') {
-            if (response.msg) {
-              // Remove error numbers, if any.
-              var errorMessageParts = response.msg.split(' - ');
-              if (errorMessageParts.length > 1)
-                errorMessageParts.shift(); // Remove the error number
-                vm.mailchimp.errorMessage = errorMessageParts.join(' ');
-              } else {
-                vm.mailchimp.errorMessage = 'Sorry! An unknown error occured.';
+            // Mailchimp returned an error.
+            if (response.result === 'error') {
+              if (response.msg) {
+                // Remove error numbers, if any.
+                var errorMessageParts = response.msg.split(' - ');
+                if (errorMessageParts.length > 1)
+                  errorMessageParts.shift(); // Remove the error number
+                  vm.mailchimp.errorMessage = errorMessageParts.join(' ');
+                } else {
+                  vm.mailchimp.errorMessage = 'Sorry! An unknown error occured.';
+                }
               }
+              // MailChimp returns a success.
+              else if (response.result === 'success') {
+                vm.mailchimp.successMessage = response.msg;
+              }
+
+              //Broadcast the result for global msgs
+              $rootScope.$broadcast('mailchimp-response', response.result, response.msg);
+              vm.mailchimp.EMAIL = "Email address submitted.";
+            },
+
+            // Error sending data to MailChimp
+            function (error) {
+              $log.error('MailChimp Error: %o', error);
             }
-          // MailChimp returns a success.
-          else if (response.result === 'success') {
-            vm.mailchimp.successMessage = response.msg;
-          }
-
-          //Broadcast the result for global msgs
-          $rootScope.$broadcast('mailchimp-response', response.result, response.msg);
-          vm.mailchimp.EMAIL = "Email address submitted.";
-        },
-
-        // Error sending data to MailChimp
-        function (error) {
-          $log.error('MailChimp Error: %o', error);
+          );
         }
-      );
     };
   }
 
