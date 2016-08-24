@@ -1099,7 +1099,7 @@ angular
     }
 
     function initPosts() {
-      var queryString = 'content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage;
+      var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.featured=false&limit=' + postsPerPage;
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }

@@ -13,7 +13,7 @@
       <!-- MAIN CONTENT -->
       <section class="row margin-lg v-margin-30">
         <article class="featured-article white-box col-xs-12 col-md-9">
-        <div ng-style="{ 'background-image' : 'url({{ newsCtrl.featuredPost.fields.thumbnailImage.fields.file.url }}), url(../../../assets/img/bg-pattern-light.jpg)'}">
+        <div ng-style="{ 'background-image' : 'url(' + newsCtrl.featuredPost.fields.thumbnailImage.fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}">
           <!-- FEATURED POST IMAGE  -->
         </div>
         <div class="bg-blue">
@@ -59,8 +59,7 @@
     </header>
     <div class="col-xs-12 pad-0">
       <ul>
-        <!-- <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}} | filter:{fields: {featured: false}}"> -->
-        <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}} | filter:{fields: {featured: false}}">
+        <div ng-repeat="newsPost in newsCtrl.posts | filter:{fields: {topic: newsCtrl.searchTopic}}">
           <div class="clearfix visible-sm-block visible-md-block visible-lg-block" ng-if="$index % 2 == 0"></div>
           <div class="news-listing col-sm-6">
             <a ui-sref="newsDetail({ postID:newsPost.sys.id, postTitle:newsCtrl.slugify(newsPost.fields.title), keyword:newsCtrl.articleSearch, topic:newsCtrl.searchTopic })">
