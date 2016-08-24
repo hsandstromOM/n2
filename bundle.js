@@ -1055,9 +1055,6 @@ angular
     console.log("STATE PARAMS: " + $stateParams);
     window.params = $stateParams;
 
-    vm.thisYear = new Date().getFullYear();
-    vm.filterYear = new Date().getFullYear();
-
     if ($stateParams.keyword) {
       vm.articleSearch = $stateParams.keyword;
     }
@@ -1102,7 +1099,7 @@ angular
     }
 
     function initPosts() {
-      var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.date[gte]=' + vm.filterYear + '-01-01&fields.date[lt]=' + (vm.filterYear + 1) + '-01-01&limit=' + postsPerPage;
+      var queryString = 'content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage;
       if (vm.articleSearch) {
         queryString += '&query=' + vm.articleSearch;
       }
@@ -1144,19 +1141,12 @@ angular
 
     function getResultsPage(pageNumber) {
       contentful
-        .entries('content_type=newsPost&include=3&order=-fields.date&fields.date[gte]=' + vm.filterYear + '-01-01&fields.date[lt]=' + (vm.filterYear + 1) + '-01-01&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
+        .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
         .then(function(res) {
           vm.posts = res.data.items;
           console.log(vm.posts);
         });
     }
-
-    vm.getYearPosts = function(filterYear) {
-      vm.filterYear = filterYear;
-      vm.currentPage = 1;
-      initPosts();
-    };
-
 
     vm.slugify = function(string) {
       return Slug.slugify(string);
