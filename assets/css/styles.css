@@ -589,13 +589,13 @@ footer a:hover {
 
 footer input {
   text-align: center;
-  background-image: url("../img/bg-gradient.png"), url("../img/bg-pattern-light.jpg");
+  background-image: url("../img/bg-pattern-light.jpg"), url("../img/bg-gradient.png");
   border: none;
   padding: 10px; }
 
 footer input[type='submit'] {
   text-align: center;
-  background-image: url("../img/bg-gradient.png"), url("../img/bg-pattern-light.jpg");
+  background-image: url("../img/bg-pattern-light.jpg"), url("../img/bg-gradient.png");
   padding: 0;
   font-weight: 700;
   position: absolute;
