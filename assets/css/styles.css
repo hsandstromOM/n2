@@ -1,4 +1,17 @@
 @charset "UTF-8";
+.modal-content {
+  border: solid 5px #253d93;
+  color: #253d93;
+  opacity: .8; }
+
+.modal-title {
+  z-index: 2;
+  text-align: center;
+  border-bottom: none; }
+
+.modal-content p {
+  text-align: center; }
+
 .container-fluid {
   padding: 0; }
 
@@ -58,8 +71,8 @@
   border-color: #8c8c8c;
   box-shadow: none; }
 
-.open > .dropdown-toggle.btn-default:hover,
-.open > .dropdown-toggle.btn-default:focus {
+.open > .dropdown-toggle.btn-default:focus,
+.open > .dropdown-toggle.btn-default:hover {
   color: #8c8c8c;
   background-color: white;
   border-color: #8c8c8c; }
@@ -70,17 +83,18 @@
   border-color: #8c8c8c;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-html, body {
+body,
+html {
   width: 100%;
   height: 100%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden; }
 
 body {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  background-image: url(../img/bg-gradient.png), url(../img/bg-pattern-light.jpg);
+  background-image: url(../img/bg-gradient.png), url("../img/bg-pattern-light.jpg");
   background-repeat: no-repeat, repeat;
   background-size: cover, auto;
   font-family: "museo-sans", Helvetica, sans-serif; }
@@ -145,7 +159,7 @@ h6 {
   text-transform: uppercase; }
 
 p {
-  font-size: 16px;
+  font-size: 90%;
   font-weight: 300;
   line-height: 1.5; }
 
@@ -178,7 +192,7 @@ blockquote footer {
   font-weight: 700; }
 
 aside blockquote {
-  padding: 10px 25px 36px 25px; }
+  padding: 10px 25px 36px; }
 
 aside blockquote footer {
   margin-top: 13px;
@@ -203,8 +217,8 @@ aside blockquote footer {
   margin-top: -85px;
   margin-bottom: -150px; }
 
-.quote:before,
-.quote:after {
+.quote:after,
+.quote:before {
   background-color: rgba(96, 130, 193, 0.4);
   content: "";
   display: inline-block;
@@ -567,7 +581,7 @@ footer a:hover {
   color: #253d93; }
 
 .footer-bar {
-  padding: 0 0 10px 0;
+  padding: 0 0 10px;
   text-align: center;
   background-image: url("../../assets/img/Nautilus-Footer_Sides.png");
   background-repeat: repeat-x;
@@ -617,7 +631,7 @@ footer nav li + li:before {
   content: '|';
   color: grey;
   font-size: 10px;
-  margin: 0px 4px; }
+  margin: 0 4px; }
 
 footer p {
   font-size: 12px;
@@ -641,14 +655,12 @@ footer p {
 
 .footer-bar-left {
   margin-top: 27px;
-  padding: 0;
-  padding-left: 32px;
+  padding: 0 0 0 32px;
   text-align: left; }
 
 .footer-bar-right {
   margin-top: 30px;
-  padding: 0;
-  padding-right: 32px;
+  padding: 0 32px 0 0;
   text-align: right; }
 
 .footer-bar-left h6,
@@ -724,7 +736,7 @@ footer p {
   font-size: 11px;
   text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: .2px; }
+  letter-spacing: 0.2px; }
 
 .caption .fa {
   color: #253d93; }
@@ -736,7 +748,7 @@ footer p {
 .caption h5 {
   color: #6082c1;
   font-size: 12px;
-  letter-spacing: .2px; }
+  letter-spacing: 0.2px; }
 
 .caption h5:first-child {
   margin-top: 0; }
@@ -775,16 +787,16 @@ footer p {
 .modal-body img {
   width: 100%; }
 
-.modal-body .glyphicon-chevron-right,
-.modal-body .glyphicon-chevron-left {
+.modal-body .glyphicon-chevron-left,
+.modal-body .glyphicon-chevron-right {
   color: white;
   position: absolute;
   top: 41%;
   font-size: 28px;
   z-index: 10; }
 
-.modal-body .glyphicon-chevron-right:hover,
-.modal-body .glyphicon-chevron-left:hover {
+.modal-body .glyphicon-chevron-left:hover,
+.modal-body .glyphicon-chevron-right:hover {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -925,11 +937,41 @@ footer p {
     font-size: 32px; }
   .modal-banner .social li {
     margin-left: 4%; }
-  .modal-body .glyphicon-chevron-right,
-  .modal-body .glyphicon-chevron-left {
+  .modal-body .glyphicon-chevron-left,
+  .modal-body .glyphicon-chevron-right {
     font-size: 56px; }
   .modal-footer h2 {
-    margin-top: 0; } }
+    margin-top: 0; }
+  p {
+    font-size: 80%; } }
+
+@media (min-width: 414px) {
+  p {
+    font-size: 75%; } }
+
+@media (min-width: 412px) {
+  p {
+    font-size: 65%; }
+  .text-success {
+    font-size: 145%; } }
+
+@media (min-width: 320px) {
+  p {
+    font-size: 65%; }
+  .text-success {
+    font-size: 140%; } }
+
+@media (min-width: 1220px) {
+  p {
+    font-size: 5%; }
+  .text-success {
+    font-size: 140%; } }
+
+@media (min-width: 375px) {
+  p {
+    font-size: 75%; }
+  .text-success {
+    font-size: 150%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -971,7 +1013,9 @@ footer p {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .container {
-    width: 870px; } }
+    width: 870px; }
+  p {
+    font-size: 100%; } }
 
 .team-member {
   padding: 0 47px;
