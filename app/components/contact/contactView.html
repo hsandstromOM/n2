@@ -39,13 +39,14 @@
           <div class="checkbox">
             <label><input ng-model="contactCtrl.subscribe" type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
           </div>
-          <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit" data-toggle="modal" data-target="#myModal" >Go</button>
+          <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit"  >Go</button>
+          <!-- <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit" data-toggle="modal" data-target="#myModal" >Go</button> -->
 
           <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
-      <div class="modal-content">
+      <!-- <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Thanks for your inquiry!</h4>
@@ -56,7 +57,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-      </div>
+      </div> -->
           <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
 
 
@@ -71,11 +72,13 @@
         </form>
       </article>
 
-      <!-- <div class="thankYouDiv hidden">
+      <div class="thankYouDiv hidden">
         <h1>Thank you for contacting us! </h1>
-        <h6>We will get back to you shortly.</h6>
-
-      </div> -->
+        <h4>We will get back to you shortly.</h4>
+        <p>
+          Return to our <a href="http://www.nautilusco.com/">homepage</a>
+        </p>
+      </div>
 
 
       <aside class="main-photo col-xs-12 col-md-6">

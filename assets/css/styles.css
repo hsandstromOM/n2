@@ -3,7 +3,28 @@
   display: none; }
 
 .thankYouDiv {
-  float: left; }
+  float: left;
+  width: 45%;
+  margin-top: 10%;
+  margin-right: 5%;
+  -webkit-transition: opacity 4s ease-in;
+  -moz-transition: opacity 4s ease-in;
+  -ms-transition: opacity 4s ease-in;
+  transition: opacity 4s ease-in; }
+
+.thankYouDiv h1, h4, p, a {
+  text-align: center;
+  color: #253d93;
+  -webkit-transition: opacity 4s ease-in;
+  -moz-transition: opacity 4s ease-in;
+  -ms-transition: opacity 4s ease-in;
+  transition: opacity 4s ease-in; }
+
+.thankYouDiv a {
+  text-decoration: underline; }
+
+.thankYouDiv a:hover {
+  color: #6082c1; }
 
 .modal-content {
   border: solid 5px #253d93;
