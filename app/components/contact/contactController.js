@@ -4,7 +4,6 @@ angular
 
   function ContactController(ContactService, MainService, contentful, $rootScope) {
     var vm = this;
-
     vm.form = {};
     vm.form.subject = '';
     vm.subscribe = true;
@@ -37,6 +36,13 @@ angular
 
       vm.submitForm = function() {
         console.log("form data: " + vm.form);
+        ///SETUP FOR THANK YOU MESSAGE
+        // var myEl = angular.element( document.querySelector( '.contactFormDiv' ) );
+        // myEl.addClass('hidden');
+        //
+        // var myElToShow = angular.element( document.querySelector( '.thankYouDiv' ) );
+        // myElToShow.removeClass('hidden');
+
         window.form = vm.form;
         var message = {
           fromEmail: vm.form.email,

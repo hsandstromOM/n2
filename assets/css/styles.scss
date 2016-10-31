@@ -35,6 +35,14 @@ $serif: "museo-slab", Times, serif;
     display: flex;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
+////Contact form
+.hidden {
+  display: none
+}
+///Thank you div
+.thankYouDiv {
+  float: left;
+}
 ////Modal Styling
 .modal-content {
     border: solid 5px #253d93;

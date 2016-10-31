@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.hidden {
+  display: none; }
+
+.thankYouDiv {
+  float: left; }
+
 .modal-content {
   border: solid 5px #253d93;
   color: #253d93;
