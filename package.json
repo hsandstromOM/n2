@@ -36,11 +36,9 @@
     "express": "^4.13.4",
     "grunt": "^1.0.1",
     "jquery": "^2.2.4",
-    "mandrill-api": "^1.0.45",
     "ng-sanitize": "0.0.2",
     "node-sass": "^3.7.0",
     "nodemailer": "^0.7.1",
-    "nodemailer-mandrill-transport": "^1.1.0",
     "normalize": "^0.3.1",
     "serve": "^1.4.0",
     "watchify": "^3.7.0"

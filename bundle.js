@@ -16,6 +16,7 @@ nautilusApp.config(function(contentfulProvider) {
       space: '80s1v057uxnv',
       accessToken: '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500'
     });
+
 });
 
 require('./app.routes.js');
@@ -33,14 +34,14 @@ var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-  // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
 
       .state('home', {
-          url: '/home',
+          url: '/',
           templateUrl: './app/components/home/homeView.html',
           controller: 'HomeController',
           controllerAs: 'homeCtrl'
@@ -113,7 +114,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         templateUrl: './app/components/careers/careersView.html',
         controller: 'CareersController',
         controllerAs: 'careersCtrl'
-      })
+      });
 });
 
 require('./components/main/mainController');
