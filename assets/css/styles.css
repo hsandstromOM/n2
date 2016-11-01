@@ -12,7 +12,7 @@
   -ms-transition: opacity 4s ease-in;
   transition: opacity 4s ease-in; }
 
-.thankYouDiv h1, h4, p, a {
+.thankYouDiv h1, h5, p, a {
   text-align: center;
   color: #253d93;
   -webkit-transition: opacity 4s ease-in;
@@ -846,7 +846,7 @@ footer p {
   padding-left: 20px; }
 
 .modal-banner {
-  background-color: rgba(37, 61, 147, 0.7);
+  background-color: #253d93;
   color: white;
   position: absolute;
   left: 0;
@@ -874,7 +874,7 @@ footer p {
   border-width: 1px 0; }
 
 .modal-banner h4 {
-  font-size: 18px;
+  font-size: 24px;
   display: inline-block;
   margin-bottom: 0; }
 
@@ -883,7 +883,7 @@ footer p {
   margin: 0; }
 
 .modal-banner h4 span {
-  font-size: 14px; }
+  font-size: 24px; }
 
 .modal-banner .social li {
   margin-left: 2%;
@@ -949,7 +949,7 @@ footer p {
   .modal-dialog {
     width: 700px; }
   .modal-banner h4 {
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 10px; }
   .modal-banner h3 {
     font-size: 14px; }
@@ -966,7 +966,7 @@ footer p {
     margin-left: 4%; }
   .modal-body .glyphicon-chevron-left,
   .modal-body .glyphicon-chevron-right {
-    font-size: 56px; }
+    font-size: 36px; }
   .modal-footer h2 {
     margin-top: 0; }
   p {
