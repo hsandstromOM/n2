@@ -1042,7 +1042,8 @@ footer p {
   .container {
     width: 870px; }
   p {
-    font-size: 100%; } }
+    font-size: 100%;
+    text-align: left;} }
 
 .team-member {
   padding: 0 47px;
