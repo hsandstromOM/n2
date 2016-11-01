@@ -13,8 +13,8 @@
   transition: opacity 4s ease-in; }
 
 .thankYouDiv h1, h5, p, a {
-  text-align: center;
-  color: #253d93;
+  /*text-align: center;
+  color: #253d93;*/
   -webkit-transition: opacity 4s ease-in;
   -moz-transition: opacity 4s ease-in;
   -ms-transition: opacity 4s ease-in;
@@ -47,7 +47,9 @@
 
 .text-success {
   color: #253d93;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: left;
+}
 
 .text-info {
   color: #6082c1; }
@@ -1043,7 +1045,7 @@ footer p {
     width: 870px; }
   p {
     font-size: 100%;
-    text-align: left;} }
+    }}
 
 .team-member {
   padding: 0 47px;
@@ -1445,7 +1447,8 @@ footer p {
 
 .carousel-caption-text p {
   font-size: 10px;
-  padding-right: 7%; }
+  padding-right: 7%;
+text-align: left;}
 
 .learn-more-button-mobile {
   position: absolute;

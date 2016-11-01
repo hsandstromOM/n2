@@ -45,7 +45,7 @@ function ContactController(ContactService, MainService, contentful, $rootScope) 
         window.setTimeout(function() {
           myElToShow.addClass('hidden');
           myEl.removeClass('hidden')
-        }, 2000);
+        }, 3000);
 
 
         window.form = vm.form;
