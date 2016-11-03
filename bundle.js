@@ -36,10 +36,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
 
 
   $urlRouterProvider.otherwise('/home');
-//   $locationProvider.html5Mode({
-//     enabled: true,
-//     requireBase: false,
-// });
+//   $locationProvider.html5Mode({enabled: true,});
+
   $stateProvider
 
       .state('home', {
@@ -91,10 +89,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         url: '/news/:topic/:keyword/:postTitle/:postID',
         templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        // params: {
-        //   postID: null,
-        // },
+        controllerAs: 'newsCtrl'
       })
 
       .state('contact', {
