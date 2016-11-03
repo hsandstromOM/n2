@@ -2,15 +2,6 @@ var express    = require('express');    // call express
 var app        = express();             // define our app using express
 
 var nodemailer = require('nodemailer');
-// var mandrillTransport = require('nodemailer-mandrill-transport');
-//
-// var transport = nodemailer.createTransport();
-//
-// var mandrillTransport = nodemailer.createTransport(mandrillTransport({
-//   auth: {
-//     apiKey: 'HbJA8sp7lHhLsgDp9qazPg'
-//   }
-// }));
 
 var smtpTransport = nodemailer.createTransport("SMTP",{
    service: 'Mandrill',
@@ -19,9 +10,6 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
      pass: 'HbJA8sp7lHhLsgDp9qazPg'
    }
 });
-
-// var mandrill        = require('mandrill-api/mandrill');
-// var mandrill_client = new mandrill.Mandrill('HbJA8sp7lHhLsgDp9qazPg');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -49,7 +37,7 @@ var router     = express.Router();
 app.use('/api', router);
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-// router.get('/', function(req, res) {
+// app.get('/', function(req, res) {
 //     res.json({ message: 'hooray! welcome to our api!' });
 // });
 
@@ -79,6 +67,12 @@ router.route('/email')
     });
   });
 
+
+// 301 Redirects
+// app.get('/company-profile', function(req, res) {
+//       res.redirect(301, '/careers');
+// });
+
 // START THE SERVER
 // =============================================================================
 app.listen(port, function() {
@@ -93,7 +87,8 @@ console.log('Our app is running on http://localhost:' + port);
 // app.listen(port, function() {
 // console.log('Our app is running on http://localhost:' + port);
 // });
-
-// app.get("*", function(req, res) {
-//     res.render("./index.html");
+//
+// app.get("*", function(req, res, next) {
+//     res.render("index.html");
+//     return next();
 // });
