@@ -2,7 +2,7 @@ angular
     .module('nautilusApp')
     .controller('ContactController', ContactController);
 
-function ContactController(ContactService, MainService, contentful, $rootScope, $scope) {
+function ContactController(ContactService, MainService, contentful, $rootScope, $state) {
     var vm = this;
     vm.form = {};
     vm.form.subject = '';
@@ -47,8 +47,9 @@ function ContactController(ContactService, MainService, contentful, $rootScope, 
         myElToShow.removeClass('hidden');
 
         window.setTimeout(function() {
-          myElToShow.addClass('hidden');
-          myEl.removeClass('hidden')
+          // myElToShow.addClass('hidden');
+          // myEl.removeClass('hidden')
+           $state.reload();
         }, 3000);
 
 
