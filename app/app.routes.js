@@ -4,14 +4,14 @@ var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
   $stateProvider
 
       .state('home', {
-          url: '/',
+          url: '/home',
           templateUrl: './app/components/home/homeView.html',
           controller: 'HomeController',
           controllerAs: 'homeCtrl'

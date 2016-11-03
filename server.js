@@ -69,9 +69,9 @@ router.route('/email')
 
 
 // 301 Redirects
-app.get('/company-profile', function(req, res) {
-      res.redirect(301, '/careers');
-});
+// app.get('/company-profile', function(req, res) {
+//       res.redirect(301, '/careers');
+// });
 
 // START THE SERVER
 // =============================================================================
