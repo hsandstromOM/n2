@@ -18,13 +18,20 @@
         </div>
         <div class="bg-blue">
           <h3 class="text-success">{{ newsCtrl.featuredPost.fields.topic }}:</h3>
-          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h1 class="text-success">{{ newsCtrl.featuredPost.fields.title }}</h1></a>
+
+          <!-- GABRIEL CHANGES HERE (was ui-sref news{} not news.newsDetail) -->
+          <a ui-sref="news({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h1 class="text-success">{{ newsCtrl.featuredPost.fields.title }}</h1></a>
           <h4>{{ newsCtrl.featuredPost.fields.date }}</h4>
           <p>
             {{ newsCtrl.featuredPost.fields.featuredDescription }}
           </p>
-          <a ui-sref="newsDetail({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h3 class="text-success arrow-right">Read on</h3></a>
+          <a ui-sref="news({ postID:newsCtrl.featuredPost.sys.id, postTitle:newsCtrl.slugify(featuredPost.fields.title) })"><h3 class="text-success arrow-right">Read on</h3></a>
+
+          <!-- END CHANGES -->
+
         </div>
+
+
         </article>
 
         <nav class="col-xs-10 col-xs-offset-1 col-md-3 col-md-offset-0 text-center news-nav">
