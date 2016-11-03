@@ -4,10 +4,12 @@ var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
 
 nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-  // $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/home');
-
+//   $locationProvider.html5Mode({
+//     enabled: true,
+//     requireBase: false,
+// });
   $stateProvider
 
       .state('home', {
@@ -56,13 +58,13 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
       })
 
       .state('newsDetail', {
-        url: '/news/:topic/:keyword/:postTitle',
+        url: '/news/:topic/:keyword/:postTitle/:postID',
         templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
         controllerAs: 'newsCtrl',
-        params: {
-          postID: null,
-        },
+        // params: {
+        //   postID: null,
+        // },
       })
 
       .state('contact', {
