@@ -63,6 +63,9 @@ $serif: "museo-slab", Times, serif;
   color: $dk-blue;
   margin-bottom: 0;
 }
+.newsTitle {
+  font-size: 180%;
+}
 .text-info {
   color: $lt-blue;
 }
@@ -900,6 +903,11 @@ footer p {
     font-size: 10px;
   }
 }
+@media (max-width:412px){
+  .newsParagraph {
+    font-size: 75%;
+  }
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -968,8 +976,20 @@ footer p {
   .modal-footer h2 {
     margin-top: 0;
   }
+  .newsTitle{
+    font-size: 175%;
+  }
+  .newsParagraph {
+        font-size: 100%;
+  }
 }
 
+///iphone 6 plus
+@media (min-width: 414px) {
+    .newsParagraph{
+          font-size: 100%;
+    }
+}
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .hero-img {
