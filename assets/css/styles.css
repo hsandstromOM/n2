@@ -27,9 +27,10 @@
   color: #6082c1; }
 
 .modal-content {
-  border: solid 5px #253d93;
+  /*border: solid 5px #253d93;*/
   color: #253d93;
-  opacity: .8; }
+  /*opacity: .8; */
+}
 
 .modal-title {
   z-index: 2;
@@ -848,14 +849,19 @@ footer p {
   padding-left: 20px; }
 
 .modal-banner {
+  opacity: .8;
   background-color: #253d93;
   color: white;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   padding: 15px 34px;
-  bottom: 4%;
-  text-align: left; }
+  /*bottom: 4%;*/
+  text-align: left;
+  /*outline: solid 2px white;
+    outline-offset: -9px;*/
+
+}
 
 .modal-banner::before {
   content: '';
@@ -864,7 +870,8 @@ footer p {
   right: 0;
   left: 0;
   border: solid white;
-  border-width: 1px 0; }
+  border-width: 1px 0;
+}
 
 .modal-banner::after {
   content: '';
@@ -873,7 +880,8 @@ footer p {
   right: 0;
   left: 0;
   border: solid white;
-  border-width: 1px 0; }
+  border-width: 1px 0;
+ }
 
 .modal-banner h4 {
   font-size: 24px;

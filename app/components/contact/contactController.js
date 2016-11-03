@@ -2,7 +2,7 @@ angular
     .module('nautilusApp')
     .controller('ContactController', ContactController);
 
-function ContactController(ContactService, MainService, contentful, $rootScope) {
+function ContactController(ContactService, MainService, contentful, $rootScope, $scope) {
     var vm = this;
     vm.form = {};
     vm.form.subject = '';
@@ -34,9 +34,13 @@ function ContactController(ContactService, MainService, contentful, $rootScope) 
             vm.formSubjects = res.data.items;
         });
 
+
+
     vm.submitForm = function() {
         console.log("form data: " + vm.form);
         ///SETUP FOR THANK YOU MESSAGE
+        // var myForm = angular.element(document.querySelector('.form-control'))
+        // $scope.myForm.setUntouched()
         var myEl = angular.element(document.querySelector('.contactFormDiv'));
         myEl.addClass('hidden');
         var myElToShow = angular.element(document.querySelector('.thankYouDiv'));
@@ -89,6 +93,8 @@ function ContactController(ContactService, MainService, contentful, $rootScope) 
             vm.mailchimp.EMAIL = vm.contactEmail;
             addSubscription(vm.mailchimp);
         }
+
+
     };
 
     /**
