@@ -16,6 +16,7 @@ nautilusApp.config(function(contentfulProvider) {
       space: '80s1v057uxnv',
       accessToken: '361c4996eb1e9c4236cea0b5c21701c76f302ec59f42c1b5111d365c7faee500'
     });
+
 });
 
 require('./app.routes.js');
@@ -115,7 +116,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         templateUrl: './app/components/careers/careersView.html',
         controller: 'CareersController',
         controllerAs: 'careersCtrl'
-      })
+      });
 });
 
 require('./components/main/mainController');

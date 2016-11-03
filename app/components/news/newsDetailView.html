@@ -27,7 +27,7 @@
             <h4 class="text-success">{{ newsCtrl.selectedPost.fields.topic }}</h4>
             <div ng-show="newsCtrl.selectedPost.fields.gallery" class="related-media-box bg-blue">
               <h3>Related Media</h3>
-              <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg'" class="img-box" ng-style="{ 'background-image' : 'url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
+              <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/jpeg' || newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'image/png'" class="img-box" ng-style="{ 'background-image' : 'url(' + newsCtrl.selectedPost.fields.gallery[0].fields.file.url + '), url(../../../assets/img/bg-pattern-light.jpg)'}" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">
                 <!-- PHOTO GALLERY -->
               </div>
               <div ng-if="newsCtrl.selectedPost.fields.gallery[0].fields.file.contentType == 'audio/mp3'" class="pointer" ng-click="newsCtrl.selectPhoto(newsCtrl.selectedPost.fields.gallery[0].index)" data-toggle="modal" data-target="#news-detail-modal">

@@ -86,7 +86,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         templateUrl: './app/components/careers/careersView.html',
         controller: 'CareersController',
         controllerAs: 'careersCtrl'
-      })
+      });
 });
 
 require('./components/main/mainController');
