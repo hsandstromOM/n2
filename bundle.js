@@ -36,10 +36,15 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
 
 
   $urlRouterProvider.otherwise('/home');
+<<<<<<< HEAD
 //   $locationProvider.html5Mode({
 //     // enabled: true,
 //     requireBase: false,
 // });
+=======
+//   $locationProvider.html5Mode({enabled: true,});
+
+>>>>>>> a7621fbc932148ef222328b364883ae4c5d72b91
   $stateProvider
 
       .state('home', {
@@ -100,13 +105,10 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
 // END CHANGES
 
       .state('newsDetail', {
-        url: '/news/:topic/:keyword/:postTitle',
+        url: '/news/:topic/:keyword/:postTitle/:postID',
         templateUrl: './app/components/news/newsDetailView.html',
         controller: 'NewsController',
-        controllerAs: 'newsCtrl',
-        params: {
-          postID: null,
-        },
+        controllerAs: 'newsCtrl'
       })
 
       .state('contact', {
