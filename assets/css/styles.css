@@ -885,7 +885,9 @@ footer p {
 
 .modal-footer {
   text-align: left;
-  border: none; }
+  border: none;
+  position: relative;
+  margin-top: 10%; }
 
 .no-padding {
   padding: 0; }
@@ -900,7 +902,9 @@ footer p {
 
 @media (max-width: 412px) {
   .newsParagraph {
-    font-size: 75%; } }
+    font-size: 75%; }
+  .modal-footer {
+    margin-top: 25%; } }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -957,7 +961,9 @@ footer p {
 
 @media (min-width: 414px) {
   .newsParagraph {
-    font-size: 100%; } }
+    font-size: 100%; }
+  .modal-footer {
+    margin-top: 17%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
