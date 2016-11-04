@@ -959,11 +959,15 @@ footer p {
   .newsParagraph {
     font-size: 100%; } }
 
-@media (min-width: 414px) {
+@media (max-width: 414px) {
   .newsParagraph {
     font-size: 100%; }
   .modal-footer {
-    margin-top: 17%; } }
+    margin-top: 25%; } }
+
+@media (max-width: 320px) {
+  .modal-footer {
+    margin-top: 30%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {

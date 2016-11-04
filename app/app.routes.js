@@ -7,6 +7,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
 
   $urlRouterProvider.otherwise('/home');
 
+    $stateProvider
+
       .state('home', {
           url: '/home',
           templateUrl: './app/components/home/homeView.html',

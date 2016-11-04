@@ -36,16 +36,8 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
 
 
   $urlRouterProvider.otherwise('/home');
-<<<<<<< HEAD
-//   $locationProvider.html5Mode({
-//     // enabled: true,
-//     requireBase: false,
-// });
-=======
-//   $locationProvider.html5Mode({enabled: true,});
 
->>>>>>> a7621fbc932148ef222328b364883ae4c5d72b91
-  $stateProvider
+    $stateProvider
 
       .state('home', {
           url: '/home',
