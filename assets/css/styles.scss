@@ -992,7 +992,7 @@ footer p {
 ///iphone 6 plus
 @media (max-width: 414px) {
     .newsParagraph{
-          font-size: 100%;
+          font-size: 90%;
     }
     .modal-footer{
       margin-top: 25%;
@@ -1002,6 +1002,9 @@ footer p {
 @media (max-width: 320px){
   .modal-footer{
     margin-top: 30%;
+  }
+  .newsParagraph{
+    font-size: 75%;
   }
 }
 /* Medium devices (desktops, 992px and up) */

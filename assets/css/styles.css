@@ -961,13 +961,15 @@ footer p {
 
 @media (max-width: 414px) {
   .newsParagraph {
-    font-size: 100%; }
+    font-size: 90%; }
   .modal-footer {
     margin-top: 25%; } }
 
 @media (max-width: 320px) {
   .modal-footer {
-    margin-top: 30%; } }
+    margin-top: 30%; }
+  .newsParagraph {
+    font-size: 75%; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -1934,8 +1936,7 @@ footer p {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .featured-article div {
-    width: 50%;
-    height: 370px; }
+    width: 50%; }
   .featured-article div:last-child {
     padding: 16px; }
   .article-body p {
