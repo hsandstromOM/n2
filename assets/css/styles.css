@@ -884,10 +884,15 @@ footer p {
   margin-top: 10px; }
 
 .modal-footer {
+  background-image: url("../../../assets/img/bg-pattern-light.jpg");
   text-align: left;
   border: none;
   position: relative;
   margin-top: 10%; }
+
+.modal-footer.row.ng-scope {
+  margin-left: 0px;
+  margin-right: 0px; }
 
 .no-padding {
   padding: 0; }
