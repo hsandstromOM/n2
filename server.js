@@ -25,7 +25,6 @@ app.use(function(req, res, next) {
 });
 var port = process.env.PORT || 3000;        // set our port
 
-//gives us access to the current folder
 app.use(express.static(__dirname + ''));
 
 // ROUTES FOR OUR API
