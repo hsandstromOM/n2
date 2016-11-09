@@ -10,7 +10,7 @@
 
     <!-- MAIN CONTENT -->
     <section class="row margin-lg v-margin-30">
-      <article class="main-article col-xs-12 col-md-6">
+      <article class="main-article col-xs-12 col-md-6 contactFormDiv">
         <h2 class="text-uppercase">
           Contact
         </h2>
@@ -39,8 +39,14 @@
           <div class="checkbox">
             <label><input ng-model="contactCtrl.subscribe" type="checkbox"> Sign me up for the Nautilus quarterly eNewsletter</label>
           </div>
-          <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit">Go</button>
+          <button type="submit" ng-click="contactCtrl.submitForm()" class="circle-button-40" name="submit"  >Go</button>
+
+          <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
           <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+
+
           <div ng-show="contactCtrl.mailchimp.result === 'error'" ng-cloak>
             <h2 ng-bind-html="contactCtrl.mailchimp.errorMessage"></h2>
           </div>
@@ -51,6 +57,16 @@
           </div>
         </form>
       </article>
+
+      <div class="thankYouDiv hidden">
+        <h1 style="text-align: center;">Thank you for contacting us! </h1>
+        <h5 style="text-align: center;">We will get back to you shortly.</h5>
+        <p style="text-align: center;">
+          Return to our <a href="http://www.nautilusco.com/">homepage</a>
+        </p>
+      </div>
+
+
       <aside class="main-photo col-xs-12 col-md-6">
         <div class=" main-photo-container full-width" ng-style="{'background-image' : 'url(assets/img/contact-map.png), url(assets/img/bg-pattern-light.jpg)'}" alt="Nautilus Company Location Map" />
           <!-- MAP IMAGE  -->

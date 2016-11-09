@@ -1,39 +1,39 @@
 angular
-  .module('nautilusApp')
-  .controller('NewsController', NewsController);
+    .module('nautilusApp')
+    .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
+function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
     var vm = this;
 
     console.log("STATE PARAMS: " + $stateParams);
     window.params = $stateParams;
 
     if ($stateParams.keyword) {
-      vm.articleSearch = $stateParams.keyword;
+        vm.articleSearch = $stateParams.keyword;
     }
 
     if ($stateParams.topic) {
-      vm.searchTopic = $stateParams.topic;
+        vm.searchTopic = $stateParams.topic;
     }
 
     MainService
-      .setCurrentState('NEWS');
+        .setCurrentState('NEWS');
 
     MainService
-      .getPageContent('newsPage')
-      .then(
+        .getPageContent('newsPage')
+        .then(
+            // Success handler
+            function(mainContent) {
 
-        // Success handler
-        function(mainContent){
-          console.log(mainContent);
-          MainService.setPageTitle(mainContent.pageTitle);
-        },
+                // console.log(mainContent);
+                MainService.setPageTitle(mainContent.pageTitle);
+            },
 
-        // Error handler
-        function(response){
-          console.log('Oops, error ' + response.status);
-        }
-      );
+            // Error handler
+            function(response) {
+                console.log('Oops, error ' + response.status);
+            }
+        );
 
     vm.posts = [];
     var totalPosts = 0;
@@ -44,139 +44,163 @@ angular
     getFeaturedPost();
 
     function getFeaturedPost() {
-      contentful
-      .entries('content_type=newsPost&include=3&fields.featured=true&limit=1')
-      .then(function(res) {
-        vm.featuredPost = res.data.items[0];
-      });
+        contentful
+            .entries('content_type=newsPost&include=3&fields.featured=true&limit=1')
+            .then(function(res) {
+                vm.featuredPost = res.data.items[0];
+            });
     }
 
     function initPosts() {
-      var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.featured=false&limit=' + postsPerPage;
-      if (vm.articleSearch) {
-        queryString += '&query=' + vm.articleSearch;
-      }
-      contentful
-      .entries(queryString)
-      .then(function(res) {
-        vm.posts = res.data.items;
-        totalPosts = res.data.total;
-
-        console.log(vm.posts);
-        vm.pages = [];
-        var numberOfPages = Math.ceil(totalPosts / postsPerPage);
-        for (var i = 1; i <= numberOfPages; i++) {
-          vm.pages.push(i);
+        var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.featured=false&limit=' + postsPerPage;
+        if (vm.articleSearch) {
+            queryString += '&query=' + vm.articleSearch;
         }
-      });
+        contentful
+            .entries(queryString)
+            .then(function(res) {
+                vm.posts = res.data.items;
+                totalPosts = res.data.total;
+
+                console.log(vm.posts);
+                vm.pages = [];
+                var numberOfPages = Math.ceil(totalPosts / postsPerPage);
+                for (var i = 1; i <= numberOfPages; i++) {
+                    vm.pages.push(i);
+                }
+            });
     }
 
     vm.selectSearchTopic = function(topic) {
-      if (vm.searchTopic !== topic) {
-        $state.go('news', { topic: topic });
-      } else {
-        $state.go('news', { topic: '' });
-      }
+        if (vm.searchTopic !== topic) {
+            $state.go('news', {
+                topic: topic
+            });
+        } else {
+          console.log("hey");
+
+            $state.go('news', {
+                topic: ''
+            });
+        }
     };
 
     vm.submitSearch = function(tag) {
-      if (tag) {
-        $state.go('news', { keyword: tag, topic: '' });
-      } else {
-        $state.go('news', { keyword:vm.articleSearch, topic:vm.searchTopic });
-      }
+        if (tag) {
+            $state.go('news', {
+                keyword: tag,
+                topic: ''
+            });
+        } else {
+            $state.go('news', {
+                keyword: vm.articleSearch,
+                topic: vm.searchTopic
+            });
+        }
     };
 
     vm.getPage = function(pageNumber) {
-      getResultsPage(pageNumber);
-      vm.currentPage = pageNumber;
+        getResultsPage(pageNumber);
+        vm.currentPage = pageNumber;
     };
 
     function getResultsPage(pageNumber) {
-      contentful
-        .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
-        .then(function(res) {
-          vm.posts = res.data.items;
-          console.log(vm.posts);
-        });
+        contentful
+            .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
+            .then(function(res) {
+                vm.posts = res.data.items;
+                console.log(vm.posts);
+            });
     }
 
     vm.slugify = function(string) {
-      return Slug.slugify(string);
+        return Slug.slugify(string);
     };
 
     if ($stateParams.postID) {
-      sessionStorage.setItem('currentNewsPostID', $stateParams.postID);
-      getPost($stateParams.postID);
+        sessionStorage.setItem('currentNewsPostID', $stateParams.postID);
+        getPost($stateParams.postID);
     } else if (sessionStorage.getItem('currentNewsPostID')) {
-      getPost(sessionStorage.getItem('currentNewsPostID'));
+        getPost(sessionStorage.getItem('currentNewsPostID'));
     }
 
     function getPost(postID) {
-      contentful
-        .entries('sys.id=' + postID + '&include=3')
-        .then(
+        contentful
+            .entries('sys.id=' + postID + '&include=3')
+            .then(
 
-          // Success handler
-          function(response){
-            vm.selectedPost = response.data.items[0];
+                // Success handler
+                function(response) {
+                    vm.selectedPost = response.data.items[0];
+                    console.log("vm.selectedPost",vm.selectedPost);
+                    if (vm.selectedPost.fields.gallery) {
+                        vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+                            image.index = idx;
+                        });
+                    }
 
-            if(vm.selectedPost.fields.gallery) {
-              vm.selectedPost.fields.gallery.forEach(function(image, idx) {
-                image.index = idx;
-              });
-            }
+                    MainService.setPageTitle(vm.selectedPost.fields.title);
+                    var d = new Date(vm.selectedPost.fields.date);
+                    vm.selectedPost.fields.day = d.getDate();
+                    vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
+                    vm.selectedPost.fields.year = d.getFullYear();
+                    console.log(vm.selectedPost);
+                },
 
-            MainService.setPageTitle(vm.selectedPost.fields.title);
-            var d = new Date(vm.selectedPost.fields.date);
-            vm.selectedPost.fields.day = d.getDate();
-            vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
-            vm.selectedPost.fields.year = d.getFullYear();
-            console.log(vm.selectedPost);
-          },
-
-          // Error handler
-          function(response){
-            console.log('Oops, error ' + response.status);
-          }
-        );
+                // Error handler
+                function(response) {
+                    console.log('Oops, error ' + response.status);
+                }
+            );
     }
 
     function getMonthAbbrev(monthNum) {
-      switch(monthNum) {
-        case 0: return 'Jan';
-        case 1: return 'Feb';
-        case 2: return 'Mar';
-        case 3: return 'Apr';
-        case 4: return 'May';
-        case 5: return 'Jun';
-        case 6: return 'Jul';
-        case 7: return 'Aug';
-        case 8: return 'Sep';
-        case 9: return 'Oct';
-        case 10: return 'Nov';
-        case 11: return 'Dec';
-      }
+        switch (monthNum) {
+            case 0:
+                return 'Jan';
+            case 1:
+                return 'Feb';
+            case 2:
+                return 'Mar';
+            case 3:
+                return 'Apr';
+            case 4:
+                return 'May';
+            case 5:
+                return 'Jun';
+            case 6:
+                return 'Jul';
+            case 7:
+                return 'Aug';
+            case 8:
+                return 'Sep';
+            case 9:
+                return 'Oct';
+            case 10:
+                return 'Nov';
+            case 11:
+                return 'Dec';
+        }
     }
 
     vm.selectPhoto = function(index) {
-      vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
-      console.log(vm.selectedProjectImage);
+        vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
+        console.log(vm.selectedProjectImage);
     };
 
-    vm.nextPhoto = function(index){
-      if(index === vm.selectedPost.fields.gallery.length - 1) {
-        vm.selectPhoto(0);
-      } else {
-        vm.selectPhoto(++index);
-      }
+    vm.nextPhoto = function(index) {
+        if (index === vm.selectedPost.fields.gallery.length - 1) {
+            vm.selectPhoto(0);
+        } else {
+            vm.selectPhoto(++index);
+        }
     };
 
-    vm.prevPhoto = function(index){
-      if(index === 0) {
-        vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
-      } else {
-        vm.selectPhoto(--index);
-      }
+    vm.prevPhoto = function(index) {
+        if (index === 0) {
+            vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
+        } else {
+            vm.selectPhoto(--index);
+        }
     };
-  }
+}
