@@ -25,9 +25,9 @@ require('angular-sanitize/angular-sanitize.js');
 require('angular-slugify/angular-slugify.js');
 require('angular-resource/angular-resource.js');
 require('angular-contentful/dist/angular-contentful.js');
-require('angular-marked/dist/angular-marked.js');
+require('angular-marked/lib/angular-marked.js');
 
-},{"./app.routes.js":2,"angular":31,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/dist/angular-marked.js":23,"angular-resource/angular-resource.js":26,"angular-sanitize/angular-sanitize.js":27,"angular-slugify/angular-slugify.js":28}],2:[function(require,module,exports){
+},{"./app.routes.js":2,"angular":31,"angular-contentful/dist/angular-contentful.js":22,"angular-marked/lib/angular-marked.js":23,"angular-resource/angular-resource.js":26,"angular-sanitize/angular-sanitize.js":27,"angular-slugify/angular-slugify.js":28}],2:[function(require,module,exports){
 var uiRouter = require('angular-ui-router');
 
 var nautilusApp = angular.module('nautilusRouter', ['ui.router']);
@@ -37,8 +37,7 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
   $urlRouterProvider.otherwise('/home');
   $locationProvider.html5Mode({enabled: true});
 
-  $stateProvider
-
+    $stateProvider
       .state('home', {
           url: '/home',
           templateUrl: './app/components/home/homeView.html',
@@ -83,6 +82,18 @@ nautilusApp.config(function($stateProvider, $urlRouterProvider, $locationProvide
         controller: 'NewsController',
         controllerAs: 'newsCtrl'
       })
+
+// GABRIEL CHANGES HERE
+      // .state('news.newsDetail', {
+      //   url: '/news/:topic/:keyword/:postTitle',
+      //   templateUrl: './app/components/news/newsDetailView.html',
+      //   controller: 'NewsController',
+      //   controllerAs: 'newsCtrl',
+      //   params: {
+      //     postID: null,
+      //   },
+      // })
+// END CHANGES
 
       .state('newsDetail', {
         url: '/news/:topic/:keyword/:postTitle/:postID',
@@ -339,135 +350,153 @@ angular
 
 },{}],7:[function(require,module,exports){
 angular
-  .module('nautilusApp')
-  .controller('ContactController', ContactController);
+    .module('nautilusApp')
+    .controller('ContactController', ContactController);
 
-  function ContactController(ContactService, MainService, contentful, $rootScope) {
+function ContactController(ContactService, MainService, contentful, $rootScope, $state) {
     var vm = this;
-
     vm.form = {};
     vm.form.subject = '';
     vm.subscribe = true;
 
     MainService
-      .setCurrentState('CONTACT');
+        .setCurrentState('CONTACT');
 
     MainService
-      .getPageContent('contactUsPage')
-      .then(
+        .getPageContent('contactUsPage')
+        .then(
 
-        // Success handler
-        function(mainContent){
-          console.log(mainContent);
-          MainService.setPageTitle(mainContent.pageTitle);
-        },
+            // Success handler
+            function(mainContent) {
+                console.log(mainContent);
+                MainService.setPageTitle(mainContent.pageTitle);
+            },
 
-        // Error handler
-        function(response){
-          console.log('Oops, error ' + response.status);
-        }
-      );
+            // Error handler
+            function(response) {
+                console.log('Oops, error ' + response.status);
+            }
+        );
 
-      contentful
-      .entries('content_type=contactFormSubject&order=fields.orderNumber')
-      .then(function(res) {
-        console.log("form subjects: " + res.data.items);
-        vm.formSubjects = res.data.items;
-      });
+    contentful
+        .entries('content_type=contactFormSubject&order=fields.orderNumber')
+        .then(function(res) {
+            console.log("form subjects: " + res.data.items);
+            vm.formSubjects = res.data.items;
+        });
 
-      vm.submitForm = function() {
+
+
+    vm.submitForm = function() {
         console.log("form data: " + vm.form);
+        ///SETUP FOR THANK YOU MESSAGE
+        // var myForm = angular.element(document.querySelector('.form-control'))
+        // $scope.myForm.setUntouched()
+        var myEl = angular.element(document.querySelector('.contactFormDiv'));
+        myEl.addClass('hidden');
+        var myElToShow = angular.element(document.querySelector('.thankYouDiv'));
+        myElToShow.removeClass('hidden');
+
+        window.setTimeout(function() {
+          // myElToShow.addClass('hidden');
+          // myEl.removeClass('hidden')
+           $state.reload();
+        }, 3000);
+
+
         window.form = vm.form;
         var message = {
-          fromEmail: vm.form.email,
-          fromName: vm.form.name,
-          subject: vm.form.subject,
-          comments: vm.form.comments,
+            fromEmail: vm.form.email,
+            fromName: vm.form.name,
+            subject: vm.form.subject,
+            comments: vm.form.comments,
         };
         switch (vm.form.subject) {
-          case vm.formSubjects[0].fields.title:
-            message.toEmail = vm.formSubjects[0].fields.recipientEmail;
-            message.toName = vm.formSubjects[0].fields.recipientName;
-            break;
-          case vm.formSubjects[1].fields.title:
-            message.toEmail = vm.formSubjects[1].fields.recipientEmail;
-            message.toName = vm.formSubjects[1].fields.recipientName;
-            break;
-          case vm.formSubjects[2].fields.title:
-            message.toEmail = vm.formSubjects[2].fields.recipientEmail;
-            message.toName = vm.formSubjects[2].fields.recipientName;
-            break;
-          default:
-            message.toEmail = vm.formSubjects[3].fields.recipientEmail;
-            message.toName = vm.formSubjects[3].fields.recipientName;
+            case vm.formSubjects[0].fields.title:
+                message.toEmail = vm.formSubjects[0].fields.recipientEmail;
+                message.toName = vm.formSubjects[0].fields.recipientName;
+                break;
+            case vm.formSubjects[1].fields.title:
+                message.toEmail = vm.formSubjects[1].fields.recipientEmail;
+                message.toName = vm.formSubjects[1].fields.recipientName;
+                break;
+            case vm.formSubjects[2].fields.title:
+                message.toEmail = vm.formSubjects[2].fields.recipientEmail;
+                message.toName = vm.formSubjects[2].fields.recipientName;
+                break;
+            default:
+                message.toEmail = vm.formSubjects[3].fields.recipientEmail;
+                message.toName = vm.formSubjects[3].fields.recipientName;
         }
 
         ContactService.sendEmail(message).then(function(data) {
-          if(data[0].status === 'sent') {
-            vm.thisErrorMessage += ' The email was sent.';
-          } else {
-            vm.thisErrorMessage += ' This eamil was not sent to the dev team for an unknown reason. Oops.';
-          }
+            if (data[0].status === 'sent') {
+                vm.thisErrorMessage += ' The email was sent.';
+            } else {
+                vm.thisErrorMessage += ' This eamil was not sent to the dev team for an unknown reason. Oops.';
+            }
         });
 
-        if(vm.subscribe) {
-          vm.mailchimp = {};
-          var splitName = vm.contactName.split(' ');
-          vm.mailchimp.FNAME = splitName[0];
-          vm.mailchimp.LNAME = splitName[1] ? splitName[1] : '';
-          vm.mailchimp.EMAIL = vm.contactEmail;
-          addSubscription(vm.mailchimp);
+        if (vm.subscribe) {
+            vm.mailchimp = {};
+            var splitName = vm.contactName.split(' ');
+            vm.mailchimp.FNAME = splitName[0];
+            vm.mailchimp.LNAME = splitName[1] ? splitName[1] : '';
+            vm.mailchimp.EMAIL = vm.contactEmail;
+            addSubscription(vm.mailchimp);
         }
-      };
 
-      /**
-      * angular-mailchimp
-      * http://github.com/keithio/angular-mailchimp
-      * License: MIT
-      */
-      addSubscription = function() {
+
+    };
+
+    /**
+     * angular-mailchimp
+     * http://github.com/keithio/angular-mailchimp
+     * License: MIT
+     */
+    addSubscription = function() {
         // Create MailChimp resource
         MailChimpSubscription = MainService.mailchimpResource(vm.mailchimp);
 
         // Send subscriber data to MailChimp
         MailChimpSubscription.save(
-          // Successfully sent data to MailChimp.
-          function (response) {
-            // Define message containers.
-            vm.mailchimp.errorMessage = '';
-            vm.mailchimp.successMessage = '';
+            // Successfully sent data to MailChimp.
+            function(response) {
+                // Define message containers.
+                vm.mailchimp.errorMessage = '';
+                vm.mailchimp.successMessage = '';
 
-            // Store the result from MailChimp
-            vm.mailchimp.result = response.result;
+                // Store the result from MailChimp
+                vm.mailchimp.result = response.result;
 
-            // Mailchimp returned an error.
-            if (response.result === 'error') {
-              if (response.msg) {
-                // Remove error numbers, if any.
-                var errorMessageParts = response.msg.split(' - ');
-                if (errorMessageParts.length > 1)
-                  errorMessageParts.shift(); // Remove the error number
-                  vm.mailchimp.errorMessage = errorMessageParts.join(' ');
-                } else {
-                  vm.mailchimp.errorMessage = 'Sorry! An unknown error occured.';
+                // Mailchimp returned an error.
+                if (response.result === 'error') {
+                    if (response.msg) {
+                        // Remove error numbers, if any.
+                        var errorMessageParts = response.msg.split(' - ');
+                        if (errorMessageParts.length > 1)
+                            errorMessageParts.shift(); // Remove the error number
+                        vm.mailchimp.errorMessage = errorMessageParts.join(' ');
+                    } else {
+                        vm.mailchimp.errorMessage = 'Sorry! An unknown error occured.';
+                    }
                 }
-              }
-            // MailChimp returns a success.
-            else if (response.result === 'success') {
-              vm.mailchimp.successMessage = response.msg;
+                // MailChimp returns a success.
+                else if (response.result === 'success') {
+                    vm.mailchimp.successMessage = response.msg;
+                }
+
+                //Broadcast the result for global msgs
+                $rootScope.$broadcast('mailchimp-response', response.result, response.msg);
+            },
+
+            // Error sending data to MailChimp
+            function(error) {
+                $log.error('MailChimp Error: %o', error);
             }
-
-            //Broadcast the result for global msgs
-            $rootScope.$broadcast('mailchimp-response', response.result, response.msg);
-          },
-
-          // Error sending data to MailChimp
-          function (error) {
-            $log.error('MailChimp Error: %o', error);
-          }
         );
-      };
-  }
+    };
+}
 
 },{}],8:[function(require,module,exports){
 angular
@@ -1043,41 +1072,41 @@ angular
 
 },{}],17:[function(require,module,exports){
 angular
-  .module('nautilusApp')
-  .controller('NewsController', NewsController);
+    .module('nautilusApp')
+    .controller('NewsController', NewsController);
 
-  function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
+function NewsController(NewsService, MainService, $rootScope, $stateParams, contentful, $state, Slug) {
     var vm = this;
 
     console.log("STATE PARAMS: " + $stateParams);
     window.params = $stateParams;
 
     if ($stateParams.keyword) {
-      vm.articleSearch = $stateParams.keyword;
+        vm.articleSearch = $stateParams.keyword;
     }
 
     if ($stateParams.topic) {
-      vm.searchTopic = $stateParams.topic;
+        vm.searchTopic = $stateParams.topic;
     }
 
     MainService
-      .setCurrentState('NEWS');
+        .setCurrentState('NEWS');
 
     MainService
-      .getPageContent('newsPage')
-      .then(
+        .getPageContent('newsPage')
+        .then(
+            // Success handler
+            function(mainContent) {
 
-        // Success handler
-        function(mainContent){
-          console.log(mainContent);
-          MainService.setPageTitle(mainContent.pageTitle);
-        },
+                // console.log(mainContent);
+                MainService.setPageTitle(mainContent.pageTitle);
+            },
 
-        // Error handler
-        function(response){
-          console.log('Oops, error ' + response.status);
-        }
-      );
+            // Error handler
+            function(response) {
+                console.log('Oops, error ' + response.status);
+            }
+        );
 
     vm.posts = [];
     var totalPosts = 0;
@@ -1088,149 +1117,173 @@ angular
     getFeaturedPost();
 
     function getFeaturedPost() {
-      contentful
-      .entries('content_type=newsPost&include=3&fields.featured=true&limit=1')
-      .then(function(res) {
-        vm.featuredPost = res.data.items[0];
-      });
+        contentful
+            .entries('content_type=newsPost&include=3&fields.featured=true&limit=1')
+            .then(function(res) {
+                vm.featuredPost = res.data.items[0];
+            });
     }
 
     function initPosts() {
-      var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.featured=false&limit=' + postsPerPage;
-      if (vm.articleSearch) {
-        queryString += '&query=' + vm.articleSearch;
-      }
-      contentful
-      .entries(queryString)
-      .then(function(res) {
-        vm.posts = res.data.items;
-        totalPosts = res.data.total;
-
-        console.log(vm.posts);
-        vm.pages = [];
-        var numberOfPages = Math.ceil(totalPosts / postsPerPage);
-        for (var i = 1; i <= numberOfPages; i++) {
-          vm.pages.push(i);
+        var queryString = 'content_type=newsPost&include=3&order=-fields.date&fields.featured=false&limit=' + postsPerPage;
+        if (vm.articleSearch) {
+            queryString += '&query=' + vm.articleSearch;
         }
-      });
+        contentful
+            .entries(queryString)
+            .then(function(res) {
+                vm.posts = res.data.items;
+                totalPosts = res.data.total;
+
+                console.log(vm.posts);
+                vm.pages = [];
+                var numberOfPages = Math.ceil(totalPosts / postsPerPage);
+                for (var i = 1; i <= numberOfPages; i++) {
+                    vm.pages.push(i);
+                }
+            });
     }
 
     vm.selectSearchTopic = function(topic) {
-      if (vm.searchTopic !== topic) {
-        $state.go('news', { topic: topic });
-      } else {
-        $state.go('news', { topic: '' });
-      }
+        if (vm.searchTopic !== topic) {
+            $state.go('news', {
+                topic: topic
+            });
+        } else {
+          console.log("hey");
+
+            $state.go('news', {
+                topic: ''
+            });
+        }
     };
 
     vm.submitSearch = function(tag) {
-      if (tag) {
-        $state.go('news', { keyword: tag, topic: '' });
-      } else {
-        $state.go('news', { keyword:vm.articleSearch, topic:vm.searchTopic });
-      }
+        if (tag) {
+            $state.go('news', {
+                keyword: tag,
+                topic: ''
+            });
+        } else {
+            $state.go('news', {
+                keyword: vm.articleSearch,
+                topic: vm.searchTopic
+            });
+        }
     };
 
     vm.getPage = function(pageNumber) {
-      getResultsPage(pageNumber);
-      vm.currentPage = pageNumber;
+        getResultsPage(pageNumber);
+        vm.currentPage = pageNumber;
     };
 
     function getResultsPage(pageNumber) {
-      contentful
-        .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
-        .then(function(res) {
-          vm.posts = res.data.items;
-          console.log(vm.posts);
-        });
+        contentful
+            .entries('content_type=newsPost&include=3&order=-fields.date&limit=' + postsPerPage + '&skip=' + ((pageNumber - 1) * postsPerPage))
+            .then(function(res) {
+                vm.posts = res.data.items;
+                console.log(vm.posts);
+            });
     }
 
     vm.slugify = function(string) {
-      return Slug.slugify(string);
+        return Slug.slugify(string);
     };
 
     if ($stateParams.postID) {
-      sessionStorage.setItem('currentNewsPostID', $stateParams.postID);
-      getPost($stateParams.postID);
+        sessionStorage.setItem('currentNewsPostID', $stateParams.postID);
+        getPost($stateParams.postID);
     } else if (sessionStorage.getItem('currentNewsPostID')) {
-      getPost(sessionStorage.getItem('currentNewsPostID'));
+        getPost(sessionStorage.getItem('currentNewsPostID'));
     }
 
     function getPost(postID) {
-      contentful
-        .entries('sys.id=' + postID + '&include=3')
-        .then(
+        contentful
+            .entries('sys.id=' + postID + '&include=3')
+            .then(
 
-          // Success handler
-          function(response){
-            vm.selectedPost = response.data.items[0];
+                // Success handler
+                function(response) {
+                    vm.selectedPost = response.data.items[0];
+                    console.log("vm.selectedPost",vm.selectedPost);
+                    if (vm.selectedPost.fields.gallery) {
+                        vm.selectedPost.fields.gallery.forEach(function(image, idx) {
+                            image.index = idx;
+                        });
+                    }
 
-            if(vm.selectedPost.fields.gallery) {
-              vm.selectedPost.fields.gallery.forEach(function(image, idx) {
-                image.index = idx;
-              });
-            }
+                    MainService.setPageTitle(vm.selectedPost.fields.title);
+                    var d = new Date(vm.selectedPost.fields.date);
+                    vm.selectedPost.fields.day = d.getDate();
+                    vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
+                    vm.selectedPost.fields.year = d.getFullYear();
+                    console.log(vm.selectedPost);
+                },
 
-            MainService.setPageTitle(vm.selectedPost.fields.title);
-            var d = new Date(vm.selectedPost.fields.date);
-            vm.selectedPost.fields.day = d.getDate();
-            vm.selectedPost.fields.month = getMonthAbbrev(d.getMonth());
-            vm.selectedPost.fields.year = d.getFullYear();
-            console.log(vm.selectedPost);
-          },
-
-          // Error handler
-          function(response){
-            console.log('Oops, error ' + response.status);
-          }
-        );
+                // Error handler
+                function(response) {
+                    console.log('Oops, error ' + response.status);
+                }
+            );
     }
 
     function getMonthAbbrev(monthNum) {
-      switch(monthNum) {
-        case 0: return 'Jan';
-        case 1: return 'Feb';
-        case 2: return 'Mar';
-        case 3: return 'Apr';
-        case 4: return 'May';
-        case 5: return 'Jun';
-        case 6: return 'Jul';
-        case 7: return 'Aug';
-        case 8: return 'Sep';
-        case 9: return 'Oct';
-        case 10: return 'Nov';
-        case 11: return 'Dec';
-      }
+        switch (monthNum) {
+            case 0:
+                return 'Jan';
+            case 1:
+                return 'Feb';
+            case 2:
+                return 'Mar';
+            case 3:
+                return 'Apr';
+            case 4:
+                return 'May';
+            case 5:
+                return 'Jun';
+            case 6:
+                return 'Jul';
+            case 7:
+                return 'Aug';
+            case 8:
+                return 'Sep';
+            case 9:
+                return 'Oct';
+            case 10:
+                return 'Nov';
+            case 11:
+                return 'Dec';
+        }
     }
 
     vm.selectPhoto = function(index) {
-      vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
-      console.log(vm.selectedProjectImage);
+        vm.selectedProjectImage = vm.selectedPost.fields.gallery[index];
+        console.log(vm.selectedProjectImage);
     };
 
-    vm.nextPhoto = function(index){
-      if(index === vm.selectedPost.fields.gallery.length - 1) {
-        vm.selectPhoto(0);
-      } else {
-        vm.selectPhoto(++index);
-      }
+    vm.nextPhoto = function(index) {
+        if (index === vm.selectedPost.fields.gallery.length - 1) {
+            vm.selectPhoto(0);
+        } else {
+            vm.selectPhoto(++index);
+        }
     };
 
-    vm.prevPhoto = function(index){
-      if(index === 0) {
-        vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
-      } else {
-        vm.selectPhoto(--index);
-      }
+    vm.prevPhoto = function(index) {
+        if (index === 0) {
+            vm.selectPhoto(vm.selectedPost.fields.gallery.length - 1);
+        } else {
+            vm.selectPhoto(--index);
+        }
     };
-  }
+}
 
 },{}],18:[function(require,module,exports){
 angular
   .module('nautilusApp')
   .service('NewsService', NewsService);
 
-  NewsService.$inject = [];
+  NewsService.$inject = ['$http', '$q'];
 
   function NewsService() {
 
@@ -1870,39 +1923,6 @@ angular
 })();
 
 },{}],23:[function(require,module,exports){
-(function (global){
-(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.angularMarked = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-module.exports = function unindent(text) {
-  if (!text) {
-    return text;
-  }
-
-  var lines = text
-    .replace(/\t/g, '  ')
-    .split(/\r?\n/);
-
-  var min = null;
-  var len = lines.length;
-  var i;
-
-  for (i = 0; i < len; i++) {
-    var line = lines[i];
-    var l = line.match(/^(\s*)/)[0].length;
-    if (l === line.length) {
-      continue;
-    }
-    min = (l < min || min === null) ? l : min;
-  }
-
-  if (min !== null && min > 0) {
-    for (i = 0; i < len; i++) {
-      lines[i] = lines[i].substr(min);
-    }
-  }
-  return lines.join('\n');
-};
-
-},{}],2:[function(require,module,exports){
 /*
  * angular-marked
  * (c) 2014 - 2016 J. Harshbarger
@@ -2252,9 +2272,6 @@ module.exports =
     .provider('marked', markedProvider)
     .name;
 
-},{"./strip-indent":1,"marked":"marked"}]},{},[2])(2)
-});
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./strip-indent":24,"marked":25}],24:[function(require,module,exports){
 module.exports = function unindent(text) {
   if (!text) {

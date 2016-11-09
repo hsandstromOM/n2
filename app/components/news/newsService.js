@@ -2,7 +2,7 @@ angular
   .module('nautilusApp')
   .service('NewsService', NewsService);
 
-  NewsService.$inject = [];
+  NewsService.$inject = ['$http', '$q'];
 
   function NewsService() {
 

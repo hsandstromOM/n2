@@ -34,6 +34,25 @@ $serif: "museo-slab", Times, serif;
   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 // BOOTSTRAP DEFAULT OVERRIDES
+
+//Thank you div
+.thankYouDiv {
+  float: left;
+  width: 45%;
+  margin-top: 10%;
+  margin-right: 5%;
+  -webkit-transition: opacity 4s ease-in;
+  -moz-transition: opacity 4s ease-in;
+  -ms-transition: opacity 4s ease-in;
+  transition: opacity 4s ease-in;
+  a{
+    text-decoration: underline;
+  }
+  a:hover {
+    color: #6082c1;
+  }
+ }
+  ///end thank you div
 .container-fluid {
   padding: 0;
 }
@@ -43,6 +62,9 @@ $serif: "museo-slab", Times, serif;
 .text-success {
   color: $dk-blue;
   margin-bottom: 0;
+}
+.newsTitle {
+  font-size: 180%;
 }
 .text-info {
   color: $lt-blue;
@@ -803,13 +825,12 @@ footer p {
   padding-left: 20px;
 }
 .modal-banner {
-  background-color: $dk-blue-trans;
+  background-color: #253d93;
   color: white;
   position: absolute;
   left: 0;
   right: 0;
   padding: 15px 34px;
-  bottom: 4%;
   text-align: left;
 }
 .modal-banner::before {
@@ -831,7 +852,7 @@ footer p {
   border-width: 1px 0;
 }
 .modal-banner h4 {
-  font-size: 18px;
+  font-size: 24px;
   display: inline-block;
   margin-bottom: 0;
 }
@@ -867,8 +888,15 @@ footer p {
   margin-top: 10px
 }
 .modal-footer {
+  background-image: url('../../../assets/img/bg-pattern-light.jpg');
   text-align: left;
   border: none;
+  position: relative;
+  margin-top: 10%;
+}
+.modal-footer.row.ng-scope {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .no-padding {
   padding:0;
@@ -880,6 +908,14 @@ footer p {
 @media (min-width: 400px) {
   .learn-more-button-mobile {
     font-size: 10px;
+  }
+}
+@media (max-width:412px){
+  .newsParagraph {
+    font-size: 75%;
+  }
+  .modal-footer {
+    margin-top: 25%;
   }
 }
 
@@ -922,7 +958,7 @@ footer p {
     width: 700px;
   }
   .modal-banner h4 {
-    font-size: 30px;
+    font-size: 24px;
     margin-bottom: 10px;
   }
   .modal-banner h3 {
@@ -945,13 +981,37 @@ footer p {
   }
   .modal-body .glyphicon-chevron-right,
   .modal-body .glyphicon-chevron-left {
-    font-size: 56px;
+    font-size: 36px;
   }
   .modal-footer h2 {
     margin-top: 0;
   }
+  .newsTitle{
+    font-size: 175%;
+  }
+  .newsParagraph {
+        font-size: 100%;
+  }
 }
 
+///iphone 6 plus
+@media (max-width: 414px) {
+    .newsParagraph{
+          font-size: 90%;
+    }
+    .modal-footer{
+      margin-top: 25%;
+    }
+}
+///iphone 5
+@media (max-width: 320px){
+  .modal-footer{
+    margin-top: 30%;
+  }
+  .newsParagraph{
+    font-size: 75%;
+  }
+}
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .hero-img {
