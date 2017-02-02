@@ -7,8 +7,8 @@ var nodemailer = require('nodemailer');
 var smtpTransport = nodemailer.createTransport("SMTP",{
    service: 'Mandrill',
    auth: {
-     user: 'inquiries@nautilusco.com',
-     pass: 'HbJA8sp7lHhLsgDp9qazPg'
+     user: 'hosea@obviouslee.com',
+     pass: 'NdjLjw6OJAqKnX3ke_93QQ'
    }
 });
 
@@ -50,7 +50,11 @@ router.route('/email')
        replyTo: req.body.fromName + ' <' + req.body.fromEmail + '>',
        to: req.body.toName + ' <' + req.body.toEmail + '>',
        subject: 'Website Contact Form: ' + req.body.subject,
-       html: '<p>' + req.body.comments + '</p>',
+       html: '<p>' + req.body.comments + '</p>' +
+			 '<p>' + ' ' + '</p>' +
+		     '<p><strong>' + 'Person Requesting Information' + '</strong></p>' +
+			 '<p>NAME:  ' + request.body.toName + '</p>' +
+             '<p>EMAIL:  ' + request.body.toEmail + '</p>',
        text: 'hello world!'
     };
 

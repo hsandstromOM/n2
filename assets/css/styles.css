@@ -1005,7 +1005,7 @@ footer p {
     padding: 12px 30px;
     text-align: left; }
   .quoteContent {
-    margin-bottom: -105px; }
+    margin-bottom: 0px; }
   .contact-form {
     padding-right: 60px; }
   .blockquote-wide {
@@ -1594,10 +1594,10 @@ footer p {
   margin: auto;
   color: #253d93; }
 
-.gallery-photo:hover h1 {
+/*.gallery-photo:hover h1 {
   -webkit-opacity: 1;
   -moz-opacity: 1;
-  opacity: 1; }
+  opacity: 1; }*/
 
 /* Not tiny iPhones  */
 @media (min-width: 400px) {
