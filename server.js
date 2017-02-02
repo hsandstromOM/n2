@@ -46,7 +46,7 @@ router.route('/email')
   .post(function(req, res) {
 
     var mailOptions = {
-       from: 'inquiries@nautilusco.com',
+       from: 'hosea@obviouslee.com',
        replyTo: req.body.fromName + ' <' + req.body.fromEmail + '>',
        to: req.body.toName + ' <' + req.body.toEmail + '>',
        subject: 'Website Contact Form: ' + req.body.subject,
